@@ -4,10 +4,11 @@ import {
 } from '../actions/session_actions';
 
 export default (state = [], action) => {
+    // debugger
     Object.freeze(state);
     switch (action.type) {
         case RECEIVE_SESSION_ERRORS:
-            return action.errors;
+            return action.errors || state;
         case RECEIVE_CURRENT_USER:
             return [];
         default:
