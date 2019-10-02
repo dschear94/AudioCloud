@@ -72,6 +72,8 @@ class SessionForm extends React.Component {
         return (
             <div className="login-form-container">
                 <form onSubmit={this.handleSubmit} className="login-form-box">
+                    <input className="session-submit" type="submit" value="Demo User" />
+                    <h2 class="signinFirstStep_div">or</h2>
                     <div className="login-form">
                         {emailUserField}
                             <input type="password"
