@@ -38,7 +38,6 @@ class SessionForm extends React.Component {
     }
 
     render() {
-        // debugger
         let emailUserField = (this.props.formType === "signup" ? 
             (
                 <div className="login-form">
@@ -73,9 +72,6 @@ class SessionForm extends React.Component {
         return (
             <div className="login-form-container">
                 <form onSubmit={this.handleSubmit} className="login-form-box">
-                    <div>
-                        {this.renderErrors()}
-                    </div>
                     <div className="login-form">
                         {emailUserField}
                             <input type="password"
@@ -85,6 +81,9 @@ class SessionForm extends React.Component {
                                 placeholder="Your password *"
                             />
                         <br />
+                        <div className="errors">
+                            {this.renderErrors()}
+                        </div>
                         <input className="session-submit" type="submit" value="Continue" />
                     </div>
                 </form>

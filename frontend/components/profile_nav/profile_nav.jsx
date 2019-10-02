@@ -11,7 +11,7 @@ const ProfileNav = ({ currentUser, logout, openModal }) => {
     );
     const personalGreeting = () => (
             <div className="profile-nav">
-                <li className="profile-nav-logout" onClick={logout}>Log Out</li>
+                <button className="profile-nav-logout" onClick={logout}>Log Out</button>
             </div>
     );
 

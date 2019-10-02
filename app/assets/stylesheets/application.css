@@ -14,6 +14,18 @@
  *= require_self
  */
 
+ ul {
+    list-style-type: none;
+ }
+
+ .errors {
+    color: red;
+    float: left;
+    position: relative;
+    font-family: "Interstate","Lucida Grande","Lucida Sans Unicode","Lucida Sans","Garuda","Verdana","Tahoma","sans-serif";
+    font-size: 12px;
+
+ }
 
  .modal-background {
     position: fixed;
@@ -76,6 +88,7 @@
     left: 113px;
     height: 620px;
     margin-bottom: 30px;
+    font-family: "Interstate","Lucida Grande","Lucida Sans Unicode","Lucida Sans","Garuda","Verdana","Tahoma","sans-serif";
 }
 
 .session-submit {
@@ -171,6 +184,38 @@ nav div a {
 }
 
 .profile-nav-login {
+    display: inline-block;
+    position: relative;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+    padding: 2px 11px 2px 10px;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 14px;
+    line-height: 20px;
+    white-space: nowrap;
+    font-family: "Interstate","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;
+    font-weight: 100;
+    text-align: center;
+    vertical-align: baseline;
+    box-sizing: border-box;
+    float: left;
+    margin-right: 10px;
+    border-color: #666;
+    background-color: transparent;
+    color: #fff;
+}
+
+.profile-nav-login:hover {
+    border: 1px solid #e5e5e5;
+}
+
+.profile-nav-logout:hover {
+    border: 1px solid #e5e5e5;
+}
+
+.profile-nav-logout {
     display: inline-block;
     position: relative;
     margin-top: 0px;
