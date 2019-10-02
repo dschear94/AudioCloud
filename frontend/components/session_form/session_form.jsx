@@ -39,43 +39,41 @@ class SessionForm extends React.Component {
 
     render() {
         let emailField = (this.props.formType === "signup" ? 
-            (<div>
-                <br />
-                <label>Email:
+            (
+                // <br/>
                     <input type="text"
                         value={this.state.email}
                         onChange={this.update('email')}
                         className="login-input"
+                        placeholder="Enter email *"
                     />
-                </label>
-            </div>) : null);
+            ) : null);
 
         return (
             <div className="login-form-container">
                 <form onSubmit={this.handleSubmit} className="login-form-box">
-                    {this.props.formType} or {this.props.otherForm}
-                    <div onClick={this.props.closeModal} className="close-x">X</div>
+
                     {this.renderErrors()}
                     <div className="login-form">
+                            {this.props.formType}
+                            or {this.props.otherForm}
+                        {emailField}
                         <br />
-                        <label>Username:
                             <input type="text"
                                 value={this.state.username}
                                 onChange={this.update('username')}
                                 className="login-input"
+                                placeholder="Your email address or profile URL *"
                             />
-                        </label>
-                        {emailField}
                         <br />
-                        <label>Password:
                             <input type="password"
                                 value={this.state.password}
                                 onChange={this.update('password')}
                                 className="login-input"
+                                placeholder="Your password *"
                             />
-                        </label>
                         <br />
-                        <input className="session-submit" type="submit" value={this.props.formType} />
+                        <input className="session-submit" type="submit" value="Continue" />
                     </div>
                 </form>
             </div>

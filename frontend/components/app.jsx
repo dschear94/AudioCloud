@@ -17,8 +17,8 @@ import { AuthRoute, ProtectedRoute } from '../util/route_util';
 
 const App = () => (
     <div>
+        <div><Modal /></div>
         <nav>
-            <div><Modal /></div>
             <div><Link to="/" className="logo">AudioCloud - Development</Link></div>
             <div><Link to="/">Home</Link></div>
             <div><Link to="/">Stream</Link></div>
