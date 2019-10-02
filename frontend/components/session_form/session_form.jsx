@@ -38,34 +38,46 @@ class SessionForm extends React.Component {
     }
 
     render() {
-        let emailField = (this.props.formType === "signup" ? 
+        // debugger
+        let emailUserField = (this.props.formType === "signup" ? 
             (
-                // <br/>
+                <div className="login-form">
                     <input type="text"
                         value={this.state.email}
                         onChange={this.update('email')}
                         className="login-input"
                         placeholder="Enter email *"
                     />
-            ) : null);
+                    <br/>
+                    <input type="text"
+                        value={this.state.username}
+                        onChange={this.update('username')}
+                        className="login-input"
+                        placeholder="Choose a profile URL *"
+                    />
+                    <br/>
+                </div>
+            ) : (
+            <div className="login-form">
+                <input type="text"
+                    value={this.state.username}
+                    onChange={this.update('username')}
+                    className="login-input"
+                    placeholder="Your email address or profile URL *"
+                />
+                <br />
+            </div>
+            )
+        )
 
         return (
             <div className="login-form-container">
                 <form onSubmit={this.handleSubmit} className="login-form-box">
-
-                    {this.renderErrors()}
+                    <div>
+                        {this.renderErrors()}
+                    </div>
                     <div className="login-form">
-                            {this.props.formType}
-                            or {this.props.otherForm}
-                        {emailField}
-                        <br />
-                            <input type="text"
-                                value={this.state.username}
-                                onChange={this.update('username')}
-                                className="login-input"
-                                placeholder="Your email address or profile URL *"
-                            />
-                        <br />
+                        {emailUserField}
                             <input type="password"
                                 value={this.state.password}
                                 onChange={this.update('password')}
