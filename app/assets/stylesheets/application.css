@@ -31,3 +31,63 @@
     left: 50%;
     transform: translate(-50%, -50%);
 }
+
+ .close-x {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    cursor: pointer;
+ }
+
+.login-form-container {
+    display: flex;
+    justify-content: center;
+}
+
+.login-form {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.login-input {
+    margin-left: 20px;
+}
+
+.login-form-box {
+    outline: 1px solid black;
+    padding: 20px;
+    background: white;
+    position: relative;
+}
+
+
+
+/* NAV BAR  */
+
+nav {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    overflow: hidden;
+    background-color: #333;
+}
+
+nav li {
+  float: left;
+}
+
+nav li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.profile-nav {
+    float: right;
+}

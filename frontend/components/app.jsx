@@ -17,17 +17,15 @@ import { AuthRoute, ProtectedRoute } from '../util/route_util';
 
 const App = () => (
     <div>
-        <Modal />
-        <header>
-            <Link to="/" className="header-link">
-                <h1>AudioCloud - Development</h1>
-            </Link>
-            <Link to="/">Home</Link>
-            <Link to="/">Stream</Link>
-            <Link to="/">Library</Link>
+        <nav>
+            <li><Modal /></li>
+            <li><Link to="/" className="header-link">AudioCloud - Development</Link></li>
+            <li><Link to="/">Home</Link></li>
+            <li><Link to="/">Stream</Link></li>
+            <li><Link to="/">Library</Link></li>
             {/* search bar */}
-            <ProfileContainer />
-        </header>
+            <li className="profile-nav"><ProfileContainer/></li>            
+        </nav>
         <Switch>
             <AuthRoute exact path="/login" component={LogInFormContainer} />
             <AuthRoute exact path="/signup" component={SignUpFormContainer} />
