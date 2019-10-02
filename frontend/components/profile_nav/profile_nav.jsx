@@ -4,17 +4,15 @@ import React from 'react';
 
 const ProfileNav = ({ currentUser, logout, openModal }) => {
     const sessionLinks = () => (
-        <div>
-            <button onClick={() => openModal('login')}>Sign in</button>
-                    &nbsp;or&nbsp;
-            <button onClick={() => openModal('signup')}>Create account</button>
-        </div>
+            <div className="profile-nav">
+                <button className="profile-nav-signup" onClick={() => openModal('signup')}>Create account</button>
+                <button className="profile-nav-login" onClick={() => openModal('login')}>Sign in</button>
+            </div>
     );
     const personalGreeting = () => (
-        <hgroup className="header-group">
-            <h2 className="header-name">Hi, {currentUser.username}!</h2>
-            <button className="header-button" onClick={logout}>Log Out</button>
-        </hgroup>
+            <div className="profile-nav">
+                <li className="profile-nav-logout" onClick={logout}>Log Out</li>
+            </div>
     );
 
     return (
