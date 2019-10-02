@@ -1,4 +1,6 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
+
 
 class SessionForm extends React.Component {
     constructor(props) {
@@ -20,7 +22,7 @@ class SessionForm extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
         const user = Object.assign({}, this.state);
-        this.props.processForm(user);
+        this.props.processForm(user).then(this.props.closeModal);
     }
 
     renderErrors() {
@@ -36,11 +38,23 @@ class SessionForm extends React.Component {
     }
 
     render() {
+        let emailField = (this.props.formType === "signup" ? 
+            (<div>
+                <br />
+                <label>Email:
+                    <input type="text"
+                        value={this.state.email}
+                        onChange={this.update('email')}
+                        className="login-input"
+                    />
+                </label>
+            </div>) : null);
+
         return (
             <div className="login-form-container">
                 <form onSubmit={this.handleSubmit} className="login-form-box">
-                    <br />
-                    Please {this.props.formType} or {this.props.navLink}
+                    {this.props.formType} or {this.props.otherForm}
+                    <div onClick={this.props.closeModal} className="close-x">X</div>
                     {this.renderErrors()}
                     <div className="login-form">
                         <br />
@@ -51,17 +65,10 @@ class SessionForm extends React.Component {
                                 className="login-input"
                             />
                         </label>
-                        <br/>
-                        <label>Email:
-                            <input type="text"
-                                value={this.state.email}
-                                onChange={this.update('email')}
-                                className="login-input"
-                            />
-                        </label>
+                        {emailField}
                         <br />
                         <label>Password:
-              <input type="password"
+                            <input type="password"
                                 value={this.state.password}
                                 onChange={this.update('password')}
                                 className="login-input"
@@ -76,4 +83,4 @@ class SessionForm extends React.Component {
     }
 }
 
-export default SessionForm;
+export default withRouter(SessionForm);
