@@ -5,8 +5,8 @@ import React from 'react';
 const ProfileNav = ({ currentUser, logout, openModal }) => {
     const sessionLinks = () => (
             <div className="profile-nav">
-                <button className="profile-nav-signup" onClick={() => openModal('signup')}>Create account</button>
-                <button className="profile-nav-login" onClick={() => openModal('login')}>Sign in</button>
+                <button className="profile-nav-signup" onClick={() => openModal('entry')}>Create account</button>
+                <button className="profile-nav-login" onClick={() => openModal('entry')}>Sign in</button>
             </div>
     );
     const personalGreeting = () => (

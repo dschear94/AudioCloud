@@ -11,6 +11,11 @@ class User < ApplicationRecord
         return nil unless user && user.is_password?(password)
         user
     end
+
+    def self.find_by_entry(entry)
+        user = User.find_by(username: entry) || User.find_by(email: entry)
+        return user ? user : nil
+    end
   
   def password=(password)
     @password = password
