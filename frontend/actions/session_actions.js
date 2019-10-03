@@ -41,3 +41,48 @@ export const logout = () => dispatch => (
         dispatch(logoutCurrentUser())
     ))
 );
+
+
+
+
+
+// SIGNUP STEPS
+
+
+
+
+export const RECEIVE_ENTRY_ACCEPT = 'RECEIVE_ENTRY_ACCEPT';
+
+
+export const receiveEntryAccept = signupUser => {
+    return {
+        type: RECEIVE_ENTRY_ACCEPT,
+        signupUser
+    }
+};
+
+export const RECEIVE_ENTRY_ACCEPT2 = 'RECEIVE_ENTRY_ACCEPT2';
+
+
+export const receiveEntryAccept2 = signupUser => {
+    return {
+        type: RECEIVE_ENTRY_ACCEPT2,
+        signupUser
+    }
+};
+
+export const processSignupStepOne = user => dispatch => {
+    return APIUtil.processSignupStepOne(user).then(user => (
+        dispatch(receiveEntryAccept(user))
+    ), err => (
+        dispatch(receiveErrors(err.responseJSON))
+    ))
+};
+
+export const processSignupStepTwo = user => dispatch => {
+    return APIUtil.processSignupStepTwo(user).then(user => (
+        dispatch(receiveEntryAccept2(user))
+    ), err => (
+        dispatch(receiveErrors(err.responseJSON))
+    ))
+};

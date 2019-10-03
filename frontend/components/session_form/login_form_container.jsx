@@ -4,10 +4,11 @@ import { login } from '../../actions/session_actions';
 import { openModal, closeModal } from '../../actions/modal_actions';
 import SessionForm from './session_form';
 
-const mapStateToProps = ({ errors }) => {
+const mapStateToProps = ({ errors, entry }) => {
     return {
         errors: errors.session,
         formType: 'login',
+        user: entry.user
     };
 };
 

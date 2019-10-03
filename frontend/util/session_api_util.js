@@ -20,3 +20,19 @@ export const logout = () => (
         url: '/api/session'
     })
 );
+
+export const processSignupStepOne = user => (
+    $.ajax({
+        method: 'GET',
+        url: '/api/entry',
+        data: { user }
+    })
+);
+
+export const processSignupStepTwo = user => (
+    $.ajax({
+        method: 'GET',
+        url: '/api/entry',
+        data: { user }
+    })
+);

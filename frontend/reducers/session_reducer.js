@@ -1,6 +1,8 @@
 import {
     RECEIVE_CURRENT_USER,
     LOGOUT_CURRENT_USER,
+    RECEIVE_ENTRY_ACCEPT,
+    RECEIVE_ENTRY_ACCEPT2,
 } from '../actions/session_actions';
 
 import {
@@ -18,8 +20,10 @@ const sessionReducer = (state = _nullUser, action) => {
             return { id: action.currentUser.id };
         case LOGOUT_CURRENT_USER:
             return _nullUser;
-        case RECEIVE_ENTRY_FOUND:
-            return { id: action.entryUser.id };
+        case RECEIVE_ENTRY_ACCEPT:
+            return { user: action.signupUser };
+        case RECEIVE_ENTRY_ACCEPT2:
+            return { user: action.signupUser };
         default:
             return state;
     }

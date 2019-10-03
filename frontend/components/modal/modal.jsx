@@ -5,7 +5,8 @@ import EntryFormContainer from '../session_form/entry_form_container';
 import LoginFormContainer from '../session_form/login_form_container';
 import SignupFormContainer from '../session_form/signup_form_container';
 
-function Modal({ modal, closeModal }) {
+function Modal(state) {
+    let { modal, closeModal } = state;
     if (!modal) {
         return null;
     }
@@ -19,6 +20,12 @@ function Modal({ modal, closeModal }) {
             break;
         case 'signup':
             component = <SignupFormContainer />;
+            break;
+        case 'signup2':
+            component = <SignupFormContainer formType="signup2" />;
+            break;
+        case 'signup3':
+            component = <SignupFormContainer formType="signup3" />;
             break;
         default:
             return null;

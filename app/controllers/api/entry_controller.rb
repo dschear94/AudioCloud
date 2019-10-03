@@ -6,7 +6,7 @@ class Api::EntryController < ApplicationController
         if @user
             render "api/entry/show"
         elsif params[:user][:entryField].include?("@")
-            render json: {user: {email: params[:user][:entryField], found: false}}
+            render json: {email: params[:user][:entryField], entryField: params[:user][:entryField], found: false}
         else
             render json: ["Enter a valid email address or profile URL"], status: 401
         end
