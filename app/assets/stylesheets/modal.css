@@ -15,7 +15,19 @@
     box-sizing: border-box;
     display: block;
 }
-
+.close-x {
+    position: absolute;
+    top: 14px;
+    right: 20px;
+    height: 20px;
+    /* text-indent: 20px;
+    border: 0; */
+    font-size: 30px;
+    cursor: pointer;
+    z-index: 15;
+    color: #333;
+    font: "Lucida Grande","Lucida Sans Unicode","Lucida Sans";
+}
 .modal-child {
     width: 400px;
     margin-top: 76px;
