@@ -14,7 +14,6 @@ const Auth = ({ component: Component, path, loggedIn, exact }) => (
 
 const Protected = (props) => {
     let { component: Component, path, loggedIn, exact } = props;
-    debugger
     return (
         <Route path={path} exact={exact} render={(props) => (
             loggedIn ? (
@@ -27,7 +26,6 @@ const Protected = (props) => {
 }
 
 const mapStateToProps = state => {
-    debugger
    return ( 
        { loggedIn: Boolean(state.session.id) }
     )
