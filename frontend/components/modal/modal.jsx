@@ -34,7 +34,9 @@ function Modal(state) {
         <div className="modal-background" onClick={closeModal}>
             <div onClick={closeModal} className="close-x">x</div>
             <div className="modal-child" onClick={e => e.stopPropagation()}>
-                {component}
+                <div className="modal-content">
+                    {component}
+                </div>
             </div>
         </div>
     );

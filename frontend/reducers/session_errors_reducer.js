@@ -11,7 +11,6 @@ export default (state = [], action) => {
     switch (action.type) {
         case RECEIVE_SESSION_ERRORS:
             return action.errors || state;
-        // case RECEIVE_CURRENT_USER:
         case CLOSE_MODAL:
             return [];
         default:

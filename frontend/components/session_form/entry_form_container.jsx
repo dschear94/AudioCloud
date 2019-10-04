@@ -5,11 +5,19 @@ import { processEntryStep } from '../../actions/entry_actions';
 import { openModal, closeModal } from '../../actions/modal_actions';
 import SessionForm from './session_form';
 
-const mapStateToProps = ({ errors, entry }) => {
+const mapStateToProps = (state, ownProps) => {
+    let { errors, entry } = state;
     return {
         errors: errors.session,
         formType: 'entry',
-        user: entry.user
+        user: entry.user || {
+            entryField: '',
+            username: '',
+            email: '',
+            password: '',
+            age: 0,
+            gender: '',
+        }
     };
 };
 

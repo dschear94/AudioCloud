@@ -5,14 +5,7 @@ import { withRouter } from 'react-router-dom';
 class SessionForm extends React.Component {
     constructor(props) {
         super(props);
-        this.state = this.props.user || {
-                entryField: '',
-                username: '',
-                email: '',
-                password: '',
-                age: 0,
-                gender: '',
-        };
+        this.state = this.props.user;
         this.handleDemoSubmit = this.handleDemoSubmit.bind(this);
         this.handleSignupStepOne = this.handleSignupStepOne.bind(this);
         this.handleSignupStepTwo = this.handleSignupStepTwo.bind(this);
@@ -22,14 +15,14 @@ class SessionForm extends React.Component {
 
     update(field) {
         return e => this.setState({
-            [field]: e.currentTarget.value
+            [field]: e.target.value
         });
     }
 
     handleSubmit(e) {
-        debugger
         e.preventDefault();
         const user = Object.assign({}, this.state);
+        delete user.found;
         this.props.processForm(user).then(this.props.closeModal);
     }
 
@@ -42,7 +35,6 @@ class SessionForm extends React.Component {
     handleSignupStepTwo(e) {
         e.preventDefault();
         const user = Object.assign({}, this.state);
-        debugger
         this.props.processSignupStepTwo(user);
     }
 
@@ -75,8 +67,8 @@ class SessionForm extends React.Component {
 
     render() {
         const entryStep = (
-            <div>
-                <input className="session-submit" type="submit" value="Demo User" onClick={this.handleDemoSubmit} />
+            <div className="session-submit">
+                <input className="demo-button" type="submit" value="Demo User" onClick={this.handleDemoSubmit} />
                 <form onSubmit={this.handleEntryStep} className="login-form-box">
                     <h2 className="signinFirstStep_div">or</h2>
                     <div className="login-form">
@@ -90,16 +82,15 @@ class SessionForm extends React.Component {
                         <div className="errors">
                             {this.renderErrors()}
                         </div>
-                        <input className="session-submit" type="submit" value="Continue" />
+                        <br />
+                        <input className="session-submit-button" type="submit" value="Continue" />
                     </div>
                 </form>
             </div>
             ) 
             const loginStep = (
-                <div>
-                    <input className="session-submit" type="submit" value="Demo User" onClick={this.handleDemoSubmit} />
+                <div className="session-submit">
                     < form onSubmit = { this.handleSubmit } className = "login-form-box" >
-                        <h2 className="signinFirstStep_div">or</h2>
                         <div className="login-form">
                             <input type="text"
                                 value={this.state.entryField}
@@ -107,6 +98,7 @@ class SessionForm extends React.Component {
                                 className="login-input"
                                 placeholder="Your email address or profile URL *"
                             />
+                            <br />
                             <br />
                             <input type="password"
                                 value={this.state.password}
@@ -118,7 +110,8 @@ class SessionForm extends React.Component {
                             <div className="errors">
                                 {this.renderErrors()}
                             </div>
-                            <input className="session-submit" type="submit" value="Continue" />
+                            <br />
+                            <input className="session-submit-button" type="submit" value="Sign in" />
                         </div>
                     </form >
                 </div>
@@ -126,13 +119,14 @@ class SessionForm extends React.Component {
 
 
         const signupStep = (
-            <div>
+            <div className="session-submit">
                 <h2 className="signupFormHeader">
                     Create your AudioCloud
                 </h2 >
                 <h2 className="signupFormHeader">
                     account
                 </h2>
+                <br />
                 < form onSubmit={this.handleSignupStepOne} className="login-form-box" >
                     <div className="login-form">
                         <input type="text"
@@ -141,84 +135,83 @@ class SessionForm extends React.Component {
                             className="login-input"
                         />
                         <br />
-                        <label>
-                            Choose a password *
+                        <br />
+                        <span className="input-span">Choose a password</span>
                             <input type="password"
                                 value={this.state.password}
                                 onChange={this.update('password')}
                                 className="login-input"
                             />
-                        </label>
-
                         <br />
                         <div className="errors">
                             {this.renderErrors()}
                         </div>
-                        <input className="session-submit" type="submit" value="Continue" />
+                        <br />
+                        <input className="session-submit-button" type="submit" value="Accept & Continue" />
                     </div>
                 </form >
             </div>
         )
 
         const signupStep2 = (
-            <div>
+            <div className="session-submit">
                 <h2 className="signupFormHeader">
                     Create your AudioCloud
                 </h2 >
                 <h2 className="signupFormHeader">
                     account
                 </h2>
+                <br />
                 < form onSubmit={this.handleSignupStepTwo} className="login-form-box" >
                     <div className="login-form">
-                        <label>
-                            Please select your age
+                            <span className="input-span">Tell us your age</span>                            
                             <input type="text"
                                 value={this.state.age}
                                 onChange={this.update('age')}
                                 className="login-input"
                             />
-                        </label>
                         <br />
-                        <label>
-                            Please select your gender
+                        <br />
+                        <span className="input-span">Gender</span>
                             <input type="text"
                                 value={this.state.gender}
                                 onChange={this.update('gender')}
                                 className="login-input"
+                                placeholder="Indicate your gender"
                             />
-                        </label>
                         <br />
                         <div className="errors">
                             {this.renderErrors()}
                         </div>
-                        <input className="session-submit" type="submit" value="Continue" />
+                        <br />
+                        <input className="session-submit-button" type="submit" value="Continue" />
                     </div>
                 </form >
             </div>
         )
         const signupStep3 = (
-            <div>
+            <div className="session-submit">
                 <h2 className="signupFormHeader">
-                    Create your AudioCloud
+                    Tell us a bit
                 </h2 >
                 <h2 className="signupFormHeader">
-                    account
+                    about yourself
                 </h2>
+                <br/>
                 < form onSubmit={this.handleSubmit} className="login-form-box" >
                     <div className="login-form">
-                        <label>
-                            Please select a profile URL
+                        <span className="input-span">Choose your display name</span>
                             <input type="text"
                                 value={this.state.username}
                                 onChange={this.update('username')}
                                 className="login-input"
                             />
-                        </label>
                         <br />
                         <div className="errors">
                             {this.renderErrors()}
                         </div>
-                        <input className="session-submit" type="submit" value="Continue" />
+                        <br/>
+                        <input className="session-submit-button" type="submit" value="Get Started" />
                     </div>
                 </form >
             </div>
@@ -238,7 +231,7 @@ class SessionForm extends React.Component {
             }
 
         return (
-            <div className="login-form-container">
+            <div>
                 {display}
             </div>
         );
