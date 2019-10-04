@@ -7,4 +7,4 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-demo = User.create({username: "derek", password:"123456", email:"123@aol.com", gender:"male", age: 8});
+demo = User.create({username: "derek", password:"123456", email:"123@aol.com", Gender:"male", Age: 8});
