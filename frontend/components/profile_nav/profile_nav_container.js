@@ -4,7 +4,8 @@ import { logout } from '../../actions/session_actions';
 import { openModal } from '../../actions/modal_actions';
 import ProfileNav from './profile_nav';
 
-const mapStateToProps = ({ session, entities: { users } }) => {
+const mapStateToProps = (state) => {
+    let { session, entities: { users } } = state;
     return {
         currentUser: users[session.id]
     };

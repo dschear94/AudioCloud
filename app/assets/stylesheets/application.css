@@ -30,9 +30,13 @@ nav {
 .logo {
     color: #ffffff;
     background-color: #fd3801;
+    box-sizing: border-box;
+    text-align: center;
+    padding: 14px 16px;
+    height: 46px;
 }
 
-nav div a {
+.navLink {
     float: left;
     display: block;
     color: #ccc;
@@ -143,7 +147,7 @@ nav div a {
     color: #fff;
 }
 
-nav div a:hover {
+.navLink:hover {
     color: white;
     cursor: pointer;
 }

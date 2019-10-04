@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 
 
@@ -17,6 +18,14 @@ const ProfileNav = ({ currentUser, logout, openModal }) => {
 
     return (
         <div>
+            <div className="navLink"><Link to="/" className="logo">AudioCloud - Development</Link></div>
+            <div className="navLink"><Link to="/">Home</Link></div>
+            <div className="navLink"><Link to="/">Stream</Link></div>
+            <div className="navLink"><Link to="/">Library</Link></div>
+            <div className="navLink">
+            {currentUser ? <Link to="/upload">Upload</Link> : <div onClick={() => openModal('entry')}>
+            Upload</div>}
+            </div>
             {currentUser ? personalGreeting() : sessionLinks()}
         </div>
     )

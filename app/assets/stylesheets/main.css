@@ -1,0 +1,18 @@
+.main {
+    font-family: "Interstate","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;
+    margin-top: 76px;
+    left: 50%;
+    box-sizing: border-box;
+    display: block;
+    position: absolute;
+    transform: translate(-50%, -50%);
+}
+
+
+.splash-top {
+    margin-left: -30px;
+    margin-right: -30px;
+    display: block;
+    position: relative;
+    height: 450px;
+}
