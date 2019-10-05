@@ -111,6 +111,25 @@
     color: #fff;
     border-radius: 3px;
 }
+.login-input2 {
+    box-sizing: border-box;
+    width: 100%;
+    position: relative;
+    z-index: 1;
+    font-size: 18px;
+    line-height: 24px;
+    padding: 7px 8px;
+    border-radius: 5px;
+    display: inline-block;
+    font-family: "Interstate","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;
+    font-weight: 100;
+    border: 1px solid #ccc;
+    transition: border-color .1s;
+}
+
+.login-input2:hover {
+    cursor: pointer;
+}
 
 .login-input {
     box-sizing: border-box;

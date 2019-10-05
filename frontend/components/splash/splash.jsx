@@ -1,13 +1,40 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
-// import image1 from '../../../app/assets/images/FirstImage.JPG';
+import { connect } from 'react-redux';
+import {fetchPhotos} from '../../actions/photo_actions';
 
-const Splash = () => {
+
+const msp = state => {
+    return {photos: state.entities.photos} ||  [];
+}
+
+const mdp = dispatch => ({
+    fetchPhotos: () => dispatch(fetchPhotos())
+})
+
+class Splash extends React.Component {
+    
+    // constructor(props) {
+    //     super(props);
+    //     this.state = this.props.photos;
+    // }
+
+    componentDidMount () {
+        this.props.fetchPhotos();
+        // .then(photos => {
+        //     this.setState(photos);
+        // });
+    }
+
+    render() {
+        const photo = this.props.photos ? <img className="splash" src={this.props.photos[0].photoUrl}/> : null;
         return (
             <div>
+                {photo}
             </div>
         );
+    }
 }
 
 
-export default withRouter(Splash);
+export default withRouter(connect(msp, mdp)(Splash));

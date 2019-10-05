@@ -1,4 +1,4 @@
-  @keyframes cf3FadeInOut {
+  /* @keyframes cf3FadeInOut {
   0% {
   opacity:1;
 }
@@ -19,4 +19,9 @@ opacity:0;
     animation-iteration-count: infinite;
     animation-duration: 10s;
     animation-direction: alternate;
+} */
+.splash {
+  width: 100%;
+  height: 500px;
+  /* margin-top: 50px; */
 }

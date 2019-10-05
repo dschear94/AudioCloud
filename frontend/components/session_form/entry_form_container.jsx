@@ -25,7 +25,7 @@ const mapDispatchToProps = dispatch => {
     return {
         processEntryStep: (user) => dispatch(processEntryStep(user)),
         login: (user) => dispatch(login(user)),
-        nextStep: (user) => dispatch(openModal(user.found)),
+        openModal: () => dispatch(openModal('entry')),
         closeModal: () => dispatch(closeModal())
     };
 };

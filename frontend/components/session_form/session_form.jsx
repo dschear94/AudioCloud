@@ -15,7 +15,7 @@ class SessionForm extends React.Component {
 
     update(field) {
         return e => this.setState({
-            [field]: e.target.value
+            [field]: e.currentTarget.value
         });
     }
 
@@ -65,6 +65,10 @@ class SessionForm extends React.Component {
         );
     }
 
+    goBack() {
+        this.openModal;
+    }
+
     render() {
         const entryStep = (
             <div className="session-submit">
@@ -94,9 +98,10 @@ class SessionForm extends React.Component {
                         <div className="login-form">
                             <input type="text"
                                 value={this.state.entryField}
-                                onChange={this.update('entryField')}
-                                className="login-input"
-                                placeholder="Your email address or profile URL *"
+                                onClick={this.goBack()}
+                                className="login-input2"
+                                // placeholder="Your email address or profile URL *"
+                                readOnly
                             />
                             <br />
                             <br />
@@ -133,6 +138,7 @@ class SessionForm extends React.Component {
                             value={this.state.email}
                             onChange={this.update('email')}
                             className="login-input"
+                            placeholder=""
                         />
                         <br />
                         <br />
@@ -141,6 +147,7 @@ class SessionForm extends React.Component {
                                 value={this.state.password}
                                 onChange={this.update('password')}
                                 className="login-input"
+                                placeholder=""
                             />
                         <br />
                         <div className="errors">
@@ -169,6 +176,7 @@ class SessionForm extends React.Component {
                                 value={this.state.age}
                                 onChange={this.update('age')}
                                 className="login-input"
+                                placeholder=""
                             />
                         <br />
                         <br />
@@ -205,6 +213,7 @@ class SessionForm extends React.Component {
                                 value={this.state.username}
                                 onChange={this.update('username')}
                                 className="login-input"
+                                placeholder=""
                             />
                         <br />
                         <div className="errors">

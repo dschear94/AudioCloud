@@ -23,6 +23,7 @@ nav {
     background-color: #333;
     height: 46px;
     font: 100 14px "Interstate","Lucida Grande",Arial,sans-serif;
+    flex-wrap: nowrap;
 }
 
 
@@ -63,9 +64,10 @@ nav {
     line-height: 21px;
     padding-top: 9px;
     padding-right: 10px;
-    padding-bottom: 10px;
-    padding-left: 10px;
     margin-right: 10px;
+    position: absolute;
+    right: 0;
+    height: 37px;
 }
 
 .profile-nav-signup {

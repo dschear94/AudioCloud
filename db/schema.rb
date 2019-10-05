@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_03_202323) do
+ActiveRecord::Schema.define(version: 2019_10_04_231013) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -51,6 +51,12 @@ ActiveRecord::Schema.define(version: 2019_10_03_202323) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "photos", force: :cascade do |t|
+    t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "tracks", force: :cascade do |t|
     t.string "title", null: false
     t.string "album", null: false
@@ -67,8 +73,8 @@ ActiveRecord::Schema.define(version: 2019_10_03_202323) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "entryField"
-    t.string "Gender"
-    t.integer "Age"
+    t.string "gender"
+    t.integer "age"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["username"], name: "index_users_on_username", unique: true
   end
