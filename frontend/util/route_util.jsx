@@ -23,6 +23,7 @@ const Protected = (props) => {
                 <Component {...props} />
             ) : (
                 <Redirect to="/"/>
+                // <Modal modal="entry"/>
                 )
         )} />
     )
@@ -34,11 +35,11 @@ const msp = state => {
     )
 };
 
-const mdp = dispatch => ({
-    openModal: modal => dispatch(openModal(modal)),
-    closeModal: () => dispatch(closeModal()),
-});
+// const mdp = dispatch => ({
+//     openModal: modal => dispatch(openModal(modal)),
+//     closeModal: () => dispatch(closeModal()),
+// });
 
 // export const AuthRoute = withRouter(connect(mapStateToProps)(Auth));
 
-export const ProtectedRoute = withRouter(connect(msp, mdp)(Protected));
+export const ProtectedRoute = withRouter(connect(msp, null)(Protected));

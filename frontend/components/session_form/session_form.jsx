@@ -5,7 +5,10 @@ import { withRouter } from 'react-router-dom';
 class SessionForm extends React.Component {
     constructor(props) {
         super(props);
-        this.state = this.props.user;
+        this.state = {
+            user: this.props.user,
+            formType: this.props.formType
+        };
         this.handleDemoSubmit = this.handleDemoSubmit.bind(this);
         this.handleSignupStepOne = this.handleSignupStepOne.bind(this);
         this.handleSignupStepTwo = this.handleSignupStepTwo.bind(this);
@@ -14,28 +17,40 @@ class SessionForm extends React.Component {
     }
 
     update(field) {
-        return e => this.setState({
-            [field]: e.currentTarget.value
-        });
+        const oldUser = this.state.user ;
+        return e => {
+            return this.setState({
+                user: Object.assign({}, oldUser, { [field]: e.currentTarget.value })
+            });
+        };
     }
 
     handleSubmit(e) {
+        debugger
         e.preventDefault();
-        const user = Object.assign({}, this.state);
+        const user = Object.assign({}, this.state.user);
         delete user.found;
         this.props.processForm(user).then(this.props.closeModal);
     }
 
     handleSignupStepOne(e) {
         e.preventDefault();
-        const user = Object.assign({}, this.state);
-        this.props.processSignupStepOne(user);
+        // const user = Object.assign({}, this.state.user);
+        this.setState({
+            formType: 'signup2',
+            user: this.state.user
+        })
+        this.props.openModal(this.state.formType);
+        // this.props.processSignupStepOne(user);
     }
 
     handleSignupStepTwo(e) {
         e.preventDefault();
-        const user = Object.assign({}, this.state);
-        this.props.processSignupStepTwo(user);
+        this.setState({
+            formType: 'signup3',
+            user: this.state.user
+        })
+        this.props.openModal(this.state.formType);
     }
 
     handleDemoSubmit(e) {
@@ -49,7 +64,7 @@ class SessionForm extends React.Component {
 
     handleEntryStep(e) {
         e.preventDefault();
-        const user = Object.assign({}, this.state);
+        const user = Object.assign({}, this.state.user);
         this.props.processEntryStep(user);
     }
 
@@ -77,7 +92,7 @@ class SessionForm extends React.Component {
                     <h2 className="signinFirstStep_div">or</h2>
                     <div className="login-form">
                         <input type="text"
-                            value={this.state.entryField}
+                            value={this.state.user.entryField}
                             onChange={this.update('entryField')}
                             className="login-input"
                             placeholder="Your email address or profile URL *"
@@ -97,7 +112,7 @@ class SessionForm extends React.Component {
                     < form onSubmit = { this.handleSubmit } className = "login-form-box" >
                         <div className="login-form">
                             <input type="text"
-                                value={this.state.entryField}
+                                value={this.state.user.entryField}
                                 onClick={this.goBack()}
                                 className="login-input2"
                                 // placeholder="Your email address or profile URL *"
@@ -106,7 +121,7 @@ class SessionForm extends React.Component {
                             <br />
                             <br />
                             <input type="password"
-                                value={this.state.password}
+                                value={this.state.user.password}
                                 onChange={this.update('password')}
                                 className="login-input"
                                 placeholder="Your password *"
@@ -135,7 +150,7 @@ class SessionForm extends React.Component {
                 < form onSubmit={this.handleSignupStepOne} className="login-form-box" >
                     <div className="login-form">
                         <input type="text"
-                            value={this.state.email}
+                            value={this.state.user.email}
                             onChange={this.update('email')}
                             className="login-input"
                             placeholder=""
@@ -144,7 +159,7 @@ class SessionForm extends React.Component {
                         <br />
                         <span className="input-span">Choose a password</span>
                             <input type="password"
-                                value={this.state.password}
+                                value={this.state.user.password}
                                 onChange={this.update('password')}
                                 className="login-input"
                                 placeholder=""
@@ -173,7 +188,7 @@ class SessionForm extends React.Component {
                     <div className="login-form">
                             <span className="input-span">Tell us your age</span>                            
                             <input type="text"
-                                value={this.state.age}
+                                value={this.state.user.age}
                                 onChange={this.update('age')}
                                 className="login-input"
                                 placeholder=""
@@ -181,12 +196,13 @@ class SessionForm extends React.Component {
                         <br />
                         <br />
                         <span className="input-span">Gender</span>
-                            <input type="text"
-                                value={this.state.gender}
-                                onChange={this.update('gender')}
-                                className="login-input"
-                                placeholder="Indicate your gender"
-                            />
+                            <select name="gender" onChange={this.update('gender')} className="login-input">
+                                <option value>Indicate your gender</option>
+                                <option value={this.state.user.gender} onChange={this.update('gender')}>Female</option>
+                                <option value={this.state.user.gender} onChange={this.update('gender')}>Male</option>
+                                <option value={this.state.user.gender} onChange={this.update('gender')}>Prefer not to say</option>
+                                <option value={this.state.user.gender} onChange={this.update('gender')}>Custom</option>
+                            </select>
                         <br />
                         <div className="errors">
                             {this.renderErrors()}
@@ -210,7 +226,7 @@ class SessionForm extends React.Component {
                     <div className="login-form">
                         <span className="input-span">Choose your display name</span>
                             <input type="text"
-                                value={this.state.username}
+                                value={this.state.user.username}
                                 onChange={this.update('username')}
                                 className="login-input"
                                 placeholder=""
@@ -227,15 +243,15 @@ class SessionForm extends React.Component {
         )
 
             let display;
-            if (this.props.formType === 'entry') {
+            if (this.state.formType === 'entry') {
                 return display = entryStep;
-            } else if (this.props.formType === 'login') {
+            } else if (this.state.formType === 'login') {
                 return display = loginStep;
-            } else if (this.props.formType === 'signup') {
+            } else if (this.state.formType === 'signup') {
                 return display = signupStep;
-            } else if (this.props.formType === 'signup2') {
+            } else if (this.state.formType === 'signup2') {
                 return display = signupStep2;
-            } else if (this.props.formType === 'signup3') {
+            } else if (this.state.formType === 'signup3') {
                 return display = signupStep3;
             }
 

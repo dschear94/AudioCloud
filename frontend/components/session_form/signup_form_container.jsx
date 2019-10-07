@@ -26,7 +26,9 @@ const mapDispatchToProps = dispatch => {
         processSignupStepOne: user => dispatch(processSignupStepOne(user)),
         processSignupStepTwo: user => dispatch(processSignupStepTwo(user)),
         processForm: (user) => dispatch(signup(user)),
-        closeModal: () => dispatch(closeModal())
+        closeModal: () => dispatch(closeModal()),
+        openModal: (type) => dispatch(openModal(type)),
+
     };
 };
 

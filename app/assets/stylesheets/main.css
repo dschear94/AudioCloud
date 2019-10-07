@@ -16,3 +16,9 @@
     position: relative;
     height: 450px;
 } */
+
+.main {
+    display: block;
+    position: relative;
+    top: 46px;
+}

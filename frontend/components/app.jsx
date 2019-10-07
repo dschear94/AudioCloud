@@ -9,10 +9,10 @@ import {
 } from 'react-router-dom';
 
 import Modal from './modal/modal';
-import ProfileContainer from './profile_nav/profile_nav_container';
+import NavbarContainer from './navbar/navbar_container';
 import Splash from './splash/splash'
 
-import UploadContainer from './upload/upload_container';
+import UploadContainer from './track_uploads/track_upload_container';
 import {  ProtectedRoute } from '../util/route_util';
 import { openModal } from '../actions/modal_actions';
 
@@ -20,7 +20,7 @@ const App = () => (
     <div>
             <Modal />
         <nav>
-            <Route path="/"><ProfileContainer /></Route> 
+            <Route path="/"><NavbarContainer /></Route> 
         </nav>
 
         <div className="main">

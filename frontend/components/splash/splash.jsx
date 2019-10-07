@@ -13,20 +13,13 @@ const mdp = dispatch => ({
 })
 
 class Splash extends React.Component {
-    
-    // constructor(props) {
-    //     super(props);
-    //     this.state = this.props.photos;
-    // }
 
     componentDidMount () {
         this.props.fetchPhotos();
-        // .then(photos => {
-        //     this.setState(photos);
-        // });
     }
 
     render() {
+        // return null;
         const photo = this.props.photos ? <img className="splash" src={this.props.photos[0].photoUrl}/> : null;
         return (
             <div>

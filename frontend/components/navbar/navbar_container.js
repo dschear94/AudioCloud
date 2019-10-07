@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 
 import { logout } from '../../actions/session_actions';
 import { openModal } from '../../actions/modal_actions';
-import ProfileNav from './profile_nav';
+import Navbar from './navbar';
 
 const mapStateToProps = (state) => {
     let { session, entities: { users } } = state;
@@ -19,4 +19,4 @@ const mapDispatchToProps = dispatch => ({
 export default connect(
     mapStateToProps,
     mapDispatchToProps
-)(ProfileNav);
+)(Navbar);
