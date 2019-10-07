@@ -35,10 +35,11 @@ class TrackUploadForm extends React.Component {
         e.preventDefault();
         const trackFormData = new FormData();
         trackFormData.append('track[title]', this.state.title);
+        debugger
         if (this.state.trackFile) {
             trackFormData.append('track[audio_file]', this.state.trackFile);
         };
-        this.props.uploadTrack(trackFormData);
+        return this.props.uploadTrack(trackFormData);
 
     }
 

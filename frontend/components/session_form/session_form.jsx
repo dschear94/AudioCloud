@@ -1,5 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
+import { closeModal } from '../../actions/modal_actions';
 
 
 class SessionForm extends React.Component {
@@ -7,13 +8,15 @@ class SessionForm extends React.Component {
         super(props);
         this.state = {
             user: this.props.user,
-            formType: this.props.formType
+            formType: this.props.formType,
+            errors: this.props.errors,
         };
         this.handleDemoSubmit = this.handleDemoSubmit.bind(this);
         this.handleSignupStepOne = this.handleSignupStepOne.bind(this);
         this.handleSignupStepTwo = this.handleSignupStepTwo.bind(this);
         this.handleEntryStep = this.handleEntryStep.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.goBack = this.goBack.bind(this);
     }
 
     update(field) {
@@ -26,11 +29,18 @@ class SessionForm extends React.Component {
     }
 
     handleSubmit(e) {
-        debugger
         e.preventDefault();
         const user = Object.assign({}, this.state.user);
         delete user.found;
-        this.props.processForm(user).then(this.props.closeModal);
+        this.props.processForm(user).then(closeModal()).fail(
+            err => this.setState({
+            errors: err.errors
+        }));
+        // this.setState({
+        //     // user: this.state.user,
+        //     errors: this.props.errors,
+        //     // formType: this.props.formType
+        // });
     }
 
     handleSignupStepOne(e) {
@@ -40,17 +50,31 @@ class SessionForm extends React.Component {
             formType: 'signup2',
             user: this.state.user
         })
-        this.props.openModal(this.state.formType);
-        // this.props.processSignupStepOne(user);
+        if (this.state.user.password.length < 6 ) {
+            // this.state.errors.push('Password must be 6 characters or more');
+            this.setState({
+                formType: 'signup',
+                user: this.state.user,
+                errors: ['Password must be 6 characters or more']
+            });
+        } else {
+            this.setState({
+                formType: 'signup2',
+                user: this.state.user,
+                errors: []
+            })
+        }
+        return this.props.openModal(this.state.formType);
     }
 
     handleSignupStepTwo(e) {
         e.preventDefault();
         this.setState({
             formType: 'signup3',
-            user: this.state.user
-        })
-        this.props.openModal(this.state.formType);
+            user: this.state.user,
+            errors: this.props.errors
+        });
+        return this.props.openModal(this.state.formType);
     }
 
     handleDemoSubmit(e) {
@@ -65,13 +89,17 @@ class SessionForm extends React.Component {
     handleEntryStep(e) {
         e.preventDefault();
         const user = Object.assign({}, this.state.user);
-        this.props.processEntryStep(user);
+        this.props.processEntryStep(user).then(this.setState({
+            errors: []
+        })).fail(err => this.setState({
+            errors: err.errors
+        }));
     }
 
     renderErrors() {
         return (
             <ul>
-                {this.props.errors.map((error, i) => (
+                {this.state.errors.map((error, i) => (
                     <li key={`error-${i}`}>
                         {error}
                     </li>
@@ -81,7 +109,10 @@ class SessionForm extends React.Component {
     }
 
     goBack() {
-        this.openModal;
+        this.setState({
+            errors: []
+        });
+        return this.props.openModal('entry');
     }
 
     render() {
@@ -113,7 +144,7 @@ class SessionForm extends React.Component {
                         <div className="login-form">
                             <input type="text"
                                 value={this.state.user.entryField}
-                                onClick={this.goBack()}
+                                onClick={this.goBack}
                                 className="login-input2"
                                 // placeholder="Your email address or profile URL *"
                                 readOnly
@@ -192,6 +223,7 @@ class SessionForm extends React.Component {
                                 onChange={this.update('age')}
                                 className="login-input"
                                 placeholder=""
+                                maxLength="3"
                             />
                         <br />
                         <br />
