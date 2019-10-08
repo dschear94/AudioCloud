@@ -58,12 +58,13 @@ class TrackUploadForm extends React.Component {
                         <div className="uploadForm-submit-container">
                             <form>
                                 <input
+                                    id="uploadhidden"
                                     className="input-dd"
                                     type="file"
                                     accept=".mp3,audio/*"
                                     onChange={this.handleFile} />
                                 <button
-                                    onClick={() => this.handleSubmit}
+                                    onClick={() => document.getElementById('uploadhidden').click()}
                                     className="upload-button">
                                     or choose files to upload
                                 </button>
@@ -74,21 +75,76 @@ class TrackUploadForm extends React.Component {
                 </div>
             )
         const uploadStep2 = (
-        <div className="track-upload-content">
-            <div className="uploadBG"></div>
-            <div className="uploadForm">
-                <div className="uploadForm-content">
-                    <h1 className="uploadForm-content-header">Drag and drop your tracks & albums here</h1>
-                    <input type="text"
-                        value={this.state.title}
-                        onChange={this.handleInput('title')} />
-                    <input type="text"
-                        value={this.state.album}
-                        onChange={this.handleInput('album')} />
-                </div>
+        <div className="track-upload-details">
+            <div className="track-upload-details2">
+                <ul className="track-upload-details3">
+                    <li className="track-upload-item">
+                        <div className="editing">
+                            <div className="editing-wrapper">
+                                <div className="upload-detail-form">
+                                    <div className="tab-tabs">
+                                        <ul className="tabs-large">
+                                            <li className="tabs-item">
+                                                <span className="tabs-item-text">Basic Info</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div className="tabs-content">
+                                        <div className="tabs-content1">
+                                            <div className="tabs-content2">
+                                                <div className="tabs-content-title">
+                                                    <div className="tabs-content-title-text">
+                                                        <span className="tabs-content-title-text-label">Title</span>
+                                                        <div className="tabs-content-title-text-inputwrapper">
+                                                            <input 
+                                                                type="text"
+                                                                className="tabs-content-title-input" 
+                                                                value={this.state.title}
+                                                                onChange={this.handleInput('title')} 
+                                                                />
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                                <div className="basic-info-image">
+                                                    {/* <img src="" alt=""/> */}
+                                                    <div className="image-btn-container">
+                                                        <button className="image-btn">Upload Image</button>
+                                                    </div>
+                                                </div>
+                                                <div className="tabs-content-album">
+                                                    <div className="tabs-content-album-text">
+                                                        <span className="tabs-content-album-text-label">Album</span>
+                                                        <div className="tabs-content-album-text-inputwrapper">
+                                                            <input
+                                                                type="text"
+                                                                className="tabs-content-album-input" 
+                                                                value={this.state.album}
+                                                                onChange={this.handleInput('album')} />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="upload-form-submit-buttons">
+                                        <div className="requiredtextnote">
+                                            <span className="star">*</span>Required fields
+                                        </div>
+                                        <button 
+                                            className="savebtn"
+                                            onClick={this.handleSubmit}>Save
+                                        </button>
+                                        <button className="cancelbtn">Cancel</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
             </div>
         </div>
-        )
+        );
         return (
         <div className="track-upload-container">
                 {this.state.trackFile ? uploadStep2 : uploadStep1}

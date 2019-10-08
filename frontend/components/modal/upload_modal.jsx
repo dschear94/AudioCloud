@@ -11,6 +11,7 @@ class UploadModal extends React.Component {
         }
         this.handleDrag = this.handleDrag.bind(this);
         this.handleDragLeave = this.handleDragLeave.bind(this);
+        this.handlDrop = this.handleDrop.bind(this);
     }
 
     handleDrag(e) {
@@ -27,7 +28,11 @@ class UploadModal extends React.Component {
         });
     }
 
-    componentDidUpdate() {
+    handleDrop(e) {
+        debugger
+        e.preventDefault();
+        e.stopPropagation();
+        debugger
     }
 
     render () {
@@ -35,9 +40,12 @@ class UploadModal extends React.Component {
             <div
                 className="upload-modal"
                 onClick={closeModal}
+                onDrop={this.handleDrop}
                 onDragLeave={this.handleDragLeave}
             >
-                <div className="upload-modal-dropbox">
+                <div
+                    className="upload-modal-dropbox"
+                >
                     <div className="upload-modal-dropbox-inner">
                         <span className="upload-modal-dropbox-inner-title">
                             Drop your files here
@@ -50,6 +58,7 @@ class UploadModal extends React.Component {
             <div 
                 className="upload-modal-bg"
                 onDragEnter={this.handleDrag}
+                onDrop={this.handleDrop}
             >
                 {this.state.dd ? upload : null}
             </div>

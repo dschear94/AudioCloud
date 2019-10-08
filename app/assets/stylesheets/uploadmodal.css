@@ -4,13 +4,13 @@
     bottom: 0;
     right: 0;
     left: 0;
-    z-index: 1000;
+    /* z-index: 1000; */
 }
 
 .upload-modal {
     position: fixed;
     opacity: 1;
-    z-index: 1000;
+    z-index: 1006;
     background-color: rgba(242,242,242,.9);
     outline: none;
     padding-right: 0px;
@@ -41,9 +41,11 @@
     font-family: "Interstate", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Garuda, Verdana, Tahoma, sans-serif;
     font: 12px/1.4 "Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;
     color: #333;
+    z-index: 1003;
 }
 
 .upload-modal-dropbox-inner {
+    background: #fff;
     border: 1px dashed transparent;
     height: 100%;
     position: relative;
@@ -52,6 +54,7 @@
     font-family: "Interstate", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Garuda, Verdana, Tahoma, sans-serif;
     font: 12px/1.4 "Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;
     color: #333;
+    z-index: 1004;
 }
 
 .upload-modal-dropbox-inner-title {

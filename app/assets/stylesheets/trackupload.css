@@ -80,4 +80,359 @@
     text-align: center;
     vertical-align: baseline;
     box-sizing: border-box;
+    z-index: 1000;
+}
+
+.upload-button:hover {
+    cursor: pointer;
+}
+
+
+.track-upload-details {
+    display: block;
+}
+
+.track-upload-details2 {
+    list-style: none;
+    margin: 0;
+}
+
+.track-upload-details3 {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.track-upload-details3:before {
+    content: "";
+    display: table;
+}
+
+.track-upload-details3:before {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+
+.track-upload-item {
+    display: list-item;
+    text-align: -webkit-match-parent;
+    list-style: none;
+}
+
+.editing {
+    position: relative;
+    margin: 30px 0 0 0;
+    display: block;
+}
+
+.editing-wrapper {
+    display: block;
+}
+
+.upload-detail-form {
+    padding: 14px 25px 0;
+    background-color: #fff;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    position: relative;
+    box-shadow: 0 2px 12px -5px rgba(0,0,0,.1);
+    overflow: hidden;
+    border: 1px solid #f2f2f2;
+}
+
+.tabs-large {
+    font-size: 24px;
+    line-height: 1.6;
+    border-bottom: 1px solid #f2f2f2;
+    list-style: none;
+    margin: 0;
+    font-family: "Interstate","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;
+    padding: 0;
+}
+
+.tabs-large:before {
+    content: "";
+    display: table;
+}
+
+.tabs-large:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.tabs-item:first-child {
+    margin-left: 0;
+}
+
+.tabs-item {
+    float: left;
+    margin: 0 12px -1px;
+    font-size: 24px;
+    line-height: 1.6;
+    list-style: none;
+    font-family: "Interstate","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;
+    font: 12px/1.4 "Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;
+    color: #333;
+}
+
+.tabs-item-text {
+    border-bottom: 1px solid transparent;
+    display: block;
+    font-size: 24px;
+    line-height: 1.6;
+    border-color: #f50;
+    color: #f50;
+    cursor: default;
+}
+
+.tabs-content {
+    display: block;
+}
+
+.tabs-content1 {
+    display: block;
+    margin-top: 25px;
+    position: relative;
+    min-height: 305px;
+}
+
+.tabs-content2 {
+    position: relative;
+    padding-left: 278px;
+}
+
+.tabs-content2:before {
+    content: "";
+    display: table;
+}
+
+.tabs-content2:before {
+    content: "";
+    display: table;
+    clear: both;
+}
+.tabs-content-title {
+    box-sizing: border-box;
+    display: block;
+}
+
+.tabs-content-title-text {
+    margin-top: 3px;
+    margin-right: 0px;
+    margin-bottom: 10px;
+    margin-left: 0px;
+    position: relative;
+    display: block;
+}
+
+.tabs-content-title-text-label {
+    display: inline-block;
+    margin-bottom: 6px;
+    font: 12px/1.4 "Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;
+    color: #333;
+}
+
+.tabs-content-title-text-label:after {
+    content: '*';
+    color: #cf0000;
+    display: inline-block;
+    margin-left: 2px;
+}
+
+.tabs-content-title-text-inputwrapper {
+    position: relative;
+    list-style: none;
+}
+
+.tabs-content-title-input {
+    box-sizing: border-box;
+    width: 100%;
+    position: relative;
+    z-index: 1;
+    display: inline-block;
+    font-family: "Interstate","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;
+    font-weight: 100;
+    font-size: 14px;
+    line-height: 20px;
+    padding: 2px 7px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    transition: border-color .1s;
+    background: #fff;
+    color: #333;
+}
+
+.basic-info-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    height: 260px;
+    width: 260px;
+}
+
+.image-btn-container {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 20%;
+}
+
+.image-btn {
+    background-color: rgba(255,255,255,.8);
+    border-color: rgba(0,0,0,.1);
+    background-clip: padding-box;
+    transition: background-color .2s ease-in-out,border-color .2s ease-in-out;
+    display: inline-block;
+    position: relative;
+    height: 26px;
+    margin: 0;
+    padding: 2px 11px 2px 10px;
+    border: 1px solid #e5e5e5;
+    border-radius: 3px;
+    cursor: pointer;
+    color: #333;
+    font-size: 14px;
+    line-height: 20px;
+    white-space: nowrap;
+    font-family: "Interstate","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;
+    font-weight: 100;
+    text-align: center;
+    vertical-align: baseline;
+    left: 5px;
+}
+
+.tabs-content-album {
+    display: flex;
+}
+
+/* .tabs-content-title {
+    box-sizing: border-box;
+    display: block;
+} */
+
+.tabs-content-album-text {
+    margin-top: 3px;
+    margin-right: 0px;
+    margin-bottom: 10px;
+    margin-left: 0px;
+    position: relative;
+    display: block;
+}
+
+.tabs-content-album-text-label {
+    display: inline-block;
+    margin-bottom: 6px;
+    font: 12px/1.4 "Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;
+    color: #333;
+}
+
+.tabs-content-album-text-label:after {
+    content: '*';
+    color: #cf0000;
+    display: inline-block;
+    margin-left: 2px;
+}
+
+.tabs-content-album-text-inputwrapper {
+    position: relative;
+    list-style: none;
+}
+
+.tabs-content-album-input {
+    box-sizing: border-box;
+    width: 100%;
+    position: relative;
+    z-index: 1;
+    display: inline-block;
+    font-family: "Interstate","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;
+    font-weight: 100;
+    font-size: 14px;
+    line-height: 20px;
+    padding: 2px 7px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    transition: border-color .1s;
+    background: #fff;
+    color: #333;
+}
+
+.upload-form-submit-buttons {
+    margin: 20px -25px 0;
+    padding: 20px 25px;
+    border-top: 1px solid #f2f2f2;
+    display: block;
+}
+
+.upload-form-submit-buttons:before {
+    content: "";
+    display: table;
+}
+
+.upload-form-submit-buttons:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.requiredtextnote {
+    float: left;
+    line-height: 26px;
+    display: block;
+}
+
+.star {
+    float: left;
+    line-height: 26px;
+    color: #f50;
+}
+
+
+.savebtn {
+    float: right;
+    margin-right: 0;
+    background-color: #f50;
+    border-color: #f50;
+    color: #fff;
+    display: inline-block;
+    position: relative;
+    height: 26px;
+    margin: 0;
+    padding: 2px 11px 2px 10px;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 14px;
+    line-height: 20px;
+    white-space: nowrap;
+    font-family: "Interstate","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;
+    font-weight: 100;
+    text-align: center;
+    vertical-align: baseline;
+}
+
+.cancelbtn {
+    margin-right: 0;
+    float: right;
+    border: 0;
+    background: 0 0;
+    transition: none;
+    display: inline-block;
+    position: relative;
+    height: 26px;
+    margin: 0;
+    padding: 2px 11px 2px 10px;
+    border-radius: 3px;
+    cursor: pointer;
+    color: #333;
+    font-size: 14px;
+    line-height: 20px;
+    white-space: nowrap;
+    font-family: "Interstate","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;
+    font-weight: 100;
+    text-align: center;
+    vertical-align: baseline;
 }
