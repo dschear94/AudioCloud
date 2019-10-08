@@ -20,5 +20,10 @@
 .main {
     display: block;
     position: relative;
-    top: 46px;
+    padding-top: 46px;
+    max-width: 1239px;
+    padding-right: 30px;
+    padding-bottom: 0px;
+    padding-left: 30px;
+    margin: 0 auto;
 }

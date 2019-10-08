@@ -48,24 +48,49 @@ class TrackUploadForm extends React.Component {
     }
 
     render() {
-        return (
-        <div>
-            <h1>Upload Music Here</h1>
-                <form onSubmit={this.handleSubmit}>
+    const uploadStep1 = (
+                <div className="track-upload-content">
+                <div className="uploadBG"></div>
+                <div className="uploadForm">
+                    <div className="uploadForm-content">
+                        <h1 className="uploadForm-content-header">Drag and drop your tracks & albums here</h1>
+                        <div className="uploadForm-submit-container">
+                            <input
+                                className="input-dd"
+                                type="file"
+                                accept=".mp3,audio/*"
+                                onChange={this.handleFile} />
+                            <button 
+                                onClick={() => this.handleSubmit}
+                                className="upload-button">
+                                or choose files to upload
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            )
+        const uploadStep2 = (
+        <div className="track-upload-content">
+            <div className="uploadBG"></div>
+            <div className="uploadForm">
+                <div className="uploadForm-content">
+                    <h1 className="uploadForm-content-header">Drag and drop your tracks & albums here</h1>
                     <input type="text"
                         value={this.state.title}
                         onChange={this.handleInput('title')} />
                     <input type="text"
                         value={this.state.album}
                         onChange={this.handleInput('album')} />
-                    <input 
-                        type="file" 
-                        accept=".mp3,audio/*" 
-                        onChange={this.handleFile}/>
-                    <input type="submit" value="Upload Track"/>
-                </form>
+                </div>
+            </div>
         </div>
         )
+        return (
+        <div className="track-upload-container">
+                {this.state.trackFile ? uploadStep2 : uploadStep1}
+        </div>
+        );
     }
 }
 

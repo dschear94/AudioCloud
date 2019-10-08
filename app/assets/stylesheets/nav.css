@@ -8,6 +8,7 @@ nav {
     margin: 0 auto;
     top: 0;
     min-width: 800px;
+    z-index: 1000;
 }
 
 .nav-main {
