@@ -9,6 +9,7 @@ import {
 } from 'react-router-dom';
 
 import Modal from './modal/modal';
+import UploadModal from './modal/upload_modal';
 import NavbarContainer from './navbar/navbar_container';
 import Splash from './splash/splash'
 
@@ -22,6 +23,7 @@ import { openModal } from '../actions/modal_actions';
 const App = () => (
     <div>
             <Modal />
+            <UploadModal/>
         <nav>
             <Route path="/"><NavbarContainer /></Route> 
         </nav>

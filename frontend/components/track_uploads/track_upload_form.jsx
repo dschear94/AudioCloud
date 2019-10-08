@@ -49,22 +49,25 @@ class TrackUploadForm extends React.Component {
 
     render() {
     const uploadStep1 = (
-                <div className="track-upload-content">
+                <div 
+                className="track-upload-content">
                 <div className="uploadBG"></div>
                 <div className="uploadForm">
                     <div className="uploadForm-content">
                         <h1 className="uploadForm-content-header">Drag and drop your tracks & albums here</h1>
                         <div className="uploadForm-submit-container">
-                            <input
-                                className="input-dd"
-                                type="file"
-                                accept=".mp3,audio/*"
-                                onChange={this.handleFile} />
-                            <button 
-                                onClick={() => this.handleSubmit}
-                                className="upload-button">
-                                or choose files to upload
-                            </button>
+                            <form>
+                                <input
+                                    className="input-dd"
+                                    type="file"
+                                    accept=".mp3,audio/*"
+                                    onChange={this.handleFile} />
+                                <button
+                                    onClick={() => this.handleSubmit}
+                                    className="upload-button">
+                                    or choose files to upload
+                                </button>
+                            </form>
                         </div>
                     </div>
                 </div>
