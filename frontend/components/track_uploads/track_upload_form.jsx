@@ -4,10 +4,9 @@ import { withRouter } from 'react-router-dom';
 class TrackUploadForm extends React.Component {
     constructor(props) {
         super(props);
-        // this.state = this.props;
-
         this.state = {
             title: "",
+            album: "",
             trackFile: null,
             trackUrl: null
         };
@@ -16,8 +15,13 @@ class TrackUploadForm extends React.Component {
         this.handleInput = this.handleInput.bind(this);
     }
 
-    handleInput(e) {
-        this.setState({ title: e.currentTarget.value });
+    handleInput(field) {
+        return e => {
+            return this.setState({ 
+                [field]: e.currentTarget.value
+            });
+        };
+        
     }
 
     handleFile(e) {
@@ -35,24 +39,25 @@ class TrackUploadForm extends React.Component {
         e.preventDefault();
         const trackFormData = new FormData();
         trackFormData.append('track[title]', this.state.title);
+        trackFormData.append('track[album]', this.state.album);
+        trackFormData.append('track[artist_id]', this.props.currentUser);
         if (this.state.trackFile) {
             trackFormData.append('track[audio_file]', this.state.trackFile);
         };
         return this.props.uploadTrack(trackFormData);
-
     }
 
     render() {
         return (
         <div>
             <h1>Upload Music Here</h1>
-                <p>
-                    See photos here
-                </p>
                 <form onSubmit={this.handleSubmit}>
                     <input type="text"
                         value={this.state.title}
-                        onChange={this.handleInput} />
+                        onChange={this.handleInput('title')} />
+                    <input type="text"
+                        value={this.state.album}
+                        onChange={this.handleInput('album')} />
                     <input 
                         type="file" 
                         accept=".mp3,audio/*" 

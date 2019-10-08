@@ -4,7 +4,9 @@ import { uploadTrack } from '../../actions/track_actions';
 
 
 const msp = (state, ownProps) => {
-    return state
+    return {
+        currentUser: state.session.id
+    }
 };
 
 

@@ -9,7 +9,7 @@ export const uploadTrack = track => {
     return $.ajax({
         method: 'POST',
         url: `/api/tracks`,
-        data: { track },
+        data: track,
         contentType: false,
         processData: false
     })

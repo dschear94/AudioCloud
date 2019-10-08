@@ -26,8 +26,8 @@ export const fetchTracks = () => dispatch => {
         dispatch(receiveTracks(tracks))
     ));
 };
-export const uploadTrack = () => dispatch => {
-    return APIUtil.uploadTrack().then(track => (
+export const uploadTrack = (track) => dispatch => {
+    return APIUtil.uploadTrack(track).then(track => (
         dispatch(receiveTrack(track))
     ));
 };

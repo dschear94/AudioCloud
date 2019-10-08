@@ -20,7 +20,7 @@ class SessionForm extends React.Component {
     }
 
     update(field) {
-        const oldUser = this.state.user ;
+        const oldUser = this.state.user;
         return e => {
             return this.setState({
                 user: Object.assign({}, oldUser, { [field]: e.currentTarget.value })
@@ -261,7 +261,7 @@ class SessionForm extends React.Component {
                                 value={this.state.user.username}
                                 onChange={this.update('username')}
                                 className="login-input"
-                                placeholder=""
+                                placeholder=" "
                             />
                         <br />
                         <div className="errors">
