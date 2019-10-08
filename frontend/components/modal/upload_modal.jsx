@@ -29,10 +29,8 @@ class UploadModal extends React.Component {
     }
 
     handleDrop(e) {
-        debugger
         e.preventDefault();
         e.stopPropagation();
-        debugger
     }
 
     render () {
