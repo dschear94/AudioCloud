@@ -12,7 +12,8 @@ import Modal from './modal/modal';
 import NavbarContainer from './navbar/navbar_container';
 import Splash from './splash/splash'
 
-import UploadContainer from './track_uploads/track_upload_container';
+import TrackUploadContainer from './track_uploads/track_upload_container';
+import DiscoverContainer from './discover/discover_container';
 import {  ProtectedRoute } from '../util/route_util';
 import { openModal } from '../actions/modal_actions';
 
@@ -24,8 +25,12 @@ const App = () => (
         </nav>
 
         <div className="main">
-            <Route path="/"><Splash/></Route>
-            <ProtectedRoute exact path="/upload" component={UploadContainer} />
+            <Switch>
+                <ProtectedRoute exact path="/upload" component={TrackUploadContainer} />
+                <Route path='/discover'><DiscoverContainer /></Route>
+                <Route path="/"><Splash /></Route>
+            </Switch>
+            
         </div>
 
         <footer>

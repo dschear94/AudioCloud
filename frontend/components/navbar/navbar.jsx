@@ -21,7 +21,7 @@ const Navbar = ({ currentUser, logout, openModal }) => {
                 <ul className="nav-left-main">
                     <Link to="/" className="logo">ACdev</Link>
                     <li><Link className="navLink" to="/">Home</Link></li>
-                    <li><Link className="navLink" to="/">Stream</Link></li>
+                    <li><Link className="navLink" to="/discover">Stream</Link></li>
                     <li><Link className="navLink" to="/">Library</Link></li>
                     <li>{currentUser ? <Link className="navLink" to="/upload">Upload</Link>
                         : <div className="navLink" onClick={() => openModal('entry')}>Upload</div>}</li>
