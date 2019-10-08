@@ -14,6 +14,8 @@ import Splash from './splash/splash'
 
 import TrackUploadContainer from './track_uploads/track_upload_container';
 import DiscoverContainer from './discover/discover_container';
+import ContinuousPlayBar from './continuous_play_bar/continuous_play_bar'
+
 import {  ProtectedRoute } from '../util/route_util';
 import { openModal } from '../actions/modal_actions';
 
@@ -34,7 +36,7 @@ const App = () => (
         </div>
 
         <footer>
-            {/* continuous play music bar */}
+            <Route path="/"><ContinuousPlayBar/></Route>
         </footer>
     </div>
 );
