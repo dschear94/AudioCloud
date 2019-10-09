@@ -8,12 +8,16 @@ class TrackUploadForm extends React.Component {
             title: "",
             album: "",
             trackFile: null,
-            trackUrl: null
+            trackUrl: null,
+            photoFile: null,
+            photoUrl: null,
         };
         this.handleSubmit = this.handleSubmit.bind(this);
-        this.handleFile = this.handleFile.bind(this);
+        this.handleTrackFile = this.handleTrackFile.bind(this);
+        this.handlePhotoFile = this.handlePhotoFile.bind(this);
         this.handleInput = this.handleInput.bind(this);
         this.triggerHiddenInput = this.triggerHiddenInput.bind(this);
+        this.triggerHiddenInput2 = this.triggerHiddenInput2.bind(this);
     }
 
     handleInput(field) {
@@ -29,8 +33,12 @@ class TrackUploadForm extends React.Component {
         document.getElementById('uploadhidden').click();
     }
 
-    handleFile(e) {
-        debugger
+    triggerHiddenInput2(e) {
+        e.preventDefault();
+        document.getElementById('uploadhidden2').click();
+    }
+
+    handleTrackFile(e) {
         e.preventDefault();
         const file = e.currentTarget.files[0];
         const fileReader = new FileReader();
@@ -40,7 +48,18 @@ class TrackUploadForm extends React.Component {
         if (file) {
             fileReader.readAsDataURL(file);
         }
-        debugger
+    }
+
+    handlePhotoFile(e) {
+        e.preventDefault();
+        const file = e.currentTarget.files[0];
+        const fileReader = new FileReader();
+        fileReader.onloadend = () => {
+            this.setState({ photoFile: file, photoUrl: fileReader.result });
+        };
+        if (file) {
+            fileReader.readAsDataURL(file);
+        }
     }
 
     handleSubmit(e) {
@@ -51,6 +70,9 @@ class TrackUploadForm extends React.Component {
         trackFormData.append('track[artist_id]', this.props.currentUser);
         if (this.state.trackFile) {
             trackFormData.append('track[audio_file]', this.state.trackFile);
+        };
+        if (this.state.photoFile) {
+            trackFormData.append('track[image_file]', this.state.photoFile);
         };
         return this.props.uploadTrack(trackFormData);
     }
@@ -70,7 +92,7 @@ class TrackUploadForm extends React.Component {
                                     className="input-dd"
                                     type="file"
                                     accept=".mp3,audio/*"
-                                    onChange={this.handleFile} />
+                                    onChange={this.handleTrackFile} />
                                 <button
                                     onClick={this.triggerHiddenInput}
                                     className="upload-button">
@@ -117,7 +139,19 @@ class TrackUploadForm extends React.Component {
                                                 <div className="basic-info-image">
                                                     {/* <img src="" alt=""/> */}
                                                     <div className="image-btn-container">
-                                                        <button className="image-btn">Upload Image</button>
+                                                        <form>
+                                                            <input
+                                                                id="uploadhidden2"
+                                                                className="input-dd"
+                                                                type="file"
+                                                                accept="*"
+                                                                onChange={this.handlePhotoFile} />
+                                                            <button
+                                                                className="image-btn"
+                                                                onClick={this.triggerHiddenInput2}>
+                                                                Upload Image
+                                                            </button>
+                                                        </form>
                                                     </div>
                                                 </div>
                                                 <div className="tabs-content-album">

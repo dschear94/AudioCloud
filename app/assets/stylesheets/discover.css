@@ -104,7 +104,7 @@
     left: 0;
     height: 100%;
     width: 100%;
-    z-index: 2;
+    /* z-index: 2; */
     opacity: 1;
     transition: opacity .3s;
 }
@@ -165,7 +165,177 @@
     overflow: hidden;
 }
 
+.track-discover-main-modular-module-content-tracklist-area2 {
+    height: 100%;
+    width: 100%;
+    position: relative;
+    display: inline-block;
+    box-sizing: border-box;
+    overflow: hidden !important;
+}
+
+.track-discover-main-modular-module-content-tracklist-scrollable {
+    height: 180px;
+    overflow-x: hidden;
+    width: 593px;
+    padding-right: 30px;
+    overflow-y: scroll;
+}
+
+.track-discover-main-modular-module-content-tracklist-list {
+    list-style: none;
+    margin: 0;
+}
+
+.track-discover-main-modular-module-content-tracklist-list:before {
+    content: "";
+    display: table;
+}
+
+.track-discover-main-modular-module-content-tracklist-list:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.track-discover-main-modular-module-content-tracklist-item {
+    display: list-item;
+    text-align: -webkit-match-parent;
+}
+
+.track-discover-main-modular-module-content-tracklist-item-a {
+    color: rgba(255,255,255,.7);
+    box-sizing: border-box;
+    height: 40px;
+    align-items: center;
+    position: relative;
+    border-bottom: solid 1px rgba(255,255,255,.1);
+    display: flex;
+    flex-direction: row;
+    font-weight: 100;
+    font-size: 14px;
+    font-family: "Interstate","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;
+    cursor: pointer;
+}
+
+.track-discover-main-modular-module-content-tracklist-item-a1 {
+    flex: 1;
+    font-weight: 100;
+    padding: 0 8px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    word-break: normal;
+    color: rgba(255,255,255,.7);
+    font-size: 14px;
+    font-family: "Interstate","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;
+    cursor: pointer;
+}
+
+.track-discover-main-modular-module-content-tracklist-item-a1-artist {
+    font-family: "Interstate", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Garuda, Verdana, Tahoma, sans-serif;
+    white-space: nowrap;
+    word-break: normal;
+    color: rgba(255,255,255,.7);
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.track-discover-main-modular-module-content-tracklist-item-a1-title {
+    color: #fff;
+    font-family: "Interstate", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Garuda, Verdana, Tahoma, sans-serif;
+    white-space: nowrap;
+    word-break: normal;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.track-discover-main-modular-module-content-tracklist-item-a2 {
+    padding: 0 8px;
+    display: flex;
+    align-items: center;
+    color: rgba(255,255,255,.7);
+    font-size: 14px;
+    font-family: "Interstate","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;
+    cursor: pointer;
+}
+
+.track-discover-main-modular-module-content-tracklist-item-a2-content {
+    color: #fff;
+    font-size: 11px;
+    line-height: 12px;
+    display: inline-block;
+    font-family: "InterstateSound Tnum","Interstate","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;
+    font-weight: 100;
+}
+
+.track-discover-main-modular-module-content-tracklist-item-a2-content:before {
+    background-size: 16px 16px;
+    width: 16px;
+    height: 12px;
+    vertical-align: top;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9I…AxM1YzbDkgNS05IDV6IiBmaWxsPSIjRkZGIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiLz48L3N2Zz4=);
+}
+
 .track-discover-main-modular-module-context {
+    height: 40px;
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.track-discover-main-modular-module-context-icon-container {
+    margin-right: 8px;
+    display: block;
+    list-style: none;
+}
+
+.track-discover-main-modular-module-context-icon {
+    margin-top: 0;
+    padding: 10px 0 8px;
+    overflow: hidden;
+}
+
+.track-discover-main-modular-module-context-icon-body {
+    height: 100%;
+}
+
+.track-discover-main-modular-module-context-icon-image {
+    height: 30px;
+    width: 30px;
+    background: 0 0;
+    border-radius: 50%;
+    text-align: center;
+    position: relative;
+    display: block;
+}
+
+.track-discover-main-modular-module-context-icon-image-content {
+        /* background-image: url(https://i1.sndcdn.com/avatars-000637909884-xzhewy-t50x50.jpg); */
+    width: 30px;
+    height: 30px;
+    opacity: 1;
+    border: 2px solid #fff;
+    box-sizing: border-box;
+    background-origin: border-box;
+    border-radius: 50%;
+    text-align: center;
+    position: relative;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50% 50%;
+}
+
+.track-discover-main-modular-module-context-body {
+    font-weight: 100;
+    color: #999;
+    font-size: 14px;
+    font-family: "Interstate","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;
+    text-align: -webkit-match-parent;
 
 }
+
 
