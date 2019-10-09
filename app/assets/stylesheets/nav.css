@@ -1,7 +1,7 @@
 nav {
     width: 100%;
     font: 100 14px/1.5 "Interstate","Lucida Grande",Arial,sans-serif;
-    height: 46px;
+    /* height: 46px; */
     position: fixed;
     display: block;
     display: flex;

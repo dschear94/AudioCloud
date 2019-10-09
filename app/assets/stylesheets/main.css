@@ -21,6 +21,7 @@
     width: 1180px;
     margin: 0 auto;
     display: block;
+    background: white;
 }
 
 .main-content-container:before {
@@ -48,8 +49,465 @@
     display: block;
 }
 
+.splash-main-banner-hero {
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+    border-top: 4px solid #f50;
+    background-color: #666;
+    background: center/cover no-repeat;
+    background-image: url('SplashImage.JPG');
+    height: 450px;
+    -webkit-font-smoothing: antialiased;
+    display: block;
+    font: 12px/1.4 "Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;
+}
+
+.splash-main-banner-hero-ctnr {
+    height: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+}
+
+.splash-main-banner-hero-carousel {
+    transform: translateX(0%);
+    transition: transform 0.6s ease-in-out 0s;
+    width: 300%;
+    display: flex;
+    height: 100%;
+    overflow: hidden;
+}
+
+.splash-main-banner-hero-carousel1 {
+    width: 33.3333%;
+    background-image: url(https://a-v2.sndcdn.com/assets/images/home/sc_landing_header_web_c-318d7ee.jpg);
+    background: center/cover no-repeat;
+    height: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    padding: 145px 0 0;
+    box-sizing: border-box;
+
+}
+
+.splash-main-banner-hero-carousel1-title {
+    margin-bottom: 8px;
+    font-size: 36px;
+    font-weight: 100;
+    font-family: "Interstate", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Verdana, Tahoma, sans-serif;
+    display: block;
+}
+
+.splash-main-banner-hero-carousel1-tags {
+    font-size: 18px;
+    max-width: 530px;
+    text-align: center;
+    font-family: "Interstate","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;
+    font-weight: 100;
+    margin: 0 0 10px;
+}
+
+.splash-main-banner-hero-carousel-nav {
+    display: flex;
+}
+
+.splash-main-banner-hero-session {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    display: block;
+    color: #fff;
+}
+
+.splash-main-banner-hero-login-btn {
+    padding: 2px 15px;
+    height: 30px;
+    line-height: 24px;
+    margin: 0 0 0 6px;
+    background: 0 0;
+    color: #fff;
+    border-color: #ccc;
+    border: 1px;
+    display: inline-block;
+    position: relative;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 14px;
+    white-space: nowrap;
+    font-family: "Interstate","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;
+    font-weight: 100;
+    text-align: center;
+    vertical-align: baseline;
+    box-sizing: border-box;
+}
+
+.splash-main-banner-hero-signup-btn {
+    padding: 2px 16px;
+    height: 30px;
+    line-height: 24px;
+    margin: 0 0 0 6px;
+    background-color: #f50;
+    border-color: #f50;
+    color: #fff;
+    display: inline-block;
+    position: relative;
+    border: 1px;
+    cursor: pointer;
+    border-radius: 3px;
+    font-size: 14px;
+    white-space: nowrap;
+    font-family: "Interstate","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;
+    font-weight: 100;
+    text-align: center;
+    vertical-align: baseline;
+    box-sizing: border-box;
+}
+
+.splash-main-banner-hero-logo {
+    position: absolute;
+    top: 13px;
+    left: 19px;
+    background: url(https://a-v2.sndcdn.com/assets/images/header/cloud-e365a47.png) no-repeat 12px 11px;
+    background-size: 48px 22px;
+    display: block;
+    width: 184px;
+    height: 46px;
+    margin: 0;
+    text-indent: -999em;
+    font-size: 32px;
+    font-family: "Interstate","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;
+    font-weight: 400;
+    line-height: 1.3;
+    color: #fff;
+}
+
+.splash-main-banner-hero-logo:after {
+    position: absolute;
+    left: 1px;
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    /* background: url(https://a-v2.sndcdn.com/assets/images/header/wordmark-d95b0ac.png) no-repeat 60px 11px; */
+    background-size: 115px 22px;
+}
+
 .splash-main-content1 {
     display: block;
+}
+
+.splash-main-content1-uploadbtn {
+    background-color: #f50;
+    border-color: #f50;
+    color: #fff;
+    margin-left: 14px;
+    padding: 13px 23px;
+    height: 46px;
+    font-size: 16px;
+    line-height: 18px;
+    display: inline-block;
+    position: relative;
+    border-radius: 3px;
+    cursor: pointer;
+    white-space: nowrap;
+    font-family: "Interstate","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;
+    font-weight: 100;
+    text-align: center;
+    vertical-align: baseline;
+    box-sizing: border-box;
+}
+
+.splash-main-content1-uploadbtn:before {
+    width: 24px;
+    height: 24px;
+}
+
+.splash-main-content1-searchcontainer {
+    margin: 49px 0 12px 0;
+    font-size: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font: 16px/1.4 "Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;
+    color: #333;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    text-align: inherit;
+    text-decoration: inherit;
+    vertical-align: inherit;
+    box-sizing: inherit;
+    background: transparent;
+}
+
+.splash-main-content1-search {
+    color: #999;
+    font-size: 16px;
+    font: "Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;
+}
+
+.splash-main-content1-search-form {
+    padding: 0;
+    display: inline-block;
+    width: 600px;
+    margin-right: 14px;
+    position: relative;
+    color: #999;
+    font-size: 16px;
+}
+
+.splash-main-content1-searchbar {
+    background: #f2f2f2;
+    padding: 0 16px;
+    height: 46px;
+    color: #666;
+    outline: 0;
+    border: 0;
+    box-sizing: border-box;
+    width: 100%;
+    display: inline-block;
+    font-family: "Interstate","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;
+    font-weight: 100;
+    font-size: 14px;
+    line-height: 20px;
+    border-radius: 4px;
+    margin: 0;
+}
+
+.splash-main-content1-searchbar-submit {
+    background-size: 19px 19px;
+    background-position: center center;
+    top: 0;
+    right: 0;
+    width: 50px;
+    height: 46px;
+    border: 0;
+    padding: 0;
+    background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiI…lwZT0iTVNTaGFwZUdyb3VwIj48L3BhdGg+CiAgICAgICAgPC9nPgogICAgPC9nPgo8L3N2Zz4=) 0 0 no-repeat;
+    position: absolute;
+    font: 0/0 a;
+    text-shadow: none;
+    color: transparent;
+    cursor: pointer;
+    margin: 0;
+}
+
+.splash-main-content1-trendingtracks {
+    padding-bottom: 10px;
+    display: block;
+}
+
+.splash-main-content1-trendingtracks-title {
+    font-size: 24px;
+    text-align: center;
+    padding-top: 20px;
+    margin-bottom: 30px;
+    font-family: "Interstate", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Garuda, Verdana, Tahoma, sans-serif;
+    font-weight: 100;
+    display: block;
+}
+
+.splash-main-content1-trendingtracks-content {
+    margin-right: -20px;
+    display: block;
+}
+
+.splash-main-content1-trendingtracks-content-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: block;
+}
+
+.splash-main-content1-trendingtracks-content-list:before {
+    content: "";
+    display: table;
+}
+
+.splash-main-content1-trendingtracks-content-list:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.splash-main-content1-trendingtracks-content-item {
+    box-sizing: border-box;
+    padding-right: 20px;
+    width: 16.666%;
+    float: left;
+    display: list-item;
+    text-align: -webkit-match-parent;
+}
+
+.splash-main-content1-trendingtracks-tile {
+    width: 100%;
+    padding-bottom: 78px;
+    position: relative;
+    display: block;
+    text-align: -webkit-match-parent;
+}
+
+.splash-main-content1-trendingtracks-tile-artwork {
+    padding-top: 100%;
+    height: 0;
+    position: relative;
+    z-index: 2;
+    display: block;
+    text-align: -webkit-match-parent;
+}
+
+.splash-main-content1-trendingtracks-tile-artwork-image {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    cursor: pointer;
+    display: block;
+}
+
+.splash-main-content1-trendingtracks-tile-artwork-image-placeholder {
+    height: 100%;
+    width: 100%;
+    background-image: linear-gradient(135deg,#8e8485,#70929c);
+    text-align: center;
+    position: relative;
+    background-repeat: no-repeat;
+    display: block;
+    background-size: cover;
+    background-position: 50% 50%;
+    cursor: pointer;
+}
+
+.splash-main-content1-trendingtracks-tile-artwork-image-official {
+    background-image: url(https://i1.sndcdn.com/artworks-000607413409-8kknp0-t200x200.jpg);
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+    box-shadow: rgba(0,0,0,.1)0 0 0 1px inset;
+    text-align: center;
+    position: relative;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50% 50%;
+}
+
+.splash-main-content1-trendingtracks-tile-playbtn-container {
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    left: 34%;
+    top: 34%;
+    right: 34%;
+    bottom: 34%;
+    z-index: 100;
+    display: block;
+}
+
+.splash-main-content1-trendingtracks-tile-playbtn {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    text-indent: -100000em;
+    border-color: #f50;
+    background-color: #f50;
+    margin: 1px 0;
+    padding: 0;
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+    font-size: 14px;
+    line-height: 20px;
+    white-space: nowrap;
+    font-family: "Interstate","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;
+    font-weight: 100;
+    text-align: center;
+    vertical-align: baseline;
+    box-sizing: border-box;
+}
+.splash-main-content1-trendingtracks-tile-playbtn:before {
+    content: '';
+    position: absolute;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiI…R5cGU9Ik1TU2hhcGVHcm91cCI+PC9wYXRoPgogICAgICAgIDwvZz4KICAgIDwvZz4KPC9zdmc+);
+    background-size: 40% 60%;
+    background-position: 60% center;
+    background-repeat: no-repeat;
+    transition: opacity .3s;
+    opacity: 1;
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+.splash-main-content1-trendingtracks-tile-playbtn:after {
+    position: absolute;
+    z-index: 0;
+    background: rgba(0,0,0,0);
+    width: 100%;
+    height: 100%;
+    content: '';
+    left: 0;
+    top: 0;
+}
+
+.splash-main-content1-trendingtracks-tile-description {
+    position: absolute;
+    padding-top: 100%;
+    top: 6px;
+    width: 100%;
+    z-index: 1;
+    display: block;
+}
+
+.splash-main-content1-trendingtracks-tile-description1 {
+    display: flex;
+    font: 14px/1.4 "Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;
+    color: #333;
+}
+
+.splash-main-content1-trendingtracks-tile-description2 {
+    display: flex;
+    font-weight: 100;
+    color: #999;
+    font: 12px/1.4 "Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;
+}
+
+.splash-main-content1-trendingtracks-btncontainer {
+    text-align: center;
+    margin-top: 5px;
+    display: block;
+}
+
+.splash-main-content1-trendingtracks-btn {
+    background-color: #f50;
+    border-color: #f50;
+    color: #fff;
+    font-size: 18px;
+    height: 46px;
+    padding: 13px 23px;
+    line-height: 18px;
+    display: inline-block;
+    position: relative;
+    margin: 0;
+    border-radius: 3px;
+    cursor: pointer;
+    white-space: nowrap;
+    font-family: "Interstate","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;
+    font-weight: 100;
+    text-align: center;
+    vertical-align: baseline;
+    box-sizing: border-box;
+}
+
+.splash-main-content1-trendingtracks-btn:before {
+    width: 24px;
+    height: 24px;
 }
 
 .splash-main-content2 {
@@ -58,10 +516,124 @@
     margin-right: -30px;
 }
 
+.splash-main-content2-mobile {
+    margin-top: 60px;
+    padding: 0 70px;
+    height: 450px;
+    background: #F2F2F2;
+    display: flex;
+    font: 12px/1.4 "Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;
+    color: #333;
+}
+
+.splash-main-content2-mobile-devices {
+    flex-grow: 1;
+    position: relative;
+    display: block;
+}
+
+.splash-main-content2-mobile-devices-wrapper {
+    width: 100%;
+    padding-top: 54%;
+    display: block;
+    font: 12px/1.4 "Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;
+    color: #333;
+}
+
+.splash-main-content2-mobile-devices-figure {
+    background-image: url(https://a-v2.sndcdn.com/assets/images/front/never_stop_listening@1x-9c5264f.jpg);
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position-y: bottom;
+    background-size: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: 0;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 40px;
+    margin-inline-end: 40px;
+}
+
+.splash-main-content2-mobile-info {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    width: 325px;
+    margin-left: 45px;
+    font: "Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;
+    color: #333;
+}
+
+.splash-main-content2-mobile-info-header {
+    font-family: "Interstate","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;
+    font-weight: 100;
+    line-height: 1.2;
+    font-size: 36px;
+    margin-bottom: 17px;
+    display: block;
+}
+
+.splash-main-content2-mobile-info-header:after {
+    content: '';
+    display: block;
+    width: 70px;
+    height: 3px;
+    background-image: linear-gradient(to right,#7d01a1,#f30 50%,#f50);
+    margin-top: 15px;
+}
+
+.splash-main-content2-mobile-info-text {
+    font-family: "Interstate","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;
+    font-size: 24px;
+    font-weight: 100;
+    margin: 0 0 10px;
+}
+
 .splash-main-content3 {
     display: block;
     margin-left: -30px;
     margin-right: -30px;
+}
+
+.splash-main-content3-teaser {
+    position: relative;
+    height: 350px;
+    background-color: #141414;
+    background-image: url(https://a-v2.sndcdn.com/assets/images/home/hp_creator_image-f3d92e0.jpg);
+    background-size: cover;
+    background-position-x: right;
+    background-position-y: center;
+    color: #fff;
+    -webkit-font-smoothing: antialiased;
+    padding: 0 570px 0 70px;
+    display: flex;
+    align-items: center;
+}
+
+.splash-main-content3-teaser-wrapper {
+    max-width: 520px;
+    display: block;
+    color: #fff;
+}
+
+.splash-main-content3-teaser-title {
+    font-size: 36px;
+    font-weight: 100;
+    font-family: "Interstate", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Garuda, Verdana, Tahoma, sans-serif;
+    display: block;
+}
+
+.splash-main-content3-teaser-text {
+    font-size: 24px;
+    line-height: 1.35;
+    margin: 11px 0 26px;
+    font-family: "Interstate","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;
+    font-weight: 100;
+    display: block;
 }
 
 .splash-main-content4 {
