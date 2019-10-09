@@ -1,25 +1,14 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
-import { connect } from 'react-redux';
-import {fetchPhotos} from '../../actions/photo_actions';
-
-
-const msp = state => {
-    return {photos: state.entities.photos} ||  [];
-}
-
-const mdp = dispatch => ({
-    fetchPhotos: () => dispatch(fetchPhotos())
-})
+import { Link } from 'react-router-dom';
+// import { openModal } from '../../actions/modal_actions';
 
 class Splash extends React.Component {
-
-    componentDidMount () {
-        this.props.fetchPhotos();
+    constructor(props) {
+        super(props);
     }
 
     render() {
-        const photo = this.props.photos ? <img className="splash-image" src={this.props.photos[0].photoUrl}/> : null;
         return (
             <div>
                 <div className="splash-main-banner">
@@ -42,10 +31,14 @@ class Splash extends React.Component {
                                 AudioCloud
                             </div>
                             <div className="splash-main-banner-hero-session">
-                                <button className="splash-main-banner-hero-login-btn">
+                                <button 
+                                    className="splash-main-banner-hero-login-btn"
+                                    onClick={() => this.props.openModal('entry')}>
                                     Sign in
                                 </button>
-                                <button className="splash-main-banner-hero-signup-btn">
+                                <button 
+                                    className="splash-main-banner-hero-signup-btn"
+                                    onClick={() => this.props.openModal('entry')}>
                                     Create account
                                 </button>
                             </div>
@@ -58,7 +51,8 @@ class Splash extends React.Component {
                             <form className="splash-main-content1-search-form">
                                 <input 
                                     className="splash-main-content1-searchbar" 
-                                    type="search"/>
+                                    type="search"
+                                    placeholder="Search bar coming soon"/>
                                 <button 
                                     type="submit"
                                     className="splash-main-content1-searchbar-submit">
@@ -331,9 +325,11 @@ class Splash extends React.Component {
                             </ul>
                         </div>
                         <div className="splash-main-content1-trendingtracks-btncontainer">
-                            <button className="splash-main-content1-trendingtracks-btn">
+                            <Link 
+                                className="splash-main-content1-trendingtracks-btn"
+                                to="/discover">
                                 Explore trending playlists
-                            </button>
+                            </Link>
                         </div>
                     </div>
                 </div>
@@ -375,12 +371,16 @@ class Splash extends React.Component {
                             Save tracks, follow artists and build playlists. All for free.
                         </p>
                         <div className="splash-main-content4-signup">
-                            <button className="splash-main-content4-signup-btn">
+                            <button 
+                                className="splash-main-content4-signup-btn"
+                                onClick={() => this.props.openModal('entry')}>
                                 Create account
                             </button>
                         </div>
                         <div className="splash-main-content4-login">
-                            Already have an account? <button className="splash-main-content4-login-btn">Sign in</button>
+                            Already have an account? <button 
+                            className="splash-main-content4-login-btn"
+                            onClick={() => this.props.openModal('entry')}>Sign in</button>
                         </div>
                     </div>
                 </div>
@@ -395,4 +395,4 @@ class Splash extends React.Component {
 }
 
 
-export default withRouter(connect(msp, mdp)(Splash));
+export default withRouter(Splash);

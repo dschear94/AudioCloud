@@ -19,7 +19,7 @@ class Discover extends React.Component {
     render() {
         const tracks = this.props.tracks.map(track => {
             return (
-                <div>
+                <div >
                         {/* <audio controls src={track.trackUrl}>{track.title}</audio> */}
                     <input 
                         type="button" 
@@ -32,10 +32,10 @@ class Discover extends React.Component {
         });
         return (
         
-        <div>
-                <h1>All tracks</h1>
-                    {tracks}
-        </div>
+            <div className="discover-main">
+                    <h1>All tracks</h1>
+                        {tracks}
+            </div>
 
         );
     }

@@ -13,6 +13,7 @@ class TrackUploadForm extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleFile = this.handleFile.bind(this);
         this.handleInput = this.handleInput.bind(this);
+        this.triggerHiddenInput = this.triggerHiddenInput.bind(this);
     }
 
     handleInput(field) {
@@ -21,10 +22,16 @@ class TrackUploadForm extends React.Component {
                 [field]: e.currentTarget.value
             });
         };
-        
+    }
+
+    triggerHiddenInput(e) {
+        e.preventDefault();
+        document.getElementById('uploadhidden').click();
     }
 
     handleFile(e) {
+        debugger
+        e.preventDefault();
         const file = e.currentTarget.files[0];
         const fileReader = new FileReader();
         fileReader.onloadend = () => {
@@ -33,6 +40,7 @@ class TrackUploadForm extends React.Component {
         if (file) {
             fileReader.readAsDataURL(file);
         }
+        debugger
     }
 
     handleSubmit(e) {
@@ -64,7 +72,7 @@ class TrackUploadForm extends React.Component {
                                     accept=".mp3,audio/*"
                                     onChange={this.handleFile} />
                                 <button
-                                    onClick={() => document.getElementById('uploadhidden').click()}
+                                    onClick={this.triggerHiddenInput}
                                     className="upload-button">
                                     or choose files to upload
                                 </button>

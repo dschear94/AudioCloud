@@ -29,6 +29,20 @@ const Protected = (props) => {
     )
 }
 
+const Splashy = (props) => {
+    let { component: Component, path, loggedIn, exact } = props;
+    return (
+        <Route path={path} exact={exact} render={(props) => (
+            !loggedIn ? (
+                <Component {...props} />
+            ) : (
+                <Redirect to="/discover"/>
+                // <Modal modal="entry"/>
+                )
+        )} />
+    )
+}
+
 const msp = state => {
    return ( 
        { loggedIn: Boolean(state.session.id) }
@@ -43,3 +57,4 @@ const msp = state => {
 // export const AuthRoute = withRouter(connect(mapStateToProps)(Auth));
 
 export const ProtectedRoute = withRouter(connect(msp, null)(Protected));
+export const SplashyRoute = withRouter(connect(msp, null)(Splashy));
