@@ -16,6 +16,7 @@ class UploadModal extends React.Component {
 
     handleDrag(e) {
         e.preventDefault();
+        console.log("entered")
         this.setState({
             dd: true
         });

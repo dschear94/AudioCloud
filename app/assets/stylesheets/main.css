@@ -1,29 +1,206 @@
-/* .main {
-    font-family: "Interstate","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;
-    margin-top: 76px;
-    left: 50%;
-    box-sizing: border-box;
-    display: block;
-    position: absolute;
-    transform: translate(-50%, -50%);
-}
-
-
-.splash-top {
-    margin-left: -30px;
-    margin-right: -30px;
-    display: block;
-    position: relative;
-    height: 450px;
-} */
-
 .main {
     display: block;
     position: relative;
-    padding-top: 46px;
-    max-width: 1239px;
+    padding-top: 0;
+    /* max-width: 1239px; */
     padding-right: 30px;
     padding-bottom: 0px;
     padding-left: 30px;
     margin: 0 auto;
 }
+
+.main-bg {
+    background: #f2f2f2;
+    overflow-y: scroll;
+    display: block;
+    padding-bottom: 75px;
+}
+
+.main-content-container {
+    padding: 0 30px;
+    width: 1180px;
+    margin: 0 auto;
+    display: block;
+}
+
+.main-content-container:before {
+    content: "";
+    display: table;
+}
+
+.main-content-container:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.main-content {
+    display: block;
+}
+
+.main-content2 {
+    display: block;
+}
+
+.splash-main-banner {
+    margin-left: -30px;
+    margin-right: -30px;
+    display: block;
+}
+
+.splash-main-content1 {
+    display: block;
+}
+
+.splash-main-content2 {
+    display: block;
+    margin-left: -30px;
+    margin-right: -30px;
+}
+
+.splash-main-content3 {
+    display: block;
+    margin-left: -30px;
+    margin-right: -30px;
+}
+
+.splash-main-content4 {
+    display: block;
+}
+
+.splash-main-content4-module {
+    text-align: center;
+    height: 375px;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+}
+
+.splash-main-content4-module-text {
+    font-size: 36px;
+    font-family: "Interstate", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Garuda, Verdana, Tahoma, sans-serif;
+    font-weight: 100;
+    display: block;
+    color: #333;
+}
+
+.splash-main-content4-module-p {
+    font-size: 24px;
+    margin-top: 7px;
+    font-family: "Interstate","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;
+    font-weight: 100;
+    margin-right: 0px;
+    margin-bottom: 10px;
+    margin-left: 0px;
+    text-align: center;
+}
+
+.splash-main-content4-signup {
+    margin: 10px 0 10px;
+    display: block;
+    text-align: center;
+}
+
+.splash-main-content4-signup-btn {
+    -webkit-font-smoothing: antialiased;
+    font-size: 18px;
+    height: 46px;
+    padding: 13px 23px;
+    min-width: 200px;
+    background-color: #f50;
+    border-color: #f50;
+    color: #fff;
+    line-height: 18px;
+    display: inline-block;
+    position: relative;
+    margin: 0;
+    border-radius: 3px;
+    cursor: pointer;
+    white-space: nowrap;
+    font-family: "Interstate","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;
+    font-weight: 100;
+    text-align: center;
+    vertical-align: baseline;
+}
+
+.splash-main-content4-signup-btn:before {
+    width: 24px;
+    height: 24px;
+}
+
+.splash-main-content4-login {
+    margin: 5px 0 10px;
+    font-family: "Interstate", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Garuda, Verdana, Tahoma, sans-serif;
+    font-weight: 100;
+    text-align: center;
+    display: block;
+    font: 12px/1.4 "Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;
+    color: #333;
+}
+
+.splash-main-content4-login-btn {
+    margin-left: 10px;
+    vertical-align: middle;
+    font-size: 16px;
+    line-height: 18px;
+    padding: 10px 15px;
+    height: 20px;
+    display: inline-block;
+    position: relative;
+    border: 1px solid #e5e5e5;
+    border-radius: 3px;
+    background-color: #fff;
+    cursor: pointer;
+    color: #333;
+    white-space: nowrap;
+    font-family: "Interstate","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;
+    font-weight: 100;
+    text-align: center;
+}
+
+.splash-main-content4-login-btn:before {
+    width: 24px;
+    height: 24px;
+}
+
+.splash-main-footer {
+    display: block;
+}
+
+.splash-main-footer-content {
+    padding: 15px 0;
+    line-height: 20px;
+    color: #ccc;
+    border-top: 1px solid #f2f2f2;
+    display: block;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* .splash-main {
+    margin-left: -20px;
+    margin-right: -20px;
+    display: block;
+}
+
+.splash-image {
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+    border-top: 4px solid #f50;
+    background-color: #666;
+    height: 450px;
+    -webkit-font-smoothing: antialiased;
+} */

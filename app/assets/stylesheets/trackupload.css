@@ -80,7 +80,7 @@
     text-align: center;
     vertical-align: baseline;
     box-sizing: border-box;
-    z-index: 1000;
+    z-index: 90;
 }
 
 .upload-button:hover {

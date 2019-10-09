@@ -19,11 +19,44 @@ class Splash extends React.Component {
     }
 
     render() {
-        // return null;
-        const photo = this.props.photos ? <img className="splash" src={this.props.photos[0].photoUrl}/> : null;
+        const photo = this.props.photos ? <img className="splash-image" src={this.props.photos[0].photoUrl}/> : null;
         return (
             <div>
-                {photo}
+                <div className="splash-main-banner">
+                    {photo}
+                </div>
+                <div className="splash-main-content1">
+
+                </div>
+                <div className="splash-main-content2">
+
+                </div>
+                <div className="splash-main-content3">
+
+                </div>
+                <div className="splash-main-content4">
+                    <div className="splash-main-content4-module">
+                        <div className="splash-main-content4-module-text">
+                            Thanks for listening. Now join in.
+                        </div>
+                        <p className="splash-main-content4-module-p">
+                            Save tracks, follow artists and build playlists. All for free.
+                        </p>
+                        <div className="splash-main-content4-signup">
+                            <button className="splash-main-content4-signup-btn">
+                                Create account
+                            </button>
+                        </div>
+                        <div className="splash-main-content4-login">
+                            Already have an account? <button className="splash-main-content4-login-btn">Sign in</button>
+                        </div>
+                    </div>
+                </div>
+                <div className="splash-main-footer">
+                    <div className="splash-main-footer-content">
+                        A bunch of legal links
+                    </div>
+                </div>
             </div>
         );
     }

@@ -21,25 +21,28 @@ import {  ProtectedRoute } from '../util/route_util';
 import { openModal } from '../actions/modal_actions';
 
 const App = () => (
-    <div>
+    <div className="main-bg">
             <Modal />
-            <UploadModal/>
+            <UploadModal />
         <nav>
-            <Route path="/"><NavbarContainer /></Route> 
+            {/* <Route path="/"><NavbarContainer /></Route>  */}
         </nav>
-
         <div className="main">
-            <Switch>
-                <ProtectedRoute exact path="/upload" component={TrackUploadContainer} />
-                <Route path='/discover'><DiscoverContainer /></Route>
-                <Route path="/"><Splash /></Route>
-            </Switch>
-            
+            <div className="main-content-container">
+                <div className="main-content">
+                    <div className="main-content2">
+                    <Switch>
+                        <ProtectedRoute exact path="/upload" component={TrackUploadContainer} />
+                        <Route path='/discover'><DiscoverContainer /></Route>
+                        <Route path="/"><Splash /></Route>
+                    </Switch>
+                    </div>
+                </div>
+            </div>
+            <footer>
+                <Route path="/"><ContinuousPlayBar /></Route>
+            </footer>
         </div>
-
-        <footer>
-            <Route path="/"><ContinuousPlayBar/></Route>
-        </footer>
     </div>
 );
 
