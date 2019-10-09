@@ -6,6 +6,7 @@ class Api::TracksController < ApplicationController
 
     def create
         @track = Track.new(track_params)
+        
         if @track.audio_file.attached?
             if @track.save
                 render :show

@@ -1,3 +1,171 @@
 .discover-main {
     padding-top: 46px;
+    position: relative;
 }
+
+.track-discover-main-container {
+    padding-right: 20px;
+    margin-right: 330px;
+    padding-top: 30px;
+    padding-bottom: 0px;
+    padding-left: 0px;
+    border-right: 1px solid #f2f2f2;
+    display: block;
+}
+
+.track-discover-social-container {
+    position: absolute;
+    top: 30px;
+    bottom: 0;
+    right: 0;
+    width: 300px;
+    display: block;
+}
+
+.track-discover-main-modular-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: block;
+}
+
+.track-discover-main-modular-list:before {
+    content: "";
+    display: table;
+}
+
+.track-discover-main-modular-list:before {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.track-discover-main-modular-item {
+    display: list-item;
+    text-align: -webkit-match-parent;
+    list-style: none;
+}
+
+.track-discover-main-modular-module {
+    border-bottom: solid 1px #f2f2f2;
+    margin-bottom: 34px;
+    display: block;
+    list-style: none;
+}
+
+.track-discover-main-modular-module-title {
+    margin-bottom: 24px;
+    display: block;
+}
+
+.track-discover-main-modular-module-title-header {
+    margin-top: 0;
+    margin: 0;
+    font-size: 23px;
+    font-weight: 100;
+    font-family: "Interstate","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;
+    line-height: 1.3;
+    color: #333;
+}
+
+.track-discover-main-modular-module-title-body {
+    margin-top: 5px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+    font-weight: 100;
+    color: #999;
+    font-size: 14px;
+    font-family: "Interstate","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;
+}
+
+.track-discover-main-modular-module-content {
+    height: 220px;
+    box-sizing: border-box;
+    background: #666;
+    position: relative;
+    margin-bottom: 15px;
+    display: block;
+}
+
+.track-discover-main-modular-module-content-gradient {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: block;
+    
+}
+
+.track-discover-main-modular-module-content-gradient2 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 2;
+    opacity: 1;
+    transition: opacity .3s;
+}
+
+.track-discover-main-modular-module-content-artwork {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    height: 180px;
+    width: 180px;
+    display: block;
+}
+
+.track-discover-main-modular-module-content-artwork-image {
+    height: 100%;
+    width: 100%;
+    cursor: pointer;
+}
+
+.track-discover-main-modular-module-content-artwork-image-ph {
+    height: 100%;
+    width: 100%;
+    cursor: pointer;
+    text-align: center;
+    position: relative;
+    background-repeat: no-repeat;
+    background-image: linear-gradient(135deg,#8e8485,#70929c);
+    display: block;
+    background-size: cover;
+    background-position: 50% 50%;
+}
+.track-discover-main-modular-module-content-artwork-image-main {
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+    box-shadow: rgba(0,0,0,.1)0 0 0 1px inset;
+    text-align: center;
+    position: relative;
+    background-repeat: no-repeat;
+    display: block;
+    background-size: cover;
+    background-position: 50% 50%;
+    cursor: pointer;
+}
+
+.track-discover-main-modular-module-content-tracklist {
+    display: block;
+    text-align: -webkit-match-parent;
+    display: block;
+}
+
+.track-discover-main-modular-module-content-tracklist-area {
+    position: absolute;
+    left: 213px;
+    top: 20px;
+    right: 13px;
+    bottom: 20px;
+    overflow: hidden;
+}
+
+.track-discover-main-modular-module-context {
+
+}
+

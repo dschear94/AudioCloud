@@ -33,8 +33,47 @@ class Discover extends React.Component {
         return (
         
             <div className="discover-main">
-                    <h1>All tracks</h1>
-                        {tracks}
+                <div className="track-discover-main-container">
+                    <ul className="track-discover-main-modular-list">
+                        {/* below is dynamic */}
+                        <li className="track-discover-main-modular-item">
+                            <div className="track-discover-main-modular-module">
+                                <div className="track-discover-main-modular-module-title">
+                                    <h2 className="track-discover-main-modular-module-title-header">
+                                        AudioCloud Weekly
+                                    </h2>
+                                    <p className="track-discover-main-modular-module-title-body">
+                                        All of AudioCloud. Just for you.
+                                    </p>
+                                </div>
+                                <div className="track-discover-main-modular-module-content">
+                                    <div className="track-discover-main-modular-module-content-gradient">
+                                        <div className="track-discover-main-modular-module-content-gradient2"></div>
+                                    </div>
+                                    <div className="track-discover-main-modular-module-content-artwork">
+                                        <div className="track-discover-main-modular-module-content-artwork-image">
+                                            <div className="track-discover-main-modular-module-content-artwork-image-ph">
+                                                <span className="track-discover-main-modular-module-content-artwork-image-main"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="track-discover-main-modular-module-content-tracklist">
+                                        <div className="track-discover-main-modular-module-content-tracklist-area">
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="track-discover-main-modular-module-context">
+
+                                </div>
+                            </div>
+                        </li>
+                        {/* above is dynamic */}
+                    </ul>
+                </div>
+                <div className="track-discover-social-container">
+
+                </div>
             </div>
 
         );

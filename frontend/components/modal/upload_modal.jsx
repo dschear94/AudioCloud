@@ -11,7 +11,8 @@ class UploadModal extends React.Component {
         }
         this.handleDrag = this.handleDrag.bind(this);
         this.handleDragLeave = this.handleDragLeave.bind(this);
-        this.handlDrop = this.handleDrop.bind(this);
+        this.handleDrop = this.handleDrop.bind(this);
+        this.handleDragOver = this.handleDragOver.bind(this);
     }
 
     handleDrag(e) {
@@ -30,6 +31,13 @@ class UploadModal extends React.Component {
     }
 
     handleDrop(e) {
+        console.log("DROP")
+        e.preventDefault();
+        e.stopPropagation();
+    }
+
+    handleDragOver(e) {
+        console.log("DRAGO")
         e.preventDefault();
         e.stopPropagation();
     }
@@ -41,6 +49,7 @@ class UploadModal extends React.Component {
                 onClick={closeModal}
                 onDrop={this.handleDrop}
                 onDragLeave={this.handleDragLeave}
+                onDragOver={this.handleDragOver}
             >
                 <div
                     className="upload-modal-dropbox"
