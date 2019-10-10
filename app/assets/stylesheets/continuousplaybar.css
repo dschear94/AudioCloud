@@ -1,6 +1,126 @@
-footer {
+.cpb {
     position: fixed;
     bottom: 0;
+    visibility: hidden;
     width: 100%;
+    -webkit-perspective: 900;
+    perspective-origin: 80% 100%;
+    z-index: 999;
+    display: block;
+    font: 12px/1.4 "Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;
+    color: #333;
+}
+
+.cpb-content-info {
+    transform: translateY(0);
+    background-color: #f2f2f2;
+    border-top: 1px solid #cecece;
     height: 48px;
+    visibility: visible;
+    display: block;
+    font: 12px/1.4 "Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;
+    color: #333;
+}
+
+.cpb-content-info-wrapper {
+    width: 1240px;
+    padding: 0;
+    visibility: visible;
+    position: relative;
+    height: 100%;
+    margin: 0 auto;
+    display: block;
+}
+
+.cpb-content-info-wrapper:before {
+    content: "";
+    display: table;
+}
+
+.cpb-content-info-wrapper:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.cpb-content-bg {
+    background-color: #f2f2f2;
+    border-top: 1px solid #cecece;
+    position: absolute;
+    top: -1px;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    display: block;
+    visibility: visible;
+    font: 12px/1.4 "Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;
+    color: #333;
+}
+
+.cpb-content-elements {
+    display: flex;
+    position: relative;
+    height: 100%;
+    visibility: visible;
+}
+
+
+.cpb-skip-back {
+    /* background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zd…lsbD0iIzMzMyIgZD0iTTcgNmgydjEySDdWNnptMiA2bDggNlY2bC04IDZ6Ii8+PC9zdmc+Cg==); */
+    background-position: 40% center;
+    background-repeat: no-repeat;
+    padding: 0;
+    width: 24px;
+    height: 100%;
+    margin: 0 0 0 12px;
+    border: 0;
+    font: 0/0 a;
+    text-shadow: none;
+    color: transparent;
+    background-color: transparent;
+    -webkit-appearance: button;
+    cursor: pointer;
+    visibility: visible;
+    /* temp */
+    font: 12px/1.4 "Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;
+    color: #333;
+}
+
+.cpb-play {
+    /* background: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zd…VpZ2h0PSIyNCI+PHBhdGggZmlsbD0iIzMzMyIgZD0iTTggNXYxNGwxMS03eiIvPjwvc3ZnPgo=) no-repeat 55% center; */
+    padding: 0;
+    width: 24px;
+    height: 100%;
+    margin: 0 0 0 12px;
+    border: 0;
+    font: 0/0 a;
+    text-shadow: none;
+    color: transparent;
+    -webkit-appearance: button;
+    cursor: pointer;
+    visibility: visible;
+    /* temp */
+    font: 12px/1.4 "Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;
+    color: #333;
+}
+
+.cpb-skip-forward {
+    /* background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zd…0iIzMzMyIgZD0iTTcgMThsOC02LTgtNnYxMnptOC0xMnYxMmgyVjZoLTJ6Ii8+PC9zdmc+Cg==); */
+    background-position: 60% center;
+    background-repeat: no-repeat;
+    padding: 0;
+    width: 24px;
+    height: 100%;
+    margin: 0 0 0 12px;
+    border: 0;
+    font: 0/0 a;
+    text-shadow: none;
+    color: black;
+    background-color: transparent;
+    -webkit-appearance: button;
+    cursor: pointer;
+    visibility: visible;
+    /* temp */
+    font: 12px/1.4 "Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;
+    color: #333;
 }

@@ -37,9 +37,9 @@ const App = () => (
                     </div>
                 </div>
             </div>
-            <footer>
-                <Route path="/"><ContinuousPlayBar /></Route>
-            </footer>
+        </div>
+        <div className="cpb">
+            <Route path="/"><ContinuousPlayBar /></Route>
         </div>
     </div>
 );
