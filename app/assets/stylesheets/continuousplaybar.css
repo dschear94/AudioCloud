@@ -66,7 +66,6 @@
 
 
 .cpb-skip-back {
-    /* background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zd…lsbD0iIzMzMyIgZD0iTTcgNmgydjEySDdWNnptMiA2bDggNlY2bC04IDZ6Ii8+PC9zdmc+Cg==); */
     background-position: 40% center;
     background-repeat: no-repeat;
     padding: 0;
@@ -87,7 +86,6 @@
 }
 
 .cpb-play {
-    /* background: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zd…VpZ2h0PSIyNCI+PHBhdGggZmlsbD0iIzMzMyIgZD0iTTggNXYxNGwxMS03eiIvPjwvc3ZnPgo=) no-repeat 55% center; */
     padding: 0;
     width: 24px;
     height: 100%;
@@ -105,7 +103,6 @@
 }
 
 .cpb-skip-forward {
-    /* background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zd…0iIzMzMyIgZD0iTTcgMThsOC02LTgtNnYxMnptOC0xMnYxMmgyVjZoLTJ6Ii8+PC9zdmc+Cg==); */
     background-position: 60% center;
     background-repeat: no-repeat;
     padding: 0;
