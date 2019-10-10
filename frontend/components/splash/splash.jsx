@@ -8,7 +8,41 @@ class Splash extends React.Component {
         super(props);
     }
 
+    componentDidMount() {
+        this.props.fetchTracks();
+    }
+
     render() {
+        debugger
+        const trackitems = this.props.tracks.slice(0, 12).map(track => {
+        return (
+        <li
+        key={track.id} 
+        className="splash-main-content1-trendingtracks-content-item">
+            <div className="splash-main-content1-trendingtracks-tile">
+                <div className="splash-main-content1-trendingtracks-tile-artwork">
+                    <div className="splash-main-content1-trendingtracks-tile-artwork-image">
+                        <div className="splash-main-content1-trendingtracks-tile-artwork-image-placeholder">
+                            <span 
+                                className="splash-main-content1-trendingtracks-tile-artwork-image-official"
+                                style={{ backgroundImage: "url(" + track.photoUrl + ")" }}></span>
+                        </div>
+                    </div>
+                    <button className="splash-main-content1-trendingtracks-tile-playbtn-container">
+                    </button>
+                </div>
+                <div className="splash-main-content1-trendingtracks-tile-description">
+                    <div className="splash-main-content1-trendingtracks-tile-description1">
+                        {track.title}
+                    </div>
+                    <div className="splash-main-content1-trendingtracks-tile-description2">
+                        {track.artist_id}
+                    </div>
+                </div>
+            </div>
+        </li>
+        )
+    });
         return (
             <div>
                 <div className="splash-main-banner">
@@ -70,258 +104,7 @@ class Splash extends React.Component {
                         </div>
                         <div className="splash-main-content1-trendingtracks-content">
                             <ul className="splash-main-content1-trendingtracks-content-list">
-                                <li className="splash-main-content1-trendingtracks-content-item">
-                                    <div className="splash-main-content1-trendingtracks-tile">
-                                        <div className="splash-main-content1-trendingtracks-tile-artwork">
-                                            <div className="splash-main-content1-trendingtracks-tile-artwork-image">
-                                                <div className="splash-main-content1-trendingtracks-tile-artwork-image-placeholder">
-                                                    <span className="splash-main-content1-trendingtracks-tile-artwork-image-official"></span>
-                                                </div>
-                                            </div>
-                                            <button className="splash-main-content1-trendingtracks-tile-playbtn-container">
-                                            </button>
-                                        </div>
-                                        <div className="splash-main-content1-trendingtracks-tile-description">
-                                            <div className="splash-main-content1-trendingtracks-tile-description1">
-                                                {/* data */}
-                                            </div>
-                                            <div className="splash-main-content1-trendingtracks-tile-description2">
-                                                {/* data */}
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li className="splash-main-content1-trendingtracks-content-item">
-                                    <div className="splash-main-content1-trendingtracks-tile">
-                                        <div className="splash-main-content1-trendingtracks-tile-artwork">
-                                            <div className="splash-main-content1-trendingtracks-tile-artwork-image">
-                                                <div className="splash-main-content1-trendingtracks-tile-artwork-image-placeholder">
-                                                    <span className="splash-main-content1-trendingtracks-tile-artwork-image-official"></span>
-                                                </div>
-                                            </div>
-                                            <button className="splash-main-content1-trendingtracks-tile-playbtn-container">
-                                            </button>
-                                        </div>
-                                        <div className="splash-main-content1-trendingtracks-tile-description">
-                                            <div className="splash-main-content1-trendingtracks-tile-description1">
-                                                {/* data */}
-                                            </div>
-                                            <div className="splash-main-content1-trendingtracks-tile-description2">
-                                                {/* data */}
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li className="splash-main-content1-trendingtracks-content-item">
-                                    <div className="splash-main-content1-trendingtracks-tile">
-                                        <div className="splash-main-content1-trendingtracks-tile-artwork">
-                                            <div className="splash-main-content1-trendingtracks-tile-artwork-image">
-                                                <div className="splash-main-content1-trendingtracks-tile-artwork-image-placeholder">
-                                                    <span className="splash-main-content1-trendingtracks-tile-artwork-image-official"></span>
-                                                </div>
-                                            </div>
-                                            <button className="splash-main-content1-trendingtracks-tile-playbtn-container">
-                                            </button>
-                                        </div>
-                                        <div className="splash-main-content1-trendingtracks-tile-description">
-                                            <div className="splash-main-content1-trendingtracks-tile-description1">
-                                                {/* data */}
-                                            </div>
-                                            <div className="splash-main-content1-trendingtracks-tile-description2">
-                                                {/* data */}
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li className="splash-main-content1-trendingtracks-content-item">
-                                    <div className="splash-main-content1-trendingtracks-tile">
-                                        <div className="splash-main-content1-trendingtracks-tile-artwork">
-                                            <div className="splash-main-content1-trendingtracks-tile-artwork-image">
-                                                <div className="splash-main-content1-trendingtracks-tile-artwork-image-placeholder">
-                                                    <span className="splash-main-content1-trendingtracks-tile-artwork-image-official"></span>
-                                                </div>
-                                            </div>
-                                            <button className="splash-main-content1-trendingtracks-tile-playbtn-container">
-                                            </button>
-                                        </div>
-                                        <div className="splash-main-content1-trendingtracks-tile-description">
-                                            <div className="splash-main-content1-trendingtracks-tile-description1">
-                                                {/* data */}
-                                            </div>
-                                            <div className="splash-main-content1-trendingtracks-tile-description2">
-                                                {/* data */}
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li className="splash-main-content1-trendingtracks-content-item">
-                                    <div className="splash-main-content1-trendingtracks-tile">
-                                        <div className="splash-main-content1-trendingtracks-tile-artwork">
-                                            <div className="splash-main-content1-trendingtracks-tile-artwork-image">
-                                                <div className="splash-main-content1-trendingtracks-tile-artwork-image-placeholder">
-                                                    <span className="splash-main-content1-trendingtracks-tile-artwork-image-official"></span>
-                                                </div>
-                                            </div>
-                                            <button className="splash-main-content1-trendingtracks-tile-playbtn-container">
-                                            </button>
-                                        </div>
-                                        <div className="splash-main-content1-trendingtracks-tile-description">
-                                            <div className="splash-main-content1-trendingtracks-tile-description1">
-                                                {/* data */}
-                                            </div>
-                                            <div className="splash-main-content1-trendingtracks-tile-description2">
-                                                {/* data */}
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li className="splash-main-content1-trendingtracks-content-item">
-                                    <div className="splash-main-content1-trendingtracks-tile">
-                                        <div className="splash-main-content1-trendingtracks-tile-artwork">
-                                            <div className="splash-main-content1-trendingtracks-tile-artwork-image">
-                                                <div className="splash-main-content1-trendingtracks-tile-artwork-image-placeholder">
-                                                    <span className="splash-main-content1-trendingtracks-tile-artwork-image-official"></span>
-                                                </div>
-                                            </div>
-                                            <button className="splash-main-content1-trendingtracks-tile-playbtn-container">
-                                            </button>
-                                        </div>
-                                        <div className="splash-main-content1-trendingtracks-tile-description">
-                                            <div className="splash-main-content1-trendingtracks-tile-description1">
-                                                {/* data */}
-                                            </div>
-                                            <div className="splash-main-content1-trendingtracks-tile-description2">
-                                                {/* data */}
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li className="splash-main-content1-trendingtracks-content-item">
-                                    <div className="splash-main-content1-trendingtracks-tile">
-                                        <div className="splash-main-content1-trendingtracks-tile-artwork">
-                                            <div className="splash-main-content1-trendingtracks-tile-artwork-image">
-                                                <div className="splash-main-content1-trendingtracks-tile-artwork-image-placeholder">
-                                                    <span className="splash-main-content1-trendingtracks-tile-artwork-image-official"></span>
-                                                </div>
-                                            </div>
-                                            <button className="splash-main-content1-trendingtracks-tile-playbtn-container">
-                                            </button>
-                                        </div>
-                                        <div className="splash-main-content1-trendingtracks-tile-description">
-                                            <div className="splash-main-content1-trendingtracks-tile-description1">
-                                                {/* data */}
-                                            </div>
-                                            <div className="splash-main-content1-trendingtracks-tile-description2">
-                                                {/* data */}
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li className="splash-main-content1-trendingtracks-content-item">
-                                    <div className="splash-main-content1-trendingtracks-tile">
-                                        <div className="splash-main-content1-trendingtracks-tile-artwork">
-                                            <div className="splash-main-content1-trendingtracks-tile-artwork-image">
-                                                <div className="splash-main-content1-trendingtracks-tile-artwork-image-placeholder">
-                                                    <span className="splash-main-content1-trendingtracks-tile-artwork-image-official"></span>
-                                                </div>
-                                            </div>
-                                            <button className="splash-main-content1-trendingtracks-tile-playbtn-container">
-                                            </button>
-                                        </div>
-                                        <div className="splash-main-content1-trendingtracks-tile-description">
-                                            <div className="splash-main-content1-trendingtracks-tile-description1">
-                                                {/* data */}
-                                            </div>
-                                            <div className="splash-main-content1-trendingtracks-tile-description2">
-                                                {/* data */}
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li className="splash-main-content1-trendingtracks-content-item">
-                                    <div className="splash-main-content1-trendingtracks-tile">
-                                        <div className="splash-main-content1-trendingtracks-tile-artwork">
-                                            <div className="splash-main-content1-trendingtracks-tile-artwork-image">
-                                                <div className="splash-main-content1-trendingtracks-tile-artwork-image-placeholder">
-                                                    <span className="splash-main-content1-trendingtracks-tile-artwork-image-official"></span>
-                                                </div>
-                                            </div>
-                                            <button className="splash-main-content1-trendingtracks-tile-playbtn-container">
-                                            </button>
-                                        </div>
-                                        <div className="splash-main-content1-trendingtracks-tile-description">
-                                            <div className="splash-main-content1-trendingtracks-tile-description1">
-                                                {/* data */}
-                                            </div>
-                                            <div className="splash-main-content1-trendingtracks-tile-description2">
-                                                {/* data */}
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li className="splash-main-content1-trendingtracks-content-item">
-                                    <div className="splash-main-content1-trendingtracks-tile">
-                                        <div className="splash-main-content1-trendingtracks-tile-artwork">
-                                            <div className="splash-main-content1-trendingtracks-tile-artwork-image">
-                                                <div className="splash-main-content1-trendingtracks-tile-artwork-image-placeholder">
-                                                    <span className="splash-main-content1-trendingtracks-tile-artwork-image-official"></span>
-                                                </div>
-                                            </div>
-                                            <button className="splash-main-content1-trendingtracks-tile-playbtn-container">
-                                            </button>
-                                        </div>
-                                        <div className="splash-main-content1-trendingtracks-tile-description">
-                                            <div className="splash-main-content1-trendingtracks-tile-description1">
-                                                {/* data */}
-                                            </div>
-                                            <div className="splash-main-content1-trendingtracks-tile-description2">
-                                                {/* data */}
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li className="splash-main-content1-trendingtracks-content-item">
-                                    <div className="splash-main-content1-trendingtracks-tile">
-                                        <div className="splash-main-content1-trendingtracks-tile-artwork">
-                                            <div className="splash-main-content1-trendingtracks-tile-artwork-image">
-                                                <div className="splash-main-content1-trendingtracks-tile-artwork-image-placeholder">
-                                                    <span className="splash-main-content1-trendingtracks-tile-artwork-image-official"></span>
-                                                </div>
-                                            </div>
-                                            <button className="splash-main-content1-trendingtracks-tile-playbtn-container">
-                                            </button>
-                                        </div>
-                                        <div className="splash-main-content1-trendingtracks-tile-description">
-                                            <div className="splash-main-content1-trendingtracks-tile-description1">
-                                                {/* data */}
-                                            </div>
-                                            <div className="splash-main-content1-trendingtracks-tile-description2">
-                                                {/* data */}
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li className="splash-main-content1-trendingtracks-content-item">
-                                    <div className="splash-main-content1-trendingtracks-tile">
-                                        <div className="splash-main-content1-trendingtracks-tile-artwork">
-                                            <div className="splash-main-content1-trendingtracks-tile-artwork-image">
-                                                <div className="splash-main-content1-trendingtracks-tile-artwork-image-placeholder">
-                                                    <span className="splash-main-content1-trendingtracks-tile-artwork-image-official"></span>
-                                                </div>
-                                            </div>
-                                            <button className="splash-main-content1-trendingtracks-tile-playbtn-container">
-                                            </button>
-                                        </div>
-                                        <div className="splash-main-content1-trendingtracks-tile-description">
-                                            <div className="splash-main-content1-trendingtracks-tile-description1">
-                                                {/* data */}
-                                            </div>
-                                            <div className="splash-main-content1-trendingtracks-tile-description2">
-                                                {/* data */}
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
+                                {trackitems}
                             </ul>
                         </div>
                         <div className="splash-main-content1-trendingtracks-btncontainer">

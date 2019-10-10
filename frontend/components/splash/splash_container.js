@@ -1,14 +1,16 @@
 import { connect } from 'react-redux';
 import { openModal } from '../../actions/modal_actions';
 import Splash from './splash';
+import {fetchTracks} from '../../actions/track_actions'
 
 const msp = state => {
-    return { photos: state.entities.photos } || [];
+    debugger
+    return { tracks: state.entities.tracks || [] };
 };
 
 const mdp = dispatch => {
     return ({
-        fetchPhotos: () => dispatch(fetchPhotos()),
+        fetchTracks: () => dispatch(fetchTracks()),
         openModal: modal => dispatch(openModal(modal))
     })
 };
