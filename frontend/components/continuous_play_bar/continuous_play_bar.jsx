@@ -44,6 +44,10 @@ class ContinuousPlayBar extends React.Component {
         e.preventDefault();
     }
 
+    trackSkipbwd(e) {
+        e.preventDefault();
+    }
+
     render() {
         return (
             <div className="cpb">
