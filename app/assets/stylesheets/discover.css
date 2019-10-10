@@ -339,3 +339,61 @@
 }
 
 
+
+
+
+
+.track-discover-main-modular-module-content2 {
+    position: relative;
+    display: block;
+    text-align: -webkit-match-parent;
+    list-style: none;
+    font: 12px/1.4 "Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;
+    color: #333;
+
+}
+
+.track-discover-main-modular-module-gallery {
+    position: relative;
+    overflow: hidden;
+    padding-top: 5px;
+    margin-top: -5px;
+    display: block;
+    text-align: -webkit-match-parent;
+    list-style: none;
+    font: 12px/1.4 "Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;
+    color: #333;
+}
+
+.track-discover-main-modular-module-gallery-ctr {
+    backface-visibility: hidden;
+    transform: translate3d(0,0,0);
+    display: block;
+    text-align: -webkit-match-parent;
+    list-style: none;
+    font: 12px/1.4 "Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;
+    color: #333;
+}
+
+.track-discover-main-modular-module-gallery-slider {
+    transition: transform .6s ease-in-out 0s;
+    backface-visibility: hidden;
+    transform: translate3d(0,0,0);
+    display: flex;
+    margin-right: -20px;
+}
+
+.track-discover-main-modular-module-gallery-item {
+    width: 23%;
+    flex: 0 0 23%;
+    padding-right: 20px;
+    box-sizing: border-box;
+    backface-visibility: hidden;
+    position: relative;
+    z-index: 20;
+    display: block;
+    text-align: -webkit-match-parent;
+    list-style: none;
+    font: 12px/1.4 "Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;
+    color: #333;
+}

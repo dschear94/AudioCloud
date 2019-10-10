@@ -43,7 +43,7 @@ const Navbar = (props) => {
                                     </li>
                                     <li className="nav-left-main-li">
                                         {currentUser ?
-                                            <Link className="navLink" to="/">Library</Link>
+                                            <Link className="navLink" to="/you/library">Library</Link>
                                             : <div className="navLink" onClick={() => openModal('entry')}>Library</div>}
                                     </li>
                                 </ul>

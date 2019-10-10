@@ -121,3 +121,227 @@
     font: 12px/1.4 "Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;
     color: #333;
 }
+
+.cpb-shuffle {
+    width: 24px;
+    height: 100%;
+    margin: 0 0 0 12px;
+    display: block;
+    visibility: visible;
+}
+
+.cpb-shuffle-btn {
+    position: relative;
+    border: 0;
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    width: 100%;
+    outline: none;
+    background: 0 0;
+    font: 0/0 a;
+    text-shadow: none;
+    color: transparent;
+    -webkit-appearance: button;
+    cursor: pointer;
+    visibility: visible;
+    font: 12px/1.4 "Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;
+    color: #333;
+}
+
+.cpb-shuffle-btn:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-position: center center;
+    transition: opacity .2s;
+}
+
+.cpb-shuffle-btn:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-position: center center;
+    transition: opacity .2s;
+}
+
+.cpb-repeat {
+    margin-right: 20px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-left: 12px;
+    width: 24px;
+    height: 100%;
+    display: block;
+    visibility: visible;
+    font: 12px/1.4 "Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;
+    color: #333;
+}
+
+.cpb-repeat-btn {
+    background-repeat: no-repeat;
+    background-position: center center;
+    cursor: pointer;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    height: 100%;
+    width: 100%;
+    border: 0;
+    font: 0/0 a;
+    text-shadow: none;
+    color: transparent;
+    background-color: transparent;
+    -webkit-appearance: button;
+    visibility: visible;
+    font: 12px/1.4 "Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;
+    color: #333;
+    cursor: pointer;
+}
+
+.cpb-repeat-btn:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0;
+    background-repeat: no-repeat;
+    background-position: center center;
+    cursor: pointer;
+}
+
+.cpb-repeat-btn:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0;
+    background-repeat: no-repeat;
+    background-position: center center;
+    cursor: pointer;
+}
+
+.cpb-timeline {
+    margin-right: 12px;
+    flex-grow: 1;
+    display: block;
+    visibility: visible;
+}
+
+.cpb-timeline-content {
+    visibility: visible;
+    display: flex;
+    font-size: 11px;
+}
+
+.cpb-timeline-timepassed {
+    width: 50px;
+    height: 46px;
+    color: #f50;
+    text-align: right;
+    line-height: 46px;
+    display: block;
+    visibility: visible;
+    font-size: 11px;
+}
+
+.cpb-timeline-timepassed-show {
+    color: #f50;
+    text-align: right;
+    line-height: 46px;
+    visibility: visible;
+    font-size: 11px;
+}
+
+.cpb-timeline-progress {
+    flex-grow: 1;
+    padding: 10px 0;
+    margin: 13px 10px 0 10px;
+    position: relative;
+    line-height: 46px;
+    display: block;
+    visibility: visible;
+}
+
+.cpb-timeline-progress-bg {
+    width: 100%;
+    height: 1px;
+    background-color: #ccc;
+    position: absolute;
+    display: block;
+    line-height: 46px;
+    visibility: visible;
+    font-size: 11px;
+}
+
+.cpb-timeline-progress-timepassed {
+    min-width: 0px;
+    width: 41.9935%;
+    /* maybe change above */
+    height: 1px;
+    background-color: #f50;
+    position: absolute;
+    display: block;
+    line-height: 46px;
+    visibility: visible;
+    font-size: 11px;
+}
+
+.cpb-timeline-progress-handle {
+    left: 41.9935%;
+    /* maybe change above */
+    border: 1px solid #f50;
+    border-radius: 100%;
+    height: 8px;
+    width: 8px;
+    background-color: #f50;
+    box-sizing: border-box;
+    margin-top: -4px;
+    margin-left: -4px;
+    opacity: 0;
+    transition: opacity 150ms;
+    position: absolute;
+    font: 0/0 a;
+    text-shadow: none;
+    color: transparent;
+    display: block;
+    visibility: visible;
+
+}
+
+.cpb-timeline-duration {
+    width: 50px;
+    height: 46px;
+    color: #333;
+    text-align: left;
+    cursor: pointer;
+    line-height: 46px;
+    display: block;
+    visibility: visible;
+    font-size: 11px;
+    font: "Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;
+}
+
+.cpb-timeline-duration-show {
+    color: #333;
+    text-align: left;
+    cursor: pointer;
+    line-height: 46px;
+    visibility: visible;
+    font-size: 11px;
+    font: "Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;
+}
