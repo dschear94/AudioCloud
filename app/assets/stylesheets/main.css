@@ -131,9 +131,8 @@
     line-height: 24px;
     margin: 0 0 0 6px;
     background: 0 0;
+    border: 1px solid #ccc;
     color: #fff;
-    border-color: #ccc;
-    border: 1px;
     display: inline-block;
     position: relative;
     border-radius: 3px;
@@ -145,6 +144,10 @@
     text-align: center;
     vertical-align: baseline;
     box-sizing: border-box;
+}
+
+.splash-main-banner-hero-login-btn:hover {
+    border: 1px solid #fff;
 }
 
 .splash-main-banner-hero-signup-btn {

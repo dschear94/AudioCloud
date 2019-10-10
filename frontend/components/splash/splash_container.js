@@ -4,7 +4,6 @@ import Splash from './splash';
 import {fetchTracks} from '../../actions/track_actions'
 
 const msp = state => {
-    debugger
     return { tracks: state.entities.tracks || [] };
 };
 

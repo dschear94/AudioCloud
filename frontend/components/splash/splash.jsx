@@ -13,7 +13,6 @@ class Splash extends React.Component {
     }
 
     render() {
-        debugger
         const trackitems = this.props.tracks.slice(0, 12).map(track => {
         return (
         <li
@@ -100,7 +99,7 @@ class Splash extends React.Component {
                     </div>
                     <div className="splash-main-content1-trendingtracks">
                         <div className="splash-main-content1-trendingtracks-title">
-                            Hear what’s trending for free in the SoundCloud community
+                            Hear what’s trending for free in the AudioCloud community
                         </div>
                         <div className="splash-main-content1-trendingtracks-content">
                             <ul className="splash-main-content1-trendingtracks-content-list">
