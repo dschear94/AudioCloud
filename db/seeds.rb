@@ -34,7 +34,7 @@ track20 = Track.create({title: "underground20" , album: "none", artist_id: 2 });
 
 
 
-musicfile1 = open('/Users/derekschear/Desktop/audiocloud_tracks/Serge Devant - This Moment (Original Mix).wav')
+musicfile1 = open('/Users/derekschear/Desktop/audiocloud_tracks/01 Esente (Original Mix).mp3')
 musicfile2 = open('/Users/derekschear/Desktop/audiocloud_tracks/01 Esente (Original Mix).mp3')
 musicfile3 = open('/Users/derekschear/Desktop/audiocloud_tracks/01 Trimming.mp3')
 musicfile4 = open('/Users/derekschear/Desktop/audiocloud_tracks/02 le grand dome.mp3')
