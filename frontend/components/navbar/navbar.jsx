@@ -8,45 +8,70 @@ import { withRouter } from 'react-router-dom';
 const Navbar = (props) => {
     let { currentUser, logout, openModal } = props;
     const sessionLinks = () => (
-            <ul className="profile-nav">
-                <li className="profile-nav-login" onClick={() => openModal('entry')}>Sign in</li>
-                <li className="profile-nav-signup" onClick={() => openModal('entry')}>Create account</li>
-            </ul>
+            <div className="nav-right-main-session">
+                <div className="profile-nav-login" onClick={() => openModal('entry')}>Sign in</div>
+                <div className="profile-nav-signup" onClick={() => openModal('entry')}>Create account</div>
+            </div>
     );
     const personalGreeting = () => (
-            <ul className="profile-nav">
-                <li className="profile-nav-logout" onClick={logout}>Log Out</li>
-            </ul>
+        <div className="nav-right-main-session">
+                <div className="profile-nav-logout" onClick={logout}>Log Out</div>
+            </div>
     );
 
         if (props.match.path === "/" && props.match.isExact && !currentUser) {
             return null;
         } else {
             return (
-                <div className="nav-main">
-                    <ul className="nav-left-main">
-                        <Link to="/" className="logo">ACdev</Link>
-                        <li>
-                            <Link className="navLink" to="/discover">Home</Link>
-                        </li>
-                        <li>
-                            {currentUser ? 
-                            <Link className="navLink" to="/stream">Stream</Link>
-                            : <div className="navLink" onClick={() => openModal('entry')}>Stream</div>}
-                        </li>
-                        <li>
-                            {currentUser ? 
-                            <Link className="navLink" to="/">Library</Link>
-                            : <div className="navLink" onClick={() => openModal('entry')}>Library</div>}
-                        </li>
-                        <li>
-                            {currentUser ? 
-                            <Link className="navLink" to="/upload">Upload</Link>
-                            : <div className="navLink" onClick={() => openModal('entry')}>Upload</div>}
-                        </li>
-                        {/* <li><Link className="navLink" to="/upload">Upload</Link></li> */}
-                    </ul>
-                    {currentUser ? personalGreeting() : sessionLinks()}
+                <div className="nav">
+                    <div className="nav-main">
+                        <div className="nav-left-main">
+                            <div className="nav-left-main-logo">
+                                <div className="nav-left-main-logo-link">
+                                    <Link to="/">ACdev</Link>
+                                </div>
+                            </div>
+                            <div className="nav-left-container">
+                                <ul className="nav-left-main-ul">
+                                    <li className="nav-left-main-li">
+                                        <Link className="navLink" to="/discover">Home</Link>
+                                    </li>
+                                    <li className="nav-left-main-li">
+                                        {currentUser ?
+                                            <Link className="navLink" to="/stream">Stream</Link>
+                                            : <div className="navLink" onClick={() => openModal('entry')}>Stream</div>}
+                                    </li>
+                                    <li className="nav-left-main-li">
+                                        {currentUser ?
+                                            <Link className="navLink" to="/">Library</Link>
+                                            : <div className="navLink" onClick={() => openModal('entry')}>Library</div>}
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div className="nav-center-main">
+                            <div className="nav-center-searchbar-container">
+                                <form className="nav-center-searchbar-form">
+                                    <input type="search"
+                                    className="nav-center-searchbar-input"
+                                    placeholder="search coming soon." />
+                                </form>
+                            </div>
+                        </div>
+                        <div className="nav-right-main">
+                                {currentUser ? personalGreeting() : sessionLinks()}
+                            <div className="nav-right-main-upload">
+                                {currentUser ?
+                                    <Link className="navLinkupload" to="/upload">Upload</Link>
+                                    : <div className="navLinkupload" onClick={() => openModal('entry')}>Upload</div>}
+                            </div>
+                            <ul className="nav-right-main-dropdown">
+                                <li className="nav-right-main-dropdown-dots">
+                                    <a className="nav-right-main-dropdown-dots-actual"></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             )
         }

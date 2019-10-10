@@ -1,57 +1,137 @@
-nav {
+.nav {
     width: 100%;
     font: 100 14px/1.5 "Interstate","Lucida Grande",Arial,sans-serif;
-    /* height: 46px; */
+    background: #333 ;
+    height: 46px;
+    transition: height .2s ease-in-out;
     position: fixed;
-    display: block;
-    display: flex;
-    margin: 0 auto;
-    top: 0;
-    min-width: 800px;
     z-index: 1000;
+    color: #999;
+    user-select: none;
+    cursor: default;
+    outline: 0;
+    display: block;
 }
 
 .nav-main {
-    display: block;
-    height: 46px;
-    width: 100%;
-    background-color: #333;
-    color: #cacaca;
+    padding: 0;
+    display: flex;
+    width: 1240px;
+    margin: 0 auto;
+    color: #999;
 }
 
-.logo {
-    float: left;
-    display: block;
-    height: 46px;
-    width: 69px;
-    font: 100 14px/1.5 "Interstate","Lucida Grande",Arial,sans-serif;
-    text-align: center;
-    box-sizing: border-box;
-    top: 0;
-    padding: 12px;
+.nav-main:before {
+    content: "";
+    display: table;
+}
+
+.nav-main:after {
+    content: "";
+    display: table;
+    clear: both;
 }
 
 .nav-left-main {
     display: block;
+    font: 100 14px/1.5 "Interstate","Lucida Grande",Arial,sans-serif;
+    color: #999;
+    user-select: none;
+    cursor: default;
+}
+
+.nav-center-main {
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 0%;
+    display: block;
+    font: 100 14px/1.5 "Interstate","Lucida Grande",Arial,sans-serif;
+    user-select: none;
+    cursor: default;
+    color: #999;
+}
+
+.nav-right-main {
+    display: block;
+    visibility: visible;
+    font: 100 14px/1.5 "Interstate","Lucida Grande",Arial,sans-serif;
+    color: #999;
+    user-select: none;
+    cursor: default;
+}
+
+.nav-right-main:before {
+    content: "";
+    display: table;
+}
+
+.nav-right-main:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.nav-left-main-logo {
+    background: linear-gradient(#f70,#f30);
+    float: left;
+    display: block;
+    font: 100 14px/1.5 "Interstate","Lucida Grande",Arial,sans-serif;
+    color: #999;
+    user-select: none;
+    cursor: default;
+}
+
+.nav-left-main-logo-link {
+    color: #ccc;
+    text-decoration: none;
+    width: 184px;
+    background: url(https://a-v2.sndcdn.com/assets/images/header/cloud-e365a47.png) no-repeat 12px 11px;
+    background-size: 48px 22px;
+    height: 46px;
+    display: block;
+    border: 0;
+    font: 0/0 a;
+    text-shadow: none;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+.nav-left-main-logo-link:after {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    background-size: 115px 22px;
+}
+
+.nav-left-container {
+    display: block;
     visibility: visible;
     float: left;
-    height: 46px;
-    list-style: none;
-    margin: 0;
-    display: block;
-    top: 0;
+    color: #999;
+    user-select: none;
+    cursor: default;
     font: 100 14px/1.5 "Interstate","Lucida Grande",Arial,sans-serif;
 }
 
-.nav-left-main>li {
+.nav-left-main-ul {
+    float: left;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: block;
+    color: #999;
+    user-select: none;
+    cursor: default;
+}
+
+.nav-left-main-li {
     float: left;
     position: relative;
     display: list-item;
     text-align: -webkit-match-parent;
     list-style: none;
-    margin: 0;
-    height: 46px;
-    top:0;
+    color: #999;
 }
 
 .navLink {
@@ -62,34 +142,156 @@ nav {
     border-right: 1px solid #111;
     box-sizing: border-box;
     text-align: center;
+    color: #ccc;
+    text-decoration: none;
     cursor: pointer;
-}
-
-.profile-nav {
-    float: right;
-    height: 46px;
-    width: 200px;
-    text-align: center;
+    visibility: visible;
+    font: 100 14px/1.5 "Interstate","Lucida Grande",Arial,sans-serif;
 }
 
 .navLink:hover {
     color: white;
+}
+
+.nav-center-searchbar-container {
+    display: block;
+    visibility: visible;
+    font: 100 14px/1.5 "Interstate","Lucida Grande",Arial,sans-serif;
+    color: #999;
+    user-select: none;
+    cursor: default;
+}
+
+.nav-center-searchbar-form {
+    padding: 9px 10px 8px;
+    position: relative;
+    display: block;
+    margin-top: 0em;
+    visibility: visible;
+    font: 100 14px/1.5 "Interstate","Lucida Grande",Arial,sans-serif;
+    color: #999;
+    user-select: none;
+    cursor: default;
+}
+
+.nav-center-searchbar-input {
+    color: #666;
+    outline: 0;
+    border: 0;
+    padding: 5px 7px;
+    background: #e5e5e5;
+    box-sizing: border-box;
+    height: 28px;
+    width: 100%;
+    transition: all 300ms ease-in-out;
+    display: inline-block;
+    font-family: "Interstate","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;
+    font-weight: 100;
+    font-size: 14px;
+    line-height: 20px;
+    border-radius: 4px;
+    margin: 0;
+    visibility: visible;
+    user-select: none;
+}
+
+.nav-right-main-session {
+    padding: 9px 10px 10px 10px;
+    float: left;
+    display: block;
+    visibility: visible;
+    font: 100 14px/1.5 "Interstate","Lucida Grande",Arial,sans-serif;
+    user-select: none;
+    cursor: default;
+}
+
+.nav-right-main-upload {
+    float: left;
+    display: block;
+    visibility: visible;
+    font: 100 14px/1.5 "Interstate","Lucida Grande",Arial,sans-serif;
+    color: #999;
+    user-select: none;
+    cursor: default;
+}
+
+.nav-right-main-dropdown {
+    float: left;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    visibility: visible;
+    font: 100 14px/1.5 "Interstate","Lucida Grande",Arial,sans-serif;
+    color: #999;
+    user-select: none;
+    cursor: default;
+}
+
+.nav-right-main-dropdown:before {
+    content: "";
+    display: table;
+}
+
+.nav-right-main-dropdown:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.nav-right-main-dropdown-dots {
+    float: left;
+    position: relative;
+    list-style: none;
+    visibility: visible;
+}
+
+.nav-right-main-dropdown-dots-actual {
+    opacity: 1;
+    width: 46px;
+    height: 46px;
+    background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiI…9lbGxpcHNlPgogICAgICAgICAgICA8L2c+CiAgICAgICAgPC9nPgogICAgPC9nPgo8L3N2Zz4=) 50% 50% no-repeat;
+    border: 0;
+    box-sizing: border-box;
+    text-align: center;
+    display: block;
+    padding: 12px 0;
+    font: 0/0 a;
+    text-shadow: none;
     cursor: pointer;
+    visibility: visible;
+}
+
+.nav-right-main-dropdown-dots-actual:hover {
+    color: #eee;
+    outline: 0;
 
 }
-.navLink:active {
-    background-color: #111;
+    
+
+.navLinkupload {
+    color: #ccc;
+    text-decoration: none;
+    display: block;
+    padding: 12px 10px 12px;
+    float: left;
+    visibility: visible;
+    font: 100 14px/1.5 "Interstate","Lucida Grande",Arial,sans-serif;
+    cursor: pointer;
 }
 
 .profile-nav-signup {
-    background-color: #fd3801;
-    margin: 10px;
+    margin-left: 8px;
+    background-color: #f50;
+    border-color: #f50;
+    color: #fff;
     display: inline-block;
     position: relative;
-    margin: 0;
-    padding: 12px 10px;
-    border-radius: 3px;
-    cursor: pointer;
+    height: 26px;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+    padding: 2px 11px 2px 10px;
+    visibility: visible;
     font-size: 14px;
     line-height: 20px;
     white-space: nowrap;
@@ -97,20 +299,27 @@ nav {
     font-weight: 100;
     text-align: center;
     vertical-align: baseline;
+    cursor: pointer;
+    border: 1px;
+    border-radius: 3px;
     box-sizing: border-box;
-    color: #fff;
-    border: none;
-
 }
 
 .profile-nav-login {
+    border-color: #666;
+    background-color: transparent;
+    color: #fff;
+    float: left;
+    margin-right: 10px;
     display: inline-block;
     position: relative;
+    height: 26px;
+    padding: 2px 11px 2px 10px;
+    border: 1px solid #e5e5e5;
+    border-radius: 3px;
     margin-top: 0px;
     margin-bottom: 0px;
     margin-left: 0px;
-    padding: 12px 10px;
-    border-radius: 3px;
     cursor: pointer;
     font-size: 14px;
     line-height: 20px;
@@ -120,9 +329,5 @@ nav {
     text-align: center;
     vertical-align: baseline;
     box-sizing: border-box;
-    margin-right: 10px;
-    border-color: #666;
-    background-color: transparent;
-    color: #fff;
-    height: 46px;
+    visibility: visible;
 }

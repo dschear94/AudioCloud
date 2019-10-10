@@ -24,9 +24,7 @@ const App = () => (
     <div className="main-bg">
             <Modal />
             <UploadModal />
-        <nav>
             <Route path="/"><NavbarContainer /></Route> 
-        </nav>
         <div className="main">
             <div className="main-content-container">
                 <div className="main-content">

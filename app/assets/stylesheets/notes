@@ -142,3 +142,145 @@ nav {
     background-color: transparent;
     color: #fff;
 }
+
+
+
+
+
+
+asdfasdfasdfasdfasdfasdfasdfasdfsadfasdfasdfasdfasdfsadfasdfasdfas
+
+
+
+
+nav {
+    width: 100%;
+    font: 100 14px/1.5 "Interstate","Lucida Grande",Arial,sans-serif;
+    /* height: 46px; */
+    position: fixed;
+    display: block;
+    display: flex;
+    margin: 0 auto;
+    top: 0;
+    min-width: 800px;
+    z-index: 1000;
+    height: 46px;
+
+}
+
+.nav-main {
+    width: 1180px;
+    display: block;
+    height: 46px;
+    /* width: 100%; */
+    background-color: #333;
+    color: #cacaca;
+}
+
+.logo {
+    float: left;
+    display: block;
+    height: 46px;
+    width: 69px;
+    font: 100 14px/1.5 "Interstate","Lucida Grande",Arial,sans-serif;
+    text-align: center;
+    box-sizing: border-box;
+    top: 0;
+    padding: 12px;
+}
+
+.nav-left-main {
+    display: block;
+    visibility: visible;
+    float: left;
+    height: 46px;
+    list-style: none;
+    margin: 0;
+    display: block;
+    top: 0;
+    font: 100 14px/1.5 "Interstate","Lucida Grande",Arial,sans-serif;
+}
+
+.nav-left-main>li {
+    float: left;
+    position: relative;
+    display: list-item;
+    text-align: -webkit-match-parent;
+    list-style: none;
+    margin: 0;
+    height: 46px;
+    top:0;
+}
+
+.navLink {
+    display: block;
+    padding: 12px 0;
+    width: 104px;
+    height: 46px;
+    border-right: 1px solid #111;
+    box-sizing: border-box;
+    text-align: center;
+    cursor: pointer;
+}
+
+.profile-nav {
+    float: right;
+    height: 46px;
+    width: 200px;
+    text-align: center;
+}
+
+.navLink:hover {
+    color: white;
+    cursor: pointer;
+
+}
+.navLink:active {
+    background-color: #111;
+}
+
+.profile-nav-signup {
+    background-color: #fd3801;
+    margin: 10px;
+    display: inline-block;
+    position: relative;
+    margin: 0;
+    padding: 12px 10px;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 14px;
+    line-height: 20px;
+    white-space: nowrap;
+    font-family: "Interstate","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;
+    font-weight: 100;
+    text-align: center;
+    vertical-align: baseline;
+    box-sizing: border-box;
+    color: #fff;
+    border: none;
+
+}
+
+.profile-nav-login {
+    display: inline-block;
+    position: relative;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+    padding: 12px 10px;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 14px;
+    line-height: 20px;
+    white-space: nowrap;
+    font-family: "Interstate","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;
+    font-weight: 100;
+    text-align: center;
+    vertical-align: baseline;
+    box-sizing: border-box;
+    margin-right: 10px;
+    border-color: #666;
+    background-color: transparent;
+    color: #fff;
+    height: 46px;
+}
