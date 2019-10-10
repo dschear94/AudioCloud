@@ -17,7 +17,7 @@ import TrackUploadContainer from './track_uploads/track_upload_container';
 import DiscoverContainer from './discover/discover_container';
 import ContinuousPlayBar from './continuous_play_bar/continuous_play_bar'
 
-import { SplashyRoute , ProtectedRoute } from '../util/route_util';
+import { SplashyRoute , ProtectedRoute, CPBRoute } from '../util/route_util';
 import { openModal } from '../actions/modal_actions';
 
 const App = () => (
@@ -38,9 +38,7 @@ const App = () => (
                 </div>
             </div>
         </div>
-        <div className="cpb">
-            <Route path="/"><ContinuousPlayBar /></Route>
-        </div>
+        <CPBRoute path="/" component={ContinuousPlayBar} />
     </div>
 );
 

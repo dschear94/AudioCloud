@@ -29,6 +29,19 @@ const Protected = (props) => {
     )
 }
 
+const cpb = (props) => {
+    let { component: Component, path, currentTrack, exact } = props;
+    return (
+        <Route path={path} exact={exact} render={(props) => (
+            currentTrack ? (
+                <Component {...props} />
+            ) : (
+                null
+                )
+        )} />
+    )
+}
+
 const Splashy = (props) => {
     let { component: Component, path, loggedIn, exact } = props;
     return (
@@ -37,7 +50,6 @@ const Splashy = (props) => {
                 <Component {...props} />
             ) : (
                 <Redirect to="/discover"/>
-                // <Modal modal="entry"/>
                 )
         )} />
     )
@@ -45,7 +57,10 @@ const Splashy = (props) => {
 
 const msp = state => {
    return ( 
-       { loggedIn: Boolean(state.session.id) }
+       { 
+           loggedIn: Boolean(state.session.id),
+            currentTrack: Boolean(state.entities.currentTrack)
+        }
     )
 };
 
@@ -58,3 +73,4 @@ const msp = state => {
 
 export const ProtectedRoute = withRouter(connect(msp, null)(Protected));
 export const SplashyRoute = withRouter(connect(msp, null)(Splashy));
+export const CPBRoute = withRouter(connect(msp, null)(cpb));

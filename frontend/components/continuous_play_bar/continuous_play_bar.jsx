@@ -28,6 +28,10 @@ class ContinuousPlayBar extends React.Component {
         return true;
     }
 
+    componentDidMount() {
+        this.state.track.play();
+    }
+
     // componentDidUpdate(prevProps) {
     // }
 
@@ -42,47 +46,49 @@ class ContinuousPlayBar extends React.Component {
 
     render() {
         return (
-            <div className="cpb-content-info">
-                <div className="cpb-content-info-wrapper">
-                    <div className="cpb-content-queue">
-
-                    </div>
-                    <div className="cpb-content-bg">
-
-                    </div>
-                    <div className="cpb-content-elements">
-                        <button className="cpb-skip-back">
-                            skip back
-                        </button>
-                        <button 
-                            className="cpb-play"
-                            onClick={this.trackPlay}>
-                            play/pause
-                        </button>
-                        <button className="cpb-skip-forward">
-                            skip
-                        </button>
-                        <div className="cpb-shuffle">
-                            
-                        </div>
-                        <div className="cpb-repeat">
+            <div className="cpb">
+                <div className="cpb-content-info">
+                    <div className="cpb-content-info-wrapper">
+                        <div className="cpb-content-queue">
 
                         </div>
-                        <div className="cpb-timeline">
+                        <div className="cpb-content-bg">
 
                         </div>
-                        <div className="cpb-castcontrol">
+                        <div className="cpb-content-elements">
+                            <button className="cpb-skip-back">
+                                skip back
+                            </button>
+                            <button 
+                                className="cpb-play"
+                                onClick={this.trackPlay}>
+                                play/pause
+                            </button>
+                            <button className="cpb-skip-forward">
+                                skip
+                            </button>
+                            <div className="cpb-shuffle">
+                                
+                            </div>
+                            <div className="cpb-repeat">
 
-                        </div>
-                        <div className="cpb-volume">
+                            </div>
+                            <div className="cpb-timeline">
 
-                        </div>
-                        <div className="cpb-sound">
+                            </div>
+                            <div className="cpb-castcontrol">
 
+                            </div>
+                            <div className="cpb-volume">
+
+                            </div>
+                            <div className="cpb-sound">
+
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
+        </div >
 
         );
     }
