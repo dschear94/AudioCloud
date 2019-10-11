@@ -1,7 +1,9 @@
 import { connect } from 'react-redux';
 import { openModal } from '../../actions/modal_actions';
 import Splash from './splash';
-import {fetchTracks} from '../../actions/track_actions'
+import {fetchTracks} from '../../actions/track_actions';
+import { receiveCurrentTrack } from '../../actions/current_track_actions';
+
 
 const msp = state => {
     return { tracks: state.entities.tracks || [] };
@@ -10,7 +12,8 @@ const msp = state => {
 const mdp = dispatch => {
     return ({
         fetchTracks: () => dispatch(fetchTracks()),
-        openModal: modal => dispatch(openModal(modal))
+        openModal: modal => dispatch(openModal(modal)),
+        receiveCurrentTrack: track => dispatch(receiveCurrentTrack(track)),
     })
 };
 

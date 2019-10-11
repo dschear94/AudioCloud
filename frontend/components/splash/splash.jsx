@@ -16,7 +16,8 @@ class Splash extends React.Component {
         const trackitems = this.props.tracks.slice(0, 12).map(track => {
         return (
         <li
-        key={track.id} 
+        key={track.id}
+        onClick={() => this.props.receiveCurrentTrack(track)}
         className="splash-main-content1-trendingtracks-content-item">
             <div className="splash-main-content1-trendingtracks-tile">
                 <div className="splash-main-content1-trendingtracks-tile-artwork">

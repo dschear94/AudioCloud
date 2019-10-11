@@ -16,6 +16,7 @@ class Discover extends React.Component {
     // }
 
     render() {
+        // const defPhoto = this.props.tracks === [] ? this.props.tracks[0].photoUrl : 'SplashImage.JPG';
         const trackitem = this.props.tracks.map(track => {
             return (
                         
@@ -44,7 +45,10 @@ class Discover extends React.Component {
 
         const trackitemgal = (this.props.tracks.slice(0, 8).map(track => {
             return (
-                <div className="track-discover-main-modular-module-gallery-item">
+                <div 
+                    key={track.id}
+                    className="track-discover-main-modular-module-gallery-item"
+                    onClick={() => this.props.receiveCurrentTrack(track)}>
                     <div className="splash-main-content1-trendingtracks-tile">
                         <div className="splash-main-content1-trendingtracks-tile-artwork">
                             <div className="splash-main-content1-trendingtracks-tile-artwork-image">
@@ -125,7 +129,8 @@ class Discover extends React.Component {
                             <div className="track-discover-main-modular-module-content-artwork">
                                 <div className="track-discover-main-modular-module-content-artwork-image">
                                     <div className="track-discover-main-modular-module-content-artwork-image-ph">
-                                        <span className="track-discover-main-modular-module-content-artwork-image-main"></span>
+                                        <span 
+                                        className="track-discover-main-modular-module-content-artwork-image-main"></span>
                                     </div>
                                 </div>
                             </div>
@@ -145,7 +150,8 @@ class Discover extends React.Component {
                             <div className="track-discover-main-modular-module-context-icon-container">
                                 <div className="track-discover-main-modular-module-context-icon-body">
                                     <div className="track-discover-main-modular-module-context-icon-image">
-                                        <div className="track-discover-main-modular-module-context-icon-image-content">
+                                        <div 
+                                        className="track-discover-main-modular-module-context-icon-image-content">
                                             {/* image */}
                                         </div>
                                     </div>
