@@ -6,7 +6,10 @@ import { receiveCurrentTrack } from '../../actions/current_track_actions';
 
 
 const msp = state => {
-    return { tracks: state.entities.tracks || [] };
+    return { 
+        tracks: state.entities.tracks || [],
+        currentUser: (state.session.id ? true : false)
+    };
 };
 
 const mdp = dispatch => {
