@@ -13,14 +13,20 @@ class UploadModal extends React.Component {
         this.handleDragLeave = this.handleDragLeave.bind(this);
         this.handleDrop = this.handleDrop.bind(this);
         this.handleDragOver = this.handleDragOver.bind(this);
+        this.handleDisplay = this.handleDisplay.bind(this);
     }
 
     handleDrag(e) {
         e.preventDefault();
-        console.log("entered")
+        console.log("entered");
         this.setState({
             dd: true
         });
+    }
+
+    handleDisplay(e) {
+        e.preventDefault();
+        document.getElementById("ubg").style.display = "block";
     }
 
     handleDragLeave(e) {
@@ -28,6 +34,7 @@ class UploadModal extends React.Component {
         this.setState({
             dd: null
         });
+        document.getElementById("ubg").style.display = "none";
     }
 
     handleDrop(e) {
@@ -64,8 +71,10 @@ class UploadModal extends React.Component {
         );
         return (
             <div 
+                id="ubg"
                 className="upload-modal-bg"
                 onDragEnter={this.handleDrag}
+                // onDragEnter={this.handleDisplay}
                 onDrop={this.handleDrop}
             >
                 {this.state.dd ? upload : null}

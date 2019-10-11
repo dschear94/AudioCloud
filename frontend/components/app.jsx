@@ -23,8 +23,7 @@ import { openModal } from '../actions/modal_actions';
 const App = () => (
     <div className="main-bg">
             <Modal />
-            <UploadModal />
-            <Route path="/"><NavbarContainer /></Route> 
+            <Route path="/"><NavbarContainer /></Route>
         <div className="main">
             <div className="main-content-container">
                 <div className="main-content">
@@ -39,6 +38,7 @@ const App = () => (
                     </div>
                 </div>
             </div>
+            <UploadModal />
         </div>
         <CPBRoute path="/" component={ContinuousPlayBar} />
     </div>

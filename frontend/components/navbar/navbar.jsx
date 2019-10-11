@@ -15,7 +15,7 @@ const Navbar = (props) => {
     );
     const personalGreeting = () => (
         <div className="nav-right-main-session">
-                <div className="profile-nav-logout" onClick={logout}>Log Out</div>
+                <div className="profile-nav-login" onClick={logout}>Log Out</div>
             </div>
     );
 
@@ -59,12 +59,12 @@ const Navbar = (props) => {
                             </div>
                         </div>
                         <div className="nav-right-main">
-                                {currentUser ? personalGreeting() : sessionLinks()}
                             <div className="nav-right-main-upload">
                                 {currentUser ?
                                     <Link className="navLinkupload" to="/upload">Upload</Link>
                                     : <div className="navLinkupload" onClick={() => openModal('entry')}>Upload</div>}
                             </div>
+                            {currentUser ? personalGreeting() : sessionLinks()}
                             <ul className="nav-right-main-dropdown">
                                 <li className="nav-right-main-dropdown-dots">
                                     <a className="nav-right-main-dropdown-dots-actual"></a>

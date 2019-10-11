@@ -7,8 +7,7 @@
     padding-bottom: 0px;
     padding-left: 30px;
     margin: 0 auto;
-        
-
+    // z-index: 500;
 }
 
 .main-bg {
@@ -41,6 +40,9 @@
 
 .main-content {
     display: block;
+    // position: relative;
+    // z-index: 100;
+    // z-index: 10;
 }
 
 .main-content2 {
