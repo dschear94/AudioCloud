@@ -16,7 +16,8 @@ class ContinuousPlayBar extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            track: new Audio(this.props.track.trackUrl)
+            track: new Audio(this.props.track.trackUrl),
+            playing: true
         }   
         this.trackPause = this.trackPause.bind(this);
         this.trackPlay = this.trackPlay.bind(this);
@@ -24,7 +25,13 @@ class ContinuousPlayBar extends React.Component {
 
 
     shouldComponentUpdate(nextProps, nextState) {
-        this.state.track === new Audio() ? null : this.state.track.pause();
+        if (this.props.track.id !== nextProps.track.id) {
+            this.state.track === new Audio() ? 
+            null : 
+            (this.state.track.pause() && this.setState({
+                playing: false
+            }));
+        } 
         return true;
     }
 
@@ -38,12 +45,17 @@ class ContinuousPlayBar extends React.Component {
                 track: new Audio(this.props.track.trackUrl)
         });
         }
-        return this.state.track.play();
+        if (this.props.track.id === prevProps.track.id && this.state.playing) {
+            return this.state.track.play();
+        }
     }
 
     trackPause(e) {
         e.preventDefault();
         this.state.track.pause();
+        this.setState({
+            playing: false
+        });
     }
 
     trackPlay(e) {

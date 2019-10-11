@@ -1,6 +1,8 @@
 import { connect } from 'react-redux';
 import TrackUploadForm from './track_upload_form';
-import { uploadTrack } from '../../actions/track_actions';
+import { 
+    uploadTrack,
+    fetchTracks } from '../../actions/track_actions';
 
 
 const msp = (state, ownProps) => {
@@ -11,7 +13,8 @@ const msp = (state, ownProps) => {
 
 
 const mdp = dispatch => ({
-    uploadTrack: track => dispatch(uploadTrack(track))
+    uploadTrack: track => dispatch(uploadTrack(track)),
+    fetchTracks: () => dispatch(fetchTracks())
 });
 
 export default connect(msp, mdp)(TrackUploadForm);

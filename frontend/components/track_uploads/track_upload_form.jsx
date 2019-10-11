@@ -74,7 +74,11 @@ class TrackUploadForm extends React.Component {
         if (this.state.photoFile) {
             trackFormData.append('track[image_file]', this.state.photoFile);
         };
-        return this.props.uploadTrack(trackFormData).then((() => this.props.history.push("/discover")));
+        return (
+            this.props.uploadTrack(trackFormData)
+            .then(() => this.props.fetchTracks())
+            .then((() => this.props.history.push("/discover")))
+        );
     }
 
     render() {

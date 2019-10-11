@@ -9,7 +9,9 @@ class Splash extends React.Component {
     }
 
     componentDidMount() {
-        this.props.fetchTracks();
+        if (this.props.tracks.length === 0) {
+            this.props.fetchTracks();
+        }
     }
 
     render() {

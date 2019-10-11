@@ -4,11 +4,14 @@ import { withRouter } from 'react-router-dom';
 class Discover extends React.Component {
     constructor(props) {
         super(props);
+        // this.props.fetchTracks();
         // this.updatePlayBar = this.updatePlayBar.bind(this);
     }
 
     componentDidMount() {
-        this.props.fetchTracks();
+        if (this.props.tracks.length === 0) {
+            this.props.fetchTracks();
+        }
     }
 
     // updatePlayBar(track) {
