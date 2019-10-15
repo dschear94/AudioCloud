@@ -28,6 +28,7 @@ class ContinuousPlayBar extends React.Component {
         this.trackPlay = this.trackPlay.bind(this);
         this.handleMetaData = this.handleMetaData.bind(this);
         this.handleCurrentTime = this.handleCurrentTime.bind(this);
+        // this.handleProgressBar = this.handleProgressBar.bind(this);
     }
 
     trackPause(e) {
@@ -56,8 +57,16 @@ class ContinuousPlayBar extends React.Component {
         )
         const currentTimeObj = `${currentTimeMin + ":" + currentTimeSec}`
         const newState = Object.assign({}, this.state, { currentTime: currentTimeObj });
+        
+
         this.setState(newState);
     }
+
+    // handleProgressBar(e) {
+    //     e.preventDefault();
+    //     document.getElementById("cpb-timeline-progress-timepassed").style.width=`${this.state.currentTime / this.state.duration}`;
+    //     // debugger
+    // }
 
     trackPlay(e) {
         e.preventDefault();
@@ -84,6 +93,7 @@ class ContinuousPlayBar extends React.Component {
         src={`${this.props.track.trackUrl}`}
         onLoadedMetadata={this.handleMetaData}
         onTimeUpdate={this.handleCurrentTime}
+        // onTimeUpdate={this.handleProgressBar}
         ></audio>
         );
         return (
@@ -134,9 +144,15 @@ class ContinuousPlayBar extends React.Component {
                                     <div className="cpb-timeline-progress">
                                         <div className="cpb-timeline-progress-bg">
                                         </div>
-                                        <div className="cpb-timeline-progress-timepassed">
+                                        <div
+                                            id="cpb-timeline-progress-timepassed" 
+                                            className="cpb-timeline-progress-timepassed"
+                                            // style={{ left: `${this.state.currentTime / this.state.duration}` }}
+                                            >
                                         </div>
-                                        <div className="cpb-timeline-progress-handle">
+                                        <div 
+                                            className="cpb-timeline-progress-handle"
+                                            style={{ width: `${this.state.currentTime / this.state.duration}` }}>
                                         </div>
                                     </div>
                                     <div className="cpb-timeline-duration">

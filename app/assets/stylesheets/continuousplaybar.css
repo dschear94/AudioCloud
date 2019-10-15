@@ -289,8 +289,8 @@
 }
 
 .cpb-timeline-progress-timepassed {
-    min-width: 0px;
-    width: 41.9935%;
+    /* min-width: 0px; */
+    /* width: 41.9935%; */
     /* maybe change above */
     height: 1px;
     background-color: #f50;
@@ -302,7 +302,7 @@
 }
 
 .cpb-timeline-progress-handle {
-    left: 41.9935%;
+    /* left: 41.9935%; */
     /* maybe change above */
     border: 1px solid #f50;
     border-radius: 100%;
