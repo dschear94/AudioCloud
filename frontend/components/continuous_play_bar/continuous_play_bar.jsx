@@ -28,8 +28,8 @@ class ContinuousPlayBar extends React.Component {
         this.trackPlay = this.trackPlay.bind(this);
         this.handleMetaData = this.handleMetaData.bind(this);
         this.handleCurrentTime = this.handleCurrentTime.bind(this);
-        // this.handleProgressBar = this.handleProgressBar.bind(this);
-    }
+        this.handleProgressMD = this.handleProgressMD.bind(this);
+        }
 
     componentDidUpdate(prevProps, prevState) {
         if (this.props !== prevProps) {
@@ -39,6 +39,11 @@ class ContinuousPlayBar extends React.Component {
                 this.setState(newState); 
             }
         }
+    }
+
+    handleProgressMD(e) {
+        debugger
+        e.preventDefault();
     }
 
     handleMetaData(e) {
@@ -63,7 +68,6 @@ class ContinuousPlayBar extends React.Component {
         const currentTimeObj = `${currentTimeMin + ":" + currentTimeSec}`
         const newState = Object.assign({}, this.state, { currentTime: currentTimeObj });
         
-
         this.setState(newState);
     }
 
@@ -102,7 +106,6 @@ class ContinuousPlayBar extends React.Component {
     }
 
     render() {
-
         const audio = (
         <audio 
         preload="auto" 
@@ -110,7 +113,6 @@ class ContinuousPlayBar extends React.Component {
         src={`${this.props.track.trackUrl}`}
         onLoadedMetadata={this.handleMetaData}
         onTimeUpdate={this.handleCurrentTime}
-        // onTimeUpdate={this.handleProgressBar}
         ></audio>
         );
 
@@ -127,6 +129,19 @@ class ContinuousPlayBar extends React.Component {
                     pause
                 </button>
         );
+
+        const progress = () => {
+            debugger
+            let ctMins = (this.state.currentTime.split(":")[0] * 60);
+            let ctSecs = this.state.currentTime.split(":")[1];
+            let numerator = parseInt(ctMins) + parseInt(ctSecs);
+
+            let dMins = (this.state.duration.split(":")[0] * 60);
+            let dSecs = this.state.duration.split(":")[1];
+            let denom = parseInt(dMins) + parseInt(dSecs);
+
+            return ((numerator / denom) * 100 ) + "%";
+        };
 
         return (
             <div className="cpb">
@@ -166,18 +181,20 @@ class ContinuousPlayBar extends React.Component {
                                             className="cpb-timeline-timepassed-show"
                                             >{this.state.currentTime}</span>
                                     </div>
-                                    <div className="cpb-timeline-progress">
+                                    <div className="cpb-timeline-progress"
+                                        onMouseDown={this.handleProgressMD}>
                                         <div className="cpb-timeline-progress-bg">
                                         </div>
                                         <div
                                             id="cpb-timeline-progress-timepassed" 
                                             className="cpb-timeline-progress-timepassed"
-                                            // style={{ left: `${this.state.currentTime / this.state.duration}` }}
+                                            style={{ width: `${progress()}` }}
                                             >
                                         </div>
                                         <div 
                                             className="cpb-timeline-progress-handle"
-                                            style={{ width: `${this.state.currentTime / this.state.duration}` }}>
+                                            style={{ left: `${progress()}` }}
+                                            draggable="true">
                                         </div>
                                     </div>
                                     <div className="cpb-timeline-duration">
