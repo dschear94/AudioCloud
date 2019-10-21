@@ -8,9 +8,9 @@ const msp = state => {
     if (state.entities.currentTrack) {
         return { 
             track: state.entities.currentTrack,
-            duration: 0,
+            duration: "0:00",
             playing: false,
-            currentTime: 0 }
+            currentTime: "0:00" }
     } else {
         return {}
     }
@@ -31,9 +31,14 @@ class ContinuousPlayBar extends React.Component {
         // this.handleProgressBar = this.handleProgressBar.bind(this);
     }
 
-    trackPause(e) {
-        e.preventDefault();
-        document.getElementById("currentTrack").pause();
+    componentDidUpdate(prevProps, prevState) {
+        if (this.props !== prevProps) {
+            if (prevState.playing) {
+                document.getElementById("currentTrack").play();
+                const newState = Object.assign({}, this.state, { playing: true });
+                this.setState(newState); 
+            }
+        }
     }
 
     handleMetaData(e) {
@@ -71,6 +76,15 @@ class ContinuousPlayBar extends React.Component {
     trackPlay(e) {
         e.preventDefault();
         document.getElementById("currentTrack").play();
+        const newState = Object.assign({}, this.state, { playing: true });
+        this.setState(newState);   
+    }
+
+    trackPause(e) {
+        e.preventDefault();
+        document.getElementById("currentTrack").pause();
+        const newState = Object.assign({}, this.state, { playing: false });
+        this.setState(newState);   
     }
 
     trackSkipfwd(e) {
@@ -83,9 +97,12 @@ class ContinuousPlayBar extends React.Component {
 
     componentDidMount() {
         document.getElementById("currentTrack").play();
+        const newState = Object.assign({}, this.state, { playing: true });
+        this.setState(newState);        
     }
 
     render() {
+
         const audio = (
         <audio 
         preload="auto" 
@@ -96,6 +113,21 @@ class ContinuousPlayBar extends React.Component {
         // onTimeUpdate={this.handleProgressBar}
         ></audio>
         );
+
+        const playPause = !this.state.playing ? (
+            <button
+                className="cpb-play"
+                onClick={this.trackPlay}>
+                play
+            </button>
+        ) : (
+                <button
+                    className="cpb-play"
+                    onClick={this.trackPause}>
+                    pause
+                </button>
+        );
+
         return (
             <div className="cpb">
                 {audio}
@@ -111,16 +143,9 @@ class ContinuousPlayBar extends React.Component {
                             <button className="cpb-skip-back">
                                 skip back
                             </button>
-                            <button 
-                                className="cpb-play"
-                                onClick={this.trackPlay}>
-                                play
-                            </button>
-                            <button 
-                                className="cpb-play"
-                                onClick={this.trackPause}>
-                                pause
-                            </button>
+
+                            {playPause}
+
                             <button className="cpb-skip-forward">
                                 skip
                             </button>
