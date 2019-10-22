@@ -10,7 +10,8 @@ const msp = state => {
             track: state.entities.currentTrack,
             duration: "0:00",
             playing: false,
-            currentTime: "0:00" }
+            currentTime: "0:00",
+            drag: false }
     } else {
         return {}
     }
@@ -28,7 +29,9 @@ class ContinuousPlayBar extends React.Component {
         this.trackPlay = this.trackPlay.bind(this);
         this.handleMetaData = this.handleMetaData.bind(this);
         this.handleCurrentTime = this.handleCurrentTime.bind(this);
-        this.handleProgressMD = this.handleProgressMD.bind(this);
+        this.handleProgressDragStart = this.handleProgressDragStart.bind(this);
+        this.handleProgressDrag = this.handleProgressDrag.bind(this);
+        this.handleProgressDragEnd = this.handleProgressDragEnd.bind(this);
         }
 
     componentDidUpdate(prevProps, prevState) {
@@ -41,9 +44,53 @@ class ContinuousPlayBar extends React.Component {
         }
     }
 
-    handleProgressMD(e) {
-        debugger
-        e.preventDefault();
+    handleProgressDragStart(e) {
+        const newState = Object.assign({}, this.state, { drag: true });
+        this.setState(newState);
+
+        // progress.style.opacity="0";
+
+        // handle.drag();
+    }
+
+    handleProgressDrag(e) {
+        console.log("dragging");
+        const progress = document.getElementById("cpb-timeline-progress-bg").getBoundingClientRect();
+        const filler = document.getElementById("cpb-timeline-progress-timepassed");
+        const handle = document.getElementById("cpb-timeline-progress-handle");
+
+        let amount;
+
+        if (e.clientX < progress.left) {
+            amount = "0%";
+        } else if (e.clientX > progress.right) {
+            amount = "100%";
+        } else {
+            amount = (((e.clientX - progress.left) / progress.width) * 100) + "%";
+        }
+
+        handle.style.left = amount;
+        filler.style.width = amount;
+    }
+
+    handleProgressDragEnd(e) {
+        const currentTrack = document.getElementById("currentTrack");
+        const progress = document.getElementById("cpb-timeline-progress-bg").getBoundingClientRect();
+
+
+        let amount;
+
+        if (e.clientX < progress.left) {
+            amount = "0%";
+        } else if (e.clientX > progress.right) {
+            amount = "100%";
+        } else {
+            amount = (((e.clientX - progress.left) / progress.width) * 100) + "%";
+        }
+
+        currentTrack.currentTime = (parseFloat(amount) * currentTrack.duration) / 100;
+        const newState = Object.assign({}, this.state, { drag: false });
+        this.setState(newState); 
     }
 
     handleMetaData(e) {
@@ -69,13 +116,34 @@ class ContinuousPlayBar extends React.Component {
         const newState = Object.assign({}, this.state, { currentTime: currentTimeObj });
         
         this.setState(newState);
-    }
 
-    // handleProgressBar(e) {
-    //     e.preventDefault();
-    //     document.getElementById("cpb-timeline-progress-timepassed").style.width=`${this.state.currentTime / this.state.duration}`;
-    //     // debugger
-    // }
+
+
+
+
+        const filler = document.getElementById("cpb-timeline-progress-timepassed");
+        const handle = document.getElementById("cpb-timeline-progress-handle");
+        // const hiddenHandle = document.getElementById("cpb-timeline-progress-handle-hidden");
+
+        
+        let ctMins = (this.state.currentTime.split(":")[0] * 60);
+        let ctSecs = this.state.currentTime.split(":")[1];
+        let numerator = parseInt(ctMins) + parseInt(ctSecs);
+
+        let dMins = (this.state.duration.split(":")[0] * 60);
+        let dSecs = this.state.duration.split(":")[1];
+        let denom = parseInt(dMins) + parseInt(dSecs);
+
+        const progress =  ((numerator / denom) * 100) + "%";
+        
+        const bg = document.getElementById("cpb-timeline-progress");
+
+        if (!this.state.drag) {
+            handle.style.left = progress;
+            // hiddenHandle.style.left = progress;
+            filler.style.width = progress;
+        }
+    }
 
     trackPlay(e) {
         e.preventDefault();
@@ -130,18 +198,17 @@ class ContinuousPlayBar extends React.Component {
                 </button>
         );
 
-        const progress = () => {
-            debugger
-            let ctMins = (this.state.currentTime.split(":")[0] * 60);
-            let ctSecs = this.state.currentTime.split(":")[1];
-            let numerator = parseInt(ctMins) + parseInt(ctSecs);
+        // const progress = () => {
+        //     let ctMins = (this.state.currentTime.split(":")[0] * 60);
+        //     let ctSecs = this.state.currentTime.split(":")[1];
+        //     let numerator = parseInt(ctMins) + parseInt(ctSecs);
 
-            let dMins = (this.state.duration.split(":")[0] * 60);
-            let dSecs = this.state.duration.split(":")[1];
-            let denom = parseInt(dMins) + parseInt(dSecs);
+        //     let dMins = (this.state.duration.split(":")[0] * 60);
+        //     let dSecs = this.state.duration.split(":")[1];
+        //     let denom = parseInt(dMins) + parseInt(dSecs);
 
-            return ((numerator / denom) * 100 ) + "%";
-        };
+        //     return ((numerator / denom) * 100 ) + "%";
+        // };
 
         return (
             <div className="cpb">
@@ -181,22 +248,51 @@ class ContinuousPlayBar extends React.Component {
                                             className="cpb-timeline-timepassed-show"
                                             >{this.state.currentTime}</span>
                                     </div>
-                                    <div className="cpb-timeline-progress"
-                                        onMouseDown={this.handleProgressMD}>
-                                        <div className="cpb-timeline-progress-bg">
-                                        </div>
-                                        <div
-                                            id="cpb-timeline-progress-timepassed" 
-                                            className="cpb-timeline-progress-timepassed"
-                                            style={{ width: `${progress()}` }}
+                                        <div id="cpb-timeline-progress"
+                                            className="cpb-timeline-progress"
+                                            role="progressbar"
+                                            // aria-valuenow={progress() * 10729}
+                                            aria-valuemax="10729"
+                                            // onDragStart={this.handleProgressDragStart}
+                                            // draggable="true"
+                                            // onDrag={this.handleProgressDrag}
+                                            // onDragEnd={this.handleProgressDragEnd}
                                             >
+                                            <div
+                                                id="cpb-dummy"
+                                                className="cpb-dummy"
+                                                onDragStart={this.handleProgressDragStart}
+                                                draggable="true"
+                                                onDrag={this.handleProgressDrag}
+                                                onDragEnd={this.handleProgressDragEnd}>
+                                            </div>
+                                            <div className="cpb-timeline-progress-bg"
+                                                id="cpb-timeline-progress-bg">
+                                            </div>
+                                            <div
+                                                id="cpb-timeline-progress-timepassed"
+                                                className="cpb-timeline-progress-timepassed"
+                                            // style={{ width: `${document.getElementById("cpb-timeline-progress-handle-hidden").style.left}` }}
+                                            >
+                                            </div>
+                                            <div
+                                                id="cpb-timeline-progress-handle"
+                                                className="cpb-timeline-progress-handle"
+                                            // onDrag={this.handleProgressDrag}
+                                            // onDragEnd={this.handleProgressDragEnd}
+                                            // draggable="true"
+                                            // style={{ left: `${document.getElementById("cpb-timeline-progress-handle-hidden").style.left}` }}> 
+                                            >
+
+                                            </div>
+                                            <div
+                                                id="cpb-timeline-progress-handle-hidden"
+                                                className="cpb-timeline-progress-handle-hidden"
+                                            // style={{ left: `${progress()}` }}
+                                            // draggable="true">
+                                            >
+                                            </div>
                                         </div>
-                                        <div 
-                                            className="cpb-timeline-progress-handle"
-                                            style={{ left: `${progress()}` }}
-                                            draggable="true">
-                                        </div>
-                                    </div>
                                     <div className="cpb-timeline-duration">
                                         <span
                                             className="cpb-timeline-duration-show">
