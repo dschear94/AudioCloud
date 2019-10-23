@@ -35,6 +35,7 @@ class ContinuousPlayBar extends React.Component {
         // this.handleProgressMouseMove = this.handleProgressMouseMove.bind(this);
         this.handleProgressMouseUp = this.handleProgressMouseUp.bind(this);
         this.handleProgressDrag = this.handleProgressDrag.bind(this);
+        this.handleProgressDragStart = this.handleProgressDragStart.bind(this);
         this.handleProgressDragEnd = this.handleProgressDragEnd.bind(this);
     }
 
@@ -88,7 +89,13 @@ class ContinuousPlayBar extends React.Component {
         // this.setState(newState);
     }
 
+    handleProgressDragStart(e) {
+        debugger
+        // document.body.style.cursor = 'grabbing';
+    }
+
     handleProgressDrag(e) {
+        e.preventDefault();
         
         const progress = document.getElementById("cpb-timeline-progress-bg").getBoundingClientRect();
         const filler = document.getElementById("cpb-timeline-progress-timepassed");
@@ -430,6 +437,7 @@ class ContinuousPlayBar extends React.Component {
                                                 // onMouseMove={this.handleProgressMouseMove}
                                                 draggable="true"
                                                 onDrag={this.handleProgressDrag}
+                                                onDragStart={this.handleProgressDragStart}
                                                 onDragEnd={this.handleProgressDragEnd}
                                                 onMouseUp={this.handleProgressMouseUp}
                                                 >

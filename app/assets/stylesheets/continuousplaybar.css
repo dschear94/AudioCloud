@@ -243,6 +243,7 @@
 }
 
 .cpb-dummy {
+    user-select: none;
     position: absolute;
     z-index: 10;
     padding: -10px 0;
