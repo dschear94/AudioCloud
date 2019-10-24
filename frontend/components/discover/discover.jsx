@@ -107,7 +107,7 @@ class Discover extends React.Component {
                 <div className="track-discover-main-modular-module-context">
                     <span className="track-discover-main-modular-module-context-body">
                         Based on your listening history
-                                    </span>
+                    </span>
                 </div>
             </div>
         )

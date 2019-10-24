@@ -46,7 +46,7 @@ class Splash extends React.Component {
         )
     });
         return (
-            <div>
+            <div className="splash-main">
                 <div className="splash-main-banner">
                     <div className="splash-main-banner-hero">
                         <div className="splash-main-banner-hero-ctnr">

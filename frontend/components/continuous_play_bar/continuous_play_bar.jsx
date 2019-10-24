@@ -1,5 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faPlay, faPause, faForward, faBackward, faRandom, faVolumeUp } from '@fortawesome/free-solid-svg-icons';
 import { fetchTracks } from '../../actions/track_actions';
 import { receiveCurrentTrack } from '../../actions/current_track_actions';
 import { withRouter } from 'react-router-dom';
@@ -90,8 +92,12 @@ class ContinuousPlayBar extends React.Component {
     }
 
     handleProgressDragStart(e) {
-        debugger
+        // HTMLBodyElement()
         // document.body.style.cursor = 'grabbing';
+        // const img = new Image();
+        // e.dataTransfer.setDragImage(img, 10, 10);
+        // e.dataTransfer.dropEffect = 'none'
+        // e.dataTransfer.effectAllowed = 'none'
     }
 
     handleProgressDrag(e) {
@@ -355,17 +361,22 @@ class ContinuousPlayBar extends React.Component {
         ></audio>
         );
 
+
+
+
+        // const playPause = <FontAwesomeIcon icon={this.state.playing ? faPause : faPlay} />;
+
         const playPause = !this.state.playing ? (
             <button
                 className="cpb-play"
                 onClick={this.trackPlay}>
-                play
+                <FontAwesomeIcon icon={faPlay} />
             </button>
         ) : (
                 <button
                     className="cpb-play"
                     onClick={this.trackPause}>
-                    pause
+                    <FontAwesomeIcon icon={faPause} />
                 </button>
         );
 
@@ -394,24 +405,24 @@ class ContinuousPlayBar extends React.Component {
                         </div>
                         <div className="cpb-content-elements">
                             <button className="cpb-skip-back">
-                                skip back
+                                <FontAwesomeIcon icon={faBackward} />
                             </button>
 
                             {playPause}
 
                             <button className="cpb-skip-forward">
-                                skip
+                                <FontAwesomeIcon icon={faForward} />
                             </button>
                             <div className="cpb-shuffle">
                                 <button className="cpb-shuffle-btn">
-                                    shuffle
+                                    <FontAwesomeIcon icon={faRandom} />
                                 </button>
                             </div>
-                            <div className="cpb-repeat">
+                            {/* <div className="cpb-repeat">
                                 <button className="cpb-repeat-btn">
                                     repeat
                                 </button>
-                            </div>
+                            </div> */}
                             <div className="cpb-timeline">
                                 <div className="cpb-timeline-content">
                                     <div className="cpb-timeline-timepassed">
@@ -485,7 +496,14 @@ class ContinuousPlayBar extends React.Component {
 
                             </div>
                             <div className="cpb-volume">
+                                <div className="cpb-volume-wrapper">
+                                    <button 
+                                    className="cpb-volume-btn"
+                                    type="button">
 
+                                        <FontAwesomeIcon icon={faVolumeUp} />
+                                    </button>
+                                </div>
                             </div>
                             <div className="cpb-sound">
 

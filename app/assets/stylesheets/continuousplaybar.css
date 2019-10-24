@@ -380,7 +380,23 @@
 }
 
 .cpb-volume {
-    width: 24px;
+    /* width: 24px; */
     margin-right: 12px;
+    display: block;
     /* placeholder */
+}
+
+.cpb-volume-wrapper {
+    display: block;
+    position: relative;
+
+}
+
+.cpb-volume-btn {
+    display: block;
+    border: 0;
+    margin: 0;
+    width: 24px;
+    height: 46px;
+    cursor: pointer;
 }
