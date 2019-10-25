@@ -15,6 +15,7 @@ import SplashContainer from './splash/splash_container';
 
 import TrackUploadContainer from './track_uploads/track_upload_container';
 import DiscoverContainer from './discover/discover_container';
+import StreamContainer from './stream/stream_container';
 import ContinuousPlayBar from './continuous_play_bar/continuous_play_bar'
 
 import { SplashyRoute , ProtectedRoute, CPBRoute } from '../util/route_util';
@@ -28,10 +29,16 @@ const App = () => (
             <div className="main-content-container">
                 <div className="main-content">
                     <div className="main-content2">
+                        <div className="main-main">
+                            <Switch>
+                                <Route path='/discover'><DiscoverContainer /></Route>
+                                <ProtectedRoute exact path='/stream' component={StreamContainer} />
+                            </Switch>
+                            <div className="social-container">
+                            </div>
+                        </div>
                     <Switch>
                         <ProtectedRoute exact path="/upload" component={TrackUploadContainer} />
-                        <Route path='/discover'><DiscoverContainer /></Route>
-                        <Route path='/stream'>coming soon.</Route>
                         <Route path='/you/library'>coming soon.</Route>
                         <SplashyRoute exact path="/" component={SplashContainer}/>
                     </Switch>

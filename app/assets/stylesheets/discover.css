@@ -1,9 +1,9 @@
-.discover-main {
+.main-main {
     /* padding-top: 46px; */
     position: relative;
 }
 
-.track-discover-main-container {
+.content-left-container {
     padding-right: 20px;
     margin-right: 330px;
     padding-top: 30px;
@@ -13,7 +13,7 @@
     display: block;
 }
 
-.track-discover-social-container {
+.social-container {
     position: absolute;
     top: 30px;
     bottom: 0;

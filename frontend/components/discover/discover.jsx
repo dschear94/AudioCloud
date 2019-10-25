@@ -30,7 +30,7 @@ class Discover extends React.Component {
                     <div className="track-discover-main-modular-module-content-tracklist-item-a">
                         <div className="track-discover-main-modular-module-content-tracklist-item-a1">
                             <span className="track-discover-main-modular-module-content-tracklist-item-a1-artist">
-                                {track.artist_id}
+                                {track.artist}
                             </span>
                             <span className="track-discover-main-modular-module-content-tracklist-item-a1-title">
                                 {track.title} 
@@ -69,7 +69,7 @@ class Discover extends React.Component {
                                 {track.title}
                             </div>
                             <div className="splash-main-content1-trendingtracks-tile-description2">
-                                {track.artist_id}
+                                {track.artist}
                             </div>
                         </div>
                     </div>
@@ -170,9 +170,7 @@ class Discover extends React.Component {
             </ul>
         )
         return (
-        
-            <div className="discover-main">
-                <div className="track-discover-main-container">
+                <div className="content-left-container">
                     {playliststyle}
                     {gallerystyle}
                     {playliststyle}
@@ -184,11 +182,6 @@ class Discover extends React.Component {
                     {playliststyle}
                     {gallerystyle}
                 </div>
-                <div className="track-discover-social-container">
-
-                </div>
-            </div>
-
         );
     }
 }

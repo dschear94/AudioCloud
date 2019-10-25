@@ -1,0 +1,83 @@
+.stream-header {
+    margin-bottom: 25px;
+    justify-content: space-between;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.stream-header-text {
+    margin-top: 0;
+    font-weight: 100;
+    color: #999;
+    font-size: 18px;
+    font-family: "Interstate","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;
+}
+
+.stream-list {
+    margin-top: 15px;
+    display: block;
+}
+
+.stream-list:before {
+    content: "";
+    display: table;
+}
+
+.stream-list:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.track-stream-item {
+    padding-top: 0;
+    clear: both;
+    margin-bottom: 36px;
+    position: relative;
+}
+
+.activity {
+    display: block;
+}
+
+.activity-content {
+    display: block;
+    height: auto;
+}
+
+.activity-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.activity-avatar {
+    margin-right: 8px;
+    position: relative;
+    word-wrap: break-word;
+    height: 100%;
+    display: block;
+}
+
+.avatar-body {
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    display: block;
+}
+
+.activity-text {
+    color: #999;
+    font: 12px/1.4 "Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;
+}
+
+.activity-text-username {
+    color: #333;
+}
+
+.activity-time {
+    color: #999;
+    font: 12px/1.4 "Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;
+}
