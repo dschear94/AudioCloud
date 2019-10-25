@@ -77,7 +77,30 @@
     color: #333;
 }
 
-.activity-time {
-    color: #999;
-    font: 12px/1.4 "Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;
+.activity-body {
+    display: flex;
+    flex: 1;
+    position: relative;
+    height: 100%;
+}
+
+.activity-artwork {
+    position: relative;
+    margin-right: 15px;
+    display: block;
+}
+
+.act-artwork-container {
+    background: transparent 50%/contain no-repeat;
+    display: block;
+    width: 160px;
+    height: 160px;
+    z-index: 2;
+    cursor: pointer;
+}
+
+.act-body-content {
+    flex: 1;
+    overflow-x: hidden;
+    display: block;
 }

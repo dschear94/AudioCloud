@@ -55,7 +55,7 @@ class Discover extends React.Component {
                     <div className="splash-main-content1-trendingtracks-tile">
                         <div className="splash-main-content1-trendingtracks-tile-artwork">
                             <div className="splash-main-content1-trendingtracks-tile-artwork-image">
-                                <div className="splash-main-content1-trendingtracks-tile-artwork-image-placeholder">
+                                <div className="image-placeholder">
                                     <span
                                         className="splash-main-content1-trendingtracks-tile-artwork-image-official"
                                         style={{ backgroundImage: "url(" + track.photoUrl + ")" }}></span>
