@@ -47,6 +47,7 @@ class Discover extends React.Component {
         });
 
         const trackitemgal = (this.props.tracks.slice(0, 8).map(track => {
+            
             return (
                 <div 
                     key={track.id}

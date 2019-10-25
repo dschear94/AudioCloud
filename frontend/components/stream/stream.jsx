@@ -10,28 +10,7 @@ class Stream extends Component {
     }
 
     render() {
-        // const trackitems = this.props.tracks.map(track => {
-        //     <div
-        //     key={track.id}
-        //     onClick={() => this.props.receiveCurrentTrack(track)}>
-        //         <div className="splash-main-content1-trendingtracks-tile-artwork">
-        //             <div className="splash-main-content1-trendingtracks-tile-artwork-image">
-        //                 <div className="splash-main-content1-trendingtracks-tile-artwork-image-placeholder">
-        //                     <span
-        //                         className="splash-main-content1-trendingtracks-tile-artwork-image-official"
-        //                         style={{ backgroundImage: "url(" + track.photoUrl + ")" }}></span>
-        //                 </div>
-        //             </div>
-        //             <button className="splash-main-content1-trendingtracks-tile-playbtn-container">
-        //             </button>
-        //         </div>
-        //     </div>
-        // });
-        
-        // debugger
-        // return trackitems;
         const {tracks} = this.props;
-
         return (
             <div className="content-left-container">
                 <div className="stream-header">

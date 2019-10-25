@@ -24,8 +24,8 @@ class Splash extends React.Component {
             <div className="splash-main-content1-trendingtracks-tile">
                 <div className="splash-main-content1-trendingtracks-tile-artwork">
                     <div className="splash-main-content1-trendingtracks-tile-artwork-image">
-                        <div className="splash-main-content1-trendingtracks-tile-artwork-image-placeholder">
-                            <span 
+                        <div className="image-placeholder">
+                            <span
                                 className="splash-main-content1-trendingtracks-tile-artwork-image-official"
                                 style={{ backgroundImage: "url(" + track.photoUrl + ")" }}></span>
                         </div>
@@ -38,7 +38,7 @@ class Splash extends React.Component {
                         {track.title}
                     </div>
                     <div className="splash-main-content1-trendingtracks-tile-description2">
-                        {track.artist_id}
+                        {track.artist}
                     </div>
                 </div>
             </div>

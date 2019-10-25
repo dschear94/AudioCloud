@@ -10,7 +10,7 @@ const TrackStreamItem = ({ track }) => (
                     <div className="activity-avatar">
                         <div 
                             className="avatar-body"
-                            style={{ backgroundImage: "url(" + track.artist.photoUrl + ")" }}
+                            // style={{ backgroundImage: "url(" + track.artist.photoUrl + ")" }}
                             >
                                 {/* revisit */}
                         </div>
@@ -31,15 +31,39 @@ const TrackStreamItem = ({ track }) => (
                         </div>
                     </div>
                     <div className="act-body-content">
-                        <Link to={`/${track.artist}/${track.title}`}>{track.title}</Link>
-                        <div
-                            key={track.id}
-                            onClick={() => this.props.receiveCurrentTrack(track)}>
+                        <div className="act-body-header">
+                            <div className="act-body-header-container">
+                                <div className="act-title">
+                                    <div className="act-playbtn">
+                                        <div 
+                                            className="playbtn"
+                                            onClick={() => this.props.receiveCurrentTrack(track)}>
+                                        </div>
+                                    </div>
+                                    <div className="act-username">
+                                        <Link to={`/${track.artist}/${track.title}`}>{track.title}</Link>
+                                    </div>
+                                    <div className="act-tags">
+
+                                    </div>
+                                </div>
+                            </div>
                         </div>
+                        <div className="waveform-container">
+
+                        </div>
+                        </div>
+                        <div className="act-body-comment">
+
+                        </div>
+                        <div className="act-body-footer">
+
+                        </div>
+
                     </div>
                 </div>
             </div>
-        </div>
+        {/* </div> */}
     </li>
 );
 

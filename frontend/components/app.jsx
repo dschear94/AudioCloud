@@ -30,10 +30,8 @@ const App = () => (
                 <div className="main-content">
                     <div className="main-content2">
                         <div className="main-main">
-                            <Switch>
                                 <Route path='/discover'><DiscoverContainer /></Route>
                                 <ProtectedRoute exact path='/stream' component={StreamContainer} />
-                            </Switch>
                             <div className="social-container">
                             </div>
                         </div>
