@@ -1,8 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import {relativeTime} from '../../util/time_util';
+// import WaveFormContainer from '../waveform/waveform';
 
-const TrackStreamItem = ({ track }) => (
+const TrackStreamItem = ({ track, sendTrack }) => (
     <li className="track-stream-item">
         <div className="activity">
             <div className="activity-content">
@@ -37,11 +38,16 @@ const TrackStreamItem = ({ track }) => (
                                     <div className="act-playbtn">
                                         <div 
                                             className="playbtn"
-                                            onClick={() => this.props.receiveCurrentTrack(track)}>
+                                            onClick={() => sendTrack(track)}>
                                         </div>
                                     </div>
                                     <div className="act-username">
-                                        <Link to={`/${track.artist}/${track.title}`}>{track.title}</Link>
+                                        <div className="act-username-name">
+                                            <Link to={`/${track.artist}`}>{track.artist}</Link>
+                                        </div>
+                                        <div className="act-username-title">
+                                            <Link to={`/${track.artist}/${track.title}`}>{track.title}</Link>
+                                        </div>
                                     </div>
                                     <div className="act-tags">
 
@@ -50,7 +56,7 @@ const TrackStreamItem = ({ track }) => (
                             </div>
                         </div>
                         <div className="waveform-container">
-
+                            {/* <WaveFormContainer trackUrl={track.trackUrl}/> */}
                         </div>
                         </div>
                         <div className="act-body-comment">

@@ -142,7 +142,7 @@
     font-size: 16px;
     font-family: "Interstate","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;
     font-weight: 400;
-    margin: 18px 0 0;
+    margin: 0;
     line-height: 1.3;
 }
 
@@ -213,10 +213,28 @@
     font-size: 16px;
     font-family: "Interstate","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;
     font-weight: 400;
-    margin: 18px 0 0;
+    margin: 0;
     line-height: 1.3;
     word-break: break-word;
     overflow-wrap: break-word;
+}
+
+.act-username-name {
+    font-size: 12px;
+    line-height: 16px;
+    font-weight: 100;
+    color: #999;
+    display: block;
+    font: 12px/1.4 "Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;
+}
+
+.act-username-title {
+    font-size: 15px;
+    line-height: 1.2;
+    color: #333;
+    max-width: 100%;
+    font-weight: 100;
+    box-sizing: border-box;
 }
 
 .act-tags {
@@ -225,7 +243,7 @@
     text-align: right;
     display: block;
     font-size: 16px;
-        font-family: "Interstate","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;
+    font-family: "Interstate","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;
     font-weight: 400;
     margin: 18px 0 0;
     line-height: 1.3;

@@ -10,7 +10,8 @@ class Stream extends Component {
     }
 
     render() {
-        const {tracks} = this.props;
+        const {tracks, receiveCurrentTrack} = this.props;
+        debugger
         return (
             <div className="content-left-container">
                 <div className="stream-header">
@@ -19,7 +20,7 @@ class Stream extends Component {
                     </h1>
                 </div>
                 <ul className="stream-list">
-                    {tracks.map(track => <TrackStreamItem key={track.id} track={track} />)}
+                    {tracks.map(track => <TrackStreamItem key={track.id} track={track} sendTrack={receiveCurrentTrack} />)}
                 </ul>
             </div>
         );
