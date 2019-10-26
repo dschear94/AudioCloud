@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faAngleRight, faPlay } from '@fortawesome/free-solid-svg-icons';
+import { faPlay } from '@fortawesome/free-solid-svg-icons';
 import {relativeTime} from '../../util/time_util';
 // import WaveFormContainer from '../waveform/waveform';
 
@@ -28,7 +28,7 @@ const TrackStreamItem = ({ track, sendTrack }) => (
                         <div className="act-artwork-container">
                             <div className="image-placeholder">
                                 <span
-                                    className="splash-main-content1-trendingtracks-tile-artwork-image-official"
+                                    className="artwork-image-official"
                                     style={{ backgroundImage: "url(" + track.photoUrl + ")" }}></span>
                             </div>
                         </div>
@@ -38,12 +38,13 @@ const TrackStreamItem = ({ track, sendTrack }) => (
                             <div className="act-body-header-container">
                                 <div className="act-title">
                                     <div className="act-playbtn">
-                                        <div 
-                                            className="playbtn"
-                                            onClick={() => sendTrack(track)}>
-                                            <div className="playbtn-arw">
-                                                {/* <FontAwesomeIcon icon={faAngleRight} /> */}
-                                                <FontAwesomeIcon icon={faPlay} />
+                                        <div className="act-playbtn-ctnr">
+                                            <div
+                                                className="playbtn"
+                                                onClick={() => sendTrack(track)}>
+                                                <div className="playbtn-arw">
+                                                    <FontAwesomeIcon icon={faPlay} />
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -52,7 +53,12 @@ const TrackStreamItem = ({ track, sendTrack }) => (
                                             <Link to={`/${track.artist}`}>{track.artist}</Link>
                                         </div>
                                         <div className="act-username-title">
-                                            <Link to={`/${track.artist}/${track.title}`}>{track.title}</Link>
+                                            <Link to={{
+                                                pathname: `/${track.artist}/${track.title}`,
+                                                state: {
+                                                    track
+                                                }
+                                            }}>{track.title}</Link>
                                         </div>
                                     </div>
                                     <div className="act-tags">

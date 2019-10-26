@@ -5,12 +5,17 @@ import { receiveCurrentTrack } from '../../actions/current_track_actions';
 
 
 const msp = (state, ownProps) => {
-    return state;
+    debugger
+
+    return { 
+        track: ownProps.location.state ? 
+        ownProps.location.state.track : {} 
+    }
 };
 
 
 const mdp = dispatch => ({
-    
+    sendTrack: track => dispatch(receiveCurrentTrack(track))
 });
 
 export default connect(msp, mdp)(TrackShow);
