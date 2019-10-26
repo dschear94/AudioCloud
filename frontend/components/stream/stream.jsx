@@ -11,7 +11,6 @@ class Stream extends Component {
 
     render() {
         const {tracks, receiveCurrentTrack} = this.props;
-        debugger
         return (
             <div className="content-left-container">
                 <div className="stream-header">

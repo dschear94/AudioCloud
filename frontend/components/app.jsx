@@ -16,7 +16,8 @@ import SplashContainer from './splash/splash_container';
 import TrackUploadContainer from './track_uploads/track_upload_container';
 import DiscoverContainer from './discover/discover_container';
 import StreamContainer from './stream/stream_container';
-import ContinuousPlayBar from './continuous_play_bar/continuous_play_bar'
+import ContinuousPlayBar from './continuous_play_bar/continuous_play_bar';
+import TrackShowContainer from './track_show/track_show_container';
 
 import { SplashyRoute , ProtectedRoute, CPBRoute } from '../util/route_util';
 import { openModal } from '../actions/modal_actions';
@@ -30,11 +31,12 @@ const App = () => (
                 <div className="main-content">
                     <div className="main-content2">
                         <div className="main-main">
-                                <Route path='/discover'><DiscoverContainer /></Route>
+                                <Route exact path='/discover'><DiscoverContainer /></Route>
                                 <ProtectedRoute exact path='/stream' component={StreamContainer} />
                             <div className="social-container">
                             </div>
                         </div>
+                        <ProtectedRoute exact path='/:artist/:track' component={TrackShowContainer}/>
                     <Switch>
                         <ProtectedRoute exact path="/upload" component={TrackUploadContainer} />
                         <Route path='/you/library'>coming soon.</Route>

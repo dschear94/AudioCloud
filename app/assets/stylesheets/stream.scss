@@ -191,10 +191,10 @@
     border-radius: 50%;
     margin: 1px 0;
     padding: 0;
-    text-indent: -100000px;
+    // text-indent: -100000px;
     border: 0;
-    font-size: 18px;
-    line-height: 18px;
+    font-size: 12px;
+    line-height: 36px;
     display: inline-block;
     position: relative;
     cursor: pointer;
@@ -202,8 +202,17 @@
     font-family: "Interstate","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;
     font-weight: 100;
     text-align: center;
-    vertical-align: baseline;
+    vertical-align: middle;
     box-sizing: border-box;
+    color: white;
+}
+
+.playbtn-arw {
+    display: inline-block;
+    // line-height: 18px;
+    // text-align: center;
+    // vertical-align: middle;
+    // height: 36px;
 }
 
 .act-username {
