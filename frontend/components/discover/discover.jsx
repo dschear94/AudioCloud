@@ -4,8 +4,6 @@ import { withRouter, Link } from 'react-router-dom';
 class Discover extends React.Component {
     constructor(props) {
         super(props);
-        // this.props.fetchTracks();
-        // this.updatePlayBar = this.updatePlayBar.bind(this);
     }
 
     componentDidMount() {
@@ -14,12 +12,7 @@ class Discover extends React.Component {
         }
     }
 
-    // updatePlayBar(track) {
-    //     return this.props.receiveCurrentTrack(track);
-    // }
-
     render() {
-        // const defPhoto = this.props.tracks === [] ? this.props.tracks[0].photoUrl : 'SplashImage.JPG';
         const trackitem = this.props.tracks.map(track => {
             return (
                         

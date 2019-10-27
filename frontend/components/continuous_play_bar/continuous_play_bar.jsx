@@ -34,7 +34,6 @@ class ContinuousPlayBar extends React.Component {
         this.handleMetaData = this.handleMetaData.bind(this);
         this.handleCurrentTime = this.handleCurrentTime.bind(this);
         this.handleProgressMouseDown = this.handleProgressMouseDown.bind(this);
-        // this.handleProgressMouseMove = this.handleProgressMouseMove.bind(this);
         this.handleProgressMouseUp = this.handleProgressMouseUp.bind(this);
         this.handleProgressDrag = this.handleProgressDrag.bind(this);
         this.handleProgressDragStart = this.handleProgressDragStart.bind(this);
@@ -70,7 +69,6 @@ class ContinuousPlayBar extends React.Component {
             amount = (((e.clientX - progress.left) / progress.width) * 100) + "%";
         }
 
-        // debugger
 
         const time = (currentTrack.duration * parseFloat(amount)) / 100;
 
@@ -87,17 +85,9 @@ class ContinuousPlayBar extends React.Component {
         timeshow.innerHTML = currentTimeObj;
         const newState = Object.assign({}, this.state, { drag: true });
         this.setState(newState); 
-        // const newState = Object.assign({}, this.state, { drag: true });
-        // this.setState(newState);
     }
 
     handleProgressDragStart(e) {
-        // HTMLBodyElement()
-        // document.body.style.cursor = 'grabbing';
-        // const img = new Image();
-        // e.dataTransfer.setDragImage(img, 10, 10);
-        // e.dataTransfer.dropEffect = 'none'
-        // e.dataTransfer.effectAllowed = 'none'
     }
 
     handleProgressDrag(e) {
@@ -121,8 +111,6 @@ class ContinuousPlayBar extends React.Component {
             amount = (((e.clientX - progress.left) / progress.width) * 100) + "%";
         }
 
-        // debugger
-
         const time = (currentTrack.duration * parseFloat(amount)) / 100;
 
 
@@ -140,75 +128,7 @@ class ContinuousPlayBar extends React.Component {
         }
         const newState = Object.assign({}, this.state, { drag: true });
         this.setState(newState); 
-        // const newState = Object.assign({}, this.state, { drag: true });
-        // this.setState(newState);
     }
-
-    // handleProgressMouseMove(e) {
-        
-    //     debugger
-    //     if (this.state.drag) {
-    //         const progress = document.getElementById("cpb-timeline-progress-bg").getBoundingClientRect();
-    //         const filler = document.getElementById("cpb-timeline-progress-timepassed");
-    //         const handle = document.getElementById("cpb-timeline-progress-handle");
-    //         const timeshow = document.getElementById("cpb-timeline-timepassed-show");
-    //         const currentTrack = document.getElementById("currentTrack");
-            
-
-
-    //         let amount;
-    //         console.log(e.clientX);
-    //         console.log(progress.left);
-
-    //         if (e.clientX < progress.left) {
-    //             amount = "0%";
-    //         } else if (e.clientX > progress.right) {
-    //             amount = "100%";
-    //         } else {
-    //             amount = (((e.clientX - progress.left) / progress.width) * 100) + "%";
-    //         }
-
-    //         // debugger
-
-    //         const time = (currentTrack.duration * parseFloat(amount)) / 100;
-
-
-    //         const currentTimeMin = Math.floor((time) / 60);
-    //         const currentTimeSec = (
-    //             Math.floor(time % 60) < 10 ?
-    //                 ("0" + Math.floor(time % 60)) : Math.floor(time % 60)
-    //         );
-    //         const currentTimeObj = `${currentTimeMin + ":" + currentTimeSec}`;
-
-    //         handle.style.left = amount;
-    //         filler.style.width = amount;
-    //         timeshow.innerHTML = currentTimeObj;
-    //     }
-    //     // const newState = Object.assign({}, this.state, { drag: true });
-    //     // this.setState(newState); 
-    //     // const newState = Object.assign({}, this.state, { drag: true });
-    //     // this.setState(newState);
-    // }
-
-    // handleProgressDrag(e) {
-    //     e.preventDefault();
-    //     const progress = document.getElementById("cpb-timeline-progress-bg").getBoundingClientRect();
-    //     const filler = document.getElementById("cpb-timeline-progress-timepassed");
-    //     const handle = document.getElementById("cpb-timeline-progress-handle");
-
-    //     let amount;
-
-    //     if (e.clientX < progress.left) {
-    //         amount = "0%";
-    //     } else if (e.clientX > progress.right) {
-    //         amount = "100%";
-    //     } else {
-    //         amount = (((e.clientX - progress.left) / progress.width) * 100) + "%";
-    //     }
-
-    //     handle.style.left = amount;
-    //     filler.style.width = amount;
-    // }
 
     handleProgressDragEnd(e) {
         const currentTrack = document.getElementById("currentTrack");
@@ -233,7 +153,6 @@ class ContinuousPlayBar extends React.Component {
     
         const newState = Object.assign({}, this.state, { drag: false });
         this.setState(newState); 
-        // this.state.drag = false;
     }
 
     handleProgressMouseUp(e) {
@@ -257,8 +176,6 @@ class ContinuousPlayBar extends React.Component {
         handle.style.left = amount;
         filler.style.width = amount;
 
-        // const newState = Object.assign({}, this.state, { drag: false });
-        // this.setState(newState); 
         const newState = Object.assign({}, this.state, { drag: false });
         this.setState(newState); 
     }
@@ -276,8 +193,6 @@ class ContinuousPlayBar extends React.Component {
     }
 
     handleCurrentTime(e) {
-        // e.preventDefault();
-
         const currentTrack = document.getElementById("currentTrack");
         const time = currentTrack.currentTime;
 
@@ -288,10 +203,6 @@ class ContinuousPlayBar extends React.Component {
         );
         const currentTimeObj = `${currentTimeMin + ":" + currentTimeSec}`;
         const newState = Object.assign({}, this.state, { currentTime: currentTimeObj });
-        
-        // this.setState(newState);
-        
-        
         
         const filler = document.getElementById("cpb-timeline-progress-timepassed");
         const handle = document.getElementById("cpb-timeline-progress-handle");
@@ -307,11 +218,6 @@ class ContinuousPlayBar extends React.Component {
         const progress =  ((numerator / denom) * 100) + "%";
         
         const bg = document.getElementById("cpb-timeline-progress");
-        
-        // if (!this.state.drag) {
-            //     handle.style.left = progress;
-            //     filler.style.width = progress;
-            // }
             
             if (!this.state.drag) {
                 handle.style.left = progress;
@@ -357,14 +263,8 @@ class ContinuousPlayBar extends React.Component {
         id="currentTrack" 
         src={`${this.props.track.trackUrl}`}
         onLoadedMetadata={this.handleMetaData}
-        // onTimeUpdate={this.handleCurrentTime}
         ></audio>
         );
-
-
-
-
-        // const playPause = <FontAwesomeIcon icon={this.state.playing ? faPause : faPlay} />;
 
         const playPause = !this.state.playing ? (
             <button
@@ -379,18 +279,6 @@ class ContinuousPlayBar extends React.Component {
                     <FontAwesomeIcon icon={faPause} />
                 </button>
         );
-
-        // const progress = () => {
-        //     let ctMins = (this.state.currentTime.split(":")[0] * 60);
-        //     let ctSecs = this.state.currentTime.split(":")[1];
-        //     let numerator = parseInt(ctMins) + parseInt(ctSecs);
-
-        //     let dMins = (this.state.duration.split(":")[0] * 60);
-        //     let dSecs = this.state.duration.split(":")[1];
-        //     let denom = parseInt(dMins) + parseInt(dSecs);
-
-        //     return ((numerator / denom) * 100 ) + "%";
-        // };
 
         return (
             <div className="cpb">
@@ -418,11 +306,6 @@ class ContinuousPlayBar extends React.Component {
                                     <FontAwesomeIcon icon={faRandom} />
                                 </button>
                             </div>
-                            {/* <div className="cpb-repeat">
-                                <button className="cpb-repeat-btn">
-                                    repeat
-                                </button>
-                            </div> */}
                             <div className="cpb-timeline">
                                 <div className="cpb-timeline-content">
                                     <div className="cpb-timeline-timepassed">
@@ -430,22 +313,16 @@ class ContinuousPlayBar extends React.Component {
                                             id="cpb-timeline-timepassed-show"
                                             className="cpb-timeline-timepassed-show"
                                             >
-                                            {/* {this.state.currentTime} */}
                                             </span>
                                     </div>
                                         <div id="cpb-timeline-progress"
                                             className="cpb-timeline-progress"
                                             role="progressbar"
-                                            // onMouseDown={this.handleProgressMouseDown}
-                                            // draggable="true"
-                                            // onDrag={this.handleProgressDrag}
-                                            // onDragEnd={this.handleProgressDragEnd}
                                             >
                                             <div
                                                 id="cpb-dummy"
                                                 className="cpb-dummy"
                                                 onMouseDown={this.handleProgressMouseDown}
-                                                // onMouseMove={this.handleProgressMouseMove}
                                                 draggable="true"
                                                 onDrag={this.handleProgressDrag}
                                                 onDragStart={this.handleProgressDragStart}
@@ -460,24 +337,17 @@ class ContinuousPlayBar extends React.Component {
                                             <div
                                                 id="cpb-timeline-progress-timepassed"
                                                 className="cpb-timeline-progress-timepassed"
-                                            // style={{ width: `${document.getElementById("cpb-timeline-progress-handle-hidden").style.left}` }}
                                             >
                                             </div>
                                             <div
                                                 id="cpb-timeline-progress-handle"
                                                 className="cpb-timeline-progress-handle"
-                                            // onDrag={this.handleProgressDrag}
-                                            // onDragEnd={this.handleProgressDragEnd}
-                                            // draggable="true"
-                                            // style={{ left: `${document.getElementById("cpb-timeline-progress-handle-hidden").style.left}` }}> 
                                             >
 
                                             </div>
                                             <div
                                                 id="cpb-timeline-progress-handle-hidden"
                                                 className="cpb-timeline-progress-handle-hidden"
-                                            // style={{ left: `${progress()}` }}
-                                            // draggable="true">
                                             >
                                             </div>
                                         </div>

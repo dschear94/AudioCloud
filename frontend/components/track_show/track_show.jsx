@@ -22,7 +22,6 @@ class TrackShow extends React.Component {
 
     render() {
         const {track, sendTrack} = this.props;
-        debugger
         return (
         <div>
             <div className="show-hero-wrapper">

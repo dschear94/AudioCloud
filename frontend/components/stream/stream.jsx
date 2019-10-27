@@ -5,7 +5,6 @@ import TrackStreamItem from './track_stream_item';
 class Stream extends Component {
     componentDidMount() {
         if (this.props.tracks.length === 0) {
-            debugger
             this.props.fetchTracks();
         }
     }
