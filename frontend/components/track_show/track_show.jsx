@@ -14,12 +14,14 @@ class TrackShow extends React.Component {
         if ((this.props.match.params.artist !== this.props.track.artist) 
             && (this.props.match.params.track !== this.props.track.track)) {
             this.props.fetchArtist(this.props.match.params.artist)
+                .then(() => {
+                    document.getElementById("artwork-image-official").style.backgroundImage = "url(" + this.props.track.photoUrl + ")"
+                });
         }
     }
 
     render() {
         const {track, sendTrack} = this.props;
-
         return (
         <div>
             <div className="show-hero-wrapper">
@@ -31,8 +33,10 @@ class TrackShow extends React.Component {
                         <div className="s-h-artwork">
                             <div className="image-placeholder">
                                 <span
+                                    id="artwork-image-official"
                                     className="artwork-image-official"
-                                    style={{ backgroundImage: "url(" + track.photoUrl + ")" }}></span>
+                                    style={{ backgroundImage: "url(" + track.photoUrl ? track.photoUrl : null + ")" }}
+                                    ></span>
                             </div>
                         </div>
                         <div className="s-h-title">

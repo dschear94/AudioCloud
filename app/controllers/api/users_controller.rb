@@ -1,8 +1,12 @@
 class Api::UsersController < ApplicationController
 
     def show
-        debugger
-        @user = User.find_by(:username)
+        @user = User.find_by(username: params[:id])
+        if @user
+            render "api/users/show"
+        else
+            render ["no artist found"]
+        end
     end
 
     def create

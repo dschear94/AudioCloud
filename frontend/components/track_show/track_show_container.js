@@ -6,9 +6,12 @@ import { fetchArtist } from '../../actions/artist_actions';
 
 
 const msp = (state, ownProps) => {
+    const showTrack = ownProps.location.state ?
+        ownProps.location.state.track 
+        : state.entities.artists.tracks ?
+        state.entities.artists.tracks[ownProps.match.params.track] : {}
     return { 
-        track: ownProps.location.state ? 
-        ownProps.location.state.track : {} 
+        track: showTrack
     }
 };
 
