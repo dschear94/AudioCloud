@@ -1,6 +1,7 @@
 class Api::TracksController < ApplicationController
     def index
-        @tracks = Track.all.sort_by{|track| track.convert_time}.reverse
+        @tracks = Track.all
+        # @artists = User.all
         render :index
     end
 

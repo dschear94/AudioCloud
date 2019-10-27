@@ -19,7 +19,7 @@ class Stream extends Component {
                     </h1>
                 </div>
                 <ul className="stream-list">
-                    {tracks.map(track => <TrackStreamItem key={track.id} track={track} sendTrack={receiveCurrentTrack} />)}
+                    {tracks.sort().reverse().map(track => <TrackStreamItem key={track.id} track={track} sendTrack={receiveCurrentTrack} />)}
                 </ul>
             </div>
         );

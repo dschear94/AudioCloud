@@ -7,7 +7,7 @@ export const RECEIVE_TRACKS = 'RECEIVE_TRACKS';
 export const RECEIVE_TRACK = 'RECEIVE_TRACK';
 
 
-export const receiveTracks = tracks => {
+export const receiveTracks = (tracks) => {
     return {
         type: RECEIVE_TRACKS,
         tracks

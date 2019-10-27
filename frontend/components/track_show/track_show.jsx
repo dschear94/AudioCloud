@@ -8,16 +8,16 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 class TrackShow extends React.Component {
     constructor(props) {
         super(props);
-        // this.props.fetchTracks();
-        // this.updatePlayBar = this.updatePlayBar.bind(this);
     }
 
     componentDidMount() {
-        debugger
+        if ((this.props.match.params.artist !== this.props.track.artist) 
+            && (this.props.match.params.track !== this.props.track.track)) {
+            this.props.fetchArtist(this.props.match.params.artist)
+        }
     }
 
     render() {
-        debugger
         const {track, sendTrack} = this.props;
 
         return (

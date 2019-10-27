@@ -7,7 +7,7 @@ import { receiveCurrentTrack } from '../../actions/current_track_actions';
 
 const msp = state => {
     return { 
-        tracks: state.entities.tracks || [],
+        tracks: Object.values(state.entities.tracks) || [],
         currentUser: (state.session.id ? true : false)
     };
 };

@@ -4,6 +4,12 @@ export const fetchTracks = () => {
         url: '/api/tracks'
     });
 }
+// export const fetchTrack = () => {
+//     return $.ajax({
+//         method: 'GET',
+//         url: '/api/tracks'
+//     });
+// }
 
 export const uploadTrack = track => {
     return $.ajax({

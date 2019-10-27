@@ -5,7 +5,7 @@ import { receiveCurrentTrack } from '../../actions/current_track_actions';
 
 
 const msp = (state, ownProps) => {
-    return { tracks: state.entities.tracks || [] }
+    return { tracks: Object.values(state.entities.tracks) || [] }
 };
 
 

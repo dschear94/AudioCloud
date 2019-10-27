@@ -1,4 +1,10 @@
 class Api::UsersController < ApplicationController
+
+    def show
+        debugger
+        @user = User.find_by(:username)
+    end
+
     def create
         @user = User.new(user_params)
 
