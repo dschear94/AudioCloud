@@ -1,5 +1,5 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
 
 class Discover extends React.Component {
     constructor(props) {
@@ -67,7 +67,12 @@ class Discover extends React.Component {
                         </div>
                         <div className="splash-main-content1-trendingtracks-tile-description">
                             <div className="splash-main-content1-trendingtracks-tile-description1">
-                                {track.title}
+                                <Link to={{
+                                    pathname: `/${track.artist}/${track.title}`,
+                                    state: {
+                                        track
+                                    }
+                                }}>{track.title}</Link>
                             </div>
                             <div className="splash-main-content1-trendingtracks-tile-description2">
                                 {track.artist}

@@ -36,10 +36,10 @@ const App = () => (
                             <div className="social-container">
                             </div>
                         </div>
-                        <ProtectedRoute exact path='/:artist/:track' component={TrackShowContainer}/>
+                        <Route exact path='/:artist/:track' component={TrackShowContainer}/>
                     <Switch>
                         <ProtectedRoute exact path="/upload" component={TrackUploadContainer} />
-                        <Route path='/you/library'>coming soon.</Route>
+                        <Route exact path='/you/library'>coming soon.</Route>
                         <SplashyRoute exact path="/" component={SplashContainer}/>
                     </Switch>
                     </div>

@@ -35,7 +35,12 @@ class Splash extends React.Component {
                 </div>
                 <div className="splash-main-content1-trendingtracks-tile-description">
                     <div className="splash-main-content1-trendingtracks-tile-description1">
-                        {track.title}
+                            <Link to={{
+                                pathname: `/${track.artist}/${track.title}`,
+                                state: {
+                                    track
+                                }
+                            }}>{track.title}</Link>
                     </div>
                     <div className="splash-main-content1-trendingtracks-tile-description2">
                         {track.artist}
