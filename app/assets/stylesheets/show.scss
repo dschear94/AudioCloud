@@ -75,6 +75,15 @@
     display: block;
 }
 
+.shtime {
+    color: #fff;
+    margin-bottom: 16px;
+    font-size: 16px;
+    text-align: right;
+}
+
+
+
 .s-h-player {
     position: absolute;
     bottom: 0;
@@ -88,4 +97,44 @@
 .show-content-wrapper {
     display: block;
     position: relative;
+}
+
+.shtitle-username {
+    flex: 1;
+    min-width: 0;
+    display: block;
+    word-break: break-word;
+    overflow-wrap: break-word;
+}
+
+.shtitle-username-container {
+        margin-right: 0;
+        margin-bottom: 7px;
+        display: block;
+}
+
+.shtu-text {
+    color: #ccc;
+    font-weight: 100;
+    position: relative;
+    background-color: rgba(0,0,0,.8);
+    text-decoration: none;
+    font-size: 16px;
+    line-height: 1.2;
+    padding: 2px 7px 3px;
+    display: inline;
+    transition: opacity .5s linear;
+}
+
+.shtitle-title {
+    font-weight: 100;
+    max-width: 100%;
+    box-sizing: border-box;
+    color: #fff;
+    font-size: 24px;
+    line-height: 37px;
+    padding: 4px 7px;
+    display: inline;
+    position: relative;
+    background-color: rgba(0,0,0,.8);
 }

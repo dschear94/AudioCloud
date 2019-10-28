@@ -1,7 +1,9 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { faPlay } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { relativeTime } from '../../util/time_util';
+
 
 
 
@@ -17,6 +19,13 @@ class TrackShow extends React.Component {
                 .then(() => {
                     document.getElementById("artwork-image-official").style.backgroundImage = "url(" + this.props.track.photoUrl + ")"
                 });
+        }
+        document.getElementById("artwork-image-official").style.backgroundImage = "url(" + this.props.track.photoUrl + ")"
+    }
+
+    componentDidUpdate(prevProps) {
+        if (this.props.track.id !== prevProps.track.id){
+            document.getElementById("artwork-image-official").style.backgroundImage = "url(" + this.props.track.photoUrl + ")"
         }
     }
 
@@ -35,7 +44,6 @@ class TrackShow extends React.Component {
                                 <span
                                     id="artwork-image-official"
                                     className="artwork-image-official"
-                                    style={{ backgroundImage: "url(" + track.photoUrl ? track.photoUrl : null + ")" }}
                                     ></span>
                             </div>
                         </div>
@@ -46,14 +54,27 @@ class TrackShow extends React.Component {
                                         <div
                                             className="playbtn"
                                             onClick={() => sendTrack(track)}
+                                            style={{ lineHeight: "60px" }}
                                             >
-                                            <div className="playbtn-arw">
+                                            <div 
+                                            className="playbtn-arw"
+                                            style={{ fontSize: "20px" }}
+                                            >
                                                 <FontAwesomeIcon icon={faPlay} />
                                             </div>
                                         </div>
                                     </div>
                                     <div className="shtitle-username">
-
+                                        <div className="shtitle-username-container">
+                                            <Link 
+                                            to={`/${track.artist}`}
+                                            className="shtu-text"
+                                            >{track.artist}</Link>
+                                        </div>
+                                        <div className="shtitle-title">
+                                            <span
+                                                >{track.title}</span>
+                                        </div>
                                     </div>
                                     <div className="shtitle-addtl">
 
@@ -62,7 +83,9 @@ class TrackShow extends React.Component {
                             </div>
                         </div>
                         <div className="s-h-info">
-
+                            <div className="shtime">
+                                <span>{relativeTime(track.created_at)}</span>
+                            </div>
                         </div>
                         <div className="s-h-player">
 
