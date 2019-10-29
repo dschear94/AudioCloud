@@ -1,7 +1,6 @@
 class Api::TracksController < ApplicationController
     def index
-        @tracks = Track
-        .with_attached_audio_file
+        @tracks = Track.with_attached_audio_file
         .with_attached_image_file
         .includes(:artist).all
         render :index
