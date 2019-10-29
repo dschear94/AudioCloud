@@ -4,6 +4,13 @@ import { faPlay } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { relativeTime } from '../../util/time_util';
 
+// const ColorThief = require('colorthief');
+// const ColorThief = require('../../../node_modules/colorthief');
+
+// import ColorThief from './node_modules/colorthief/dist/color-thief.mjs'
+
+
+
 
 
 
@@ -21,6 +28,19 @@ class TrackShow extends React.Component {
                 });
         }
         document.getElementById("artwork-image-official").style.backgroundImage = "url(" + this.props.track.photoUrl + ")"
+        
+
+
+        // const image = document.getElementById("background-gradient");
+        // const colorthief = new ColorThief();
+
+        // debugger
+
+        // const paletteArray = colorthief.getPalette(this.props.track.photoUrl, 2);
+
+        // debugger
+
+        // image.style.backgroundImage = "linear-gradient(135deg, rgb(150, 104, 90) 0%, rgb(45, 47, 47) 100%);"
     }
 
     componentDidUpdate(prevProps) {
@@ -35,7 +55,9 @@ class TrackShow extends React.Component {
         <div>
             <div className="show-hero-wrapper">
                 <div className="show-hero">
-                    <div style={{height: "100%"}}>
+                    <div 
+                    id="background-gradient"
+                    style={{height: "100%"}}>
 
                     </div>
                     <div className="show-h-fg">
