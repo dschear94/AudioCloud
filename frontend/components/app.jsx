@@ -22,6 +22,8 @@ import TrackShowContainer from './track_show/track_show_container';
 import { SplashyRoute , ProtectedRoute, CPBRoute } from '../util/route_util';
 import { openModal } from '../actions/modal_actions';
 
+
+
 const App = () => (
     <div className="main-bg">
             <Modal />

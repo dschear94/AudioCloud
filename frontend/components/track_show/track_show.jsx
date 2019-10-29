@@ -4,6 +4,10 @@ import { faPlay } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { relativeTime } from '../../util/time_util';
 
+
+import ColorThief from '../../../node_modules/colorthief/dist/color-thief.umd';
+
+// const colorThief = new ColorThief();
 // const ColorThief = require('colorthief');
 // const ColorThief = require('../../../node_modules/colorthief');
 
@@ -17,30 +21,31 @@ import { relativeTime } from '../../util/time_util';
 class TrackShow extends React.Component {
     constructor(props) {
         super(props);
+
+        this.handleArt = this.handleArt.bind(this);
     }
 
     componentDidMount() {
+        // const that = this;
         if ((this.props.match.params.artist !== this.props.track.artist) 
             && (this.props.match.params.track !== this.props.track.track)) {
             this.props.fetchArtist(this.props.match.params.artist)
                 .then(() => {
-                    document.getElementById("artwork-image-official").style.backgroundImage = "url(" + this.props.track.photoUrl + ")"
-                });
+                    const artwork = document.getElementById("artwork-image-official");
+                    artwork.style.backgroundImage = "url(" + this.props.track.photoUrl + ")"
+                })
+                // .then(this.handleArt());
         }
-        document.getElementById("artwork-image-official").style.backgroundImage = "url(" + this.props.track.photoUrl + ")"
-        
 
+        // document.getElementById("artwork-image-official").style.backgroundImage = "url(" + this.props.track.photoUrl + ")"
+    }
 
-        // const image = document.getElementById("background-gradient");
-        // const colorthief = new ColorThief();
-
-        // debugger
-
-        // const paletteArray = colorthief.getPalette(this.props.track.photoUrl, 2);
-
-        // debugger
-
-        // image.style.backgroundImage = "linear-gradient(135deg, rgb(150, 104, 90) 0%, rgb(45, 47, 47) 100%);"
+    handleArt(photo) {
+        const bg = document.getElementById("background-gradient");
+        const colorthief = new ColorThief();
+        const paletteArray = colorthief.getPalette(photo, 2);
+        debugger
+        bg.style.backgroundImage = "linear-gradient(135deg, rgb(150, 104, 90) 0%, rgb(45, 47, 47) 100%);"
     }
 
     componentDidUpdate(prevProps) {
@@ -51,11 +56,22 @@ class TrackShow extends React.Component {
 
     render() {
         const {track, sendTrack} = this.props;
+
+        if (track.photoUrl) {
+            let photo = new Image();
+            photo.src = track.photoUrl;
+            photo.crossOrigin = "Anonymous";
+            photo.onload = () => {
+                const that = photo;
+                this.handleArt(that);
+            }
+        }
+
         return (
         <div>
             <div className="show-hero-wrapper">
                 <div className="show-hero">
-                    <div 
+                    <div
                     id="background-gradient"
                     style={{height: "100%"}}>
 
@@ -66,6 +82,7 @@ class TrackShow extends React.Component {
                                 <span
                                     id="artwork-image-official"
                                     className="artwork-image-official"
+                                    // onLoad={this.handleArt}
                                     ></span>
                             </div>
                         </div>
