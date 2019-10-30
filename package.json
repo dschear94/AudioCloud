@@ -9,6 +9,7 @@
     "@fortawesome/free-solid-svg-icons": "^5.11.2",
     "@fortawesome/react-fontawesome": "^0.1.7",
     "babel-loader": "^8.0.6",
+    "color-thief": "^2.2.5",
     "colorthief": "^2.3.0",
     "react": "^16.10.1",
     "react-dom": "^16.10.1",
@@ -48,3 +49,4 @@
   },
   "homepage": "https://github.com/dschear94/AudioCloud#readme"
 }
+

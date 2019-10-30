@@ -46,6 +46,7 @@ group :development, :test do
   gem 'binding_of_caller'
   gem 'pry-rails'
   gem 'annotate'
+  gem 'rack-cors'
   
 end
 

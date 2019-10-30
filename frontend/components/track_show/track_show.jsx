@@ -5,7 +5,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { relativeTime } from '../../util/time_util';
 
 
-import ColorThief from '../../../node_modules/colorthief/dist/color-thief.umd';
+// import ColorThief from '../../../node_modules/colorthief/dist/color-thief.umd';
+import ColorThief from 'colorthief';
 
 // const colorThief = new ColorThief();
 // const ColorThief = require('colorthief');
@@ -43,29 +44,29 @@ class TrackShow extends React.Component {
     handleArt(photo) {
         const bg = document.getElementById("background-gradient");
         const colorthief = new ColorThief();
-        const paletteArray = colorthief.getPalette(photo, 2);
         debugger
-        bg.style.backgroundImage = "linear-gradient(135deg, rgb(150, 104, 90) 0%, rgb(45, 47, 47) 100%);"
+        const paletteArray = colorthief.getPalette(photo, 2);
+        bg.style.backgroundImage = `linear-gradient(135deg, rgb(${paletteArray[0]}) 0%, rgb(${paletteArray[1]}) 100%);`
     }
 
     componentDidUpdate(prevProps) {
         if (this.props.track.id !== prevProps.track.id){
             document.getElementById("artwork-image-official").style.backgroundImage = "url(" + this.props.track.photoUrl + ")"
+            if (this.props.track.photoUrl) {
+                let photo = new Image();
+                debugger
+                photo.src = this.props.track.photoUrl;
+                photo.crossOrigin = "anonymous";
+                photo.onload = () => {
+                    const that = photo;
+                    this.handleArt(that);
+                }
+            }
         }
     }
 
     render() {
         const {track, sendTrack} = this.props;
-
-        if (track.photoUrl) {
-            let photo = new Image();
-            photo.src = track.photoUrl;
-            photo.crossOrigin = "Anonymous";
-            photo.onload = () => {
-                const that = photo;
-                this.handleArt(that);
-            }
-        }
 
         return (
         <div>
