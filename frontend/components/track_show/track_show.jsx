@@ -165,12 +165,10 @@ class TrackShow extends React.Component {
                                         </div>
                                     </div>
                                     <div className="le-foot">
-
+                                        
                                     </div>
-
                                 </div>
                             </div>
-
                         </div>
                         <div className="show-main-container">
 
