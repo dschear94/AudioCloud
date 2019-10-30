@@ -1,7 +1,6 @@
 import { connect } from 'react-redux';
 import TrackCommentIndex from './track_comment_index';
-import { fetchTracks } from '../../actions/track_actions';
-import { receiveCurrentTrack } from '../../actions/current_track_actions';
+import { fetchComments } from '../../actions/comment_actions';
 
 
 const msp = (state, ownProps) => {

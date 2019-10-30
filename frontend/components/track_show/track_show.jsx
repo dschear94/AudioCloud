@@ -3,21 +3,7 @@ import { Link } from 'react-router-dom';
 import { faPlay } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { relativeTime } from '../../util/time_util';
-
-
-// import ColorThief from '../../../node_modules/colorthief/dist/color-thief.umd';
 import ColorThief from 'colorthief';
-
-// const colorThief = new ColorThief();
-// const ColorThief = require('colorthief');
-// const ColorThief = require('../../../node_modules/colorthief');
-
-// import ColorThief from './node_modules/colorthief/dist/color-thief.mjs'
-
-
-
-
-
 
 class TrackShow extends React.Component {
     constructor(props) {
@@ -165,7 +151,7 @@ class TrackShow extends React.Component {
                                         </div>
                                     </div>
                                     <div className="le-foot">
-                                        
+
                                     </div>
                                 </div>
                             </div>
