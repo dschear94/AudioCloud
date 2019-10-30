@@ -6,6 +6,8 @@ class User < ApplicationRecord
 
     has_many :tracks,
     foreign_key: :artist_id
+
+    has_many :comments
     
 
     attr_reader :password

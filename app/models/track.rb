@@ -6,6 +6,8 @@ class Track < ApplicationRecord
     foreign_key: :artist_id,
     class_name: "User"
 
+    has_many :comments
+
     def convert_time
         self.created_at.to_f
     end

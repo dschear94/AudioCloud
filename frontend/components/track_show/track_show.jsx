@@ -36,7 +36,12 @@ class TrackShow extends React.Component {
                     artwork.style.backgroundImage = "url(" + this.props.track.photoUrl + ")"
                 })
                 // .then(this.handleArt());
+        } else {
+            const artwork = document.getElementById("artwork-image-official");
+            artwork.style.backgroundImage = "url(" + this.props.track.photoUrl + ")"
         }
+
+
 
         // document.getElementById("artwork-image-official").style.backgroundImage = "url(" + this.props.track.photoUrl + ")"
     }
@@ -44,7 +49,6 @@ class TrackShow extends React.Component {
     handleArt(photo) {
         const bg = document.getElementById("background-gradient");
         const colorthief = new ColorThief();
-        debugger
         const paletteArray = colorthief.getPalette(photo, 2);
         bg.style.backgroundImage = `linear-gradient(135deg, rgb(${paletteArray[0]}) 0%, rgb(${paletteArray[1]}) 100%);`
     }
@@ -54,14 +58,17 @@ class TrackShow extends React.Component {
             document.getElementById("artwork-image-official").style.backgroundImage = "url(" + this.props.track.photoUrl + ")"
             if (this.props.track.photoUrl) {
                 let photo = new Image();
-                debugger
+                // photo.src = "https://audiocloud-ds-dev.s3.us-east-2.amazonaws.com/33TAVfzZHXZWtBnVFy2SWScp?response-content-disposition=inline%3B%20filename%3D%22IMG_5373.jpg%22%3B%20filename%2A%3DUTF-8%27%27IMG_5373.jpg&response-content-type=image%2Fjpeg&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAZNSXGHH7Y3CQLXNL%2F20191030%2Fus-east-2%2Fs3%2Faws4_request&X-Amz-Date=20191030T181103Z&X-Amz-Expires=300&X-Amz-SignedHeaders=host&X-Amz-Signature=2e77c6b1d4c4f7ec0c8bcbfb3113b446ca70b4f335b00c2def7c0a3ec0d17ab7";
                 photo.src = this.props.track.photoUrl;
                 photo.crossOrigin = "anonymous";
                 photo.onload = () => {
                     const that = photo;
                     this.handleArt(that);
+
                 }
             }
+        } else {
+            document.getElementById("artwork-image-official").style.backgroundImage = "url(" + this.props.track.photoUrl + ")"
         }
     }
 
@@ -135,7 +142,40 @@ class TrackShow extends React.Component {
             </div>
             <div className="show-content-wrapper">
                 <div className="show-content">
+                    <div className="show-rows">
+                        <div className="show-comment-container">
+                            <div className="show-about-top">
+                                <div className="lstn-eng">
+                                    <div className="le-cc">
+                                        <div className="le-cc1">
+                                            <div className="le-cc2">
+                                                <div className="cf-av">
+                                                    {/* <span>place avatar here w styling</span> */}
+                                                </div>
+                                                <div className="cf-input-wrapper">
+                                                        <input 
+                                                        type="text" 
+                                                        placeholder="Write a comment" 
+                                                        title="Write a comment" 
+                                                        className="cf-input">
+                                                        </input>
+                                                </div>
 
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="le-foot">
+
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+                        <div className="show-main-container">
+
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
