@@ -11,8 +11,12 @@ const msp = (state, ownProps) => {
         ownProps.location.state.track 
         : state.entities.artists.tracks ?
         state.entities.artists.tracks[ownProps.match.params.track] : {}
+
+        debugger
+
     return { 
-        track: showTrack
+        track: showTrack,
+        author_id: state.session.id
     }
 };
 

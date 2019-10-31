@@ -3,13 +3,36 @@ import { Link } from 'react-router-dom';
 import { faPlay } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { relativeTime } from '../../util/time_util';
+
 import ColorThief from 'colorthief';
 
 class TrackShow extends React.Component {
     constructor(props) {
         super(props);
 
+        this.state = {
+            comment: ""
+        }
+
         this.handleArt = this.handleArt.bind(this);
+        this.handleCommentChange = this.handleCommentChange.bind(this);
+        this.handleCommentSubmit = this.handleCommentSubmit.bind(this);
+    }
+
+    handleCommentChange(e) {
+        this.setState({ comment: e.target.value });
+    }
+
+    handleCommentSubmit(e) {
+        if (e.charCode === 13) {
+            const comment = Object.assign({
+                track_id: this.props.track.id,
+                body: this.state.comment,
+                author_id: this.props.author_id
+            })
+            
+            this.props.createComment(comment);
+        }
     }
 
     componentDidMount() {
@@ -76,7 +99,6 @@ class TrackShow extends React.Component {
                                 <span
                                     id="artwork-image-official"
                                     className="artwork-image-official"
-                                    // onLoad={this.handleArt}
                                     ></span>
                             </div>
                         </div>
@@ -140,10 +162,13 @@ class TrackShow extends React.Component {
                                                 </div>
                                                 <div className="cf-input-wrapper">
                                                         <input 
-                                                        type="text" 
-                                                        placeholder="Write a comment" 
-                                                        title="Write a comment" 
-                                                        className="cf-input">
+                                                            type="text" 
+                                                            placeholder="Write a comment" 
+                                                            title="Write a comment" 
+                                                            className="cf-input"
+                                                            onChange={this.handleCommentChange}
+                                                            onKeyPress={this.handleCommentSubmit}
+                                                            >
                                                         </input>
                                                 </div>
 
