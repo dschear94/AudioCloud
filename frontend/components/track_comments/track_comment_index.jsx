@@ -5,13 +5,11 @@ import TrackCommentItem from './track_comment_item';
 class TrackCommentIndex extends React.Component {
     constructor(props) {
         super(props);
+
+        debugger
+        
     }
     componentDidMount() {
-        // if (this.props.tracks.length === 0) {
-        //     this.props.fetchTracks();
-        // }
-
-
 
     }
 

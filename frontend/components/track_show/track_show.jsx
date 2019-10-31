@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { faPlay } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { relativeTime } from '../../util/time_util';
+import TrackCommentIndex from '../track_comments/track_comment_index';
 
 import ColorThief from 'colorthief';
 
@@ -79,6 +80,7 @@ class TrackShow extends React.Component {
         } else {
             document.getElementById("artwork-image-official").style.backgroundImage = "url(" + this.props.track.photoUrl + ")"
         }
+        debugger
     }
 
     render() {
@@ -182,7 +184,7 @@ class TrackShow extends React.Component {
                             </div>
                         </div>
                         <div className="show-main-container">
-
+                            <TrackCommentIndex track={track}/>
                         </div>
                     </div>
                 </div>
