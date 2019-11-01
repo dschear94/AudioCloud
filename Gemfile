@@ -18,6 +18,7 @@ gem 'uglifier', '>= 1.3.0'
 
 gem 'aws-sdk-s3'
 gem 'bcrypt'
+gem 'rack-cors'
 
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
@@ -46,7 +47,6 @@ group :development, :test do
   gem 'binding_of_caller'
   gem 'pry-rails'
   gem 'annotate'
-  gem 'rack-cors'
   
 end
 
