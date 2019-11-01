@@ -3,8 +3,7 @@ class Api::UsersController < ApplicationController
     def show
         @user = User.includes(tracks: {
             audio_file_attachment: :blob, 
-            image_file_attachment: :blob,
-            :comments
+            image_file_attachment: :blob
         }).find_by(username: params[:id])
 
         if @user

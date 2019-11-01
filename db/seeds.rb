@@ -11,26 +11,26 @@ require 'open-uri'
 demo = User.create({username: "derek", password:"123456", email:"123@aol.com", gender:"male", age: 8});
 
 
-track1 = Track.create({title: "underground1", album: "none", artist_id: 2 });
-track2 = Track.create({title: "underground2" , album: "none", artist_id: 2 });
-track3 = Track.create({title: "underground3" , album: "none", artist_id: 2 });
-track4 = Track.create({title: "underground4" , album: "none", artist_id: 2 });
-track5 = Track.create({title: "underground5" , album: "none", artist_id: 2 });
-track6 = Track.create({title: "underground6" , album: "none", artist_id: 2 });
-track7 = Track.create({title: "underground7" , album: "none", artist_id: 2 });
-track8 = Track.create({title: "underground8" , album: "none", artist_id: 2 });
-track9 = Track.create({title: "underground9" , album: "none", artist_id: 2 });
-track10 = Track.create({title: "underground10" , album: "none", artist_id: 2 });
-track11 = Track.create({title: "underground11" , album: "none", artist_id: 2 });
-track12 = Track.create({title: "underground12" , album: "none", artist_id: 2 });
-track13 = Track.create({title: "underground13" , album: "none", artist_id: 2 });
-track14 = Track.create({title: "underground14" , album: "none", artist_id: 2 });
-track15 = Track.create({title: "underground15" , album: "none", artist_id: 2 });
-track16 = Track.create({title: "underground16" , album: "none", artist_id: 2 });
-track17 = Track.create({title: "underground17" , album: "none", artist_id: 2 });
-track18 = Track.create({title: "underground18" , album: "none", artist_id: 2 });
-track19 = Track.create({title: "underground19" , album: "none", artist_id: 2 });
-track20 = Track.create({title: "underground20" , album: "none", artist_id: 2 });
+track1 = Track.create({title: "underground1", album: "none", artist_id: 1 });
+track2 = Track.create({title: "underground2" , album: "none", artist_id: 1 });
+track3 = Track.create({title: "underground3" , album: "none", artist_id: 1 });
+track4 = Track.create({title: "underground4" , album: "none", artist_id: 1 });
+track5 = Track.create({title: "underground5" , album: "none", artist_id: 1 });
+track6 = Track.create({title: "underground6" , album: "none", artist_id: 1 });
+track7 = Track.create({title: "underground7" , album: "none", artist_id: 1 });
+track8 = Track.create({title: "underground8" , album: "none", artist_id: 1 });
+track9 = Track.create({title: "underground9" , album: "none", artist_id: 1 });
+track10 = Track.create({title: "underground10" , album: "none", artist_id: 1 });
+track11 = Track.create({title: "underground11" , album: "none", artist_id: 1 });
+track12 = Track.create({title: "underground12" , album: "none", artist_id: 1 });
+track13 = Track.create({title: "underground13" , album: "none", artist_id: 1 });
+track14 = Track.create({title: "underground14" , album: "none", artist_id: 1 });
+track15 = Track.create({title: "underground15" , album: "none", artist_id: 1 });
+track16 = Track.create({title: "underground16" , album: "none", artist_id: 1 });
+track17 = Track.create({title: "underground17" , album: "none", artist_id: 1 });
+track18 = Track.create({title: "underground18" , album: "none", artist_id: 1 });
+track19 = Track.create({title: "underground19" , album: "none", artist_id: 1 });
+track20 = Track.create({title: "underground20" , album: "none", artist_id: 1 });
 
 
 
