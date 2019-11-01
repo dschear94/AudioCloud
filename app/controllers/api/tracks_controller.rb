@@ -4,11 +4,6 @@ class Api::TracksController < ApplicationController
         .with_attached_image_file
         .preload(:artist, :comments).all
         render :index
-        # @tracks = Track.preload(:artist,
-        #     audio_file_attachment: :blob, 
-        #     image_file_attachment: :blob
-        #     ).all
-        # render :index
     end
 
     def create

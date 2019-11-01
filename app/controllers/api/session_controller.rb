@@ -3,7 +3,8 @@ class Api::SessionController < ApplicationController
     def create
         @user = User.includes(tracks: {
             audio_file_attachment: :blob, 
-            image_file_attachment: :blob
+            image_file_attachment: :blob,
+            :comments
             }).find_by_credentials(
             params[:user][:username] ,
             params[:user][:password]
