@@ -5,6 +5,19 @@ export const fetchComments = () => {
     });
 }
 
+export const fetchTrackComments = (trackId) => {
+    debugger
+    return $.ajax({
+        method: 'GET',
+        url: '/api/comments',
+        data: {
+            comment: {
+                track_id: trackId
+            }
+        }
+    });
+}
+
 export const createComment = comment => {
     return $.ajax({
         method: 'POST',

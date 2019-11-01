@@ -24,6 +24,12 @@ export const fetchComments = () => dispatch => {
     ));
 };
 
+export const fetchTrackComments = (trackId) => dispatch => {
+    return APIUtil.fetchTrackComments(trackId).then(comments => (
+        dispatch(receiveComments(comments))
+    ));
+};
+
 
 export const createComment = (comment) => dispatch => {
     return APIUtil.createComment(comment).then(comment => (

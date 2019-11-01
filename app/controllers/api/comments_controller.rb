@@ -9,12 +9,12 @@ class Api::CommentsController < ApplicationController
         else
             render json: @comment.errors.full_messages
         end
-
         
     end
 
     def index
-        @comments = Comment.all
+        debugger
+        @comments = Comment.where(track_id: params[:comment][:track_id])
     end
 
     

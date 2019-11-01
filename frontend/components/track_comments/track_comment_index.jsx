@@ -6,18 +6,30 @@ class TrackCommentIndex extends React.Component {
     constructor(props) {
         super(props);
 
-        debugger
-        
     }
-    componentDidMount() {
 
+    componentDidMount() {
+        if (this.props.track.id) {
+            this.props.fetchTrackComments(this.props.track.id)
+        }
+    }
+
+    componentDidUpdate(prevProps) {
+        if (this.props.track.id !== prevProps.track.id) {
+            this.props.fetchTrackComments(this.props.track.id)
+        }
     }
 
     render() {
-        debugger
+
+        const trackItems = this.props.comments.map(comment => {
+            <TrackCommentItem comment={comment}/>
+        })
         
         return (
-            <TrackCommentItem/>
+            <div>
+                {trackItems}
+            </div>
         );
     }
 }

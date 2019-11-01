@@ -1,21 +1,22 @@
 import { connect } from 'react-redux';
 import TrackCommentIndex from './track_comment_index';
-import { fetchComments } from '../../actions/comment_actions';
+import { 
+    fetchComments,
+    fetchTrackComments
+} from '../../actions/comment_actions';
 
 
 const msp = (state, ownProps) => {
-    debugger
     return { 
-        // tracks: Object.values(state.entities.tracks) || [] 
+        comments: Object.values(state.entities.comments) || [] 
     }
 };
 
 
 const mdp = dispatch => {
-    debugger
-    // fetchTracks: () => dispatch(fetchTracks()),
-    // receiveCurrentTrack: track => dispatch(receiveCurrentTrack(track))
     return { 
+        fetchComments: () => dispatch(fetchComments()),
+        fetchTrackComments: trackId => dispatch(fetchTrackComments(trackId))
     }
 };
 
