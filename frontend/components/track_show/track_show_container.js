@@ -5,7 +5,7 @@ import { receiveCurrentTrack } from '../../actions/current_track_actions';
 import { fetchArtist } from '../../actions/artist_actions';
 import { 
     createComment,
-    fetchComments
+    fetchTrackComments
  } from '../../actions/comment_actions';
 
 
@@ -33,7 +33,7 @@ const mdp = dispatch => ({
     sendTrack: track => dispatch(receiveCurrentTrack(track)),
     fetchArtist: artist => dispatch(fetchArtist(artist)),
     createComment: comment => dispatch(createComment(comment)),
-    fetchComments: () => dispatch(fetchComments()),
+    fetchTrackComments: (trackId) => dispatch(fetchTrackComments(trackId))
 });
 
 export default connect(msp, mdp)(TrackShow);

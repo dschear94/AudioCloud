@@ -21,11 +21,9 @@ class TrackCommentIndex extends React.Component {
     }
 
     render() {
-
-        const trackItems = this.props.comments.map(comment => {
-            <TrackCommentItem comment={comment}/>
-        })
-        
+        const trackItems = this.props.comments.map(comment =>
+                <TrackCommentItem key={comment.id} comment={comment} />
+        );
         return (
             <div>
                 {trackItems}

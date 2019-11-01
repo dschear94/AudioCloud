@@ -6,7 +6,6 @@ export const fetchComments = () => {
 }
 
 export const fetchTrackComments = (trackId) => {
-    debugger
     return $.ajax({
         method: 'GET',
         url: '/api/comments',

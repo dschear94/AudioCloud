@@ -18,7 +18,6 @@ class UploadModal extends React.Component {
 
     handleDrag(e) {
         e.preventDefault();
-        console.log("entered");
         this.setState({
             dd: true
         });
@@ -38,13 +37,11 @@ class UploadModal extends React.Component {
     }
 
     handleDrop(e) {
-        console.log("DROP")
         e.preventDefault();
         e.stopPropagation();
     }
 
     handleDragOver(e) {
-        console.log("DRAGO")
         e.preventDefault();
         e.stopPropagation();
     }

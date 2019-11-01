@@ -73,7 +73,7 @@ class TrackShow extends React.Component {
                 photo.crossOrigin = "anonymous";
                 photo.onload = () => {
                     const that = photo;
-                    this.handleArt(that);
+                    // this.handleArt(that);
 
                 }
             }
@@ -83,7 +83,7 @@ class TrackShow extends React.Component {
     }
 
     render() {
-        const {track, sendTrack, comments, fetchComments } = this.props;
+        const {track, sendTrack, comments, fetchTrackComments } = this.props;
 
         return (
         <div>
@@ -183,7 +183,7 @@ class TrackShow extends React.Component {
                             </div>
                         </div>
                         <div className="show-main-container">
-                            <TrackCommentIndexContainer comments={comments} track={track} fetchComments={fetchComments} />
+                            <TrackCommentIndexContainer comments={comments} track={track} fetchTrackComments={fetchTrackComments} />
                         </div>
                     </div>
                 </div>
