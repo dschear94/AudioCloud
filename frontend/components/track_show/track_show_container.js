@@ -5,7 +5,8 @@ import { receiveCurrentTrack } from '../../actions/current_track_actions';
 import { fetchArtist } from '../../actions/artist_actions';
 import { 
     createComment,
-    fetchTrackComments
+    fetchTrackComments,
+    clearComments
  } from '../../actions/comment_actions';
 
 
@@ -15,15 +16,10 @@ const msp = (state, ownProps) => {
         ownProps.location.state.track :
         state.entities.artists.tracks ?
         state.entities.artists.tracks[ownProps.match.params.track] : {};
-
-    const comments = state.entities.comments ?
-    Object.values(state.entities.comments) :
-    [];
-
+        
     return { 
         track: showTrack,
         author_id: state.session.id,
-        comments: comments
     }
 
 };
@@ -33,7 +29,8 @@ const mdp = dispatch => ({
     sendTrack: track => dispatch(receiveCurrentTrack(track)),
     fetchArtist: artist => dispatch(fetchArtist(artist)),
     createComment: comment => dispatch(createComment(comment)),
-    fetchTrackComments: (trackId) => dispatch(fetchTrackComments(trackId))
+    fetchTrackComments: (trackId) => dispatch(fetchTrackComments(trackId)),
+    clearComments: () => dispatch(clearComments())
 });
 
 export default connect(msp, mdp)(TrackShow);

@@ -1,6 +1,7 @@
 import {
     RECEIVE_COMMENTS,
     RECEIVE_COMMENT,
+    CLEAR_COMMENTS,
 } from '../actions/comment_actions';
 
 const commentsReducer = (state = {}, action) => {
@@ -10,6 +11,8 @@ const commentsReducer = (state = {}, action) => {
             return Object.assign({}, action.comments);
         case RECEIVE_COMMENT:
             return Object.assign({}, action.comment);
+        case CLEAR_COMMENTS:
+            return {};
         default:
             return state;
     }

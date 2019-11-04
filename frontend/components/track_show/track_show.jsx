@@ -26,13 +26,18 @@ class TrackShow extends React.Component {
 
     handleCommentSubmit(e) {
         if (e.charCode === 13) {
-            const comment = Object.assign({
-                track_id: this.props.track.id,
-                body: this.state.comment,
-                author_id: this.props.author_id
-            })
-            
-            this.props.createComment(comment);
+            if (this.state.comment.length < 1000) {
+                const comment = Object.assign({
+                    track_id: this.props.track.id,
+                    body: this.state.comment,
+                    author_id: this.props.author_id
+                })
+                
+                this.props.createComment(comment);
+                document.getElementById('commentinput').value = '';
+            } else {
+                // render errors
+            }
         }
     }
 
@@ -167,6 +172,7 @@ class TrackShow extends React.Component {
                                                             placeholder="Write a comment" 
                                                             title="Write a comment" 
                                                             className="cf-input"
+                                                            id="commentinput"
                                                             onChange={this.handleCommentChange}
                                                             onKeyPress={this.handleCommentSubmit}
                                                             >
@@ -183,7 +189,11 @@ class TrackShow extends React.Component {
                             </div>
                         </div>
                         <div className="show-main-container">
-                            <TrackCommentIndexContainer comments={comments} track={track} fetchTrackComments={fetchTrackComments} />
+                            <TrackCommentIndexContainer 
+                                comments={comments} 
+                                track={track} 
+                                fetchTrackComments={fetchTrackComments} 
+                            />
                         </div>
                     </div>
                 </div>

@@ -5,7 +5,6 @@ import TrackCommentItem from './track_comment_item';
 class TrackCommentIndex extends React.Component {
     constructor(props) {
         super(props);
-
     }
 
     componentDidMount() {
@@ -20,9 +19,16 @@ class TrackCommentIndex extends React.Component {
         }
     }
 
+    componentWillUnmount() {
+        this.props.clearComments();
+    }
+
     render() {
-        const trackItems = this.props.comments.map(comment =>
-                <TrackCommentItem key={comment.id} comment={comment} />
+        const trackItems = this.props.comments.reverse().map(comment =>
+                <TrackCommentItem 
+                    key={comment.id} 
+                    comment={comment} 
+                />
         );
         return (
             <div>

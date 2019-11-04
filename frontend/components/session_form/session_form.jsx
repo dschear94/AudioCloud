@@ -20,6 +20,7 @@ class SessionForm extends React.Component {
     }
 
     update(field) {
+        console.log(field)
         const oldUser = this.state.user;
         return e => {
             return this.setState({
@@ -36,11 +37,6 @@ class SessionForm extends React.Component {
             err => this.setState({
             errors: err.errors
         }));
-        // this.setState({
-        //     // user: this.state.user,
-        //     errors: this.props.errors,
-        //     // formType: this.props.formType
-        // });
     }
 
     handleSignupStepOne(e) {
