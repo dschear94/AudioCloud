@@ -14,3 +14,5 @@ json.tracks do
                 end
     end
 end
+json.likes user.likes
+json.liked_tracks user.liked_tracks
