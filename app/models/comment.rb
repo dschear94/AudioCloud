@@ -9,6 +9,5 @@ class Comment < ApplicationRecord
     def convert_time
         self.created_at.to_f
     end
-
     
 end

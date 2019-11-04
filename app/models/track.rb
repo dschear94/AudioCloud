@@ -7,8 +7,10 @@ class Track < ApplicationRecord
     class_name: "User"
 
     has_many :comments
+    has_many :likes
 
     def convert_time
         self.created_at.to_f
     end
+    
 end

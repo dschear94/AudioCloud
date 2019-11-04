@@ -10,6 +10,7 @@ Rails.application.routes.draw do
       resources :tracks, only: [:create, :index, :show]
       resources :comments, only: [:create, :index, :show]
       resources :artists, only: [:show], controller: :users
+      resources :likes, only: [:create, :destroy, :index, :show]
     end
 
   root "static_pages#root"
