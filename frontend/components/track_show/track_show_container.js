@@ -9,11 +9,10 @@ import {
     clearComments
  } from '../../actions/comment_actions';
  import {
-    createLike,
-    fetchTrackLikes,
-    deleteLike,
-    clearLikes
- } from '../../actions/like_actions'
+    createLikedTrack,
+    fetchLikedTracks,
+    deleteLikedTrack,
+ } from '../../actions/liked_track_actions'
 
 
 const msp = (state, ownProps) => {
@@ -26,6 +25,7 @@ const msp = (state, ownProps) => {
     return { 
         track: showTrack,
         author_id: state.session.id,
+        likedTracks: state.entities.likedTracks.byTrackId || {}
     }
 
 };
@@ -34,13 +34,15 @@ const msp = (state, ownProps) => {
 const mdp = dispatch => ({
     sendTrack: track => dispatch(receiveCurrentTrack(track)),
     fetchArtist: artist => dispatch(fetchArtist(artist)),
+
     createComment: comment => dispatch(createComment(comment)),
     fetchTrackComments: (trackId) => dispatch(fetchTrackComments(trackId)),
     clearComments: () => dispatch(clearComments()),
-    clearLikes: () => dispatch(clearLikes()),
-    createLike: like => dispatch(createLike(like)),
-    deleteLike: likeId => dispatch(deleteLike(likeId)),
-    fetchTrackLikes: trackId => dispatch(fetchTrackLikes(trackId))
+
+    // clearLikes: () => dispatch(clearLikes()),
+    createLikedTrack: likedTrack => dispatch(createLikedTrack(likedTrack)),
+    deleteLikedTrack: likedTrackId => dispatch(deleteLikedTrack(likedTrackId)),
+    fetchLikedTracks: userId => dispatch(fetchLikedTracks(userId))
 });
 
 export default connect(msp, mdp)(TrackShow);

@@ -28,12 +28,17 @@ class TrackShow extends React.Component {
     handleLike(e) {
         e.preventDefault();
 
-        const like = Object.assign({
-            user_id: this.props.author_id,
-            track_id: this.props.track.id
-        })
+        if (this.props.track.id in this.props.likedTracks) {
+            let likedTrackId = this.props.likedTracks[this.props.track.id].track_id;
+            this.props.deleteLikedTrack(likedTrackId)
+        } else {
+            const likedTrack = Object.assign({
+                user_id: this.props.author_id,
+                track_id: this.props.track.id
+            })
 
-        this.props.createLike(like);
+            this.props.createLikedTrack(likedTrack);
+        }
 
     }
 
