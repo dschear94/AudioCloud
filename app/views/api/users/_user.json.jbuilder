@@ -14,5 +14,10 @@ json.tracks do
                 end
     end
 end
-json.likes user.likes
-json.liked_tracks user.liked_tracks
+json.likes do
+        user.likes.each do |like|
+                json.set! like.id do 
+                        json.extract! like, :id, :user_id, :track_id
+                end
+        end
+end
