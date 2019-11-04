@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { faPlay } from '@fortawesome/free-solid-svg-icons';
+import { faPlay, faHeart } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { relativeTime } from '../../util/time_util';
 import TrackCommentIndexContainer from '../track_comments/track_comment_container';
@@ -18,10 +18,15 @@ class TrackShow extends React.Component {
         this.handleArt = this.handleArt.bind(this);
         this.handleCommentChange = this.handleCommentChange.bind(this);
         this.handleCommentSubmit = this.handleCommentSubmit.bind(this);
+        this.handleLike = this.handleLike.bind(this);
     }
 
     handleCommentChange(e) {
         this.setState({ comment: e.target.value });
+    }
+
+    handleLike(e) {
+        
     }
 
     handleCommentSubmit(e) {
@@ -183,7 +188,32 @@ class TrackShow extends React.Component {
                                         </div>
                                     </div>
                                     <div className="le-foot">
+                                        <div className="soundactions">
+                                            <div className="soundactions-btns-container">
+                                                <button 
+                                                className="trackshowlike"
+                                                onClick={this.handleLike}
+                                                >
+                                                    <FontAwesomeIcon style={{float: "left"}} icon={faHeart} />
+                                                    Like
+                                                </button>
+                                                <button className="trackshowrepost">
 
+                                                </button>
+                                                <button className="trackshowshare">
+
+                                                </button>
+                                                <button className="trackshowaddnextup">
+
+                                                </button>
+                                                <button className="trackshowmore">
+
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <ul className="soundStats">
+
+                                        </ul>
                                     </div>
                                 </div>
                             </div>

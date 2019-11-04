@@ -8,6 +8,11 @@ import {
     fetchTrackComments,
     clearComments
  } from '../../actions/comment_actions';
+ import {
+     createLike,
+     fetchTrackLikes,
+     deleteLike,
+ } from '../../actions/like_actions'
 
 
 const msp = (state, ownProps) => {
@@ -30,7 +35,10 @@ const mdp = dispatch => ({
     fetchArtist: artist => dispatch(fetchArtist(artist)),
     createComment: comment => dispatch(createComment(comment)),
     fetchTrackComments: (trackId) => dispatch(fetchTrackComments(trackId)),
-    clearComments: () => dispatch(clearComments())
+    clearComments: () => dispatch(clearComments()),
+    createLike: like => dispatch(createLike(like)),
+    deleteLike: likeId => dispatch(deleteLike(likeId)),
+    fetchTrackLikes: trackId => dispatch(fetchTrackLikes(trackId))
 });
 
 export default connect(msp, mdp)(TrackShow);
