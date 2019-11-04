@@ -11,6 +11,10 @@ class User < ApplicationRecord
     foreign_key: :author_id
 
     has_many :likes
+
+    has_many :liked_tracks,
+    through: :likes,
+    source: :track
     
 
     attr_reader :password

@@ -6,6 +6,7 @@ import tracks from './tracks_reducer';
 import currentTrack from './current_track_reducer';
 import artists from './artists_reducer';
 import comments from './comments_reducer';
+import likes from './likes_reducer';
 
 export default combineReducers({
     users,
@@ -13,5 +14,6 @@ export default combineReducers({
     tracks,
     currentTrack,
     artists,
-    comments
+    comments,
+    likes
 });

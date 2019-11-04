@@ -9,9 +9,10 @@ import {
     clearComments
  } from '../../actions/comment_actions';
  import {
-     createLike,
-     fetchTrackLikes,
-     deleteLike,
+    createLike,
+    fetchTrackLikes,
+    deleteLike,
+    clearLikes
  } from '../../actions/like_actions'
 
 
@@ -36,6 +37,7 @@ const mdp = dispatch => ({
     createComment: comment => dispatch(createComment(comment)),
     fetchTrackComments: (trackId) => dispatch(fetchTrackComments(trackId)),
     clearComments: () => dispatch(clearComments()),
+    clearLikes: () => dispatch(clearLikes()),
     createLike: like => dispatch(createLike(like)),
     deleteLike: likeId => dispatch(deleteLike(likeId)),
     fetchTrackLikes: trackId => dispatch(fetchTrackLikes(trackId))

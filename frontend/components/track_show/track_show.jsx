@@ -26,7 +26,15 @@ class TrackShow extends React.Component {
     }
 
     handleLike(e) {
-        
+        e.preventDefault();
+
+        const like = Object.assign({
+            user_id: this.props.author_id,
+            track_id: this.props.track.id
+        })
+
+        this.props.createLike(like);
+
     }
 
     handleCommentSubmit(e) {
@@ -90,6 +98,10 @@ class TrackShow extends React.Component {
         } else {
             document.getElementById("artwork-image-official").style.backgroundImage = "url(" + this.props.track.photoUrl + ")"
         }
+    }
+
+    componentWillUnmount() {
+        this.props.clearLikes();
     }
 
     render() {
@@ -194,8 +206,10 @@ class TrackShow extends React.Component {
                                                 className="trackshowlike"
                                                 onClick={this.handleLike}
                                                 >
-                                                    <FontAwesomeIcon style={{float: "left"}} icon={faHeart} />
-                                                    Like
+                                                    <FontAwesomeIcon style={{left: "0px"}} icon={faHeart} />
+                                                    <span className="trackshowlike-text">
+                                                        Like
+                                                    </span>
                                                 </button>
                                                 <button className="trackshowrepost">
 

@@ -4,7 +4,7 @@ import {
     CLEAR_LIKES,
 } from '../actions/like_actions';
 
-const commentsReducer = (state = {}, action) => {
+const likesReducer = (state = {}, action) => {
     Object.freeze(state);
     switch (action.type) {
         case RECEIVE_LIKES:
@@ -18,4 +18,4 @@ const commentsReducer = (state = {}, action) => {
     }
 };
 
-export default commentsReducer;
+export default likesReducer;

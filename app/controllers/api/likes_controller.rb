@@ -16,6 +16,8 @@ class Api::LikesController < ApplicationController
     end
 
     def index
+        debugger
+        @likes = Like.
     end
 
     

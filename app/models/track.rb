@@ -8,6 +8,10 @@ class Track < ApplicationRecord
 
     has_many :comments
     has_many :likes
+    
+    has_many :likers,
+    through: :likes,
+    source: :user
 
     def convert_time
         self.created_at.to_f

@@ -228,20 +228,20 @@
     box-sizing: border-box;
 }
 
-// .trackshowlike:before {
-//     left: 5px;
-//     background-size: 16px 16px;
-//     content: "";
-//     display: block;
-//     position: absolute;
-//     background-repeat: no-repeat;
-//     background-position: center center;
-//     width: 20px;
-//     height: 20px;
-//     top: 0;
-//     bottom: 0;
-//     margin: auto 0;
-// }
+.trackshowlike-text {
+    left: 5px;
+    background-size: 16px 16px;
+    content: "";
+    display: block;
+    position: absolute;
+    background-repeat: no-repeat;
+    background-position: center center;
+    width: 20px;
+    height: 20px;
+    top: 0;
+    bottom: 0;
+    margin: auto 0;
+}
 
 .cf-input {
     border-radius: 4px;
