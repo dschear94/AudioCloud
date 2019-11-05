@@ -29,7 +29,8 @@ class TrackShow extends React.Component {
         e.preventDefault();
 
         if (this.props.track.id in this.props.likedTracks) {
-            let likedTrackId = this.props.likedTracks[this.props.track.id].track_id;
+            debugger
+            let likedTrackId = this.props.likedTracks[this.props.track.id].id;
             this.props.deleteLikedTrack(likedTrackId)
         } else {
             const likedTrack = Object.assign({
@@ -106,7 +107,7 @@ class TrackShow extends React.Component {
     }
 
     componentWillUnmount() {
-        this.props.clearLikes();
+        // this.props.clearLikes();
     }
 
     render() {

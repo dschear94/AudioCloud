@@ -4,6 +4,8 @@ class Api::LikesController < ApplicationController
         @like = Like.new(like_params)
 
         if @like.save
+            debugger
+            @likes = Like.where(user_id: @like.user_id)
             render :index
         else
             render json: @like.errors.full_messages
@@ -12,12 +14,13 @@ class Api::LikesController < ApplicationController
     end
 
     def destroy
-        
+        @like = Like.find(params[:id])
+        @like.destroy
+        @likes = Like.where(user_id: @like.user_id)
+        render :index
     end
 
     def index
-        debugger
-        @likes = Like.
     end
 
     

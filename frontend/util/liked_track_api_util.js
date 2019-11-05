@@ -34,7 +34,7 @@ export const createLikedTrack = likedTrack => {
         method: 'POST',
         url: `/api/likes`,
         data: {
-            like: like
+            like: likedTrack
         }
     })
 }
