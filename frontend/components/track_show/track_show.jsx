@@ -29,7 +29,6 @@ class TrackShow extends React.Component {
         e.preventDefault();
 
         if (this.props.track.id in this.props.likedTracks) {
-            debugger
             let likedTrackId = this.props.likedTracks[this.props.track.id].id;
             this.props.deleteLikedTrack(likedTrackId)
         } else {
@@ -112,6 +111,28 @@ class TrackShow extends React.Component {
 
     render() {
         const {track, sendTrack, comments, fetchTrackComments } = this.props;
+
+        const likeButton = this.props.track.id in this.props.likedTracks ?
+            (<button
+                id="trackshowunlike"
+                className="trackshowunlike"
+                onClick={this.handleLike}
+                >
+                <FontAwesomeIcon icon={faHeart} />
+                <span className="trackshowlike-text">
+                    Liked
+                </span>
+            </button>) :
+            (<button
+                id="trackshowlike"
+                className="trackshowlike"
+                onClick={this.handleLike}
+                >
+                <FontAwesomeIcon icon={faHeart} />
+                <span className="trackshowlike-text">
+                    Like
+                </span>
+            </button>);
 
         return (
         <div>
@@ -208,7 +229,8 @@ class TrackShow extends React.Component {
                                     <div className="le-foot">
                                         <div className="soundactions">
                                             <div className="soundactions-btns-container">
-                                                <button 
+                                                {/* <button
+                                                id="trackshowlike"
                                                 className="trackshowlike"
                                                 onClick={this.handleLike}
                                                 >
@@ -216,7 +238,8 @@ class TrackShow extends React.Component {
                                                     <span className="trackshowlike-text">
                                                         Like
                                                     </span>
-                                                </button>
+                                                </button> */}
+                                                {likeButton}
                                                 <button className="trackshowrepost">
 
                                                 </button>

@@ -4,7 +4,6 @@ class Api::LikesController < ApplicationController
         @like = Like.new(like_params)
 
         if @like.save
-            debugger
             @likes = Like.where(user_id: @like.user_id)
             render :index
         else
