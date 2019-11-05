@@ -108,7 +108,9 @@ class Dashboard extends React.Component {
                             </ul>
                         </div>
                         <div className="userInfoBarBtns">
+                            <div className="userInfoBarBtns-container">
 
+                            </div>
                         </div>
                     </div>
                 </div>

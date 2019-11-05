@@ -144,25 +144,36 @@
 .userInfoBarTabsUL {
     font-size: 18px;
     line-height: 1.8;
-}
-
-.userInfoBarBtns {
     border-bottom: 1px solid #f2f2f2;
     list-style: none;
     margin: 0;
     padding: 0;
 }
 
-.userInfoBarBtns:before {
+.userInfoBarTabs:before {
     content: "";
     display: table;
 }
 
-.userInfoBarBtns:after {
+.userInfoBarTabs:after {
     content: "";
     display: table;
     clear: both;
 }
+
+
+.userInfoBarBtns {
+    position: absolute;
+    right: 0;
+    bottom: 9px;
+}
+
+.userInfoBarBtns-container {
+    vertical-align: middle;
+    display: inline-block;
+    clear: both;
+}
+
 
 .UIBTLI:first-child {
     margin-left: 0;
