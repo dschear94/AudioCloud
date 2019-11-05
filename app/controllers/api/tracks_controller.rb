@@ -2,7 +2,7 @@ class Api::TracksController < ApplicationController
     def index
         @tracks = Track.with_attached_audio_file
         .with_attached_image_file
-        .preload(:artist, :comments).all
+        .includes(:artist, :comments).all
         render :index
     end
 

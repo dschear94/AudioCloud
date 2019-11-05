@@ -6,6 +6,9 @@ import {
     sendAvatar,
     clearAvatar,
 } from '../../actions/dashboardImageUpload_actions';
+import {
+    updateUser
+} from '../../actions/session_actions'
 
 class AvatarUpload extends React.Component {
     constructor(props) {
@@ -34,10 +37,9 @@ class AvatarUpload extends React.Component {
         e.preventDefault();
         const trackFormData = new FormData();
         trackFormData.append('user[avatar]', this.props.avatar);
-        return (
-            this.props.updateUser(trackFormData)
+        trackFormData.append('user[username]', this.props.user.username);
+        return this.props.updateUser(trackFormData)
             // .then((() => this.props.history.push("/discover")))
-        );
     }
 
     render() {
@@ -57,13 +59,13 @@ class AvatarUpload extends React.Component {
                     <div className="afBtns">
                         <button 
                             className="afCancel"
-                            onClick={this.props.closeModal()}
+                            onClick={this.props.closeModal}
                             >
                             Cancel
                         </button>
                         <button 
                             className="afSave"
-                            onClick={this.props.handleSave}
+                            onClick={this.handleSave}
                             >
                             Save
                         </button>
@@ -77,9 +79,12 @@ class AvatarUpload extends React.Component {
 
 const mapStateToProps = (state, ownProps) => {
     // let avatar = state.ui.dashboardImageUpload
-    let avatar = state.ui.dashboardImageUpload.avatar
+    console.log(state.entities)
+    let avatar = state.ui.dashboardImageUpload.avatar;
+    let user = Object.values(state.entities.users)[0];
     return {
-        avatar: avatar
+        avatar: avatar,
+        user: user
     };
 };
 

@@ -25,8 +25,13 @@ class Api::UsersController < ApplicationController
     end
 
     def update
-        debugger
-        @user = User.find(params[:id])
+        @user = User.includes(
+            # :avatar, 
+            # :header_image, 
+            tracks: {
+            audio_file_attachment: :blob, 
+            image_file_attachment: :blob
+        }).find_by(username: params[:user][:username])
         @user.update!(user_params)
         render "api/users/show"
     end
@@ -34,8 +39,7 @@ class Api::UsersController < ApplicationController
     private
 
     def user_params
-        params.require(:user)
-        .permit(
+        params.require(:user).permit(
             :entryField, 
             :username, 
             :email, 

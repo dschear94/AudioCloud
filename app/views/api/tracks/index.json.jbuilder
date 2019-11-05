@@ -2,6 +2,7 @@
         json.set! track.id do
                 json.extract! track, :title, :id
                 json.artist track.artist.username
+                json.artistAvatar url_for(track.artist.avatar)
                 json.trackUrl url_for(track.audio_file)
                 if track.image_file.attached?
                         json.photoUrl url_for(track.image_file)
