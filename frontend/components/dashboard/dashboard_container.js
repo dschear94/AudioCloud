@@ -1,13 +1,18 @@
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import Dashboard from './dashboard';
 import { fetchTracks } from '../../actions/track_actions';
 import { receiveCurrentTrack } from '../../actions/current_track_actions';
 
 
 const msp = (state, ownProps) => {
-    debugger
+    let artist = ownProps.match.params.artist ? 
+    ownProps.match.params.artist :
+    state.entities.artists ?
+    state.entities.artists.username : "";
+
     return {
-        // tracks: Object.values(state.entities.tracks) || []
+        artist: artist || ""
     }
 };
 
@@ -17,4 +22,4 @@ const mdp = dispatch => ({
     // receiveCurrentTrack: track => dispatch(receiveCurrentTrack(track))
 });
 
-export default connect(msp, mdp)(Dashboard);
+export default withRouter(connect(msp, mdp)(Dashboard));

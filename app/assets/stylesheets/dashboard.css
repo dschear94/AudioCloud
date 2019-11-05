@@ -1,0 +1,187 @@
+.user-hero {
+    display: block;
+}
+
+.profileHeader {
+    position: relative;
+    margin-left: -30px;
+    margin-right: -30px;
+    padding: 30px;
+    box-sizing: border-box;
+    overflow: hidden;
+    height: 260px;
+}
+
+.phEdit {
+    position: absolute;
+    left: 230px;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 4;
+    padding: 30px;
+}
+
+.phChooserWrapper {
+    float: right;
+}
+
+.headerImageEditBtn {
+    min-width: 31px;
+    background-color: rgba(255,255,255,.8);
+    border-color: rgba(0,0,0,.1);
+    background-clip: padding-box;
+    transition: background-color .2s ease-in-out, border-color .2s ease-in-out;
+    text-indent: 19px;
+    float: right;
+    display: inline-block;
+    position: relative;
+    height: 26px;
+    margin: 0;
+    padding: 2px 11px 2px 10px;
+    border: 1px;
+    border-radius: 3px;
+    cursor: pointer;
+    color: #333;
+    font-size: 14px;
+    line-height: 20px;
+    white-space: nowrap;
+    font-family: "Interstate","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;
+    font-weight: 100;
+    text-align: center;
+    box-sizing: border-box;
+    vertical-align: baseline;
+}
+
+.phInfo {
+    position: relative;
+    z-index: 1;
+}
+
+.phInfoAvatarContainer {
+    margin-right: 30px;
+    float: left;
+}
+
+.phAvatarImage {
+    height: 200px;
+    width: 200px;
+    background: none;
+    cursor: pointer;
+    border-radius: 50%;
+    text-align: center;
+    position: relative;
+}
+
+.phAvatarBtn {
+    overflow: hidden;
+    /* opacity: 0; */
+    transition: opacity .1s linear;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 20%;
+    text-align: center;
+    cursor: pointer;
+}
+
+.imagePicker {
+    background-color: rgba(255,255,255,.8);
+    border-color: rgba(0,0,0,.1);
+    background-clip: padding-box;
+    transition: background-color .2s ease-in-out,border-color .2s ease-in-out;
+    text-indent: 19px;
+    display: inline-block;
+    position: relative;
+    height: 26px;
+    margin: 0;
+    padding: 2px 11px 2px 10px;
+    border: 1px;
+    border-radius: 3px;
+    cursor: pointer;
+    color: #333;
+    font-size: 14px;
+    line-height: 20px;
+    white-space: nowrap;
+    font-family: "Interstate","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;
+    font-weight: 100;
+    text-align: center;
+    vertical-align: baseline;
+    box-sizing: border-box;
+}
+
+.phInfoContentContainer {
+    overflow: hidden;
+}
+
+.phInfo-username {
+    margin: 0;
+    color: #fff;
+    font-weight: 100;
+    font-size: 24px;
+    line-height: 37px;
+    padding: 4px 7px;
+    display: inline-block;
+    position: relative;
+    background-color: rgba(0,0,0,.8);
+}
+
+.phBG {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: #e5e5e5;
+}
+
+.userInfoBar {
+    position: relative;
+    padding-top: 15px;
+}
+
+.userInfoBarTabsUL {
+    font-size: 18px;
+    line-height: 1.8;
+}
+
+.userInfoBarBtns {
+    border-bottom: 1px solid #f2f2f2;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.userInfoBarBtns:before {
+    content: "";
+    display: table;
+}
+
+.userInfoBarBtns:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.UIBTLI:first-child {
+    margin-left: 0;
+}
+
+.UIBTLI {
+    float: left;
+    margin: 0 12px -1px;
+    font-size: 18px;
+    line-height: 1.8;
+    list-style: none;
+}
+
+.UIBTLI-active {
+    border-color: #f50;
+    color: #f50;
+    cursor: default;
+}
+
+.dashboard-content-container {
+
+}
