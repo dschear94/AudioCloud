@@ -4,7 +4,7 @@ class Api::CommentsController < ApplicationController
         @comment = Comment.new(comment_params)
 
         if @comment.save
-            # @comments = Comment.where(track_id: params[:comment][:track_id])
+            @comments = Comment.includes(:track, :author).where(track_id: params[:comment][:track_id])
             render :index
         else
             render json: @comment.errors.full_messages
