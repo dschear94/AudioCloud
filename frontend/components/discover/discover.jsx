@@ -68,7 +68,9 @@ class Discover extends React.Component {
                                 }}>{track.title}</Link>
                             </div>
                             <div className="splash-main-content1-trendingtracks-tile-description2">
-                                {track.artist}
+                                <Link to={{
+                                    pathname: `/${track.artist}`,
+                                }}>{track.artist}</Link>
                             </div>
                         </div>
                     </div>

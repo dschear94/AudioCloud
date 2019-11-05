@@ -1,4 +1,14 @@
 json.extract! user, :id, :username, :email
+if user.avatar.attached?
+        json.avatar url_for(user.avatar)
+else
+        json.avatar url_for("/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBNUT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--c685d92a1369dca31347b864eab8548e3d341c47/IMG_5373.jpg")
+end
+if user.header_image.attached?
+        json.header_image url_for(user.header_image)
+else
+        json.header_image url_for("/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBNUT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--c685d92a1369dca31347b864eab8548e3d341c47/IMG_5373.jpg")
+end
 json.tracks do 
     user.tracks.each do |track|
                 json.set! track.title do

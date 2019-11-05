@@ -15,6 +15,9 @@ class User < ApplicationRecord
     has_many :liked_tracks,
     through: :likes,
     source: :track
+
+    has_one_attached :avatar
+    has_one_attached :header_image
     
 
     attr_reader :password

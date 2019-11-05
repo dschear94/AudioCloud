@@ -44,7 +44,7 @@ class Dashboard extends React.Component {
                             </div>
                             <div className="phInfoContentContainer">
                                 <h3 className="phInfo-username">
-                                    {/* username from props */}
+                                    {this.props.artist}
                                 </h3>
                             </div>
                         </div>
