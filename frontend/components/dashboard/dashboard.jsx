@@ -50,7 +50,9 @@ class Dashboard extends React.Component {
             this.setState({ avatarFile: file, avatarUrl: fileReader.result });
         };
         if (file) {
-            fileReader.readAsDataURL(file)
+            fileReader.readAsDataURL(file);
+            this.props.sendAvatar(file);
+            console.log(file)
             this.props.openModal('avatar');
         }
     }
