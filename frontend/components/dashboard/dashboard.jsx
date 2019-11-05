@@ -16,7 +16,6 @@ class Dashboard extends React.Component {
             avatarUrl: null,
         };
 
-
         this.handleAvatarFile = this.handleAvatarFile.bind(this);
         // this.handleHeaderImageFile = this.handleHeaderImageFile.bind(this);
         this.triggerAvatarInput = this.triggerAvatarInput.bind(this);
@@ -26,6 +25,9 @@ class Dashboard extends React.Component {
     }
 
     componentDidMount() {
+        if (this.props.artistName !== this.props.artist) {
+            this.props.fetchArtist(this.props.artistName)
+        }
     }
 
     
@@ -76,6 +78,7 @@ class Dashboard extends React.Component {
     }
 
     render() {
+        console.log(this.props)
         return (
             <div>
                 <div className="user-hero">
@@ -98,6 +101,7 @@ class Dashboard extends React.Component {
                             <div className="phInfoAvatarContainer">
                                 <div className="phAvatarImage">
                                     {/* image goes here inside span*/}
+                                    <span style={{ backgroundImage: "url(" + this.props.artist.avatar + ")" }}></span>
                                     <div className="phAvatarBtn">
                                         <button 
                                             className="imagePicker"
@@ -116,7 +120,7 @@ class Dashboard extends React.Component {
                             </div>
                             <div className="phInfoContentContainer">
                                 <h3 className="phInfo-username">
-                                    {this.props.artist}
+                                    {this.props.artist.username}
                                 </h3>
                             </div>
                         </div>
@@ -131,7 +135,7 @@ class Dashboard extends React.Component {
                             <ul className="userInfoBarTabsUL">
                                 <li className="UIBTLI">
                                     <NavLink
-                                        exact to={`/${this.props.artist}`}
+                                        exact to={`/${this.props.artist.username}`}
                                         activeClassName="UIBTLI-active"
                                         >
                                         All
@@ -139,7 +143,7 @@ class Dashboard extends React.Component {
                                 </li>
                                 <li className="UIBTLI">
                                     <NavLink
-                                        exact to={`/${this.props.artist}/toptracks`}
+                                        exact to={`/${this.props.artist.username}/toptracks`}
                                         activeClassName="UIBTLI-active"
                                     >
                                         Top Tracks
@@ -147,7 +151,7 @@ class Dashboard extends React.Component {
                                 </li>
                                 <li className="UIBTLI">
                                     <NavLink
-                                        exact to={`/${this.props.artist}/tracks`}
+                                        exact to={`/${this.props.artist.username}/tracks`}
                                         activeClassName="UIBTLI-active"
                                     >
                                         Tracks
@@ -155,7 +159,7 @@ class Dashboard extends React.Component {
                                 </li>
                                 <li className="UIBTLI">
                                     <NavLink
-                                        exact to={`/${this.props.artist}/albums`}
+                                        exact to={`/${this.props.artist.username}/albums`}
                                         activeClassName="UIBTLI-active"
                                     >
                                         Albums
@@ -163,7 +167,7 @@ class Dashboard extends React.Component {
                                 </li>
                                 <li className="UIBTLI">
                                     <NavLink
-                                        exact to={`/${this.props.artist}/sets`}
+                                        exact to={`/${this.props.artist.username}/sets`}
                                         activeClassName="UIBTLI-active"
                                     >
                                         Playlists
@@ -171,7 +175,7 @@ class Dashboard extends React.Component {
                                 </li>
                                 <li className="UIBTLI">
                                     <NavLink
-                                        exact to={`/${this.props.artist}/reposts`}
+                                        exact to={`/${this.props.artist.username}/reposts`}
                                         activeClassName="UIBTLI-active"
                                     >
                                         Reposts

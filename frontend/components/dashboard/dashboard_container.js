@@ -10,6 +10,9 @@ import {
     sendHeaderImage,
     clearHeaderImage
 } from '../../actions/dashboardImageUpload_actions';
+import {
+    fetchArtist
+} from '../../actions/artist_actions'
 
 
 const msp = (state, ownProps) => {
@@ -19,13 +22,17 @@ const msp = (state, ownProps) => {
     state.entities.artists.username : "";
 
     return {
-        artist: artist || ""
+        artistName: artist || "",
+        currentUser: Object.values(state.entities.users)[0],
+        artist: state.entities.artists[artist] || {},
     }
 };
 
 
 const mdp = dispatch => ({
     openModal: modal => dispatch(openModal(modal)),
+
+    fetchArtist: artist => dispatch(fetchArtist(artist)),
 
     sendAvatar: avatar => dispatch(sendAvatar(avatar)),
     clearAvatar: () => dispatch(clearAvatar()),
