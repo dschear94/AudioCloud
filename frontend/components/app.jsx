@@ -15,6 +15,7 @@ import SplashContainer from './splash/splash_container';
 
 import TrackUploadContainer from './track_uploads/track_upload_container';
 import DiscoverContainer from './discover/discover_container';
+import DashboardContainer from './dashboard/dashboard_container';
 import StreamContainer from './stream/stream_container';
 import ContinuousPlayBar from './continuous_play_bar/continuous_play_bar';
 import TrackShowContainer from './track_show/track_show_container';
@@ -42,6 +43,7 @@ const App = () => (
                     <Switch>
                         <ProtectedRoute exact path="/upload" component={TrackUploadContainer} />
                         <Route exact path='/you/library'>coming soon.</Route>
+                        <Route exact path='/:artist'><DashboardContainer /></Route>
                         <SplashyRoute exact path="/" component={SplashContainer}/>
                     </Switch>
                     </div>
