@@ -8,9 +8,70 @@ import {
 class Dashboard extends React.Component {
     constructor(props) {
         super(props);
+
+        this.state = {
+            headerImageFile: null,
+            headerImageUrl: null,
+            avatarFile: null,
+            avatarUrl: null,
+        };
+
+
+        this.handleAvatarFile = this.handleAvatarFile.bind(this);
+        // this.handleHeaderImageFile = this.handleHeaderImageFile.bind(this);
+        this.triggerAvatarInput = this.triggerAvatarInput.bind(this);
+        // this.triggerHeaderImageInput = this.triggerHeaderImageInput.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleInput = this.handleInput.bind(this);
     }
 
     componentDidMount() {
+    }
+
+    
+    handleInput(field) {
+        return e => {
+            return this.setState({
+                [field]: e.currentTarget.value
+            });
+        };
+    }
+
+    triggerAvatarInput(e) {
+        e.preventDefault();
+        document.getElementById('userAvatarInput').click();
+    }
+
+    handleAvatarFile(e) {
+        e.preventDefault();
+        const file = e.currentTarget.files[0];
+        const fileReader = new FileReader();
+        fileReader.onloadend = () => {
+            this.setState({ avatarFile: file, avatarUrl: fileReader.result });
+        };
+        if (file) {
+            fileReader.readAsDataURL(file)
+            this.props.openModal('avatar');
+        }
+    }
+
+    handleSubmit(e) {
+        e.preventDefault();
+        const trackFormData = new FormData();
+        // trackFormData.append('track[title]', this.state.title);
+        // trackFormData.append('track[album]', this.state.album);
+        // trackFormData.append('track[artist_id]', this.props.currentUser);
+        // if (this.state.trackFile) {
+        //     trackFormData.append('track[audio_file]', this.state.trackFile);
+        // };
+        // if (this.state.photoFile) {
+        //     trackFormData.append('track[image_file]', this.state.photoFile);
+        // };
+        // return (
+        //     this.props.uploadTrack(trackFormData)
+        //         .then(() => this.props.fetchTracks())
+        //         .then((() => this.props.history.push("/discover")))
+        // );
     }
 
     render() {
@@ -24,6 +85,12 @@ class Dashboard extends React.Component {
                                     {/* update for current/noncurrent user */}
                                     Update Image
                                 </button>
+                                <input
+                                    id="userHeaderImageInput"
+                                    className="hiddeninput"
+                                    type="file"
+                                    style={{ opacity: "0" }}
+                                />
                             </div>
                         </div>
                         <div className="phInfo">
@@ -31,13 +98,17 @@ class Dashboard extends React.Component {
                                 <div className="phAvatarImage">
                                     {/* image goes here inside span*/}
                                     <div className="phAvatarBtn">
-                                        <button className="imagePicker">
-                                            Update Image
-                                        </button>
-                                        <input 
-                                        className="hiddeninput" 
-                                        type="file"
-                                        style={{opacity: "0"}}
+                                        <button 
+                                            className="imagePicker"
+                                            onClick={this.triggerAvatarInput}
+                                        >
+                                        Update Image </button>
+                                        <input
+                                            id="userAvatarInput"
+                                            className="hiddeninput" 
+                                            type="file"
+                                            style={{opacity: "0"}}
+                                            onChange={this.handleAvatarFile}
                                         />
                                     </div>
                                 </div>

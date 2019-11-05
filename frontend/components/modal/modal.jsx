@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import EntryFormContainer from '../session_form/entry_form_container';
 import LoginFormContainer from '../session_form/login_form_container';
 import SignupFormContainer from '../session_form/signup_form_container';
+import AvatarUpload from '../avatar_upload/avatar_upload';
 
 function Modal(state) {
     let { modal, closeModal } = state;
@@ -26,6 +27,9 @@ function Modal(state) {
             break;
         case 'signup3':
             component = <SignupFormContainer formType="signup3" />;
+            break;
+        case 'avatar':
+            component = <AvatarUpload/>;
             break;
         default:
             return null;
