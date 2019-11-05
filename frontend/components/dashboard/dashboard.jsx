@@ -52,7 +52,6 @@ class Dashboard extends React.Component {
         if (file) {
             fileReader.readAsDataURL(file);
             this.props.sendAvatar(file);
-            console.log(file)
             this.props.openModal('avatar');
         }
     }

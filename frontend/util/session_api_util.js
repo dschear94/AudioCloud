@@ -21,6 +21,14 @@ export const logout = () => (
     })
 );
 
+export const updateUser = updatedUser => {
+    return $.ajax({
+        method: 'PATCH',
+        url: '/api/user',
+        data: { updatedUser }
+    })
+};
+
 export const processSignupStepOne = user => (
     $.ajax({
         method: 'GET',
