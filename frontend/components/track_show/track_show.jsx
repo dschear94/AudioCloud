@@ -77,8 +77,8 @@ class TrackShow extends React.Component {
             //     })
                 // .then(this.handleArt());
         } else {
-            const artwork = document.getElementById("artwork-image-official");
-            artwork.style.backgroundImage = "url(" + this.props.track.photoUrl + ")"
+            // const artwork = document.getElementById("artwork-image-official");
+            // artwork.style.backgroundImage = "url(" + this.props.track.photoUrl + ")"
         }
 
 
@@ -102,7 +102,7 @@ class TrackShow extends React.Component {
                 photo.crossOrigin = "anonymous";
                 photo.onload = () => {
                     const that = photo;
-                    // this.handleArt(that);
+                    this.handleArt(that);
 
                 }
             }

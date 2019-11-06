@@ -90,16 +90,38 @@ class Dashboard extends React.Component {
     }
 
     render() {
+
+        const headerImageEdit = 
+        this.props.artistName === this.props.currentUser.username ?
+                (<button className="headerImageEditBtn">
+                    {/* update for current/noncurrent user */}
+                    Update Image
+                </button>) : null;
+
+        const avatarEdit = 
+        this.props.artistName === this.props.currentUser.username ?
+                (<div className="phAvatarBtn">
+                    <button
+                        className="imagePicker"
+                        onClick={this.triggerAvatarInput}
+                    >
+                        Update Image </button>
+                    <input
+                        id="userAvatarInput"
+                        className="hiddeninput"
+                        type="file"
+                        style={{ opacity: "0" }}
+                        onChange={this.handleAvatarFile}
+                    />
+                </div>) : null;
+
         return (
             <div>
                 <div className="user-hero">
                     <div className="profileHeader">
                         <div className="phEdit">
                             <div className="phChooserWrapper">
-                                <button className="headerImageEditBtn">
-                                    {/* update for current/noncurrent user */}
-                                    Update Image
-                                </button>
+                                {headerImageEdit}
                                 <input
                                     id="userHeaderImageInput"
                                     className="hiddeninput"
@@ -117,20 +139,7 @@ class Dashboard extends React.Component {
                                     id="artistAvImage"
                                     className="artistAvImage"
                                     ></div>
-                                    <div className="phAvatarBtn">
-                                        <button 
-                                            className="imagePicker"
-                                            onClick={this.triggerAvatarInput}
-                                        >
-                                        Update Image </button>
-                                        <input
-                                            id="userAvatarInput"
-                                            className="hiddeninput" 
-                                            type="file"
-                                            style={{opacity: "0"}}
-                                            onChange={this.handleAvatarFile}
-                                        />
-                                    </div>
+                                    {avatarEdit}
                                 </div>
                             </div>
                             <div className="phInfoContentContainer">
