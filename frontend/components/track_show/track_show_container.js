@@ -24,14 +24,10 @@ const msp = (state, ownProps) => {
         state.entities.artists[ownProps.match.params.artist] ?
         state.entities.artists[ownProps.match.params.artist].tracks[ownProps.match.params.track] : {};
 
-        // debugger
-    // const showTrack = ownProps.location.state ?
-    //     ownProps.location.state.track : {};
     return { 
         track: showTrack,
         author_id: state.session.id,
         likedTracks: state.entities.likedTracks.byTrackId || {},
-        // artist: state.entities.artists
     }
 
 };

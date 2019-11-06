@@ -20,7 +20,6 @@ class SessionForm extends React.Component {
     }
 
     update(field) {
-        console.log(field)
         const oldUser = this.state.user;
         return e => {
             return this.setState({

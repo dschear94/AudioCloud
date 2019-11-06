@@ -67,12 +67,10 @@ class TrackShow extends React.Component {
 
 
             this.props.fetchArtist(this.props.match.params.artist)
-            debugger
             // .then(() => {
             //     let track;
             //     let artist;
             //     artist = that.props.
-            //     debugger
             //     track = that.props.artist.tracks[that.props.match.params.track];
             //         const artwork = document.getElementById("artwork-image-official");
             //         artwork.style.backgroundImage = "url(" + track.photoUrl + ")"
@@ -119,8 +117,6 @@ class TrackShow extends React.Component {
 
     render() {
         const {track, sendTrack, comments, fetchTrackComments } = this.props;
-
-        debugger
 
         const likeButton = this.props.track.id in this.props.likedTracks ?
             (<button

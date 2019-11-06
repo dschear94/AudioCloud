@@ -79,7 +79,6 @@ class AvatarUpload extends React.Component {
 
 const mapStateToProps = (state, ownProps) => {
     // let avatar = state.ui.dashboardImageUpload
-    console.log(state.entities)
     let avatar = state.ui.dashboardImageUpload.avatar;
     let user = Object.values(state.entities.users)[0];
     return {
