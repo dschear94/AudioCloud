@@ -113,6 +113,8 @@ class Discover extends React.Component {
             </div>
         )
 
+        debugger
+
         const playliststyle = (
             <ul className="track-discover-main-modular-list">
                 {/* below is dynamic */}
@@ -133,8 +135,8 @@ class Discover extends React.Component {
                             <div className="track-discover-main-modular-module-content-artwork">
                                 <div className="track-discover-main-modular-module-content-artwork-image">
                                     <div className="track-discover-main-modular-module-content-artwork-image-ph">
-                                        <span 
-                                        className="track-discover-main-modular-module-content-artwork-image-main"></span>
+                                        <div
+                                        className="track-discover-main-modular-module-content-artwork-image-main"></div>
                                     </div>
                                 </div>
                             </div>

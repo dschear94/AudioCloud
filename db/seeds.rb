@@ -7,6 +7,9 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 require 'open-uri'
+# require 'aws-sdk-s3'
+
+# s3 = Aws::S3::Resource.new(region: 'us-east-1')
 
 derek = User.create({username: "derek", password:"123456", email:"123@aol.com", gender:"male", age: 8});
 dani = User.create({username: "dani", password:"123456", email:"1234@aol.com", gender:"male", age: 8});
@@ -21,38 +24,38 @@ sam = User.create({username: "sam", password:"123456", email:"123117@aol.com", g
 ryan = User.create({username: "ryan", password:"123456", email:"1222237@aol.com", gender:"male", age: 8});
 dean = User.create({username: "dean", password:"123456", email:"12333337@aol.com", gender:"male", age: 8});
 
-imagefile1 = open(Rails.root.join('app', 'assets', 'images', 'IMG_4381.jpg'))
-imagefile2 = open(Rails.root.join('app', 'assets', 'images', 'IMG_4416.jpg'))
-imagefile3 = open(Rails.root.join('app', 'assets', 'images', 'IMG_4437.jpg'))
-imagefile4 = open(Rails.root.join('app', 'assets', 'images', 'IMG_5159.jpg'))
-imagefile5 = open(Rails.root.join('app', 'assets', 'images', 'IMG_4546.jpg'))
-imagefile6 = open(Rails.root.join('app', 'assets', 'images', 'IMG_4625.jpg'))
-imagefile7 = open(Rails.root.join('app', 'assets', 'images', 'IMG_4635.jpg'))
-imagefile8 = open(Rails.root.join('app', 'assets', 'images', 'IMG_4691.jpg'))
-imagefile9 = open(Rails.root.join('app', 'assets', 'images', 'IMG_4737.jpg'))
-imagefile10 = open(Rails.root.join('app', 'assets', 'images', 'IMG_4742.jpg'))
-imagefile11 = open(Rails.root.join('app', 'assets', 'images', 'IMG_4771.jpg'))
-imagefile12 = open(Rails.root.join('app', 'assets', 'images', 'IMG_4789.jpg'))
-imagefile13 = open(Rails.root.join('app', 'assets', 'images', 'IMG_4793.jpg'))
-imagefile14 = open(Rails.root.join('app', 'assets', 'images', 'IMG_4981.jpg'))
-imagefile15 = open(Rails.root.join('app', 'assets', 'images', 'IMG_5374.jpg'))
-imagefile16 = open(Rails.root.join('app', 'assets', 'images', 'IMG_5377.jpg'))
-imagefile17 = open(Rails.root.join('app', 'assets', 'images', 'IMG_5373.jpg'))
-imagefile18 = open(Rails.root.join('app', 'assets', 'images', 'IMG_5233.jpg'))
-imagefile19 = open(Rails.root.join('app', 'assets', 'images', 'IMG_5232.jpg'))
-imagefile20 = open(Rails.root.join('app', 'assets', 'images', 'IMG_5377.jpg'))
+imagefile1 = open('https://audiocloud-ds-seeds.s3.amazonaws.com/IMG_4381.jpg')
+imagefile2 = open('https://audiocloud-ds-seeds.s3.amazonaws.com/IMG_4416.jpg')
+imagefile3 = open('https://audiocloud-ds-seeds.s3.amazonaws.com/IMG_4437.jpg')
+imagefile4 = open('https://audiocloud-ds-seeds.s3.amazonaws.com/IMG_5159.jpg')
+imagefile5 = open('https://audiocloud-ds-seeds.s3.amazonaws.com/IMG_4546.jpg')
+imagefile6 = open('https://audiocloud-ds-seeds.s3.amazonaws.com/IMG_4625.jpg')
+imagefile7 = open('https://audiocloud-ds-seeds.s3.amazonaws.com/IMG_4635.jpg')
+imagefile8 = open('https://audiocloud-ds-seeds.s3.amazonaws.com/IMG_4691.jpg')
+imagefile9 = open('https://audiocloud-ds-seeds.s3.amazonaws.com/IMG_4737.jpg')
+imagefile10 = open('https://audiocloud-ds-seeds.s3.amazonaws.com/IMG_4742.jpg')
+imagefile11 = open('https://audiocloud-ds-seeds.s3.amazonaws.com/IMG_4771.jpg')
+imagefile12 = open('https://audiocloud-ds-seeds.s3.amazonaws.com/IMG_4789.jpg')
+imagefile13 = open('https://audiocloud-ds-seeds.s3.amazonaws.com/IMG_4793.jpg')
+imagefile14 = open('https://audiocloud-ds-seeds.s3.amazonaws.com/IMG_4981.jpg')
+imagefile15 = open('https://audiocloud-ds-seeds.s3.amazonaws.com/IMG_5374.jpg')
+imagefile16 = open('https://audiocloud-ds-seeds.s3.amazonaws.com/IMG_5377.jpg')
+imagefile17 = open('https://audiocloud-ds-seeds.s3.amazonaws.com/IMG_5373.jpg')
+imagefile18 = open('https://audiocloud-ds-seeds.s3.amazonaws.com/IMG_5233.jpg')
+imagefile19 = open('https://audiocloud-ds-seeds.s3.amazonaws.com/IMG_5232.jpg')
+imagefile20 = open('https://audiocloud-ds-seeds.s3.amazonaws.com/IMG_5377.jpg')
 
-imagefile21 = open(Rails.root.join('app', 'assets', 'images', 'IMG_3194.jpg'))
-imagefile22 = open(Rails.root.join('app', 'assets', 'images', 'IMG_3272.jpg'))
-imagefile23 = open(Rails.root.join('app', 'assets', 'images', 'IMG_3377.jpg'))
-imagefile24 = open(Rails.root.join('app', 'assets', 'images', 'IMG_4054.jpg'))
-imagefile25 = open(Rails.root.join('app', 'assets', 'images', 'IMG_4123.jpg'))
-imagefile26 = open(Rails.root.join('app', 'assets', 'images', 'IMG_4124.jpg'))
-imagefile27 = open(Rails.root.join('app', 'assets', 'images', 'IMG_4135.jpg'))
-imagefile28 = open(Rails.root.join('app', 'assets', 'images', 'IMG_4140.jpg'))
-imagefile29 = open(Rails.root.join('app', 'assets', 'images', 'IMG_4142.jpg'))
-imagefile30 = open(Rails.root.join('app', 'assets', 'images', 'IMG_2506.jpg'))
-imagefile31 = open(Rails.root.join('app', 'assets', 'images', 'IMG_4142.jpg'))
+imagefile21 = open('https://audiocloud-ds-seeds.s3.amazonaws.com/IMG_3194.jpg')
+imagefile22 = open('https://audiocloud-ds-seeds.s3.amazonaws.com/IMG_3272.jpg')
+imagefile23 = open('https://audiocloud-ds-seeds.s3.amazonaws.com/IMG_3377.jpg')
+imagefile24 = open('https://audiocloud-ds-seeds.s3.amazonaws.com/IMG_4054.jpg')
+imagefile25 = open('https://audiocloud-ds-seeds.s3.amazonaws.com/IMG_4123.jpg')
+imagefile26 = open('https://audiocloud-ds-seeds.s3.amazonaws.com/IMG_4124.jpg')
+imagefile27 = open('https://audiocloud-ds-seeds.s3.amazonaws.com/IMG_4135.jpg')
+imagefile28 = open('https://audiocloud-ds-seeds.s3.amazonaws.com/IMG_4140.jpg')
+imagefile29 = open('https://audiocloud-ds-seeds.s3.amazonaws.com/IMG_4142.jpg')
+imagefile30 = open('https://audiocloud-ds-seeds.s3.amazonaws.com/IMG_2506.jpg')
+imagefile31 = open('https://audiocloud-ds-seeds.s3.amazonaws.com/IMG_4142.jpg')
 
 derek.avatar.attach({io: imagefile20, filename: "propic1", content_type: "image/jpeg"})
 dani.avatar.attach({io: imagefile21, filename: "propic2", content_type: "image/jpeg"})
@@ -91,26 +94,26 @@ track19 = Track.create({title: "07 The Chain.mp3" , album: "none", artist_id: 4 
 track20 = Track.create({title: "09 Re_ Stacks.mp3" , album: "none", artist_id: 5 })
 
 
-audio_file1 = open(Rails.root.join('app', 'assets', 'tracks', '01 Flume.mp3'))
-audio_file2 = open(Rails.root.join('app', 'assets', 'tracks', '01 Give Life Back To Music.mp3'))
-audio_file3 = open(Rails.root.join('app', 'assets', 'tracks', '01 In the Air Tonight.mp3'))
-audio_file4 = open(Rails.root.join('app', 'assets', 'tracks', '01 Shine on You Crazy Diamond, Pts. 1-5.mp3'))
-audio_file5 = open(Rails.root.join('app', 'assets', 'tracks', '02 Lump Sum.mp3'))
-audio_file6 = open(Rails.root.join('app', 'assets', 'tracks', '02 Welcome to the Machine.mp3'))
-audio_file7 = open(Rails.root.join('app', 'assets', 'tracks', '2-06 Dazed And Confused.mp3'))
-audio_file8 = open(Rails.root.join('app', 'assets', 'tracks', '03 Have a Cigar.mp3'))
-audio_file9 = open(Rails.root.join('app', 'assets', 'tracks', '03 Holocene.mp3'))
-audio_file10 = open(Rails.root.join('app', 'assets', 'tracks', '03 Skinny Love.mp3'))
-audio_file11 = open(Rails.root.join('app', 'assets', 'tracks', '04 Gravity.mp3'))
-audio_file12 = open(Rails.root.join('app', 'assets', 'tracks', '04 Nikes On My Feet.mp3'))
-audio_file13 = open(Rails.root.join('app', 'assets', 'tracks', '04 Towers.mp3'))
-audio_file14 = open(Rails.root.join('app', 'assets', 'tracks', '04 Wish You Were Here.mp3'))
-audio_file15 = open(Rails.root.join('app', 'assets', 'tracks', '05 Michicant.mp3'))
-audio_file16 = open(Rails.root.join('app', 'assets', 'tracks', '05 Senior Skip Day.mp3'))
-audio_file17 = open(Rails.root.join('app', 'assets', 'tracks', "12 Jammin'.mp3"))
-audio_file18 = open(Rails.root.join('app', 'assets', 'tracks', '13 Could You Be Loved.mp3'))
-audio_file19 = open(Rails.root.join('app', 'assets', 'tracks', '07 The Chain.mp3'))
-audio_file20 = open(Rails.root.join('app', 'assets', 'tracks', '09 Re_ Stacks.mp3'))
+audio_file1 = open("https://audiocloud-ds-seeds.s3.amazonaws.com/01+Flume.mp3")
+audio_file2 = open("https://audiocloud-ds-seeds.s3.amazonaws.com/01+Give+Life+Back+To+Music.mp3")
+audio_file3 = open("https://audiocloud-ds-seeds.s3.amazonaws.com/01+In+the+Air+Tonight.mp3")
+audio_file4 = open('https://audiocloud-ds-seeds.s3.amazonaws.com/01+Shine+on+You+Crazy+Diamond%2C+Pts.+1-5.mp3')
+audio_file5 = open('https://audiocloud-ds-seeds.s3.amazonaws.com/02+Lump+Sum.mp3')
+audio_file6 = open('https://audiocloud-ds-seeds.s3.amazonaws.com/02+Welcome+to+the+Machine.mp3')
+audio_file7 = open('https://audiocloud-ds-seeds.s3.amazonaws.com/2-06+Dazed+And+Confused.mp3')
+audio_file8 = open('https://audiocloud-ds-seeds.s3.amazonaws.com/03+Have+a+Cigar.mp3')
+audio_file9 = open('https://audiocloud-ds-seeds.s3.amazonaws.com/03+Holocene.mp3')
+audio_file10 = open('https://audiocloud-ds-seeds.s3.amazonaws.com/03+Skinny+Love.mp3')
+audio_file11 = open('https://audiocloud-ds-seeds.s3.amazonaws.com/04+Gravity.mp3')
+audio_file12 = open('https://audiocloud-ds-seeds.s3.amazonaws.com/04+Nikes+On+My+Feet.mp3')
+audio_file13 = open('https://audiocloud-ds-seeds.s3.amazonaws.com/04+Towers.mp3')
+audio_file14 = open('https://audiocloud-ds-seeds.s3.amazonaws.com/04+Wish+You+Were+Here.mp3')
+audio_file15 = open('https://audiocloud-ds-seeds.s3.amazonaws.com/05+Michicant.mp3')
+audio_file16 = open('https://audiocloud-ds-seeds.s3.amazonaws.com/05+Senior+Skip+Day.mp3')
+audio_file17 = open("https://audiocloud-ds-seeds.s3.amazonaws.com/12+Jammin'.mp3")
+audio_file18 = open('https://audiocloud-ds-seeds.s3.amazonaws.com/13+Could+You+Be+Loved.mp3')
+audio_file19 = open('https://audiocloud-ds-seeds.s3.amazonaws.com/07+The+Chain.mp3')
+audio_file20 = open('https://audiocloud-ds-seeds.s3.amazonaws.com/09+Re_+Stacks.mp3')
 
 
 track1.audio_file.attach({io: audio_file1, filename: "01 Flume.mp3" })
@@ -192,7 +195,11 @@ like8 = Like.create({user_id: 4, track_id: 8})
 like9 = Like.create({user_id: 5, track_id: 9})
 like10 = Like.create({user_id: 6, track_id: 10})
 
-# avatars
 
 
-# dean.avatar.attach({io: imagefile10, filename: "propi12333c" })
+
+
+
+
+
+
