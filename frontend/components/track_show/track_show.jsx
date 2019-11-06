@@ -86,33 +86,33 @@ class TrackShow extends React.Component {
         // document.getElementById("artwork-image-official").style.backgroundImage = "url(" + this.props.track.photoUrl + ")"
     }
 
-    handleArt(photo) {
-        const bg = document.getElementById("background-gradient");
-        const colorthief = new ColorThief();
-        const paletteArray = colorthief.getPalette(photo, 2);
-        bg.style.backgroundImage = `linear-gradient(135deg, rgb(${paletteArray[0]}) 0%, rgb(${paletteArray[1]}) 100%);`
-    }
+    // handleArt(photo) {
+    //     // const bg = document.getElementById("background-gradient");
+    //     // const colorthief = new ColorThief();
+    //     // const paletteArray = colorthief.getPalette(photo, 2);
+    //     // bg.style.backgroundImage = `linear-gradient(135deg, rgb(${paletteArray[0]}) 0%, rgb(${paletteArray[1]}) 100%);`
+    // }
 
     componentDidUpdate(prevProps) {
-        if (this.props.track.id !== prevProps.track.id){
-            document.getElementById("artwork-image-official").style.backgroundImage = "url(" + this.props.track.photoUrl + ")"
-            if (this.props.track.photoUrl) {
-                let photo = new Image();
-                photo.src = this.props.track.photoUrl;
-                photo.crossOrigin = "anonymous";
-                photo.onload = () => {
-                    const that = photo;
-                    this.handleArt(that);
+        // if (this.props.track.id !== prevProps.track.id){
+        //     document.getElementById("artwork-image-official").style.backgroundImage = "url(" + this.props.track.photoUrl + ")"
+        //     if (this.props.track.photoUrl) {
+        //         let photo = new Image();
+        //         photo.src = this.props.track.photoUrl;
+        //         photo.crossOrigin = "anonymous";
+        //         photo.onload = () => {
+        //             const that = photo;
+        //             this.handleArt(that);
 
-                }
-            }
-        } else {
-            document.getElementById("artwork-image-official").style.backgroundImage = "url(" + this.props.track.photoUrl + ")"
-        }
+        //         }
+        //     }
+        // } else {
+        //     document.getElementById("artwork-image-official").style.backgroundImage = "url(" + this.props.track.photoUrl + ")"
+        // }
     }
 
-    componentWillUnmount() {
-        // this.props.clearLikes();
+    handleArt() {
+        document.getElementById("artwork-image-official").style.backgroundImage = "url(" + this.props.track.photoUrl + ")"
     }
 
     render() {
@@ -139,6 +139,15 @@ class TrackShow extends React.Component {
                     Like
                 </span>
             </button>);
+
+        if (track.photoUrl) {
+            let photo = new Image();
+            photo.src = track.photoUrl;
+            photo.onload = () => {
+                this.handleArt();
+            }
+        }
+
 
         return (
         <div>

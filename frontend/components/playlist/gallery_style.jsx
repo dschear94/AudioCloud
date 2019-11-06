@@ -1,56 +1,23 @@
 import React from 'react';
 import { withRouter, Link } from 'react-router-dom';
+import GalleryStyleItem from './gallery_style_item'
 
 class GalleryStyle extends React.Component {
     constructor(props) {
         super(props);
     }
 
-    // componentDidMount() {
-    // }
 
     render() {
         
-        const trackitemgal = (this.props.tracks.slice(0, 8).map(track => {
+        const trackitemgal = (this.props.tracks.slice(0, 8).map(track => 
+            <GalleryStyleItem
+                key={`${track.id} + " " + ${this.props.uni}`} 
+                uni={`${track.id} + " " + ${this.props.uni}`} 
+                track={track}
+                receiveCurrentTrack={this.props.receiveCurrentTrack}
+            />));
 
-            return (
-                <div
-                    key={track.id}
-                    className="track-discover-main-modular-module-gallery-item"
-                    onClick={() => this.props.receiveCurrentTrack(track)}>
-                    <div className="splash-main-content1-trendingtracks-tile">
-                        <div className="splash-main-content1-trendingtracks-tile-artwork">
-                            <div className="splash-main-content1-trendingtracks-tile-artwork-image">
-                                <div className="image-placeholder">
-                                    <span
-                                        className="artwork-image-official"
-                                        style={{ backgroundImage: "url(" + track.photoUrl + ")" }}></span>
-                                </div>
-                            </div>
-                            <button className="splash-main-content1-trendingtracks-tile-playbtn-container">
-                            </button>
-                        </div>
-                        <div className="splash-main-content1-trendingtracks-tile-description">
-                            <div className="splash-main-content1-trendingtracks-tile-description1">
-                                <Link to={{
-                                    pathname: `/${track.artist}/${track.title}`,
-                                    state: {
-                                        track
-                                    }
-                                }}>{track.title}</Link>
-                            </div>
-                            <div className="splash-main-content1-trendingtracks-tile-description2">
-                                <Link to={{
-                                    pathname: `/${track.artist}`,
-                                }}>{track.artist}</Link>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            );
-        })
-
-        );
         return (
             <div className="track-discover-main-modular-module">
                 <div className="track-discover-main-modular-module-title">
