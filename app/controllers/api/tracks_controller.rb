@@ -7,7 +7,14 @@ class Api::TracksController < ApplicationController
     end
 
     def by_artist
-        @tracks = Track.where(artist: params[:artist_id]).all
+
+        @artist = User.find_by(username: params[:artist_id])
+        debugger
+
+
+
+
+        @tracks = Track.where(artist_id: @artist.id).all
         render :index
     end
 

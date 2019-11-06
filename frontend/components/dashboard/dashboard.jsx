@@ -28,21 +28,14 @@ class Dashboard extends React.Component {
         if (this.props.artistName !== this.props.artist.username) {
             this.props.fetchArtist(this.props.artistName)
             this.props.fetchTracksByArtist(this.props.artistName)
-        } else {
-            document.getElementById("artistAvImage").style.backgroundImage = "url(" + this.props.artist.avatar + ")"
-        }
-
-        
+        } 
     }
 
     componentDidUpdate(prevProps) {
         if (this.props.artistName !== prevProps.artistName) {
             this.props.fetchArtist(this.props.artistName)
             this.props.fetchTracksByArtist(this.props.artistName)
-        } else {
-            document.getElementById("artistAvImage").style.backgroundImage = "url(" + this.props.artist.avatar + ")"
-        }
-        
+        } 
     }
 
     
@@ -73,6 +66,10 @@ class Dashboard extends React.Component {
         }
     }
 
+    handleArt() {
+        document.getElementById("artistAvImage").style.backgroundImage = "url(" + this.props.artist.avatar + ")"
+    }
+
     handleSubmit(e) {
         e.preventDefault();
         const trackFormData = new FormData();
@@ -93,6 +90,8 @@ class Dashboard extends React.Component {
     }
 
     render() {
+
+        const { artist } = this.props;
 
         const headerImageEdit = 
         this.props.artistName === this.props.currentUser.username ?
@@ -117,6 +116,15 @@ class Dashboard extends React.Component {
                         onChange={this.handleAvatarFile}
                     />
                 </div>) : null;
+
+
+        if (artist.avatar) {
+            let photo = new Image();
+            photo.src = artist.avatar;
+            photo.onload = () => {
+                this.handleArt();
+            }
+        }
 
         return (
             <div>
@@ -147,7 +155,7 @@ class Dashboard extends React.Component {
                             </div>
                             <div className="phInfoContentContainer">
                                 <h3 className="phInfo-username">
-                                    {this.props.artist.username}
+                                    {artist.username}
                                 </h3>
                             </div>
                         </div>
@@ -162,7 +170,7 @@ class Dashboard extends React.Component {
                             <ul className="userInfoBarTabsUL">
                                 <li className="UIBTLI">
                                     <NavLink
-                                        exact to={`/${this.props.artist.username}`}
+                                        exact to={`/${artist.username}`}
                                         activeClassName="UIBTLI-active"
                                         >
                                         All
@@ -170,7 +178,7 @@ class Dashboard extends React.Component {
                                 </li>
                                 <li className="UIBTLI">
                                     <NavLink
-                                        exact to={`/${this.props.artist.username}/toptracks`}
+                                        exact to={`/${artist.username}/toptracks`}
                                         activeClassName="UIBTLI-active"
                                     >
                                         Top Tracks
@@ -178,7 +186,7 @@ class Dashboard extends React.Component {
                                 </li>
                                 <li className="UIBTLI">
                                     <NavLink
-                                        exact to={`/${this.props.artist.username}/tracks`}
+                                        exact to={`/${artist.username}/tracks`}
                                         activeClassName="UIBTLI-active"
                                     >
                                         Tracks
@@ -186,7 +194,7 @@ class Dashboard extends React.Component {
                                 </li>
                                 <li className="UIBTLI">
                                     <NavLink
-                                        exact to={`/${this.props.artist.username}/albums`}
+                                        exact to={`/${artist.username}/albums`}
                                         activeClassName="UIBTLI-active"
                                     >
                                         Albums
@@ -194,7 +202,7 @@ class Dashboard extends React.Component {
                                 </li>
                                 <li className="UIBTLI">
                                     <NavLink
-                                        exact to={`/${this.props.artist.username}/sets`}
+                                        exact to={`/${artist.username}/sets`}
                                         activeClassName="UIBTLI-active"
                                     >
                                         Playlists
@@ -202,7 +210,7 @@ class Dashboard extends React.Component {
                                 </li>
                                 <li className="UIBTLI">
                                     <NavLink
-                                        exact to={`/${this.props.artist.username}/reposts`}
+                                        exact to={`/${artist.username}/reposts`}
                                         activeClassName="UIBTLI-active"
                                     >
                                         Reposts
