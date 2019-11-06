@@ -21,6 +21,52 @@ sam = User.create({username: "sam", password:"123456", email:"123117@aol.com", g
 ryan = User.create({username: "ryan", password:"123456", email:"1222237@aol.com", gender:"male", age: 8});
 dean = User.create({username: "dean", password:"123456", email:"12333337@aol.com", gender:"male", age: 8});
 
+imagefile1 = open(Rails.root.join('app', 'assets', 'images', 'IMG_4381.jpg'))
+imagefile2 = open(Rails.root.join('app', 'assets', 'images', 'IMG_4416.jpg'))
+imagefile3 = open(Rails.root.join('app', 'assets', 'images', 'IMG_4437.jpg'))
+imagefile4 = open(Rails.root.join('app', 'assets', 'images', 'IMG_5159.jpg'))
+imagefile5 = open(Rails.root.join('app', 'assets', 'images', 'IMG_4546.jpg'))
+imagefile6 = open(Rails.root.join('app', 'assets', 'images', 'IMG_4625.jpg'))
+imagefile7 = open(Rails.root.join('app', 'assets', 'images', 'IMG_4635.jpg'))
+imagefile8 = open(Rails.root.join('app', 'assets', 'images', 'IMG_4691.jpg'))
+imagefile9 = open(Rails.root.join('app', 'assets', 'images', 'IMG_4737.jpg'))
+imagefile10 = open(Rails.root.join('app', 'assets', 'images', 'IMG_4742.jpg'))
+imagefile11 = open(Rails.root.join('app', 'assets', 'images', 'IMG_4771.jpg'))
+imagefile12 = open(Rails.root.join('app', 'assets', 'images', 'IMG_4789.jpg'))
+imagefile13 = open(Rails.root.join('app', 'assets', 'images', 'IMG_4793.jpg'))
+imagefile14 = open(Rails.root.join('app', 'assets', 'images', 'IMG_4981.jpg'))
+imagefile15 = open(Rails.root.join('app', 'assets', 'images', 'IMG_5374.jpg'))
+imagefile16 = open(Rails.root.join('app', 'assets', 'images', 'IMG_5377.jpg'))
+imagefile17 = open(Rails.root.join('app', 'assets', 'images', 'IMG_5373.jpg'))
+imagefile18 = open(Rails.root.join('app', 'assets', 'images', 'IMG_5233.jpg'))
+imagefile19 = open(Rails.root.join('app', 'assets', 'images', 'IMG_5232.jpg'))
+imagefile20 = open(Rails.root.join('app', 'assets', 'images', 'IMG_5377.jpg'))
+
+imagefile21 = open(Rails.root.join('app', 'assets', 'images', 'IMG_3194.jpg'))
+imagefile22 = open(Rails.root.join('app', 'assets', 'images', 'IMG_3272.jpg'))
+imagefile23 = open(Rails.root.join('app', 'assets', 'images', 'IMG_3377.jpg'))
+imagefile24 = open(Rails.root.join('app', 'assets', 'images', 'IMG_4054.jpg'))
+imagefile25 = open(Rails.root.join('app', 'assets', 'images', 'IMG_4123.jpg'))
+imagefile26 = open(Rails.root.join('app', 'assets', 'images', 'IMG_4124.jpg'))
+imagefile27 = open(Rails.root.join('app', 'assets', 'images', 'IMG_4135.jpg'))
+imagefile28 = open(Rails.root.join('app', 'assets', 'images', 'IMG_4140.jpg'))
+imagefile29 = open(Rails.root.join('app', 'assets', 'images', 'IMG_4142.jpg'))
+imagefile30 = open(Rails.root.join('app', 'assets', 'images', 'IMG_2506.jpg'))
+
+derek.avatar.attach({io: imagefile20, filename: "propic1", content_type: "image/jpeg", identify: false })
+dani.avatar.attach({io: imagefile21, filename: "propic2", content_type: "image/jpeg", identify: false })
+ali.avatar.attach({io: imagefile22, filename: "propic3", content_type: "image/jpeg", identify: false })
+larry.avatar.attach({io: imagefile23, filename: "propic4", content_type: "image/jpeg", identify: false })
+elda.avatar.attach({io: imagefile24, filename: "propic5", content_type: "image/jpeg", identify: false })
+isaac.avatar.attach({io: imagefile25, filename: "propi61c", content_type: "image/jpeg", identify: false })
+giselle.avatar.attach({io: imagefile26, filename: "pro6pic", content_type: "image/jpeg", identify: false })
+alex.avatar.attach({io: imagefile27, filename: "propic7", content_type: "image/jpeg", identify: false })
+nick.avatar.attach({io: imagefile28, filename: "propi8", content_type: "image/jpeg", identify: false })
+sam.avatar.attach({io: imagefile29, filename: "propi9", content_type: "image/jpeg", identify: false })
+ryan.avatar.attach({io: imagefile30, filename: "prop123ic", content_type: "image/jpeg", identify: false })
+
+
+
 
 track1 = Track.create({title: "01 Flume.mp3", album: "none", artist_id: 1 })
 track2 = Track.create({title: "01 Give Life Back To Music.mp3" , album: "none", artist_id: 2 })
@@ -42,7 +88,6 @@ track17 = Track.create({title: "12 Jammin'.mp3" , album: "none", artist_id: 2 })
 track18 = Track.create({title: "13 Could You Be Loved.mp3" , album: "none", artist_id: 3 })
 track19 = Track.create({title: "07 The Chain.mp3" , album: "none", artist_id: 4 })
 track20 = Track.create({title: "09 Re_ Stacks.mp3" , album: "none", artist_id: 5 })
-
 
 
 audio_file1 = open(Rails.root.join('app', 'assets', 'tracks', '01 Flume.mp3'))
@@ -87,39 +132,6 @@ track17.audio_file.attach({io: audio_file17, filename: "12 Jammin'.mp3" })
 track18.audio_file.attach({io: audio_file18, filename: "13 Could You Be Loved.mp3" })
 track19.audio_file.attach({io: audio_file19, filename: "07 The Chain.mp3" })
 track20.audio_file.attach({io: audio_file20, filename: "09 Re_ Stacks.mp3" })
-
-
-
-
-
-
-imagefile1 = open(Rails.root.join('app', 'assets', 'images', 'IMG_4381.jpg'))
-imagefile2 = open(Rails.root.join('app', 'assets', 'images', 'IMG_4416.jpg'))
-imagefile3 = open(Rails.root.join('app', 'assets', 'images', 'IMG_4437.jpg'))
-imagefile4 = open(Rails.root.join('app', 'assets', 'images', 'IMG_5159.jpg'))
-imagefile5 = open(Rails.root.join('app', 'assets', 'images', 'IMG_4546.jpg'))
-imagefile6 = open(Rails.root.join('app', 'assets', 'images', 'IMG_4625.jpg'))
-imagefile7 = open(Rails.root.join('app', 'assets', 'images', 'IMG_4635.jpg'))
-imagefile8 = open(Rails.root.join('app', 'assets', 'images', 'IMG_4691.jpg'))
-imagefile9 = open(Rails.root.join('app', 'assets', 'images', 'IMG_4737.jpg'))
-imagefile10 = open(Rails.root.join('app', 'assets', 'images', 'IMG_4742.jpg'))
-imagefile11 = open(Rails.root.join('app', 'assets', 'images', 'IMG_4771.jpg'))
-imagefile12 = open(Rails.root.join('app', 'assets', 'images', 'IMG_4789.jpg'))
-imagefile13 = open(Rails.root.join('app', 'assets', 'images', 'IMG_4793.jpg'))
-imagefile14 = open(Rails.root.join('app', 'assets', 'images', 'IMG_4981.jpg'))
-imagefile15 = open(Rails.root.join('app', 'assets', 'images', 'IMG_5374.jpg'))
-imagefile16 = open(Rails.root.join('app', 'assets', 'images', 'IMG_5377.jpg'))
-imagefile17 = open(Rails.root.join('app', 'assets', 'images', 'IMG_5373.jpg'))
-imagefile18 = open(Rails.root.join('app', 'assets', 'images', 'IMG_5233.jpg'))
-imagefile19 = open(Rails.root.join('app', 'assets', 'images', 'IMG_5232.jpg'))
-imagefile20 = open(Rails.root.join('app', 'assets', 'images', 'IMG_5377.jpg'))
-
-
-
-
-
-
-
 
 track1.image_file.attach({io: imagefile1, filename: "MGasdfAD1" })
 track2.image_file.attach({io: imagefile2, filename: "MGAasdfasdfD1" })
@@ -185,15 +197,5 @@ like10 = Like.create({user_id: 6, track_id: 10})
 
 # avatars
 
-# derek.avatar.attach({io: imagefile19, filename: "propic1" })
-# dani.avatar.attach({io: imagefile11, filename: "propic2" })
-# ali.avatar.attach({io: imagefile3, filename: "propic3" })
-# larry.avatar.attach({io: imagefile4, filename: "propic4" })
-# elda.avatar.attach({io: imagefile9, filename: "propic5" })
-# isaac.avatar.attach({io: imagefile7, filename: "propi61c" })
-# giselle.avatar.attach({io: imagefile20, filename: "pro6pic" })
-# alex.avatar.attach({io: imagefile8, filename: "propic7" })
-# nick.avatar.attach({io: imagefile5, filename: "propi8" })
-# sam.avatar.attach({io: imagefile1, filename: "propi9" })
-# ryan.avatar.attach({io: imagefile2, filename: "prop123ic" })
+
 # dean.avatar.attach({io: imagefile10, filename: "propi12333c" })

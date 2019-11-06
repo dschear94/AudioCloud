@@ -18,10 +18,12 @@ class Splash extends React.Component {
         return (
         <li
         key={track.id}
-        onClick={() => this.props.receiveCurrentTrack(track)}
         className="splash-main-content1-trendingtracks-content-item">
             <div className="splash-main-content1-trendingtracks-tile">
-                <div className="splash-main-content1-trendingtracks-tile-artwork">
+                <div 
+                    className="splash-main-content1-trendingtracks-tile-artwork"
+                    onClick={() => this.props.receiveCurrentTrack(track)}
+                    >
                     <div className="splash-main-content1-trendingtracks-tile-artwork-image">
                         <div className="image-placeholder">
                             <span

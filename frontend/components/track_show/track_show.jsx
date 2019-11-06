@@ -60,14 +60,23 @@ class TrackShow extends React.Component {
     }
 
     componentDidMount() {
-        // const that = this;
+        const that = this;
         if ((this.props.match.params.artist !== this.props.track.artist) 
-            && (this.props.match.params.track !== this.props.track.track)) {
+        && (this.props.match.params.track !== this.props.track.track)) {
+
+
+
             this.props.fetchArtist(this.props.match.params.artist)
-                .then(() => {
-                    const artwork = document.getElementById("artwork-image-official");
-                    artwork.style.backgroundImage = "url(" + this.props.track.photoUrl + ")"
-                })
+            debugger
+            // .then(() => {
+            //     let track;
+            //     let artist;
+            //     artist = that.props.
+            //     debugger
+            //     track = that.props.artist.tracks[that.props.match.params.track];
+            //         const artwork = document.getElementById("artwork-image-official");
+            //         artwork.style.backgroundImage = "url(" + track.photoUrl + ")"
+            //     })
                 // .then(this.handleArt());
         } else {
             const artwork = document.getElementById("artwork-image-official");
@@ -91,12 +100,11 @@ class TrackShow extends React.Component {
             document.getElementById("artwork-image-official").style.backgroundImage = "url(" + this.props.track.photoUrl + ")"
             if (this.props.track.photoUrl) {
                 let photo = new Image();
-                // photo.src = "https://audiocloud-ds-dev.s3.us-east-2.amazonaws.com/33TAVfzZHXZWtBnVFy2SWScp?response-content-disposition=inline%3B%20filename%3D%22IMG_5373.jpg%22%3B%20filename%2A%3DUTF-8%27%27IMG_5373.jpg&response-content-type=image%2Fjpeg&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAZNSXGHH7Y3CQLXNL%2F20191030%2Fus-east-2%2Fs3%2Faws4_request&X-Amz-Date=20191030T181103Z&X-Amz-Expires=300&X-Amz-SignedHeaders=host&X-Amz-Signature=2e77c6b1d4c4f7ec0c8bcbfb3113b446ca70b4f335b00c2def7c0a3ec0d17ab7";
                 photo.src = this.props.track.photoUrl;
                 photo.crossOrigin = "anonymous";
                 photo.onload = () => {
                     const that = photo;
-                    // this.handleArt(that);
+                    this.handleArt(that);
 
                 }
             }
@@ -111,6 +119,8 @@ class TrackShow extends React.Component {
 
     render() {
         const {track, sendTrack, comments, fetchTrackComments } = this.props;
+
+        debugger
 
         const likeButton = this.props.track.id in this.props.likedTracks ?
             (<button
