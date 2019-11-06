@@ -356,6 +356,7 @@
 .track-discover-main-modular-module-gallery {
     position: relative;
     overflow: hidden;
+    overflow-x: scroll;
     padding-top: 5px;
     margin-top: -5px;
     display: block;
