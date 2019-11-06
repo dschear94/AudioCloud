@@ -1,49 +1,46 @@
 import React from 'react';
 import { withRouter, Link } from 'react-router-dom';
+import ListStyleItem from './list_style_item';
 
 class ListStyle extends React.Component {
     constructor(props) {
         super(props);
+
+        this.handleArt = this.handleArt.bind(this);
     }
 
-    componentDidMount() {
-        // document.getElementById("track-discover-main-modular-module-content-artwork-image-main").style.backgroundImage = "url(" + this.props.tracks[0].photoUrl + ")"
-    }
+    // componentDidMount() {
+    //     // document.getElementById("track-discover-main-modular-module-content-artwork-image-main").style.backgroundImage = "url(" + this.props.tracks[0].photoUrl + ")"
+    // }
     
-    componentDidUpdate(prevProps) {
-        if (this.props.tracks !== prevProps.tracks) {
-        document.getElementById("track-discover-main-modular-module-content-artwork-image-main").style.backgroundImage = "url(" + this.props.tracks[0].photoUrl + ")"
-        } else {
-            document.getElementById("track-discover-main-modular-module-content-artwork-image-main").style.backgroundImage = "url(" + this.props.tracks[0].photoUrl + ")"
-        }
+    // componentDidUpdate(prevProps) {
+    //     if (this.props.tracks !== prevProps.tracks) {
+    //     document.getElementById("track-discover-main-modular-module-content-artwork-image-main").style.backgroundImage = "url(" + this.props.tracks[0].photoUrl + ")"
+    //     } else {
+    //         document.getElementById("track-discover-main-modular-module-content-artwork-image-main").style.backgroundImage = "url(" + this.props.tracks[0].photoUrl + ")"
+    //     }
+    // }
+
+    handleArt() {
+        document.getElementById(`track-discover-main-modular-module-content-artwork-image-main${this.props.uni}`).style.backgroundImage = "url(" + this.props.tracks[0].photoUrl + ")"
     }
 
     render() {
-        const trackitem = this.props.tracks.map(track => {
-            return (
+        const trackitem = this.props.tracks.map(track => 
+            <ListStyleItem 
+                key={`${track.id} + " " + ${this.props.uni}`}
+                uni={`${track.id} + " " + ${this.props.uni}`} 
+                track={track} 
+                receiveCurrentTrack={this.props.receiveCurrentTrack}
+            />)
 
-                <li
-                    key={track.id}
-                    onClick={() => this.props.receiveCurrentTrack(track)}
-                    className="track-discover-main-modular-module-content-tracklist-item">
-                    <div className="track-discover-main-modular-module-content-tracklist-item-a">
-                        <div className="track-discover-main-modular-module-content-tracklist-item-a1">
-                            <span className="track-discover-main-modular-module-content-tracklist-item-a1-artist">
-                                {track.artist}
-                            </span>
-                            <span className="track-discover-main-modular-module-content-tracklist-item-a1-title">
-                                {track.title}
-                            </span>
-                        </div>
-                        <div className="track-discover-main-modular-module-content-tracklist-item-a2">
-                            <div className="track-discover-main-modular-module-content-tracklist-item-a2-content">
-                                {/* numplays */}1000
-                            </div>
-                        </div>
-                    </div>
-                </li>
-            )
-        });
+        if (this.props.tracks[0]) {
+            let photo = new Image();
+            photo.src = this.props.tracks[0].photoUrl;
+            photo.onload = () => {
+                this.handleArt();
+            }
+        }
 
         return (
                 <ul className="track-discover-main-modular-list">
@@ -65,7 +62,7 @@ class ListStyle extends React.Component {
                                     <div className="track-discover-main-modular-module-content-artwork-image">
                                         <div className="track-discover-main-modular-module-content-artwork-image-ph">
                                             <div
-                                                id="track-discover-main-modular-module-content-artwork-image-main"
+                                                id={`track-discover-main-modular-module-content-artwork-image-main${this.props.uni}`}
                                                 className="track-discover-main-modular-module-content-artwork-image-main"></div>
                                         </div>
                                     </div>
