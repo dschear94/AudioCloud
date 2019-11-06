@@ -299,3 +299,10 @@
     width: 350px;
     height: 350px;
 }
+
+.artistAvImage {
+    height: 100%;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+}

@@ -68,6 +68,14 @@
     display: block;
 }
 
+.av-image {
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
 .activity-text {
     color: #999;
     font: 12px/1.4 "Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;

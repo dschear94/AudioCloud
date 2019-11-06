@@ -13,9 +13,11 @@ const TrackStreamItem = ({ track, sendTrack }) => (
                     <div className="activity-avatar">
                         <div 
                             className="avatar-body"
-                            style={{ backgroundImage: "url(" + track.artistAvatar + ")" }}
                             >
-                                {/* revisit */}
+                            <div
+                                className="av-image"
+                                style={{ backgroundImage: "url(" + track.artistAvatar + ")" }}>
+                            </div>
                         </div>
                     </div>
                     <div className="activity-text">

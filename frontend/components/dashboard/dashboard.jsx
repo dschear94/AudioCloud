@@ -25,9 +25,21 @@ class Dashboard extends React.Component {
     }
 
     componentDidMount() {
-        if (this.props.artistName !== this.props.artist) {
+        if (this.props.artistName !== this.props.artist.username) {
             this.props.fetchArtist(this.props.artistName)
+        } else {
+            document.getElementById("artistAvImage").style.backgroundImage = "url(" + this.props.artist.avatar + ")"
         }
+    }
+
+    componentDidUpdate(prevProps) {
+        if (this.props.artistName !== prevProps.artistName) {
+            this.props.fetchArtist(this.props.artistName)
+            
+        } else {
+            document.getElementById("artistAvImage").style.backgroundImage = "url(" + this.props.artist.avatar + ")"
+        }
+        
     }
 
     
@@ -100,7 +112,11 @@ class Dashboard extends React.Component {
                             <div className="phInfoAvatarContainer">
                                 <div className="phAvatarImage">
                                     {/* image goes here inside span*/}
-                                    <span style={{ backgroundImage: "url(" + this.props.artist.avatar + ")" }}></span>
+                                    <div 
+                                    // style={{ backgroundImage: "url(" + this.props.artist.avatar + ")" }}
+                                    id="artistAvImage"
+                                    className="artistAvImage"
+                                    ></div>
                                     <div className="phAvatarBtn">
                                         <button 
                                             className="imagePicker"

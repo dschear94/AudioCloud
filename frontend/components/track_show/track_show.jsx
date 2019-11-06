@@ -102,7 +102,7 @@ class TrackShow extends React.Component {
                 photo.crossOrigin = "anonymous";
                 photo.onload = () => {
                     const that = photo;
-                    this.handleArt(that);
+                    // this.handleArt(that);
 
                 }
             }
