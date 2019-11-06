@@ -11,6 +11,7 @@ Rails.application.routes.draw do
       resources :comments, only: [:create, :index, :show]
       resources :artists, only: [:show], controller: :users
       resources :likes, only: [:create, :destroy, :index, :show]
+      get 'tracks/by_artist/:artist_id', :to => 'tracks#by_artist'
     end
 
   root "static_pages#root"

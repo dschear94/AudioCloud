@@ -27,15 +27,18 @@ class Dashboard extends React.Component {
     componentDidMount() {
         if (this.props.artistName !== this.props.artist.username) {
             this.props.fetchArtist(this.props.artistName)
+            this.props.fetchTracksByArtist(this.props.artistName)
         } else {
             document.getElementById("artistAvImage").style.backgroundImage = "url(" + this.props.artist.avatar + ")"
         }
+
+        
     }
 
     componentDidUpdate(prevProps) {
         if (this.props.artistName !== prevProps.artistName) {
             this.props.fetchArtist(this.props.artistName)
-            
+            this.props.fetchTracksByArtist(this.props.artistName)
         } else {
             document.getElementById("artistAvImage").style.backgroundImage = "url(" + this.props.artist.avatar + ")"
         }

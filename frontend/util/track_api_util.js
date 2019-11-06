@@ -4,6 +4,13 @@ export const fetchTracks = () => {
         url: '/api/tracks'
     });
 }
+
+export const fetchTracksByArtist = artistId => {
+    return $.ajax({
+        method: 'GET',
+        url: `/api/tracks/by_artist/${artistId}`,
+    });
+}
 // export const fetchTrack = () => {
 //     return $.ajax({
 //         method: 'GET',

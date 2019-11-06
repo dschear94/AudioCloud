@@ -86,31 +86,6 @@ class TrackShow extends React.Component {
         // document.getElementById("artwork-image-official").style.backgroundImage = "url(" + this.props.track.photoUrl + ")"
     }
 
-    // handleArt(photo) {
-    //     // const bg = document.getElementById("background-gradient");
-    //     // const colorthief = new ColorThief();
-    //     // const paletteArray = colorthief.getPalette(photo, 2);
-    //     // bg.style.backgroundImage = `linear-gradient(135deg, rgb(${paletteArray[0]}) 0%, rgb(${paletteArray[1]}) 100%);`
-    // }
-
-    componentDidUpdate(prevProps) {
-        // if (this.props.track.id !== prevProps.track.id){
-        //     document.getElementById("artwork-image-official").style.backgroundImage = "url(" + this.props.track.photoUrl + ")"
-        //     if (this.props.track.photoUrl) {
-        //         let photo = new Image();
-        //         photo.src = this.props.track.photoUrl;
-        //         photo.crossOrigin = "anonymous";
-        //         photo.onload = () => {
-        //             const that = photo;
-        //             this.handleArt(that);
-
-        //         }
-        //     }
-        // } else {
-        //     document.getElementById("artwork-image-official").style.backgroundImage = "url(" + this.props.track.photoUrl + ")"
-        // }
-    }
-
     handleArt() {
         document.getElementById("artwork-image-official").style.backgroundImage = "url(" + this.props.track.photoUrl + ")"
     }

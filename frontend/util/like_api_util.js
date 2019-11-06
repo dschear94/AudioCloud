@@ -5,7 +5,7 @@
 //     });
 // }
 
-export const fetchTrackLikes = (trackId) => {
+export const fetchTrackLikes = trackId => {
     return $.ajax({
         method: 'GET',
         url: '/api/Likes',
@@ -17,7 +17,7 @@ export const fetchTrackLikes = (trackId) => {
     });
 }
 
-export const fetchUserLikes = (userId) => {
+export const fetchUserLikes = userId => {
     return $.ajax({
         method: 'GET',
         url: '/api/likes',

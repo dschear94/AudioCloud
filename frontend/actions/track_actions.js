@@ -7,7 +7,7 @@ export const RECEIVE_TRACKS = 'RECEIVE_TRACKS';
 export const RECEIVE_TRACK = 'RECEIVE_TRACK';
 
 
-export const receiveTracks = (tracks) => {
+export const receiveTracks = tracks => {
     return {
         type: RECEIVE_TRACKS,
         tracks
@@ -27,9 +27,11 @@ export const fetchTracks = () => dispatch => {
     ));
 };
 
-
-
-
+export const fetchTracksByArtist = artistId => dispatch => {
+    return APIUtil.fetchTracksByArtist(artistId).then(tracks => (
+        dispatch(receiveTracks(tracks))
+    ));
+};
 
 export const uploadTrack = (track) => dispatch => {
     return APIUtil.uploadTrack(track).then(track => (

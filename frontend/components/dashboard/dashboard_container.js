@@ -1,7 +1,10 @@
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import Dashboard from './dashboard';
-import { fetchTracks } from '../../actions/track_actions';
+import { 
+    fetchTracks,
+    fetchTracksByArtist
+} from '../../actions/track_actions';
 import { receiveCurrentTrack } from '../../actions/current_track_actions';
 import { openModal } from '../../actions/modal_actions';
 import { 
@@ -33,6 +36,7 @@ const mdp = dispatch => ({
     openModal: modal => dispatch(openModal(modal)),
 
     fetchArtist: artist => dispatch(fetchArtist(artist)),
+    fetchTracksByArtist: artistId => dispatch(fetchTracksByArtist(artistId)),
 
     sendAvatar: avatar => dispatch(sendAvatar(avatar)),
     clearAvatar: () => dispatch(clearAvatar()),

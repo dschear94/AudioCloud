@@ -6,6 +6,11 @@ class Api::TracksController < ApplicationController
         render :index
     end
 
+    def by_artist
+        @tracks = Track.where(artist: params[:artist_id]).all
+        render :index
+    end
+
     def create
         @track = Track.new(track_params)
         

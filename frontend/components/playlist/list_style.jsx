@@ -9,18 +9,6 @@ class ListStyle extends React.Component {
         this.handleArt = this.handleArt.bind(this);
     }
 
-    // componentDidMount() {
-    //     // document.getElementById("track-discover-main-modular-module-content-artwork-image-main").style.backgroundImage = "url(" + this.props.tracks[0].photoUrl + ")"
-    // }
-    
-    // componentDidUpdate(prevProps) {
-    //     if (this.props.tracks !== prevProps.tracks) {
-    //     document.getElementById("track-discover-main-modular-module-content-artwork-image-main").style.backgroundImage = "url(" + this.props.tracks[0].photoUrl + ")"
-    //     } else {
-    //         document.getElementById("track-discover-main-modular-module-content-artwork-image-main").style.backgroundImage = "url(" + this.props.tracks[0].photoUrl + ")"
-    //     }
-    // }
-
     handleArt() {
         document.getElementById(`track-discover-main-modular-module-content-artwork-image-main${this.props.uni}`).style.backgroundImage = "url(" + this.props.tracks[0].photoUrl + ")"
     }
