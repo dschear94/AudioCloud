@@ -16,6 +16,7 @@ import {
 import {
     fetchArtist
 } from '../../actions/artist_actions'
+import { createFollow } from '../../actions/follows_actions'
 
 
 const msp = (state, ownProps) => {
@@ -28,6 +29,7 @@ const msp = (state, ownProps) => {
         artistName: artist || "",
         currentUser: Object.values(state.entities.users)[0] || {},
         artist: state.entities.artists[artist] || {},
+        follows: state.entities.follows || {},
     }
 
 };
@@ -38,6 +40,8 @@ const mdp = dispatch => ({
 
     fetchArtist: artist => dispatch(fetchArtist(artist)),
     fetchTracksByArtist: artistId => dispatch(fetchTracksByArtist(artistId)),
+
+    createFollow: follow => dispatch(createFollow(follow)),
 
     sendAvatar: avatar => dispatch(sendAvatar(avatar)),
     clearAvatar: () => dispatch(clearAvatar()),

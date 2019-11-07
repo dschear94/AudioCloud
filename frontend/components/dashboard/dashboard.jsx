@@ -28,6 +28,8 @@ class Dashboard extends React.Component {
         // this.triggerHeaderImageInput = this.triggerHeaderImageInput.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleInput = this.handleInput.bind(this);
+
+        this.handleFollow = this.handleFollow.bind(this);
     }
     
     handleInput(field) {
@@ -37,6 +39,25 @@ class Dashboard extends React.Component {
             });
         };
     }
+
+    handleFollow(e) {
+        e.preventDefault();
+        debugger
+
+        if (this.props.artist.id in this.props.follows) {
+            let followId = this.props.follows[this.props.artist.id].id;
+            this.props.deleteFollow(followId)
+        } else {
+            const follow = Object.assign({
+                follower_id: this.props.currentUser.id,
+                followed_user_id: this.props.artist.id
+        })
+
+            this.props.createFollow(follow);
+        }
+
+    }
+
 
     triggerAvatarInput(e) {
         e.preventDefault();
@@ -213,7 +234,13 @@ class Dashboard extends React.Component {
                         </div>
                         <div className="userInfoBarBtns">
                             <div className="userInfoBarBtns-container">
-
+                                <button className="uiBarStation">Station</button>
+                                <button 
+                                className="uiBarFollow"
+                                onClick={this.handleFollow}>Follow</button>
+                                <button className="uiBarShare">Share</button>
+                                <button className="uiBarMessage">Message</button>
+                                <button className="uiBarMore">More</button>
                             </div>
                         </div>
                     </div>
