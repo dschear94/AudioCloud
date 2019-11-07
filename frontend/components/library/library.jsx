@@ -9,7 +9,7 @@ import {
     HashRouter
 } from 'react-router-dom';
 import {ProtectedRoute} from '../../util/route_util';
-import LibraryOverviewContainer from './library_overview_container';
+import LibraryOverviewContainer from './lib_overview_container';
 
 class Library extends React.Component {
     constructor(props) {

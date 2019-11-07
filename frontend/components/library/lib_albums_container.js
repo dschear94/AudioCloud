@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import LibraryOverview from './library_overview';
+import LibAlbums from './lib_albums';
 import {
     fetchTracks,
     fetchTracksByArtist
@@ -31,4 +31,4 @@ const mdp = dispatch => ({
     fetchTracksByArtist: artistId => dispatch(fetchTracksByArtist(artistId)),
 });
 
-export default withRouter(connect(msp, mdp)(LibraryOverview));
+export default withRouter(connect(msp, mdp)(LibAlbums));
