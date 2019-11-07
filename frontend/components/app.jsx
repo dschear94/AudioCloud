@@ -37,12 +37,6 @@ const App = () => (
                     <Switch>
                         <Route exact path='/discover' component={DiscoverContainer} />
                         <ProtectedRoute exact path='/stream' component={StreamContainer} />
-                        <Route exact path='/:artist' component={DashboardContainer} />
-                        <Route exact path='/:artist/toptracks' component={DashboardContainer} />
-                        <Route exact path='/:artist/tracks' component={DashboardContainer} />
-                        <Route exact path='/:artist/albums' component={DashboardContainer} />
-                        <Route exact path='/:artist/sets' component={DashboardContainer} />
-                        <Route exact path='/:artist/reposts' component={DashboardContainer} />
                         <ProtectedRoute exact path='/you/library' component={LibraryContainer}/>
                         <ProtectedRoute exact path='/you/likes' component={LibraryContainer}/>
                         <ProtectedRoute exact path='/you/sets' component={LibraryContainer}/>
@@ -50,6 +44,12 @@ const App = () => (
                         <ProtectedRoute exact path='/you/stations' component={LibraryContainer}/>
                         <ProtectedRoute exact path='/you/following' component={LibraryContainer}/>
                         <ProtectedRoute exact path='/you/history' component={LibraryContainer}/>
+                        <Route exact path='/:artist' component={DashboardContainer} />
+                        <Route exact path='/:artist/toptracks' component={DashboardContainer} />
+                        <Route exact path='/:artist/tracks' component={DashboardContainer} />
+                        <Route exact path='/:artist/albums' component={DashboardContainer} />
+                        <Route exact path='/:artist/sets' component={DashboardContainer} />
+                        <Route exact path='/:artist/reposts' component={DashboardContainer} />
                         <ProtectedRoute exact path='/:artist/:track' component={TrackShowContainer} />
                         <ProtectedRoute exact path="/upload" component={TrackUploadContainer} />
                         <SplashyRoute exact path="/" component={SplashContainer}/>
