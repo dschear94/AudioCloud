@@ -23,6 +23,7 @@ const msp = (state, ownProps) => {
         artistName: artist || "",
         currentUser: Object.values(state.entities.users)[0] || {},
         artist: state.entities.artists[artist] || {},
+        tracks: state.entities.tracks || {},
     }
 
 };
