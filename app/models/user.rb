@@ -16,14 +16,26 @@ class User < ApplicationRecord
     through: :likes,
     source: :track
 
-    has_many :follows
 
-    has_many :followed_by,
-    foreign_key: :artist_id
-    
-    # has_many :followed_artists,
-    # through: :follows,
-    # source: :artist
+    # array of follows for user
+    has_many :received_follows,
+    foreign_key: :followed_user_id,
+    class_name: "Follow"
+
+    # array of users who follow user
+    has_many :followers,
+    through: :received_follows,
+    source: :follower
+
+    # array of follows user gave to others
+    has_many :given_follows,
+    foreign_key: :followed_user_id,
+    class_name: "Follow"
+
+    # array of other users who user follows
+    has_many :followings,
+    through: :given_follows,
+    source: :followed_user
 
     has_one_attached :avatar
     has_one_attached :header_image
