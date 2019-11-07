@@ -9,7 +9,13 @@ import {
     HashRouter
 } from 'react-router-dom';
 import {ProtectedRoute} from '../../util/route_util';
-import LibraryOverviewContainer from './lib_overview_container';
+import LibOverviewContainer from './lib_overview_container';
+import LibLikesContainer from './lib_likes_container';
+import LibSetsContainer from './lib_sets_container';
+import LibAlbumsContainer from './lib_albums_container';
+import LibStationsContainer from './lib_stations_container';
+import LibFollowingContainer from './lib_following_container';
+import LibHistoryContainer from './lib_history_container';
 
 class Library extends React.Component {
     constructor(props) {
@@ -81,13 +87,13 @@ class Library extends React.Component {
                 </div>
                 <div className="library-main-container">
                     <Switch>
-                        <ProtectedRoute exact path='/you/library' component={LibraryOverviewContainer} />
-                        {/* <ProtectedRoute exact path='/you/likes' component={LibraryContainer} />
-                        <ProtectedRoute exact path='/you/sets' component={LibraryContainer} />
-                        <ProtectedRoute exact path='/you/albums' component={LibraryContainer} />
-                        <ProtectedRoute exact path='/you/stations' component={LibraryContainer} />
-                        <ProtectedRoute exact path='/you/following' component={LibraryContainer} />
-                        <ProtectedRoute exact path='/you/history' component={LibraryContainer} /> */}
+                        <ProtectedRoute exact path='/you/library' component={LibOverviewContainer} />
+                        <ProtectedRoute exact path='/you/likes' component={LibLikesContainer} />
+                        <ProtectedRoute exact path='/you/sets' component={LibSetsContainer} />
+                        <ProtectedRoute exact path='/you/albums' component={LibAlbumsContainer} />
+                        <ProtectedRoute exact path='/you/stations' component={LibStationsContainer} />
+                        <ProtectedRoute exact path='/you/following' component={LibFollowingContainer} />
+                        <ProtectedRoute exact path='/you/history' component={LibHistoryContainer} />
                     </Switch>
                 </div>
             </div>

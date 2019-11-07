@@ -40,3 +40,109 @@
     color: #f50;
     cursor: default;
 }
+
+.historyCollection {
+    border-bottom: 1px solid #f2f2f2;
+    margin-bottom: 40px;
+    min-height: 272px;
+    position: relative;
+    box-sizing: border-box;
+}
+
+.historyCollection:before {
+    content: "";
+    display: table;
+}
+
+.historyCollection:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.playHistoryHeader {
+    margin-bottom: 20px;
+    min-height: 32px;
+    justify-content: space-between;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.playHistoryContent {
+    
+}
+
+.phHeaderText {
+    margin: 0;
+    font-size: 18px;
+}
+
+.phBadges {
+    margin-right: -20px;
+}
+
+.phBadgeList {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.phBadgeList:before {
+    content: "";
+    display: table;
+}
+
+.phBadgeList:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.likesCollection {
+    border-bottom: 1px solid #f2f2f2;
+    margin-bottom: 40px;
+    position: relative;
+    box-sizing: border-box;
+}
+
+.likesCollection:before {
+    content: "";
+    display: table;
+}
+
+.likesCollection:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.lsHeader {
+    margin-bottom: 20px;
+    min-height: 32px;
+    justify-content: space-between;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.lsContent:before {
+    content: "";
+    display: table;
+}
+
+.lsContent:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.phHeaderSub {
+    margin-top: 0;
+    margin-right: 10px;
+    font-size: 16px;
+    color: #38d;
+    /* text-decoration: none; */
+    font: "Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;
+    line-height: 1.3;
+}

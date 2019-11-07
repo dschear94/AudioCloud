@@ -8,6 +8,7 @@ import {
     Link,
     HashRouter
 } from 'react-router-dom';
+import TrackBadgeItem from '../track_item/track_badge_item';
 
 class LibraryOverview extends React.Component {
     constructor(props) {
@@ -15,9 +16,62 @@ class LibraryOverview extends React.Component {
     }
 
     render() {
+        const { tracks } = this.props;
+
+        const historyBadgeItems = tracks.map(track => 
+            <TrackBadgeItem 
+                track={track} 
+                key={track.id} 
+                track={track} 
+                sendTrack={this.props.receiveCurrentTrack}
+            />
+        )
+
+        const likesBadgeItems = tracks.map(track => 
+            <TrackBadgeItem 
+                track={track} 
+                key={track.id} 
+                track={track} 
+                sendTrack={this.props.receiveCurrentTrack}
+            />
+        )
+
+
         return (
             <div>
-                Library Overview
+                <div className="historyCollection">
+                    <div className="playHistory">
+                        <div className="playHistoryHeader">
+                            <h2 className="phHeaderText">Recently played</h2>
+                        </div>
+                        <div className="playHistoryContent">
+                            <div className="phBadges">
+                                <ul className="phBadgeList">
+                                    {historyBadgeItems}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div className="likesCollection">
+                    <div className="likesSection">
+                        <div className="lsHeader">
+                            <h2 className="phHeaderText">Likes</h2>
+                            <div>
+                                <div className="phHeaderSub">
+                                    <Link to="/discover">Browse trending playlists</Link>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="lsContent">
+                            <div className="phBadges">
+                                <ul className="phBadgeList">
+                                    {likesBadgeItems}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         )
     }

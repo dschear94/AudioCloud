@@ -1,6 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 import { Link } from 'react-router-dom';
+import TrackBadgeItem from '../track_item/track_badge_item';
 
 class Splash extends React.Component {
     constructor(props) {
@@ -14,45 +15,9 @@ class Splash extends React.Component {
     }
 
     render() {
-        const trackitems = this.props.tracks.slice(0, 12).map(track => {
-        return (
-        <li
-        key={track.id}
-        className="splash-main-content1-trendingtracks-content-item">
-            <div className="splash-main-content1-trendingtracks-tile">
-                <div 
-                    className="splash-main-content1-trendingtracks-tile-artwork"
-                    onClick={() => this.props.receiveCurrentTrack(track)}
-                    >
-                    <div className="splash-main-content1-trendingtracks-tile-artwork-image">
-                        <div className="image-placeholder">
-                            <span
-                                className="artwork-image-official"
-                                style={{ backgroundImage: "url(" + track.photoUrl + ")" }}></span>
-                        </div>
-                    </div>
-                    <button className="splash-main-content1-trendingtracks-tile-playbtn-container">
-                    </button>
-                </div>
-                <div className="splash-main-content1-trendingtracks-tile-description">
-                    <div className="splash-main-content1-trendingtracks-tile-description1">
-                            <Link to={{
-                                pathname: `/${track.artist}/${track.title}`,
-                                state: {
-                                    track
-                                }
-                            }}>{track.title}</Link>
-                    </div>
-                    <div className="splash-main-content1-trendingtracks-tile-description2">
-                        <Link to={{
-                                pathname: `/${track.artist}`,
-                        }}>{track.artist}</Link>                    
-                    </div>
-                </div>
-            </div>
-        </li>
-        )
-    });
+        const trackitems = this.props.tracks.slice(0, 12).map(track =>
+            <TrackBadgeItem key={track.id} track={track} sendTrack={this.props.receiveCurrentTrack}/>
+        );
         return (
             <div className="splash-main">
                 <div className="splash-main-banner">
