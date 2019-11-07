@@ -26,7 +26,7 @@ const TrackStreamItem = ({ track, sendTrack }) => (
                         {` posted a track ${relativeTime(track.created_at)}`}
                     </div>
                 </div>
-                <TrackItem key={track.id} track={track}/>
+                <TrackItem key={track.id} track={track} sendTrack={sendTrack}/>
             </div>
         </div>
         <div className="act-body-comment">

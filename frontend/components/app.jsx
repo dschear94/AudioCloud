@@ -19,6 +19,7 @@ import DashboardContainer from './dashboard/dashboard_container';
 import StreamContainer from './stream/stream_container';
 import ContinuousPlayBar from './continuous_play_bar/continuous_play_bar';
 import TrackShowContainer from './track_show/track_show_container';
+import LibraryContainer from './library/library_container';
 
 import { SplashyRoute , ProtectedRoute, CPBRoute } from '../util/route_util';
 import { openModal } from '../actions/modal_actions';
@@ -42,9 +43,15 @@ const App = () => (
                         <Route exact path='/:artist/albums' component={DashboardContainer} />
                         <Route exact path='/:artist/sets' component={DashboardContainer} />
                         <Route exact path='/:artist/reposts' component={DashboardContainer} />
-                        <Route exact path='/:artist/:track' component={TrackShowContainer} />
+                        <ProtectedRoute exact path='/you/library' component={LibraryContainer}/>
+                        <ProtectedRoute exact path='/you/likes' component={LibraryContainer}/>
+                        <ProtectedRoute exact path='/you/sets' component={LibraryContainer}/>
+                        <ProtectedRoute exact path='/you/albums' component={LibraryContainer}/>
+                        <ProtectedRoute exact path='/you/stations' component={LibraryContainer}/>
+                        <ProtectedRoute exact path='/you/following' component={LibraryContainer}/>
+                        <ProtectedRoute exact path='/you/history' component={LibraryContainer}/>
+                        <ProtectedRoute exact path='/:artist/:track' component={TrackShowContainer} />
                         <ProtectedRoute exact path="/upload" component={TrackUploadContainer} />
-                        <Route exact path='/you/library'>coming soon.</Route>
                         <SplashyRoute exact path="/" component={SplashContainer}/>
                     </Switch>
                     </div>

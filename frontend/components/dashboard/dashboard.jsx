@@ -9,6 +9,7 @@ import {
     HashRouter
 } from 'react-router-dom';
 import ArtistTracksContainer from './artist_tracks_container';
+import ArtistAllContainer from './artist_all_container';
 
 class Dashboard extends React.Component {
     constructor(props) {
@@ -28,21 +29,6 @@ class Dashboard extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleInput = this.handleInput.bind(this);
     }
-
-    componentDidMount() {
-        if (this.props.artistName !== this.props.artist.username) {
-            this.props.fetchArtist(this.props.artistName)
-            this.props.fetchTracksByArtist(this.props.artistName)
-        } 
-    }
-
-    componentDidUpdate(prevProps) {
-        if (this.props.artistName !== prevProps.artistName) {
-            this.props.fetchArtist(this.props.artistName)
-            this.props.fetchTracksByArtist(this.props.artistName)
-        } 
-    }
-
     
     handleInput(field) {
         return e => {
@@ -233,14 +219,16 @@ class Dashboard extends React.Component {
                     </div>
                 </div>
                 <div className="dashboard-content-container">
-                    <Switch>
-                        <Route exact path={`/:artist`}></Route>
-                        <Route exact path={`/:artist/toptracks`}></Route>
-                        <Route exact path={`/:artist/tracks`}><ArtistTracksContainer /></Route>
-                        <Route exact path={`/:artist/albums`}></Route>
-                        <Route exact path={`/:artist/sets`}></Route>
-                        <Route exact path={`/:artist/reposts`}></Route>
-                    </Switch>
+                    <div className="content-left-container">
+                        <Switch>
+                            <Route exact path={`/:artist`} component={ArtistAllContainer} />
+                            <Route exact path={`/:artist/toptracks`}></Route>
+                            <Route exact path={`/:artist/tracks`} component={ArtistTracksContainer} />
+                            <Route exact path={`/:artist/albums`}></Route>
+                            <Route exact path={`/:artist/sets`}></Route>
+                            <Route exact path={`/:artist/reposts`}></Route>
+                        </Switch>
+                    </div>
                 </div>
             </div>
         );

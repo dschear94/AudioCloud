@@ -10,7 +10,7 @@ import {
 } from 'react-router-dom';
 import TrackItem from '../track_item/track_item'
 
-class ArtistTracks extends React.Component {
+class ArtistAll extends React.Component {
     constructor(props) {
         super(props);
     }
@@ -33,8 +33,8 @@ class ArtistTracks extends React.Component {
 
         const { artist, tracks, sendTrack } = this.props;
 
-        const trackItems =  tracks.map(track => 
-            <li 
+        const trackItems = tracks.map(track =>
+            <li
                 key={track.id}
                 className="track-stream-item">
                 <TrackItem track={track} sendTrack={sendTrack}/>
@@ -46,9 +46,8 @@ class ArtistTracks extends React.Component {
                 {trackItems}
             </ul>
         )
-
     }
 }
 
 
-export default withRouter(ArtistTracks);
+export default withRouter(ArtistAll);
