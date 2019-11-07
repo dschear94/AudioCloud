@@ -10,6 +10,7 @@ import {
     fetchArtist
 } from '../../actions/artist_actions';
 import ArtistTracks from './artist_tracks';
+import { selectTracksByArtist } from '../../reducers/selectors'
 
 
 const msp = (state, ownProps) => {
@@ -23,7 +24,7 @@ const msp = (state, ownProps) => {
         artistName: artist || "",
         currentUser: Object.values(state.entities.users)[0] || {},
         artist: state.entities.artists[artist] || {},
-        tracks: state.entities.tracks || {},
+        tracks: selectTracksByArtist(state, artist),
     }
 
 };

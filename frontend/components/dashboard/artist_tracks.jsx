@@ -8,7 +8,7 @@ import {
     Link,
     HashRouter
 } from 'react-router-dom';
-import TrackStreamItem from '../stream/track_stream_item'
+import TrackItem from '../track_item/track_item'
 
 class ArtistTracks extends React.Component {
     constructor(props) {
@@ -31,13 +31,9 @@ class ArtistTracks extends React.Component {
 
     render() {
 
-        const { artist } = this.props;
+        const { artist, tracks } = this.props;
 
-        return (
-            <div>
-                "hi"
-            </div>
-        );
+        return tracks.map(track => <TrackItem key={track.id} track={track}/>)
     }
 }
 
