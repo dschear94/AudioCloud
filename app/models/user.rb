@@ -11,10 +11,19 @@ class User < ApplicationRecord
     foreign_key: :author_id
 
     has_many :likes
-
+    
     has_many :liked_tracks,
     through: :likes,
     source: :track
+
+    has_many :follows
+
+    has_many :followed_by,
+    foreign_key: :artist_id
+    
+    # has_many :followed_artists,
+    # through: :follows,
+    # source: :artist
 
     has_one_attached :avatar
     has_one_attached :header_image
