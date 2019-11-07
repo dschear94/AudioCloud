@@ -33,21 +33,18 @@ const App = () => (
             <div className="main-content-container">
                 <div className="main-content">
                     <div className="main-content2">
-                        {/* <div className="main-main">
-                                <Route exact path='/discover'><DiscoverContainer /></Route>
-                                <ProtectedRoute exact path='/stream' component={StreamContainer} />
-                            <div className="social-container">
-                            </div>
-                        </div>
-                        <Route exact path='/:artist/:track' component={TrackShowContainer}/> */}
                     <Switch>
-                        <Route exact path='/discover'><DiscoverContainer /></Route>
+                        <Route exact path='/discover' component={DiscoverContainer} />
                         <ProtectedRoute exact path='/stream' component={StreamContainer} />
+                        <Route exact path='/:artist' component={DashboardContainer} />
+                        <Route exact path='/:artist/toptracks' component={DashboardContainer} />
+                        <Route exact path='/:artist/tracks' component={DashboardContainer} />
+                        <Route exact path='/:artist/albums' component={DashboardContainer} />
+                        <Route exact path='/:artist/sets' component={DashboardContainer} />
+                        <Route exact path='/:artist/reposts' component={DashboardContainer} />
                         <Route exact path='/:artist/:track' component={TrackShowContainer} />
-                        {/* 3 routes above in progress */}
                         <ProtectedRoute exact path="/upload" component={TrackUploadContainer} />
                         <Route exact path='/you/library'>coming soon.</Route>
-                        <Route exact path='/:artist'><DashboardContainer /></Route>
                         <SplashyRoute exact path="/" component={SplashContainer}/>
                     </Switch>
                     </div>

@@ -1,9 +1,14 @@
 import React from 'react';
 import { 
     withRouter, 
+    NavLink,
+    Route,
+    Redirect,
+    Switch,
     Link,
-    NavLink
+    HashRouter
 } from 'react-router-dom';
+import ArtistTracksContainer from './artist_tracks_container';
 
 class Dashboard extends React.Component {
     constructor(props) {
@@ -92,6 +97,8 @@ class Dashboard extends React.Component {
     render() {
 
         const { artist } = this.props;
+
+
 
         const headerImageEdit = 
         this.props.artistName === this.props.currentUser.username ?
@@ -226,7 +233,14 @@ class Dashboard extends React.Component {
                     </div>
                 </div>
                 <div className="dashboard-content-container">
-
+                    <Switch>
+                        <Route exact path={`/:artist`}></Route>
+                        <Route exact path={`/:artist/toptracks`}></Route>
+                        <Route exact path={`/:artist/tracks`}><ArtistTracksContainer /></Route>
+                        <Route exact path={`/:artist/albums`}></Route>
+                        <Route exact path={`/:artist/sets`}></Route>
+                        <Route exact path={`/:artist/reposts`}></Route>
+                    </Switch>
                 </div>
             </div>
         );
