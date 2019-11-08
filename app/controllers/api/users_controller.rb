@@ -1,13 +1,14 @@
 class Api::UsersController < ApplicationController
 
     def show
-        @user = User.includes(tracks: {
+        @user = User.includes(:liked_tracks, :follows, 
+        tracks: {
             audio_file_attachment: :blob, 
             image_file_attachment: :blob
         }).find_by(username: params[:id])
 
-        @likes = Like.where(user_id: params[:id])
-        @follows = Follow.where(follower_id: params[:id])
+        # @likes = Like.where(user_id: params[:id])
+        # @follows = Follow.where(follower_id: params[:id])
 
         if @user
             render "api/users/show"

@@ -11,3 +11,16 @@ export const selectTracksByArtist = (state, artistName) => {
     return artistTracks;
 
 }
+
+export const selectLikesByTrackId = (state, trackId) => {
+
+    let trackLikes = {};
+
+    Object.values(state.entities.likes).map(like =>
+        like.id === trackId ?
+        trackLikes[like.id] = like : null)
+    ;
+
+    return trackLikes;
+    
+}

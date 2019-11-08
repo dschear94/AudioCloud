@@ -1,39 +1,46 @@
 import * as APIUtil from '../util/likes_api_util';
 
-export const RECEIVE_LIKED_TRACKS = 'RECEIVE_LIKED_TRACKS';
-export const RECEIVE_LIKED_TRACK = 'RECEIVE_LIKED_TRACK';
+export const RECEIVE_LIKES = 'RECEIVE_LIKES';
+export const RECEIVE_LIKE = 'RECEIVE_LIKE';
 
 
-export const receiveLikedTracks = (likedTracks) => {
+export const receiveLikes = (likes) => {
     return {
-        type: RECEIVE_LIKED_TRACKS,
-        likedTracks
+        type: RECEIVE_LIKES,
+        likes
     }
 };
 
-export const receiveLikedTrack = (likedTrack) => {
+export const receiveLike = (like) => {
     return {
-        type: RECEIVE_LIKED_TRACK,
-        likedTrack
+        type: RECEIVE_LIKE,
+        like
     }
 };
 
-export const fetchLikedTracks = (userId) => dispatch => {
-    return APIUtil.fetchLikedTracks(userId).then(likedTracks => (
-        dispatch(receiveLikedTracks(likedTracks))
+
+// delete like
+
+
+
+
+
+export const fetchLikes = (userId) => dispatch => {
+    return APIUtil.fetchLikes(userId).then(likes => (
+        dispatch(receiveLikes(likes))
     ));
 };
 
 
 
-export const createLikedTrack = (likedTrack) => dispatch => {
-    return APIUtil.createLikedTrack(likedTrack).then(likedTracks => (
-        dispatch(receiveLikedTracks(likedTracks))
+export const createLike = (like) => dispatch => {
+    return APIUtil.createLike(like).then(likes => (
+        dispatch(receiveLikes(likes))
     ));
 };
 
-export const deleteLikedTrack = (likedTrackId) => dispatch => {
-    return APIUtil.deleteLikedTrack(likedTrackId).then((likedTracks) => (
-        dispatch(receiveLikedTracks(likedTracks))
+export const deleteLike = (likeId) => dispatch => {
+    return APIUtil.deleteLike(likeId).then((likes) => (
+        dispatch(receiveLikes(likes))
     ));
 };

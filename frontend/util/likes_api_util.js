@@ -5,10 +5,10 @@
 //     });
 // }
 
-export const fetchLikedTracks = (userId) => {
+export const fetchLikes = (trackId) => {
     return $.ajax({
         method: 'GET',
-        url: '/api/Likes',
+        url: '/api/likes',
         data: {
             like: {
                 track_id: trackId
@@ -29,17 +29,17 @@ export const fetchLikedTracks = (userId) => {
 //     });
 // }
 
-export const createLikedTrack = likedTrack => {
+export const createLike = like => {
     return $.ajax({
         method: 'POST',
         url: `/api/likes`,
         data: {
-            like: likedTrack
+            like: like
         }
     })
 }
 
-export const deleteLikedTrack = likeId => {
+export const deleteLike = likeId => {
     return $.ajax({
         method: 'DELETE',
         url: `/api/likes/${likeId}`,

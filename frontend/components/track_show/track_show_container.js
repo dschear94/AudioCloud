@@ -11,10 +11,12 @@ import {
  } from '../../actions/comment_actions';
 
  import {
-    createLikedTrack,
-    fetchLikedTracks,
-    deleteLikedTrack,
+    createLike,
+    fetchLikes,
+    deleteLike,
  } from '../../actions/likes_actions'
+
+ import { selectLikesByTrackId } from '../../reducers/selectors';
 
 
 const msp = (state, ownProps) => {
@@ -27,7 +29,7 @@ const msp = (state, ownProps) => {
     return { 
         track: showTrack,
         author_id: state.session.id,
-        likedTracks: state.entities.likedTracks.byTrackId || {},
+        likes: selectLikesByTrackId(state, showTrack.id) || {},
     }
 
 };
@@ -42,9 +44,9 @@ const mdp = dispatch => ({
     clearComments: () => dispatch(clearComments()),
 
     // clearLikes: () => dispatch(clearLikes()),
-    createLikedTrack: likedTrack => dispatch(createLikedTrack(likedTrack)),
-    deleteLikedTrack: likedTrackId => dispatch(deleteLikedTrack(likedTrackId)),
-    fetchLikedTracks: userId => dispatch(fetchLikedTracks(userId))
+    createLike: like => dispatch(createLike(like)),
+    deleteLike: likeId => dispatch(deleteLike(likeId)),
+    fetchLikes: userId => dispatch(fetchLikes(userId))
 });
 
 export default connect(msp, mdp)(TrackShow);

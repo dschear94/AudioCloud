@@ -20,20 +20,20 @@
 
 // export default likesReducer;
 import {
-    RECEIVE_LIKED_TRACKS,
-    RECEIVE_LIKED_TRACK,
+    RECEIVE_LIKES,
+    RECEIVE_LIKE,
 } from '../actions/likes_actions';
 
-const likedTracksReducer = (state = {}, action) => {
+const likesReducer = (state = {}, action) => {
     Object.freeze(state);
     switch (action.type) {
-        case RECEIVE_LIKED_TRACKS:
-            return Object.assign({}, action.likedTracks);
-        case RECEIVE_LIKED_TRACK:
-            return Object.assign({}, action.likedTrack);
+        case RECEIVE_LIKES:
+            return Object.assign({}, action.likes);
+        case RECEIVE_LIKE:
+            return Object.assign({}, action.like);
         default:
             return state;
     }
 };
 
-export default likedTracksReducer;
+export default likesReducer;

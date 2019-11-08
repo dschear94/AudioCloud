@@ -2,14 +2,14 @@ class Api::TracksController < ApplicationController
     def index
         @tracks = Track.with_attached_audio_file
         .with_attached_image_file
-        .includes(:artist, :comments).all
+        .includes(:artist, :comments, :likes).all
         render :index
     end
 
     def by_artist
 
         @artist = User.find_by(username: params[:artist_id])
-        @tracks = Track.where(artist_id: @artist.id).all
+        @tracks = Track.where(artist_id: @artist.id).includes(:artist, :comments, :likes).all
         render :index
     end
 

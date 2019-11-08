@@ -28,16 +28,17 @@ class TrackShow extends React.Component {
     handleLike(e) {
         e.preventDefault();
 
-        if (this.props.track.id in this.props.likedTracks) {
-            let likedTrackId = this.props.likedTracks[this.props.track.id].id;
-            this.props.deleteLikedTrack(likedTrackId)
+        if (this.props.track.id in this.props.likes) {
+            debugger
+            let likeId = this.props.likes[this.props.track.id].id;
+            this.props.deleteLike(likeId)
         } else {
-            const likedTrack = Object.assign({
+            const like = Object.assign({
                 user_id: this.props.author_id,
                 track_id: this.props.track.id
             })
 
-            this.props.createLikedTrack(likedTrack);
+            this.props.createLike(like);
         }
 
     }
@@ -60,30 +61,11 @@ class TrackShow extends React.Component {
     }
 
     componentDidMount() {
-        const that = this;
+        debugger
         if ((this.props.match.params.artist !== this.props.track.artist) 
         && (this.props.match.params.track !== this.props.track.track)) {
-
-
-
             this.props.fetchArtist(this.props.match.params.artist)
-            // .then(() => {
-            //     let track;
-            //     let artist;
-            //     artist = that.props.
-            //     track = that.props.artist.tracks[that.props.match.params.track];
-            //         const artwork = document.getElementById("artwork-image-official");
-            //         artwork.style.backgroundImage = "url(" + track.photoUrl + ")"
-            //     })
-                // .then(this.handleArt());
-        } else {
-            // const artwork = document.getElementById("artwork-image-official");
-            // artwork.style.backgroundImage = "url(" + this.props.track.photoUrl + ")"
         }
-
-
-
-        // document.getElementById("artwork-image-official").style.backgroundImage = "url(" + this.props.track.photoUrl + ")"
     }
 
     handleArt() {
@@ -93,7 +75,7 @@ class TrackShow extends React.Component {
     render() {
         const {track, sendTrack, comments, fetchTrackComments } = this.props;
 
-        const likeButton = this.props.track.id in this.props.likedTracks ?
+        const likeButton = this.props.track.id in this.props.likes ?
             (<button
                 id="trackshowunlike"
                 className="trackshowunlike"
