@@ -1,3 +1,4 @@
+debugger
 json.extract! user, :id, :username, :email
 if user.avatar.attached?
         json.avatar url_for(user.avatar)

@@ -3,5 +3,13 @@
         window.currentUser = <%= render("api/users/user.json.jbuilder",
             user: current_user).html_safe %>
     </script>
+    <script id="bootstrap-current-user-likes" type="text/javascript">
+        window.currentUserLikes = <%= render("api/likes/likes.json.jbuilder",
+            likes: current_user.likes).html_safe %>
+    </script>
+    <script id="bootstrap-current-user-follows" type="text/javascript">
+        window.currentUserFollows = <%= render("api/follows/follows.json.jbuilder",
+            follows: current_user.given_follows).html_safe %>
+    </script>
 <% end %>
 <main id="yo"></main>

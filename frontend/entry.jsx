@@ -10,7 +10,9 @@ document.addEventListener("DOMContentLoaded", () => {
             session: { id: window.currentUser.id },
             entities: {
                 users: { [window.currentUser.id]: window.currentUser },
-                likedTracks: window.currentUser.likedTracks
+                likedTracks: window.currentUser.likedTracks,
+                // follows: ,
+                // tracks: ,
             }
         };
         store = configureStore(preloadedState);

@@ -15,7 +15,7 @@
                 end
                 json.created_at track.convert_time
                 json.comments do
-                                json.array! track.comments
+                        json.array! track.comments
                 end
         end
 end
