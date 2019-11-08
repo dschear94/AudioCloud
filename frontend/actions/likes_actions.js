@@ -1,4 +1,4 @@
-import * as APIUtil from '../util/liked_track_api_util';
+import * as APIUtil from '../util/likes_api_util';
 
 export const RECEIVE_LIKED_TRACKS = 'RECEIVE_LIKED_TRACKS';
 export const RECEIVE_LIKED_TRACK = 'RECEIVE_LIKED_TRACK';

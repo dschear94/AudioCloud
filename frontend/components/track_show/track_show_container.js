@@ -14,7 +14,7 @@ import {
     createLikedTrack,
     fetchLikedTracks,
     deleteLikedTrack,
- } from '../../actions/liked_track_actions'
+ } from '../../actions/likes_actions'
 
 
 const msp = (state, ownProps) => {
