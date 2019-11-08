@@ -27,6 +27,12 @@ export const fetchTracksByFollows = userId => dispatch => {
     ));
 }
 
+export const fetchTracksByLikes = userId => dispatch => {
+    return APIUtil.fetchTracksByLikes(userId).then(tracks => (
+        dispatch(receiveTracks(tracks))
+    ));
+}
+
 export const fetchTracks = () => dispatch => {
     return APIUtil.fetchTracks().then(tracks => (
         dispatch(receiveTracks(tracks))

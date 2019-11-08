@@ -16,10 +16,6 @@ class Api::TracksController < ApplicationController
     end
 
     def by_follows
-
-        # @followings = User.find(params[:artist_id]).followings
-        # @tracks = Track.where(artist_id: @artist.id).includes(:artist, :comments, :likes).all
-
         @tracks = Track.with_attached_audio_file
             .with_attached_image_file
             .joins(:artist)
@@ -29,6 +25,17 @@ class Api::TracksController < ApplicationController
                 .followings
             )
 
+        render :index
+    end
+
+    def by_likes
+        @tracks = User.find(params[:artist_id])
+        .liked_tracks
+        .includes(:artist, :comments, :likes)
+        .with_attached_audio_file
+        .with_attached_image_file
+
+        
         render :index
     end
 

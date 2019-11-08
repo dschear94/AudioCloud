@@ -3,7 +3,8 @@ import { withRouter } from 'react-router-dom';
 import Dashboard from './dashboard';
 import {
     fetchTracks,
-    fetchTracksByArtist
+    fetchTracksByArtist,
+    fetchTracksByLikes
 } from '../../actions/track_actions';
 import { receiveCurrentTrack } from '../../actions/current_track_actions';
 import {
@@ -33,6 +34,7 @@ const msp = (state, ownProps) => {
 const mdp = dispatch => ({
     fetchArtist: artist => dispatch(fetchArtist(artist)),
     fetchTracksByArtist: artistId => dispatch(fetchTracksByArtist(artistId)),
+    fetchTracksByLikes: artistId => dispatch(fetchTracksByLikes(artistId)),
     sendTrack: track => dispatch(receiveCurrentTrack(track))    
 });
 

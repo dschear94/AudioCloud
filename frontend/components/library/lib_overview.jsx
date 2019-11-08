@@ -15,19 +15,25 @@ class LibraryOverview extends React.Component {
         super(props);
     }
 
+    componentDidMount() {
+        debugger
+        this.props.fetchTracksByLikes(this.props.currentUser.id)
+    }
+
     render() {
-        const { tracks } = this.props;
+        debugger
+        const { likedTracks } = this.props;
 
-        const historyBadgeItems = tracks.map(track => 
-            <TrackBadgeItem 
-                track={track} 
-                key={track.id} 
-                track={track} 
-                sendTrack={this.props.receiveCurrentTrack}
-            />
-        )
+        // const historyBadgeItems = tracks.map(track => 
+        //     <TrackBadgeItem 
+        //         track={track} 
+        //         key={track.id} 
+        //         track={track} 
+        //         sendTrack={this.props.receiveCurrentTrack}
+        //     />
+        // )
 
-        const likesBadgeItems = tracks.map(track => 
+        const likesBadgeItems = likedTracks.map(track => 
             <TrackBadgeItem 
                 track={track} 
                 key={track.id} 
@@ -47,7 +53,7 @@ class LibraryOverview extends React.Component {
                         <div className="playHistoryContent">
                             <div className="phBadges">
                                 <ul className="phBadgeList">
-                                    {historyBadgeItems}
+                                    {/* {historyBadgeItems} */}
                                 </ul>
                             </div>
                         </div>

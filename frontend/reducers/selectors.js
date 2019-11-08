@@ -12,6 +12,17 @@ export const selectTracksByArtist = (state, artistName) => {
 
 }
 
+export const selectTracksByLikes = (state, artistObj) => {
+    let likedTracks = [];
+
+    Object.values(state.entities.tracks).map(track => 
+        track.id in artistObj.likedTracks ? 
+        likedTracks.push(track) : null
+    )
+
+    return likedTracks
+}
+
 export const selectLikesByTrackId = (state, trackId) => {
 
     let trackLikes = {};

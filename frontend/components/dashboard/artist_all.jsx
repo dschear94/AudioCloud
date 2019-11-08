@@ -17,8 +17,10 @@ class ArtistAll extends React.Component {
 
     componentDidMount() {
         if (this.props.artistName !== this.props.artist.username) {
+            debugger
             this.props.fetchArtist(this.props.artistName)
             this.props.fetchTracksByArtist(this.props.artistName)
+            // this.props.fetchTracksByLikes(this.props.artist.id)
         }
     }
 
