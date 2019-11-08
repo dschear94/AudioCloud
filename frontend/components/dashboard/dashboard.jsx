@@ -42,8 +42,6 @@ class Dashboard extends React.Component {
 
     handleFollow(e) {
         e.preventDefault();
-        debugger
-
         if (this.props.artist.id in this.props.follows) {
             let followId = this.props.follows[this.props.artist.id].id;
             this.props.deleteFollow(followId)
