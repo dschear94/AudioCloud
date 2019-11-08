@@ -39,9 +39,12 @@ export const createLike = like => {
     })
 }
 
-export const deleteLike = likeId => {
+export const deleteLike = like => {
     return $.ajax({
-        method: 'DELETE',
-        url: `/api/likes/${likeId}`,
-    })
+        method: 'PATCH',
+        url: `/api/likes/pseudo_destroy`,
+        data: { like }
+    });
 }
+
+

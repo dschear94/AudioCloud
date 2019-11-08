@@ -29,8 +29,10 @@ class TrackShow extends React.Component {
         e.preventDefault();
 
         if (this.props.track.id in this.props.currentUser.likedTracks) {
-            let likeId = this.props.currentUser.likedTracks[this.props.track.id].id;
-            this.props.deleteLike(likeId)
+            let like = {};
+            like.track_id = this.props.track.id;
+            like.user_id = this.props.currentUser.id;
+            this.props.deleteLike(like)
         } else {
             const like = Object.assign({
                 user_id: this.props.currentUser.id,

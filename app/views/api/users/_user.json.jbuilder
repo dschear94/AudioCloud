@@ -9,7 +9,7 @@ if user.header_image.attached?
 else
         json.header_image url_for("/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBNUT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--c685d92a1369dca31347b864eab8548e3d341c47/IMG_5373.jpg")
 end
-json.numFollowers user.followers.count
+json.numFollowers user.followers.length
 json.likedTracks do
         user.liked_tracks.each do |liked_track|
                 json.set! liked_track.id do
