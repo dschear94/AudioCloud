@@ -1,7 +1,7 @@
 class Api::UsersController < ApplicationController
 
     def show
-        @user = User.includes(:liked_tracks, :follows, 
+        @user = User.includes(:liked_tracks, :given_follows, 
         tracks: {
             audio_file_attachment: :blob, 
             image_file_attachment: :blob

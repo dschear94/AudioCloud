@@ -28,13 +28,12 @@ class TrackShow extends React.Component {
     handleLike(e) {
         e.preventDefault();
 
-        if (this.props.track.id in this.props.likes) {
-            debugger
-            let likeId = this.props.likes[this.props.track.id].id;
+        if (this.props.track.id in this.props.currentUser.likedTracks) {
+            let likeId = this.props.currentUser.likedTracks[this.props.track.id].id;
             this.props.deleteLike(likeId)
         } else {
             const like = Object.assign({
-                user_id: this.props.author_id,
+                user_id: this.props.currentUser.id,
                 track_id: this.props.track.id
             })
 
@@ -49,7 +48,7 @@ class TrackShow extends React.Component {
                 const comment = Object.assign({
                     track_id: this.props.track.id,
                     body: this.state.comment,
-                    author_id: this.props.author_id
+                    author_id: this.props.currentUser.id
                 })
                 
                 this.props.createComment(comment);
@@ -61,10 +60,9 @@ class TrackShow extends React.Component {
     }
 
     componentDidMount() {
-        debugger
         if ((this.props.match.params.artist !== this.props.track.artist) 
         && (this.props.match.params.track !== this.props.track.track)) {
-            this.props.fetchArtist(this.props.match.params.artist)
+            this.props.fetchTracksByArtist(this.props.match.params.artist)
         }
     }
 
@@ -75,7 +73,7 @@ class TrackShow extends React.Component {
     render() {
         const {track, sendTrack, comments, fetchTrackComments } = this.props;
 
-        const likeButton = this.props.track.id in this.props.likes ?
+        const likeButton = this.props.track.id in this.props.currentUser.likedTracks ?
             (<button
                 id="trackshowunlike"
                 className="trackshowunlike"

@@ -1,8 +1,12 @@
 import { connect } from 'react-redux';
 import TrackShow from './track_show';
-import { fetchTracks } from '../../actions/track_actions';
 import { receiveCurrentTrack } from '../../actions/current_track_actions';
 import { fetchArtist } from '../../actions/artist_actions';
+
+import {
+    fetchTracks,
+    fetchTracksByArtist
+} from '../../actions/track_actions';
 
 import { 
     createComment,
@@ -16,20 +20,25 @@ import {
     deleteLike,
  } from '../../actions/likes_actions'
 
- import { selectLikesByTrackId } from '../../reducers/selectors';
+ import { 
+    selectLikesByTrackId,
+    getCurrentUser,
+    getTrackByPath
+} from '../../reducers/selectors';
 
 
 const msp = (state, ownProps) => {
 
-    const showTrack = ownProps.location.state ?
-        ownProps.location.state.track :
-        state.entities.artists[ownProps.match.params.artist] ?
-        state.entities.artists[ownProps.match.params.artist].tracks[ownProps.match.params.track] : {};
+    const trackFromOwnProps = ownProps.location.state ? ownProps.location.state.track : null;
+    const trackFromPath = getTrackByPath(state, ownProps.match.params.artist, ownProps.match.params.track);
+
+    const showTrack = trackFromOwnProps || trackFromPath || {};
+
+    const currentUser = getCurrentUser(state);
 
     return { 
         track: showTrack,
-        author_id: state.session.id,
-        likes: selectLikesByTrackId(state, showTrack.id) || {},
+        currentUser: currentUser,
     }
 
 };
@@ -38,6 +47,8 @@ const msp = (state, ownProps) => {
 const mdp = dispatch => ({
     sendTrack: track => dispatch(receiveCurrentTrack(track)),
     fetchArtist: artist => dispatch(fetchArtist(artist)),
+
+    fetchTracksByArtist: artistId => dispatch(fetchTracksByArtist(artistId)),
 
     createComment: comment => dispatch(createComment(comment)),
     fetchTrackComments: (trackId) => dispatch(fetchTrackComments(trackId)),
