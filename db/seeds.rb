@@ -195,11 +195,22 @@ like8 = Like.create({user_id: 4, track_id: 8})
 like9 = Like.create({user_id: 5, track_id: 9})
 like10 = Like.create({user_id: 6, track_id: 10})
 
+follow1 = Follow.create({followed_user_id: 5, follower_id: 1})
+follow2 = Follow.create({followed_user_id: 3, follower_id: 2})
+follow3 = Follow.create({followed_user_id: 2, follower_id: 3})
+follow4 = Follow.create({followed_user_id: 1, follower_id: 4})
+follow5 = Follow.create({followed_user_id: 6, follower_id: 5})
+follow6 = Follow.create({followed_user_id: 2, follower_id: 6})
+follow7 = Follow.create({followed_user_id: 4, follower_id: 7})
+follow8 = Follow.create({followed_user_id: 3, follower_id: 8})
+follow9 = Follow.create({followed_user_id: 6, follower_id: 9})
+follow10 = Follow.create({followed_user_id: 6, follower_id: 10})
 
-
-
-
-
-
-
-
+dfollow1 = Follow.create({followed_user_id: 1, follower_id: 1})
+dfollow2 = Follow.create({followed_user_id: 2, follower_id: 1})
+dfollow3 = Follow.create({followed_user_id: 3, follower_id: 1})
+dfollow4 = Follow.create({followed_user_id: 4, follower_id: 1})
+dfollow6 = Follow.create({followed_user_id: 6, follower_id: 1})
+dfollow7 = Follow.create({followed_user_id: 7, follower_id: 1})
+dfollow8 = Follow.create({followed_user_id: 8, follower_id: 1})
+dfollow10 = Follow.create({followed_user_id: 9, follower_id: 1})
