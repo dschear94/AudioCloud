@@ -3,9 +3,10 @@ import { withRouter } from 'react-router-dom';
 import TrackStreamItem from './track_stream_item';
 
 class Stream extends Component {
+
     componentDidMount() {
         if (this.props.tracks.length === 0) {
-            this.props.fetchTracks();
+            this.props.fetchTracksByFollows(this.props.currentUser.id);
         }
     }
 

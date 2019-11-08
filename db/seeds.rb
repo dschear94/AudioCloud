@@ -206,7 +206,7 @@ follow8 = Follow.create({followed_user_id: 3, follower_id: 8})
 follow9 = Follow.create({followed_user_id: 6, follower_id: 9})
 follow10 = Follow.create({followed_user_id: 6, follower_id: 10})
 
-dfollow1 = Follow.create({followed_user_id: 1, follower_id: 1})
+dfollow1 = Follow.create({followed_user_id: 10, follower_id: 1})
 dfollow2 = Follow.create({followed_user_id: 2, follower_id: 1})
 dfollow3 = Follow.create({followed_user_id: 3, follower_id: 1})
 dfollow4 = Follow.create({followed_user_id: 4, follower_id: 1})

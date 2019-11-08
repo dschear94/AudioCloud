@@ -13,6 +13,7 @@ Rails.application.routes.draw do
       resources :likes, only: [:create, :destroy, :index, :show]
       resources :follows, only: [:create, :destroy, :index, :show]
       get 'tracks/by_artist/:artist_id', :to => 'tracks#by_artist'
+      get 'tracks/by_follows/:artist_id', :to => 'tracks#by_follows'
       patch 'likes/pseudo_destroy', :to => 'likes#pseudo_destroy'
     end
 

@@ -1,15 +1,34 @@
 class Api::TracksController < ApplicationController
     def index
         @tracks = Track.with_attached_audio_file
-        .with_attached_image_file
-        .includes(:artist, :comments, :likes).all
+            .with_attached_image_file
+            .includes(:artist, :comments, :likes).all
         render :index
     end
 
     def by_artist
-
         @artist = User.find_by(username: params[:artist_id])
-        @tracks = Track.where(artist_id: @artist.id).includes(:artist, :comments, :likes).all
+        @tracks = Track.with_attached_audio_file
+            .with_attached_image_file
+            .where(artist_id: @artist.id)
+            .includes(:artist, :comments, :likes).all
+            render :index
+    end
+
+    def by_follows
+
+        # @followings = User.find(params[:artist_id]).followings
+        # @tracks = Track.where(artist_id: @artist.id).includes(:artist, :comments, :likes).all
+
+        @tracks = Track.with_attached_audio_file
+            .with_attached_image_file
+            .joins(:artist)
+            .includes(:artist, :comments, :likes)
+            .where(
+                artist: User.find(params[:artist_id])
+                .followings
+            )
+
         render :index
     end
 

@@ -5,6 +5,13 @@ export const fetchTracks = () => {
     });
 }
 
+export const fetchTracksByFollows = userId => {
+    return $.ajax({
+        method: 'GET',
+        url: `/api/tracks/by_follows/${userId}`
+    });
+}
+
 export const fetchTracksByArtist = artistId => {
     return $.ajax({
         method: 'GET',

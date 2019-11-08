@@ -29,7 +29,7 @@ class User < ApplicationRecord
 
     # array of follows user gave to others
     has_many :given_follows,
-    foreign_key: :followed_user_id,
+    foreign_key: :follower_id,
     class_name: "Follow"
 
     # array of other users who user follows
