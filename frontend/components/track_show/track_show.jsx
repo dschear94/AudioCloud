@@ -69,11 +69,20 @@ class TrackShow extends React.Component {
     }
 
     handleArt() {
+        // const colorThief = new ColorThief();
+        // const img = document.querySelector('img');
+
+        // colorThief.getColor(photo);
+
         document.getElementById("artwork-image-official").style.backgroundImage = "url(" + this.props.track.photoUrl + ")"
+    }
+    
+    handleAvatar() {
+        document.getElementById("av-image").style.backgroundImage = "url(" + this.props.currentUser.avatar + ")"
     }
 
     render() {
-        const {track, updateTrackPlays, comments, fetchTrackComments } = this.props;
+        const {track, updateTrackPlays, comments, fetchTrackComments, currentUser } = this.props;
 
         const likeButton = this.props.track.id in this.props.currentUser.likedTracks ?
             (<button
@@ -102,6 +111,14 @@ class TrackShow extends React.Component {
             photo.src = track.photoUrl;
             photo.onload = () => {
                 this.handleArt();
+            }
+        }
+
+        if (currentUser.avatar) {
+            let photo = new Image();
+            photo.src = currentUser.avatar;
+            photo.onload = () => {
+                this.handleAvatar();
             }
         }
 
@@ -180,7 +197,13 @@ class TrackShow extends React.Component {
                                         <div className="le-cc1">
                                             <div className="le-cc2">
                                                 <div className="cf-av">
-                                                    {/* <span>place avatar here w styling</span> */}
+                                                    <div 
+                                                    id="av-image"
+                                                    className="av-image"
+                                                    style={{ borderRadius: "0" }}
+                                                    >
+
+                                                    </div>
                                                 </div>
                                                 <div className="cf-input-wrapper">
                                                         <input 
