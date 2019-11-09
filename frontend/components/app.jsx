@@ -37,6 +37,7 @@ const App = () => (
                     <Switch>
                         <Route exact path='/discover' component={DiscoverContainer} />
                         <ProtectedRoute exact path='/stream' component={StreamContainer} />
+                        <ProtectedRoute exact path="/upload" component={TrackUploadContainer} />
                         <ProtectedRoute exact path='/you/library' component={LibraryContainer}/>
                         <ProtectedRoute exact path='/you/likes' component={LibraryContainer}/>
                         <ProtectedRoute exact path='/you/sets' component={LibraryContainer}/>
@@ -51,7 +52,6 @@ const App = () => (
                         <Route exact path='/:artist/sets' component={DashboardContainer} />
                         <Route exact path='/:artist/reposts' component={DashboardContainer} />
                         <ProtectedRoute exact path='/:artist/:track' component={TrackShowContainer} />
-                        <ProtectedRoute exact path="/upload" component={TrackUploadContainer} />
                         <SplashyRoute exact path="/" component={SplashContainer}/>
                     </Switch>
                     </div>
