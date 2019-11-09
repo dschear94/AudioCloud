@@ -5,9 +5,7 @@ import TrackStreamItem from './track_stream_item';
 class Stream extends Component {
 
     componentDidMount() {
-        if (this.props.tracks.length === 0) {
-            this.props.fetchTracksByFollows(this.props.currentUser.id);
-        }
+        this.props.fetchTracksByFollows(this.props.currentUser.id);
     }
 
     render() {

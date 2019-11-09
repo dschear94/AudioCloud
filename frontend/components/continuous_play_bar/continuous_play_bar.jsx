@@ -7,7 +7,6 @@ import { withRouter } from 'react-router-dom';
 import { getCurrentTrack } from '../../reducers/selectors'
 
 const msp = state => {
-    debugger
     let currentTrack = getCurrentTrack(state);
 
     if (state.entities.currentTrack) {
