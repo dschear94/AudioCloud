@@ -1,7 +1,12 @@
 class Api::UsersController < ApplicationController
 
     def show
-        @user = User.includes(:liked_tracks, :given_follows, 
+        @user = User.includes(
+            :liked_tracks, 
+            :given_follows,
+            :followings,
+            # :avatar,
+            # :header_image,
         tracks: {
             audio_file_attachment: :blob, 
             image_file_attachment: :blob
@@ -31,7 +36,7 @@ class Api::UsersController < ApplicationController
     def update
         @user = User.includes(
             # :avatar, 
-            # :header_image, 
+            # :header_image,
             tracks: {
             audio_file_attachment: :blob, 
             image_file_attachment: :blob

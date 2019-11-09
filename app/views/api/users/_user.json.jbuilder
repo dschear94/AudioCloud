@@ -17,3 +17,8 @@ json.likedTracks do
                 end
         end
 end
+json.following do
+        user.followings.each do |followed_user|
+                json.set! followed_user.username, followed_user.id
+        end
+end

@@ -204,7 +204,6 @@
     background-color: #f50;
     border-color: #f50;
     color: #fff;
-    text-indent: 19px;
     display: inline-block;
     position: relative;
     height: 26px;
@@ -220,8 +219,40 @@
     text-align: center;
     vertical-align: baseline;
     box-sizing: border-box;
-
 }
+
+.uiBarUnFollow {
+    background-color: #fff;
+    min-width: 31px;
+    float: left;
+    margin-right: 5px;
+    color: #f50;;
+    display: inline-block;
+    position: relative;
+    border: 1px solid #f50;
+    height: 26px;
+    padding: 2px 11px 2px 10px;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 14px;
+    line-height: 20px;
+    white-space: nowrap;
+    font-family: "Interstate","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;
+    font-weight: 100;
+    text-align: center;
+    vertical-align: baseline;
+    box-sizing: border-box;
+}
+
+.follow-icon {
+    float: left;
+}
+
+.follow-text {
+    float: right;
+    text-indent: 5px;
+}
+
 .uiBarShare {
     min-width: 31px;
     float: left;

@@ -10,6 +10,8 @@ import {
 } from 'react-router-dom';
 import ArtistTracksContainer from './artist_tracks_container';
 import ArtistAllContainer from './artist_all_container';
+import { faUserPlus, faChild } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 class Dashboard extends React.Component {
     constructor(props) {
@@ -101,7 +103,7 @@ class Dashboard extends React.Component {
 
     render() {
 
-        const { artist } = this.props;
+        const { artist, currentUser } = this.props;
 
 
 
@@ -137,6 +139,30 @@ class Dashboard extends React.Component {
                 this.handleArt();
             }
         }
+
+        const followBtn = artist.username in currentUser.following ? (
+            <button
+                className="uiBarUnFollow"
+                onClick={this.handleFollow}>
+                <div className="follow-icon">
+                    <FontAwesomeIcon icon={faChild} />
+                </div>
+                <div className="follow-text">
+                    Following
+                </div>
+            </button>
+        ) : (
+            <button
+                className="uiBarFollow"
+                onClick={this.handleFollow}>
+                <div className="follow-icon">
+                    <FontAwesomeIcon icon={faUserPlus} />
+                </div>
+                <div className="follow-text">
+                    Follow
+                </div>
+            </button>
+        );
 
         return (
             <div>
@@ -232,13 +258,11 @@ class Dashboard extends React.Component {
                         </div>
                         <div className="userInfoBarBtns">
                             <div className="userInfoBarBtns-container">
-                                <button className="uiBarStation">Station</button>
-                                <button 
-                                className="uiBarFollow"
-                                onClick={this.handleFollow}>Follow</button>
-                                <button className="uiBarShare">Share</button>
+                                {/* <button className="uiBarStation">Station</button> */}
+                                {followBtn}
+                                {/* <button className="uiBarShare">Share</button>
                                 <button className="uiBarMessage">Message</button>
-                                <button className="uiBarMore">More</button>
+                                <button className="uiBarMore">More</button> */}
                             </div>
                         </div>
                     </div>
