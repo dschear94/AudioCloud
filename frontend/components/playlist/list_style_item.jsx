@@ -25,7 +25,7 @@ class ListStyleItem extends React.Component {
                         </div>
                         <div className="track-discover-main-modular-module-content-tracklist-item-a2">
                             <div className="track-discover-main-modular-module-content-tracklist-item-a2-content">
-                                {/* numplays */}1000
+                                {track.play_count}
                             </div>
                         </div>
                     </div>
