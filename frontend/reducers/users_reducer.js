@@ -14,7 +14,6 @@ const usersReducer = (state = {}, action) => {
             // return Object.assign({}, state, { [action.currentUser.id]: action.currentUser });
         case RECEIVE_UNLIKE:
             return Object.assign({}, state, { [action.currentUser.id]: action.currentUser });
-            debugger
         default:
             return state;
     }

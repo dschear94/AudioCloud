@@ -5,7 +5,7 @@ import { faPlay } from '@fortawesome/free-solid-svg-icons';
 import { relativeTime } from '../../util/time_util';
 // import WaveFormContainer from '../waveform/waveform';
 
-const TrackItem = ({ track, sendTrack }) => (
+const TrackItem = ({ track, updateTrackPlays }) => (
     <div className="activity-body">
         <div className="activity-artwork">
             <div className="act-artwork-container">
@@ -24,7 +24,7 @@ const TrackItem = ({ track, sendTrack }) => (
                             <div className="act-playbtn-ctnr">
                                 <div
                                     className="playbtn"
-                                    onClick={() => sendTrack(track)}>
+                                    onClick={() => updateTrackPlays(track)}>
                                     <div className="playbtn-arw">
                                         <FontAwesomeIcon icon={faPlay} />
                                     </div>

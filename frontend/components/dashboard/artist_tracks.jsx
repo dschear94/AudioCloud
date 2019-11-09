@@ -31,13 +31,13 @@ class ArtistTracks extends React.Component {
 
     render() {
 
-        const { artist, tracks, sendTrack } = this.props;
+        const { artist, tracks, updateTrackPlays } = this.props;
 
         const trackItems =  tracks.map(track => 
             <li 
                 key={track.id}
                 className="track-stream-item">
-                <TrackItem track={track} sendTrack={sendTrack}/>
+                <TrackItem track={track} updateTrackPlays={updateTrackPlays}/>
             </li>
         )
 

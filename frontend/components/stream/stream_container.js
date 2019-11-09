@@ -4,7 +4,7 @@ import {
     fetchTracksByFollows, 
     fetchTracks 
 } from '../../actions/track_actions';
-import { receiveCurrentTrack } from '../../actions/current_track_actions';
+import { updateTrackPlays } from '../../actions/current_track_actions';
 import { getCurrentUser } from '../../reducers/selectors';
 
 
@@ -19,7 +19,7 @@ const msp = (state, ownProps) => {
 const mdp = dispatch => ({
     fetchTracks: () => dispatch(fetchTracks()),
     fetchTracksByFollows: artistId => dispatch(fetchTracksByFollows(artistId)),
-    receiveCurrentTrack: track => dispatch(receiveCurrentTrack(track))
+    updateTrackPlays: track => dispatch(updateTrackPlays(track))
 });
 
 export default connect(msp, mdp)(Stream);

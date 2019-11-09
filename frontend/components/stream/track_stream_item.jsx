@@ -6,7 +6,7 @@ import {relativeTime} from '../../util/time_util';
 import TrackItem from '../track_item/track_item'
 // import WaveFormContainer from '../waveform/waveform';
 
-const TrackStreamItem = ({ track, sendTrack }) => (
+const TrackStreamItem = ({ track, updateTrackPlays }) => (
     <li className="track-stream-item">
         <div className="activity">
             <div className="activity-content">
@@ -26,7 +26,7 @@ const TrackStreamItem = ({ track, sendTrack }) => (
                         {` posted a track ${relativeTime(track.created_at)}`}
                     </div>
                 </div>
-                <TrackItem key={track.id} track={track} sendTrack={sendTrack}/>
+                <TrackItem key={track.id} track={track} updateTrackPlays={updateTrackPlays}/>
             </div>
         </div>
         <div className="act-body-comment">

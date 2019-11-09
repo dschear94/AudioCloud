@@ -18,16 +18,16 @@ class Discover extends React.Component {
     render() {
         return (
                 <div className="content-left-container">
-                    <ListStyle uni={1} tracks={this.props.tracks} fetchTracks={this.props.fetchTracks} receiveCurrentTrack={this.props.receiveCurrentTrack}/>
-                    <GalleryStyle uni={2} tracks={this.props.tracks} fetchTracks={this.props.fetchTracks} receiveCurrentTrack={this.props.receiveCurrentTrack} />
-                    <ListStyle uni={3} tracks={this.props.tracks} fetchTracks={this.props.fetchTracks} receiveCurrentTrack={this.props.receiveCurrentTrack}/>
-                    <GalleryStyle uni={4} tracks={this.props.tracks} fetchTracks={this.props.fetchTracks} receiveCurrentTrack={this.props.receiveCurrentTrack} />
-                    <ListStyle uni={5} tracks={this.props.tracks} fetchTracks={this.props.fetchTracks} receiveCurrentTrack={this.props.receiveCurrentTrack}/>
-                    <GalleryStyle uni={6} tracks={this.props.tracks} fetchTracks={this.props.fetchTracks} receiveCurrentTrack={this.props.receiveCurrentTrack} />
-                    <ListStyle uni={7} tracks={this.props.tracks} fetchTracks={this.props.fetchTracks} receiveCurrentTrack={this.props.receiveCurrentTrack}/>
-                    <GalleryStyle uni={8} tracks={this.props.tracks} fetchTracks={this.props.fetchTracks} receiveCurrentTrack={this.props.receiveCurrentTrack} />
-                    <ListStyle uni={9} tracks={this.props.tracks} fetchTracks={this.props.fetchTracks} receiveCurrentTrack={this.props.receiveCurrentTrack}/>
-                    <GalleryStyle uni={10} tracks={this.props.tracks} fetchTracks={this.props.fetchTracks} receiveCurrentTrack={this.props.receiveCurrentTrack} />
+                    <ListStyle uni={1} tracks={this.props.tracks} fetchTracks={this.props.fetchTracks} updateTrackPlays={this.props.updateTrackPlays}/>
+                    <GalleryStyle uni={2} tracks={this.props.tracks} fetchTracks={this.props.fetchTracks} updateTrackPlays={this.props.updateTrackPlays} />
+                    <ListStyle uni={3} tracks={this.props.tracks} fetchTracks={this.props.fetchTracks} updateTrackPlays={this.props.updateTrackPlays}/>
+                    <GalleryStyle uni={4} tracks={this.props.tracks} fetchTracks={this.props.fetchTracks} updateTrackPlays={this.props.updateTrackPlays} />
+                    <ListStyle uni={5} tracks={this.props.tracks} fetchTracks={this.props.fetchTracks} updateTrackPlays={this.props.updateTrackPlays}/>
+                    <GalleryStyle uni={6} tracks={this.props.tracks} fetchTracks={this.props.fetchTracks} updateTrackPlays={this.props.updateTrackPlays} />
+                    <ListStyle uni={7} tracks={this.props.tracks} fetchTracks={this.props.fetchTracks} updateTrackPlays={this.props.updateTrackPlays}/>
+                    <GalleryStyle uni={8} tracks={this.props.tracks} fetchTracks={this.props.fetchTracks} updateTrackPlays={this.props.updateTrackPlays} />
+                    <ListStyle uni={9} tracks={this.props.tracks} fetchTracks={this.props.fetchTracks} updateTrackPlays={this.props.updateTrackPlays}/>
+                    <GalleryStyle uni={10} tracks={this.props.tracks} fetchTracks={this.props.fetchTracks} updateTrackPlays={this.props.updateTrackPlays} />
                 </div>
         );
     }

@@ -3,13 +3,16 @@ import { connect } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlay, faPause, faForward, faBackward, faRandom, faVolumeUp } from '@fortawesome/free-solid-svg-icons';
 import { fetchTracks } from '../../actions/track_actions';
-import { receiveCurrentTrack } from '../../actions/current_track_actions';
 import { withRouter } from 'react-router-dom';
+import { getCurrentTrack } from '../../reducers/selectors'
 
 const msp = state => {
+    debugger
+    let currentTrack = getCurrentTrack(state);
+
     if (state.entities.currentTrack) {
         return { 
-            track: state.entities.currentTrack,
+            track: currentTrack,
             duration: "0:00",
             playing: false,
             currentTime: "0:00",
@@ -18,6 +21,7 @@ const msp = state => {
     } else {
         return {}
     }
+
 };
 
 const mdp = dispatch => ({

@@ -6,7 +6,9 @@ import {
     fetchTracksByArtist,
     fetchTracksByLikes
 } from '../../actions/track_actions';
-import { receiveCurrentTrack } from '../../actions/current_track_actions';
+import { 
+    updateTrackPlays 
+} from '../../actions/current_track_actions';
 import {
     fetchArtist
 } from '../../actions/artist_actions';
@@ -35,7 +37,7 @@ const mdp = dispatch => ({
     fetchArtist: artist => dispatch(fetchArtist(artist)),
     fetchTracksByArtist: artistId => dispatch(fetchTracksByArtist(artistId)),
     fetchTracksByLikes: artistId => dispatch(fetchTracksByLikes(artistId)),
-    sendTrack: track => dispatch(receiveCurrentTrack(track))    
+    updateTrackPlays: track => dispatch(updateTrackPlays(track))    
 });
 
 export default withRouter(connect(msp, mdp)(ArtistAll));

@@ -5,7 +5,7 @@ import {
     fetchTracks,
     fetchTracksByArtist
 } from '../../actions/track_actions';
-import { receiveCurrentTrack } from '../../actions/current_track_actions';
+import { updateTrackPlays } from '../../actions/current_track_actions';
 import {
     fetchArtist
 } from '../../actions/artist_actions'

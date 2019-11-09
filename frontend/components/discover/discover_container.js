@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import Discover from './discover';
 import {fetchTracks} from '../../actions/track_actions';
-import {receiveCurrentTrack} from '../../actions/current_track_actions';
+import {updateTrackPlays} from '../../actions/current_track_actions';
 
 
 const msp = (state, ownProps) => {
@@ -13,7 +13,7 @@ const msp = (state, ownProps) => {
 
 const mdp = dispatch => ({
     fetchTracks: () => dispatch(fetchTracks()),
-    receiveCurrentTrack: track => dispatch(receiveCurrentTrack(track))
+    updateTrackPlays: track => dispatch(updateTrackPlays(track))
 });
 
 export default connect(msp, mdp)(Discover);

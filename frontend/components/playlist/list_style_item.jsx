@@ -12,7 +12,7 @@ class ListStyleItem extends React.Component {
             return (
                 <li
                     key={track.id}
-                    onClick={() => this.props.receiveCurrentTrack(track)}
+                    onClick={() => this.props.updateTrackPlays(track)}
                     className="track-discover-main-modular-module-content-tracklist-item">
                     <div className="track-discover-main-modular-module-content-tracklist-item-a">
                         <div className="track-discover-main-modular-module-content-tracklist-item-a1">

@@ -17,7 +17,6 @@ class ArtistAll extends React.Component {
 
     componentDidMount() {
         if (this.props.artistName !== this.props.artist.username) {
-            debugger
             this.props.fetchArtist(this.props.artistName)
             this.props.fetchTracksByArtist(this.props.artistName)
             // this.props.fetchTracksByLikes(this.props.artist.id)
@@ -33,13 +32,13 @@ class ArtistAll extends React.Component {
 
     render() {
 
-        const { artist, tracks, sendTrack } = this.props;
+        const { artist, tracks, updateTrackPlays } = this.props;
 
         const trackItems = tracks.map(track =>
             <li
                 key={track.id}
                 className="track-stream-item">
-                <TrackItem track={track} sendTrack={sendTrack}/>
+                <TrackItem track={track} updateTrackPlays={updateTrackPlays}/>
             </li>
         )
 

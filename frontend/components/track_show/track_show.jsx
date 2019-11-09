@@ -73,7 +73,7 @@ class TrackShow extends React.Component {
     }
 
     render() {
-        const {track, sendTrack, comments, fetchTrackComments } = this.props;
+        const {track, updateTrackPlays, comments, fetchTrackComments } = this.props;
 
         const likeButton = this.props.track.id in this.props.currentUser.likedTracks ?
             (<button
@@ -130,7 +130,7 @@ class TrackShow extends React.Component {
                                     <div className="shtitle-play">
                                         <div
                                             className="playbtn"
-                                            onClick={() => sendTrack(track)}
+                                            onClick={() => updateTrackPlays(track)}
                                             style={{ lineHeight: "60px" }}
                                             >
                                             <div 

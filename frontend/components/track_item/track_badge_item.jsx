@@ -4,14 +4,14 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlay } from '@fortawesome/free-solid-svg-icons';
 import { relativeTime } from '../../util/time_util';
 
-const TrackBadgeItem = ({ track, sendTrack }) => (
+const TrackBadgeItem = ({ track, updateTrackPlays }) => (
     <li
         key={track.id}
         className="splash-main-content1-trendingtracks-content-item">
         <div className="splash-main-content1-trendingtracks-tile">
             <div
                 className="splash-main-content1-trendingtracks-tile-artwork"
-                onClick={() => sendTrack(track)}
+                onClick={() => updateTrackPlays(track)}
             >
                 <div className="splash-main-content1-trendingtracks-tile-artwork-image">
                     <div className="image-placeholder">

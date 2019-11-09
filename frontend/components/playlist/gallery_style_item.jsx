@@ -26,7 +26,7 @@ class GalleryStyleItem extends React.Component {
                 <div
                     key={track.id}
                     className="track-discover-main-modular-module-gallery-item"
-                    onClick={() => this.props.receiveCurrentTrack(track)}>
+                    onClick={() => this.props.updateTrackPlays(track)}>
                     <div className="splash-main-content1-trendingtracks-tile">
                         <div className="splash-main-content1-trendingtracks-tile-artwork">
                             <div className="splash-main-content1-trendingtracks-tile-artwork-image">

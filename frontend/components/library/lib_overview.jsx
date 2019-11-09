@@ -16,12 +16,10 @@ class LibraryOverview extends React.Component {
     }
 
     componentDidMount() {
-        debugger
         this.props.fetchTracksByLikes(this.props.currentUser.id)
     }
 
     render() {
-        debugger
         const { likedTracks } = this.props;
 
         // const historyBadgeItems = tracks.map(track => 
@@ -29,7 +27,7 @@ class LibraryOverview extends React.Component {
         //         track={track} 
         //         key={track.id} 
         //         track={track} 
-        //         sendTrack={this.props.receiveCurrentTrack}
+        //         updateTrackPlays={this.props.updateTrackPlays}
         //     />
         // )
 
@@ -38,7 +36,7 @@ class LibraryOverview extends React.Component {
                 track={track} 
                 key={track.id} 
                 track={track} 
-                sendTrack={this.props.receiveCurrentTrack}
+                updateTrackPlays={this.props.updateTrackPlays}
             />
         )
 

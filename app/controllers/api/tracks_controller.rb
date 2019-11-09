@@ -39,6 +39,19 @@ class Api::TracksController < ApplicationController
         render :index
     end
 
+    def update_plays
+
+        @track = Track.with_attached_audio_file
+            .with_attached_image_file
+            .joins(:artist)
+            .includes(:artist, :comments, :likes)
+            .find(params[:id])
+
+        @track.update_attributes(play_count: @track.play_count += 1)        
+
+        render "api/tracks/show"
+    end
+
     def create
         @track = Track.new(track_params)
         

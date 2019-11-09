@@ -41,3 +41,10 @@ export const uploadTrack = track => {
         processData: false
     })
 }
+
+export const updateTrackPlays = track => {
+    return $.ajax({
+        method: 'PATCH',
+        url: `/api/tracks/update_plays/${track.id}`,
+    })
+}

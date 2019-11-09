@@ -40,6 +40,10 @@ export const getCurrentUser = state => {
     return Object.assign({}, Object.values(state.entities.users)[0]);
 }
 
+export const getCurrentTrack = state => {
+    return Object.assign({}, Object.values(state.entities.getCurrentTrack)[0]);
+}
+
 
 export const getTrackByPath = (state, artistName, trackTitle) => {
 

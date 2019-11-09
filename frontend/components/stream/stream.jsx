@@ -11,7 +11,7 @@ class Stream extends Component {
     }
 
     render() {
-        const {tracks, receiveCurrentTrack} = this.props;
+        const { tracks, updateTrackPlays} = this.props;
         return (
             <div className="content-left-container">
                 <div className="stream-header">
@@ -20,7 +20,7 @@ class Stream extends Component {
                     </h1>
                 </div>
                 <ul className="stream-list">
-                    {tracks.sort().reverse().map(track => <TrackStreamItem key={track.id} track={track} sendTrack={receiveCurrentTrack} />)}
+                    {tracks.sort().reverse().map(track => <TrackStreamItem key={track.id} track={track} updateTrackPlays={updateTrackPlays} />)}
                 </ul>
             </div>
         );

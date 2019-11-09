@@ -5,7 +5,7 @@ import {
     fetchTracks,
     fetchTracksByArtist
 } from '../../actions/track_actions';
-import { receiveCurrentTrack } from '../../actions/current_track_actions';
+import { updateTrackPlays } from '../../actions/current_track_actions';
 import {
     fetchArtist
 } from '../../actions/artist_actions';
@@ -33,7 +33,7 @@ const msp = (state, ownProps) => {
 const mdp = dispatch => ({
     fetchArtist: artist => dispatch(fetchArtist(artist)),
     fetchTracksByArtist: artistId => dispatch(fetchTracksByArtist(artistId)),
-    sendTrack: track => dispatch(receiveCurrentTrack(track))    
+    updateTrackPlays: track => dispatch(updateTrackPlays(track))    
 
 });
 

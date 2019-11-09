@@ -16,7 +16,7 @@ class Splash extends React.Component {
 
     render() {
         const trackitems = this.props.tracks.slice(0, 12).map(track =>
-            <TrackBadgeItem key={track.id} track={track} sendTrack={this.props.receiveCurrentTrack}/>
+            <TrackBadgeItem key={track.id} track={track} updateTrackPlays={this.props.updateTrackPlays}/>
         );
         return (
             <div className="splash-main">
