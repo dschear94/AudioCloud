@@ -41,7 +41,7 @@ export const fetchLikes = (userId) => dispatch => {
 
 
 
-export const createLike = (like) => dispatch => {
+export const createLike = like => dispatch => {
     return APIUtil.createLike(like).then(currentUser => (
         dispatch(receiveLike(currentUser))
     ));

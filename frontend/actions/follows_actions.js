@@ -2,6 +2,7 @@ import * as APIUtil from '../util/follows_api_util';
 
 export const RECEIVE_FOLLOWS = 'RECEIVE_FOLLOWS';
 export const RECEIVE_FOLLOW = 'RECEIVE_FOLLOW';
+export const RECEIVE_UNFOLLOW = 'RECEIVE_UNFOLLOW';
 
 
 export const receiveFollows = (follows) => {
@@ -11,14 +12,21 @@ export const receiveFollows = (follows) => {
     }
 };
 
-export const receiveFollow = (follow) => {
+export const receiveFollow = currentUser => {
     return {
         type: RECEIVE_FOLLOW,
-        follow
+        currentUser
     }
 };
 
-export const fetchFollows = (userId) => dispatch => {
+export const receiveUnFollow = currentUser => {
+    return {
+        type: RECEIVE_UNFOLLOW,
+        currentUser
+    }
+};
+
+export const fetchFollows = userId => dispatch => {
     return APIUtil.fetchFollows(userId).then(follows => (
         dispatch(receiveFollows(follows))
     ));
@@ -26,14 +34,14 @@ export const fetchFollows = (userId) => dispatch => {
 
 
 
-export const createFollow = (follow) => dispatch => {
-    return APIUtil.createFollow(follow).then(follows => (
-        dispatch(receiveFollows(follows))
+export const createFollow = follow => dispatch => {
+    return APIUtil.createFollow(follow).then(currentUser => (
+        dispatch(receiveFollow(currentUser))
     ));
 };
 
-export const deleteFollow = (followId) => dispatch => {
-    return APIUtil.deleteFollow(followId).then((follows) => (
-        dispatch(receiveFollows(follows))
+export const deleteFollow = follow => dispatch => {
+    return APIUtil.deleteFollow(follow).then(currentUser => (
+        dispatch(receiveUnFollow(currentUser))
     ));
 };

@@ -56,7 +56,7 @@ const mdp = dispatch => ({
 
     // clearLikes: () => dispatch(clearLikes()),
     createLike: like => dispatch(createLike(like)),
-    deleteLike: likeId => dispatch(deleteLike(likeId)),
+    deleteLike: like => dispatch(deleteLike(like)),
     fetchLikes: userId => dispatch(fetchLikes(userId))
 });
 

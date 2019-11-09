@@ -44,9 +44,11 @@ class Dashboard extends React.Component {
 
     handleFollow(e) {
         e.preventDefault();
-        if (this.props.artist.id in this.props.follows) {
-            let followId = this.props.follows[this.props.artist.id].id;
-            this.props.deleteFollow(followId)
+        if (this.props.artist.username in this.props.currentUser.following) {
+            let follow = {};
+            follow.follower_id = this.props.currentUser.id;
+            follow.followed_user_id = this.props.artist.id;
+            this.props.deleteFollow(follow);
         } else {
             const follow = Object.assign({
                 follower_id: this.props.currentUser.id,
@@ -57,6 +59,26 @@ class Dashboard extends React.Component {
         }
 
     }
+
+
+    // handleLike(e) {
+    //     e.preventDefault();
+
+    //     if (this.props.track.id in this.props.currentUser.likedTracks) {
+    //         let like = {};
+    //         like.track_id = this.props.track.id;
+    //         like.user_id = this.props.currentUser.id;
+    //         this.props.deleteLike(like)
+    //     } else {
+    //         const like = Object.assign({
+    //             user_id: this.props.currentUser.id,
+    //             track_id: this.props.track.id
+    //         })
+
+    //         this.props.createLike(like);
+    //     }
+
+    // }
 
 
     triggerAvatarInput(e) {

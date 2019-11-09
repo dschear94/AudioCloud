@@ -16,7 +16,10 @@ import {
 import {
     fetchArtist
 } from '../../actions/artist_actions'
-import { createFollow } from '../../actions/follows_actions'
+import { 
+    createFollow,
+    deleteFollow
+} from '../../actions/follows_actions'
 
 
 const msp = (state, ownProps) => {
@@ -42,6 +45,7 @@ const mdp = dispatch => ({
     fetchTracksByArtist: artistId => dispatch(fetchTracksByArtist(artistId)),
 
     createFollow: follow => dispatch(createFollow(follow)),
+    deleteFollow: follow => dispatch(deleteFollow(follow)),
 
     sendAvatar: avatar => dispatch(sendAvatar(avatar)),
     clearAvatar: () => dispatch(clearAvatar()),
