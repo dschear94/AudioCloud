@@ -204,12 +204,15 @@
     display: inline-block;
 }
 
+.trackshowlikeicon {
+    float: left;
+}
+
 .trackshowlike {
     min-width: 31px;
-    text-indent: 19px;
-    float: left;
     margin-right: 0px 5px 0px 0px;
     display: inline-block;
+    justify-content: space-between;
     position: relative;
     height: 26px;
     padding: 2px 11px 2px 10px;
@@ -220,7 +223,7 @@
     color: #333;
     font-size: 14px;
     line-height: 20px;
-    white-space: nowrap;
+    // white-space: nowrap;
     font-family: "Interstate","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;
     font-weight: 100;
     text-align: center;
@@ -230,7 +233,6 @@
 
 .trackshowunlike {
     min-width: 31px;
-    text-indent: 19px;
     color: #f50;
     margin-right: 0px 5px 0px 0px;
     display: inline-block;
@@ -255,20 +257,10 @@
     border: 1px solid #f50;
 }
 
-// .trackshowlike-text {
-//     left: 5px;
-//     background-size: 16px 16px;
-//     content: "";
-//     display: block;
-//     position: absolute;
-//     background-repeat: no-repeat;
-//     background-position: center center;
-//     width: 20px;
-//     height: 20px;
-//     top: 0;
-//     bottom: 0;
-//     margin: auto 0;
-// }
+.trackshowlike-text {
+    float: right;
+    text-indent: 5px;
+}
 
 .cf-input {
     border-radius: 4px;

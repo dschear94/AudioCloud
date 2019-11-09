@@ -6,6 +6,7 @@ import { relativeTime } from '../../util/time_util';
 import TrackCommentIndexContainer from '../track_comments/track_comment_container';
 
 import ColorThief from 'colorthief';
+import * as Vibrant from 'node-vibrant';
 
 class TrackShow extends React.Component {
     constructor(props) {
@@ -73,6 +74,12 @@ class TrackShow extends React.Component {
         // const img = document.querySelector('img');
 
         // colorThief.getColor(photo);
+        // debugger
+        // let v = new Vibrant(this.props.currentUser.avatar);
+
+        // v.getPalette(palette => console.log(palette));
+
+        // Vibrant.from(this.props.currentUser.avatar).getPalette((err, palette) => console.log(palette))
 
         document.getElementById("artwork-image-official").style.backgroundImage = "url(" + this.props.track.photoUrl + ")"
     }
@@ -90,7 +97,9 @@ class TrackShow extends React.Component {
                 className="trackshowunlike"
                 onClick={this.handleLike}
                 >
-                <FontAwesomeIcon icon={faHeart} />
+                <div className="trackshowlikeicon">
+                    <FontAwesomeIcon icon={faHeart} />
+                </div>
                 <span className="trackshowlike-text">
                     Liked
                 </span>
@@ -100,10 +109,12 @@ class TrackShow extends React.Component {
                 className="trackshowlike"
                 onClick={this.handleLike}
                 >
-                <FontAwesomeIcon icon={faHeart} />
-                <span className="trackshowlike-text">
+                    <div className="trackshowlikeicon">
+                        <FontAwesomeIcon icon={faHeart} />
+                    </div>
+                <div className="trackshowlike-text">
                     Like
-                </span>
+                </div>
             </button>);
 
         if (track.photoUrl) {
