@@ -4,25 +4,43 @@ import { withRouter, Link } from 'react-router-dom';
 class GalleryStyleItem extends React.Component {
     constructor(props) {
         super(props);
-
+        
+        this.state = {
+            loading: true
+        }
+        
         this.handleArt = this.handleArt.bind(this);
+
+        let photo = new Image();
+        photo.src = this.props.track.photoUrl;
+        photo.onload = () => {
+            this.handleArt();
+            this.setState({ loading: false });
+        }
+
     }
 
     handleArt() {
-        document.getElementById(`artwork-image-official${this.props.uni}`).style.backgroundImage = "url(" + this.props.track.photoUrl + ")"
+        document.getElementById(`artwork-image-official${this.props.uni}`).style.backgroundImage = ("url(" + this.props.track.photoUrl + ")");
     }
 
     render() {
 
         const { track } = this.props;
 
-        let photo = new Image();
-        photo.src = track.photoUrl;
-        photo.onload = () => {
-            this.handleArt();
-        }
+        // let photo = new Image();
+        // photo.src = track.photoUrl;
+        // photo.onload = () => {
+        //     this.handleArt();
+        //     this.setState({ loading: false });
+        // }
+
+        const loader = this.state.loading ? (
+            <div className="loading-spinner-background"><div className="loading-spinner"><div></div><div></div><div></div><div></div></div></div>
+        ) : null;
 
             return (
+
                 <div
                     key={track.id}
                     className="track-discover-main-modular-module-gallery-item"
@@ -34,8 +52,9 @@ class GalleryStyleItem extends React.Component {
                                     <span
                                         id={`artwork-image-official${this.props.uni}`}
                                         className="artwork-image-official"
-                                        // style={{ backgroundImage: "url(" + track.photoUrl + ")" }}
-                                        ></span>
+                                        >
+                                            {loader}
+                                        </span>
                                 </div>
                             </div>
                             <button className="splash-main-content1-trendingtracks-tile-playbtn-container">
