@@ -13,27 +13,31 @@ class Discover extends React.Component {
     }
 
     componentDidMount() {
-        if (this.props.tracks.length === 0) {
-            this.props.fetchTracks().then(() => this.setState({loading: false}))
-        }
-        this.setState({ loading: false });
+        this.props.fetchTracks().then(() => this.setState({loading: false}));
     }
 
     render() {
-        return this.state.loading ? (
+
+        const loader = this.state.loading ? (
             <div className="loading-spinner-background"><div className="loading-spinner"><div></div><div></div><div></div><div></div></div></div>
         ) : (
-                <div className="content-left-container">
-                    <ListStyle uni={1} tracks={this.props.tracks} fetchTracks={this.props.fetchTracks} updateTrackPlays={this.props.updateTrackPlays}/>
+                <div>
+                    <ListStyle uni={1} tracks={this.props.tracks} fetchTracks={this.props.fetchTracks} updateTrackPlays={this.props.updateTrackPlays} />
                     <GalleryStyle uni={2} tracks={this.props.tracks} fetchTracks={this.props.fetchTracks} updateTrackPlays={this.props.updateTrackPlays} />
-                    <ListStyle uni={3} tracks={this.props.tracks} fetchTracks={this.props.fetchTracks} updateTrackPlays={this.props.updateTrackPlays}/>
+                    <ListStyle uni={3} tracks={this.props.tracks} fetchTracks={this.props.fetchTracks} updateTrackPlays={this.props.updateTrackPlays} />
                     <GalleryStyle uni={4} tracks={this.props.tracks} fetchTracks={this.props.fetchTracks} updateTrackPlays={this.props.updateTrackPlays} />
-                    <ListStyle uni={5} tracks={this.props.tracks} fetchTracks={this.props.fetchTracks} updateTrackPlays={this.props.updateTrackPlays}/>
+                    <ListStyle uni={5} tracks={this.props.tracks} fetchTracks={this.props.fetchTracks} updateTrackPlays={this.props.updateTrackPlays} />
                     <GalleryStyle uni={6} tracks={this.props.tracks} fetchTracks={this.props.fetchTracks} updateTrackPlays={this.props.updateTrackPlays} />
-                    <ListStyle uni={7} tracks={this.props.tracks} fetchTracks={this.props.fetchTracks} updateTrackPlays={this.props.updateTrackPlays}/>
+                    <ListStyle uni={7} tracks={this.props.tracks} fetchTracks={this.props.fetchTracks} updateTrackPlays={this.props.updateTrackPlays} />
                     <GalleryStyle uni={8} tracks={this.props.tracks} fetchTracks={this.props.fetchTracks} updateTrackPlays={this.props.updateTrackPlays} />
-                    <ListStyle uni={9} tracks={this.props.tracks} fetchTracks={this.props.fetchTracks} updateTrackPlays={this.props.updateTrackPlays}/>
+                    <ListStyle uni={9} tracks={this.props.tracks} fetchTracks={this.props.fetchTracks} updateTrackPlays={this.props.updateTrackPlays} />
                     <GalleryStyle uni={10} tracks={this.props.tracks} fetchTracks={this.props.fetchTracks} updateTrackPlays={this.props.updateTrackPlays} />
+                </div>
+        );
+
+        return (
+                <div className="content-left-container">
+                    {loader}
                 </div>
         );
     }

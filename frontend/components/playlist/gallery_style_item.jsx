@@ -11,33 +11,23 @@ class GalleryStyleItem extends React.Component {
         
         this.handleArt = this.handleArt.bind(this);
 
+    }
+
+    handleArt() {
+        if (document.getElementById(`artwork-image-official${this.props.uni}`)){
+            document.getElementById(`artwork-image-official${this.props.uni}`).style.backgroundImage = ("url(" + this.props.track.photoUrl + ")");
+        }
+    }
+
+    render() {
         let photo = new Image();
         photo.src = this.props.track.photoUrl;
         photo.onload = () => {
             this.handleArt();
-            this.setState({ loading: false });
+            // this.setState({ loading: false });
         }
 
-    }
-
-    handleArt() {
-        document.getElementById(`artwork-image-official${this.props.uni}`).style.backgroundImage = ("url(" + this.props.track.photoUrl + ")");
-    }
-
-    render() {
-
         const { track } = this.props;
-
-        // let photo = new Image();
-        // photo.src = track.photoUrl;
-        // photo.onload = () => {
-        //     this.handleArt();
-        //     this.setState({ loading: false });
-        // }
-
-        const loader = this.state.loading ? (
-            <div className="loading-spinner-background"><div className="loading-spinner"><div></div><div></div><div></div><div></div></div></div>
-        ) : null;
 
             return (
 
@@ -53,7 +43,6 @@ class GalleryStyleItem extends React.Component {
                                         id={`artwork-image-official${this.props.uni}`}
                                         className="artwork-image-official"
                                         >
-                                            {loader}
                                         </span>
                                 </div>
                             </div>

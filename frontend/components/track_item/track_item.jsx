@@ -33,10 +33,6 @@ class TrackItem extends React.Component {
     render() {
         const { track, updateTrackPlays } = this.props;
 
-        const loader = this.state.loading ? (
-            <div className="loading-spinner-background"><div className="loading-spinner"><div></div><div></div><div></div><div></div></div></div>
-        ) : null;
-
         return (
             <div className="activity-body">
                 <div className="activity-artwork">
@@ -47,7 +43,6 @@ class TrackItem extends React.Component {
                                 className="artwork-image-official"
                                 // style={{ backgroundImage: "url(" + track.photoUrl + ")" }}
                                 ></span>
-                            {loader}
                         </div>
                     </div>
                 </div>
