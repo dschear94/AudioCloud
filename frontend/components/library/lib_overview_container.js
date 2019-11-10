@@ -28,13 +28,14 @@ const msp = (state, ownProps) => {
     
     let currentUser = getCurrentUser(state);
     let currentTrackId = getCurrentTrackId(state);
+    let likedTracks = selectTracksByLikes(state, currentUser);
 
     return {
         artistName: artist || "",
         currentUser: currentUser,
         artist: state.entities.artists[artist] || {},
         // tracks: selectTracksByArtist(state, artist),
-        likedTracks: selectTracksByLikes(state, currentUser),
+        likedTracks: likedTracks,
         currentTrackId: currentTrackId,
     }
 

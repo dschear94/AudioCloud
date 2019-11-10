@@ -32,7 +32,7 @@ const msp = (state, ownProps) => {
         artistName: artist || "",
         currentUser: Object.values(state.entities.users)[0] || {},
         artist: state.entities.artists[artist] || {},
-        follows: state.entities.follows || {},
+        // follows: state.entities.follows || {},
     }
 
 };

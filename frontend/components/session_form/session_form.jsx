@@ -69,6 +69,7 @@ class SessionForm extends React.Component {
             user: this.state.user,
             errors: this.props.errors
         });
+        document.getElementById("ageinput").value = ""
         return this.props.openModal(this.state.formType);
     }
 
@@ -219,6 +220,7 @@ class SessionForm extends React.Component {
                                 className="login-input"
                                 placeholder=""
                                 maxLength="3"
+                                id="ageinput"
                             />
                         <br />
                         <br />

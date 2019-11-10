@@ -5,13 +5,20 @@ import {
     fetchTracks 
 } from '../../actions/track_actions';
 import { updateTrackPlays } from '../../actions/current_track_actions';
-import { getCurrentUser } from '../../reducers/selectors';
+import { 
+    getCurrentUser,
+    selectTracksByFollows
+ } from '../../reducers/selectors';
 
 
 const msp = (state, ownProps) => {
+
+    let artist = getCurrentUser(state);
+    let followedArtistTracks = selectTracksByFollows(state, artist)
+
     return { 
-        tracks: Object.values(state.entities.tracks) || [],
-        currentUser: getCurrentUser(state)
+        tracks: followedArtistTracks,
+        currentUser: artist
     }
 };
 

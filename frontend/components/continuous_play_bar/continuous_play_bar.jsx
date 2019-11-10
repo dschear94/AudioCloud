@@ -76,7 +76,6 @@ class ContinuousPlayBar extends React.Component {
 
 
         if (this.props.track.id !== prevProps.track.id) {
-            console.log("update")
             document.getElementById("currentTrack").play();
             const newState = Object.assign({}, this.state, { playing: true });
             this.setState(newState); 

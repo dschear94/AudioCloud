@@ -44,20 +44,28 @@ class Dashboard extends React.Component {
 
     handleFollow(e) {
         e.preventDefault();
-        if (this.props.artist.username in this.props.currentUser.following) {
-            let follow = {};
-            follow.follower_id = this.props.currentUser.id;
-            follow.followed_user_id = this.props.artist.id;
-            this.props.deleteFollow(follow);
+        if (this.props.currentUser.following) {
+            if (this.props.artist.username in this.props.currentUser.following) {
+                let follow = {};
+                follow.follower_id = this.props.currentUser.id;
+                follow.followed_user_id = this.props.artist.id;
+                this.props.deleteFollow(follow);
+            } else {
+                const follow = Object.assign({
+                    follower_id: this.props.currentUser.id,
+                    followed_user_id: this.props.artist.id
+                })
+
+                this.props.createFollow(follow);
+            }
         } else {
             const follow = Object.assign({
                 follower_id: this.props.currentUser.id,
                 followed_user_id: this.props.artist.id
-        })
+            })
 
             this.props.createFollow(follow);
         }
-
     }
 
 
@@ -125,7 +133,7 @@ class Dashboard extends React.Component {
 
     render() {
 
-        const { artist, currentUser } = this.props;
+        const { artist, currentUser, artistName } = this.props;
 
 
 
@@ -162,7 +170,8 @@ class Dashboard extends React.Component {
             }
         }
 
-        const followBtn = artist.username in currentUser.following ? (
+        const followBtn = currentUser.following ? 
+        (artistName in currentUser.following ? (
             <button
                 className="uiBarUnFollow"
                 onClick={this.handleFollow}>
@@ -184,6 +193,17 @@ class Dashboard extends React.Component {
                     Follow
                 </div>
             </button>
+        ) ): (
+                <button
+                    className="uiBarFollow"
+                    onClick={this.handleFollow}>
+                    <div className="follow-icon">
+                        <FontAwesomeIcon icon={faUserPlus} />
+                    </div>
+                    <div className="follow-text">
+                        Follow
+                </div>
+                </button>
         );
 
         return (

@@ -29,11 +29,20 @@ class TrackShow extends React.Component {
     handleLike(e) {
         e.preventDefault();
 
-        if (this.props.track.id in this.props.currentUser.likedTracks) {
-            let like = {};
-            like.track_id = this.props.track.id;
-            like.user_id = this.props.currentUser.id;
-            this.props.deleteLike(like)
+        if (this.props.currentUser.likedTracks) {
+            if (this.props.track.id in this.props.currentUser.likedTracks) {
+                let like = {};
+                like.track_id = this.props.track.id;
+                like.user_id = this.props.currentUser.id;
+                this.props.deleteLike(like)
+            } else {
+                const like = Object.assign({
+                    user_id: this.props.currentUser.id,
+                    track_id: this.props.track.id
+                })
+
+                this.props.createLike(like);
+            }
         } else {
             const like = Object.assign({
                 user_id: this.props.currentUser.id,
@@ -42,6 +51,8 @@ class TrackShow extends React.Component {
 
             this.props.createLike(like);
         }
+
+
 
     }
 
@@ -91,8 +102,9 @@ class TrackShow extends React.Component {
     render() {
         const {track, updateTrackPlays, comments, fetchTrackComments, currentUser } = this.props;
 
-        const likeButton = this.props.track.id in this.props.currentUser.likedTracks ?
-            (<button
+        const likeButton = this.props.currentUser.likedTracks ? 
+       ( this.props.track.id in this.props.currentUser.likedTracks ?
+           (<button
                 id="trackshowunlike"
                 className="trackshowunlike"
                 onClick={this.handleLike}
@@ -115,7 +127,20 @@ class TrackShow extends React.Component {
                 <div className="trackshowlike-text">
                     Like
                 </div>
-            </button>);
+                </button>)
+                ) : (<button
+                    id="trackshowlike"
+                    className="trackshowlike"
+                    onClick={this.handleLike}
+                >
+                    <div className="trackshowlikeicon">
+                        <FontAwesomeIcon icon={faHeart} />
+                    </div>
+                    <div className="trackshowlike-text">
+                        Like
+                </div>
+                </button>
+                );
 
         if (track.photoUrl) {
             let photo = new Image();

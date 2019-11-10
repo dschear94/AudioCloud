@@ -15,12 +15,25 @@ export const selectTracksByArtist = (state, artistName) => {
 export const selectTracksByLikes = (state, artistObj) => {
     let likedTracks = [];
 
-    Object.values(state.entities.tracks).map(track => 
-        track.id in artistObj.likedTracks ? 
-        likedTracks.push(track) : null
-    )
+    artistObj.likedTracks ? 
+        Object.values(state.entities.tracks).map(track => 
+            track.id in artistObj.likedTracks ? 
+            likedTracks.push(track) : null
+        ) : null;
 
     return likedTracks
+}
+
+export const selectTracksByFollows = (state, artistObj) => {
+    let followedArtistTracks = [];
+
+    artistObj.following ? 
+        Object.values(state.entities.tracks).map(track => 
+            track.artist in artistObj.following ? 
+                followedArtistTracks.push(track) : null
+        ) : null;
+
+    return followedArtistTracks;
 }
 
 export const selectLikesByTrackId = (state, trackId) => {
