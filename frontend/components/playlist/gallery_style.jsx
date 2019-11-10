@@ -16,6 +16,8 @@ class GalleryStyle extends React.Component {
                 uni={`${track.id} + " " + ${this.props.uni}`} 
                 track={track}
                 updateTrackPlays={this.props.updateTrackPlays}
+                pauseTrack={this.props.pauseTrack}
+                currentTrackId={this.props.currentTrackId}
             />));
 
         return (

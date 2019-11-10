@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPlay } from '@fortawesome/free-solid-svg-icons';
+import { faPlay, faPause } from '@fortawesome/free-solid-svg-icons';
 import { relativeTime } from '../../util/time_util';
 
 class TrackBadgeItem extends React.Component {
@@ -52,6 +52,9 @@ class TrackBadgeItem extends React.Component {
     render() {
         const { track, updateTrackPlays } = this.props;
 
+        const playPause = this.props.currentTrackId === this.props.track.id ?
+            <FontAwesomeIcon icon={faPause} /> : <FontAwesomeIcon icon={faPlay} />; 
+
 
         return (
             <li
@@ -89,7 +92,7 @@ class TrackBadgeItem extends React.Component {
                                         className="playbtn-arw"
                                         style={{ fontSize: "20px" }}
                                     >
-                                        <FontAwesomeIcon icon={faPlay} />
+                                        {playPause}
                                     </div>
                                 </div>
                             </button>

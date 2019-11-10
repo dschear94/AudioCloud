@@ -1,6 +1,7 @@
 import {
     RECEIVE_CURRENT_TRACK,
-    RECEIVE_CURRENT_TRACK_AND_USER
+    RECEIVE_CURRENT_TRACK_AND_USER,
+    PAUSE_TRACK,
 } from '../actions/current_track_actions';
 
 const currentTrackReducer = (state = null, action) => {
@@ -10,6 +11,8 @@ const currentTrackReducer = (state = null, action) => {
             return action.track;
         case RECEIVE_CURRENT_TRACK_AND_USER:
             return action.trackAndUser.track;
+        case PAUSE_TRACK:
+            return "pause";
         default:
             return state;
     }

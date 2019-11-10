@@ -1,19 +1,26 @@
 import { connect } from 'react-redux';
 import Discover from './discover';
 import {fetchTracks} from '../../actions/track_actions';
-import {updateTrackPlays} from '../../actions/current_track_actions';
+import {
+    updateTrackPlays,
+    pauseTrack
+} from '../../actions/current_track_actions';
+import { getCurrentTrackId } from '../../reducers/selectors';
 
 
 const msp = (state, ownProps) => {
+    const currentTrackId = getCurrentTrackId(state);
     return { 
-        tracks: Object.values(state.entities.tracks) || []
+        tracks: Object.values(state.entities.tracks) || [],
+        currentTrackId: currentTrackId
     }
 };
 
 
 const mdp = dispatch => ({
     fetchTracks: () => dispatch(fetchTracks()),
-    updateTrackPlays: track => dispatch(updateTrackPlays(track))
+    updateTrackPlays: track => dispatch(updateTrackPlays(track)),
+    pauseTrack: () => dispatch(pauseTrack()),
 });
 
 export default connect(msp, mdp)(Discover);

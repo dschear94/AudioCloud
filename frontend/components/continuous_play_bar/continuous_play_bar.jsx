@@ -9,17 +9,15 @@ import { getCurrentTrack } from '../../reducers/selectors'
 const msp = state => {
     let currentTrack = getCurrentTrack(state);
 
-    if (state.entities.currentTrack) {
-        return { 
+    return state.entities.currentTrack ? 
+        {
             track: currentTrack,
             duration: "0:00",
             playing: false,
             currentTime: "0:00",
             drag: false 
-        }
-    } else {
-        return {}
-    }
+        } :  {}
+    ;
 
 };
 
@@ -44,13 +42,54 @@ class ContinuousPlayBar extends React.Component {
     }
 
     componentDidUpdate(prevProps, prevState) {
-        if (this.props !== prevProps) {
-            if (prevState.playing) {
-                document.getElementById("currentTrack").play();
-                const newState = Object.assign({}, this.state, { playing: true });
-                this.setState(newState); 
-            }
+        // if (this.props.track.id !== prevProps.track.id) {
+        //     if (prevState.playing) {
+        //         document.getElementById("currentTrack").play();
+        //         const newState = Object.assign({}, this.state, { playing: true });
+        //         this.setState(newState); 
+        //     }
+        // } else {
+        //     if (this.state.playing) {
+        //         if (document.getElementById("currentTrack").currentTime !== 0) {
+        //             document.getElementById("currentTrack").pause();
+        //             const newState = Object.assign({}, this.state, { playing: false });
+        //             this.setState(newState); 
+        //         }
+        //     } else {
+        //             // document.getElementById("currentTrack").play();
+        //             console.log("yo")
+        //     }
+        // }        
+
+
+        // if (this.props.track.id !== prevProps.track.id) {
+        //         document.getElementById("currentTrack").play();
+        //         const newState = Object.assign({}, this.state, { playing: true });
+        //         this.setState(newState); 
+        //         console.log(1)
+        // } else {
+        //     document.getElementById("currentTrack").pause();
+        //     const newState = Object.assign({}, this.state, { playing: false });
+        //     this.setState(newState); 
+        //     console.log(2)
+        // }
+
+
+        if (this.props.track.id !== prevProps.track.id) {
+            console.log("update")
+            document.getElementById("currentTrack").play();
+            const newState = Object.assign({}, this.state, { playing: true });
+            this.setState(newState); 
+        } else {
+            // if (document.getElementById("currentTrack").currentTime !== 0) {
+            //     debugger
+            //     document.getElementById("currentTrack").pause();
+            //     const newState = Object.assign({}, this.state, { playing: false });
+            //     this.setState(newState);
+            // }
         }
+
+
     }
 
     handleProgressMouseDown(e) {
@@ -206,6 +245,8 @@ class ContinuousPlayBar extends React.Component {
         );
         const currentTimeObj = `${currentTimeMin + ":" + currentTimeSec}`;
         const newState = Object.assign({}, this.state, { currentTime: currentTimeObj });
+        
+        // this.setState(newState);
         
         const filler = document.getElementById("cpb-timeline-progress-timepassed");
         const handle = document.getElementById("cpb-timeline-progress-handle");

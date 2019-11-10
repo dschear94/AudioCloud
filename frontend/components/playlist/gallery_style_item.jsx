@@ -1,5 +1,7 @@
 import React from 'react';
 import { withRouter, Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faPlay, faPause } from '@fortawesome/free-solid-svg-icons';
 
 class GalleryStyleItem extends React.Component {
     constructor(props) {
@@ -10,6 +12,9 @@ class GalleryStyleItem extends React.Component {
         }
         
         this.handleArt = this.handleArt.bind(this);
+        this.togglePlay = this.togglePlay.bind(this);
+        this.showControls = this.showControls.bind(this);
+        this.hideControls = this.hideControls.bind(this);
 
     }
 
@@ -18,6 +23,25 @@ class GalleryStyleItem extends React.Component {
             document.getElementById(`artwork-image-official${this.props.uni}`).style.backgroundImage = ("url(" + this.props.track.photoUrl + ")");
         }
     }
+
+    showControls() {
+        document.getElementById(`splash-main-content1-trendingtracks-tile-playbtn-container${this.props.track.id}`).style.opacity = "1"
+        document.getElementById(`splash-main-content1-trendingtracks-tile-playbtn-container${this.props.track.id}`).style.visibility = "visible"
+    }
+
+    hideControls() {
+        document.getElementById(`splash-main-content1-trendingtracks-tile-playbtn-container${this.props.track.id}`).style.opacity = "0"
+        document.getElementById(`splash-main-content1-trendingtracks-tile-playbtn-container${this.props.track.id}`).style.visibility = "hidden"
+    }
+
+    togglePlay() {
+        if (this.props.currentTrackId === this.props.track.id) {
+            return this.props.pauseTrack();
+        } else {
+            return this.props.updateTrackPlays(this.props.track);
+        }
+    }
+
 
     render() {
         let photo = new Image();
@@ -28,6 +52,8 @@ class GalleryStyleItem extends React.Component {
         }
 
         const { track } = this.props;
+        const playPause = this.props.currentTrackId === this.props.track.id ? 
+            <FontAwesomeIcon icon={faPause} /> : <FontAwesomeIcon icon={faPlay} />; 
 
             return (
 
@@ -39,7 +65,8 @@ class GalleryStyleItem extends React.Component {
                     <div className="splash-main-content1-trendingtracks-tile">
                         <div 
                             className="splash-main-content1-trendingtracks-tile-artwork"
-                            onClick={() => this.props.updateTrackPlays(track)}>
+                            onMouseEnter={this.showControls}
+                            onMouseLeave={this.hideControls}>
                             <div className="splash-main-content1-trendingtracks-tile-artwork-image">
                                 <div className="image-placeholder">
                                     <span
@@ -49,8 +76,27 @@ class GalleryStyleItem extends React.Component {
                                         </span>
                                 </div>
                             </div>
-                            <button className="splash-main-content1-trendingtracks-tile-playbtn-container">
-                            </button>
+                            <div
+                                id={`splash-main-content1-trendingtracks-tile-playbtn-container${this.props.track.id}`}
+                                className="splash-main-content1-trendingtracks-tile-playbtn-container">
+                                <button
+                                    className="shtitle-play"
+                                // style={{ opacity: "0", visibility: "hidden" }}
+                                >
+                                    <div
+                                        className="playbtn"
+                                        onClick={this.togglePlay}
+                                        style={{ lineHeight: "60px", zIndex: "101" }}
+                                    >
+                                        <div
+                                            className="playbtn-arw"
+                                            style={{ fontSize: "20px" }}
+                                        >
+                                            {playPause}
+                                        </div>
+                                    </div>
+                                </button>
+                            </div>
                         </div>
                         <div className="splash-main-content1-trendingtracks-tile-description">
                             <div className="splash-main-content1-trendingtracks-tile-description1">
