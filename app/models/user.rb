@@ -11,11 +11,17 @@ class User < ApplicationRecord
     foreign_key: :author_id
 
     has_many :likes
+
     
     has_many :liked_tracks,
     through: :likes,
     source: :track
-
+    
+    has_many :recent_plays
+    
+    has_many :recently_played_tracks,
+    through: :recent_plays,
+    source: :track
 
     # array of follows for user
     has_many :received_follows,

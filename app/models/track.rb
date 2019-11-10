@@ -8,6 +8,7 @@ class Track < ApplicationRecord
 
     has_many :comments
     has_many :likes
+    has_many :recent_plays
     
     has_many :likers,
     through: :likes,

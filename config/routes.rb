@@ -12,6 +12,7 @@ Rails.application.routes.draw do
       resources :artists, only: [:show], controller: :users
       resources :likes, only: [:create, :destroy, :index, :show]
       resources :follows, only: [:create, :destroy, :index, :show]
+      resources :recent_plays, only: [:create]
       get 'tracks/by_artist/:artist_id', :to => 'tracks#by_artist'
       get 'tracks/by_follows/:artist_id', :to => 'tracks#by_follows'
       get 'tracks/by_likes/:artist_id', :to => 'tracks#by_likes'

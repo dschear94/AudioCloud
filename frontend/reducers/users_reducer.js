@@ -9,6 +9,10 @@ import {
     RECEIVE_FOLLOW,
     RECEIVE_UNFOLLOW,
 } from '../actions/follows_actions';
+import {
+    RECEIVE_CURRENT_TRACK,
+    RECEIVE_CURRENT_TRACK_AND_USER
+} from '../actions/current_track_actions';
 
 const usersReducer = (state = {}, action) => {
     Object.freeze(state);
@@ -23,6 +27,8 @@ const usersReducer = (state = {}, action) => {
             return Object.assign({}, state, { [action.currentUser.id]: action.currentUser });
         case RECEIVE_UNFOLLOW:
             return Object.assign({}, state, { [action.currentUser.id]: action.currentUser });
+        case RECEIVE_CURRENT_TRACK_AND_USER:
+            return Object.assign({}, state, { [action.trackAndUser.currentUser.id]: action.trackAndUser.currentUser });
         default:
             return state;
     }

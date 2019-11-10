@@ -22,3 +22,4 @@ json.following do
                 json.set! followed_user.username, followed_user.id
         end
 end
+json.extract! user, :recent_plays
