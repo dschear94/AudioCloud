@@ -155,7 +155,10 @@ class TrackShow extends React.Component {
                         <div className="s-h-title">
                             <div className="s-h-title-container">
                                 <div className="shtitle">
-                                    <div className="shtitle-play">
+                                    <div 
+                                    className="shtitle-play"
+                                    
+                                    >
                                         <div
                                             className="playbtn"
                                             onClick={() => updateTrackPlays(track)}

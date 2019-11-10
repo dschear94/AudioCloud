@@ -14,7 +14,7 @@ class GalleryStyleItem extends React.Component {
     }
 
     handleArt() {
-        if (document.getElementById(`artwork-image-official${this.props.uni}`)){
+        if (document.getElementById(`artwork-image-official${this.props.uni}`)) {
             document.getElementById(`artwork-image-official${this.props.uni}`).style.backgroundImage = ("url(" + this.props.track.photoUrl + ")");
         }
     }
@@ -38,7 +38,7 @@ class GalleryStyleItem extends React.Component {
                     >
                     <div className="splash-main-content1-trendingtracks-tile">
                         <div 
-                        className="splash-main-content1-trendingtracks-tile-artwork"
+                            className="splash-main-content1-trendingtracks-tile-artwork"
                             onClick={() => this.props.updateTrackPlays(track)}>
                             <div className="splash-main-content1-trendingtracks-tile-artwork-image">
                                 <div className="image-placeholder">

@@ -426,9 +426,15 @@
     cursor: pointer;
 }
 
+// .splash-main-content1-trendingtracks-tile-playbtn-container:hover {
+//     opacity: 1;
+//     visibility: visible;
+// }
+
 .splash-main-content1-trendingtracks-tile-playbtn-container {
     opacity: 0;
     visibility: hidden;
+    transition: opacity .1s,visibility .1s;
     position: absolute;
     left: 34%;
     top: 34%;

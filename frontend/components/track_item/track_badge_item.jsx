@@ -13,6 +13,8 @@ class TrackBadgeItem extends React.Component {
         }
 
         this.handleArt = this.handleArt.bind(this);
+        this.showControls = this.showControls.bind(this);
+        this.hideControls = this.hideControls.bind(this);
 
         let photo = new Image();
         photo.src = this.props.track.photoUrl;
@@ -28,6 +30,16 @@ class TrackBadgeItem extends React.Component {
         document.getElementById(`artwork-image-official${this.props.track.id}`).style.backgroundImage = ("url(" + this.props.track.photoUrl + ")");
     }
 
+    showControls() {
+        document.getElementById(`splash-main-content1-trendingtracks-tile-playbtn-container${this.props.track.id}`).style.opacity = "1"
+        document.getElementById(`splash-main-content1-trendingtracks-tile-playbtn-container${this.props.track.id}`).style.visibility = "visible"
+    }
+
+    hideControls() {
+        document.getElementById(`splash-main-content1-trendingtracks-tile-playbtn-container${this.props.track.id}`).style.opacity = "0"
+        document.getElementById(`splash-main-content1-trendingtracks-tile-playbtn-container${this.props.track.id}`).style.visibility = "hidden"
+    }
+
     render() {
         const { track, updateTrackPlays } = this.props;
 
@@ -39,7 +51,8 @@ class TrackBadgeItem extends React.Component {
                 <div className="splash-main-content1-trendingtracks-tile">
                     <div
                         className="splash-main-content1-trendingtracks-tile-artwork"
-                        onClick={() => updateTrackPlays(track)}
+                        onMouseEnter={this.showControls}
+                        onMouseLeave={this.hideControls}
                     >
                         <div className="splash-main-content1-trendingtracks-tile-artwork-image">
                             <div className="image-placeholder">
@@ -50,11 +63,34 @@ class TrackBadgeItem extends React.Component {
                                 </span>
                             </div>
                         </div>
-                        <button className="splash-main-content1-trendingtracks-tile-playbtn-container">
-                        </button>
+                            
+                        <div 
+                                id={`splash-main-content1-trendingtracks-tile-playbtn-container${this.props.track.id}`}
+                            className="splash-main-content1-trendingtracks-tile-playbtn-container">
+                            <button
+                                className="shtitle-play"
+                                // style={{ opacity: "0", visibility: "hidden" }}
+                            >
+                                <div
+                                    className="playbtn"
+                                    onClick={() => updateTrackPlays(track)}
+                                    style={{ lineHeight: "60px", zIndex:"101" }}
+                                >
+                                    <div
+                                        className="playbtn-arw"
+                                        style={{ fontSize: "20px" }}
+                                    >
+                                        <FontAwesomeIcon icon={faPlay} />
+                                    </div>
+                                </div>
+                            </button>
+                        </div>
                     </div>
                     <div className="splash-main-content1-trendingtracks-tile-description">
-                        <div className="splash-main-content1-trendingtracks-tile-description1">
+                        <div 
+                        id={`splash-main-content1-trendingtracks-tile-description1${track.id}`}
+                        className="splash-main-content1-trendingtracks-tile-description1"
+                        >
                             <Link to={{
                                 pathname: `/${track.artist}/${track.title}`,
                                 state: {
