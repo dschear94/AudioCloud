@@ -13,6 +13,7 @@ class TrackBadgeItem extends React.Component {
         }
 
         this.handleArt = this.handleArt.bind(this);
+        this.togglePlay = this.togglePlay.bind(this);
         this.showControls = this.showControls.bind(this);
         this.hideControls = this.hideControls.bind(this);
 
@@ -38,6 +39,14 @@ class TrackBadgeItem extends React.Component {
     hideControls() {
         document.getElementById(`splash-main-content1-trendingtracks-tile-playbtn-container${this.props.track.id}`).style.opacity = "0"
         document.getElementById(`splash-main-content1-trendingtracks-tile-playbtn-container${this.props.track.id}`).style.visibility = "hidden"
+    }
+
+    togglePlay() {
+        if (this.props.currentTrackId === this.props.track.id) {
+            return null;
+        } else {
+            return this.props.updateTrackPlays(this.props.track);
+        }
     }
 
     render() {
@@ -73,7 +82,7 @@ class TrackBadgeItem extends React.Component {
                             >
                                 <div
                                     className="playbtn"
-                                    onClick={() => updateTrackPlays(track)}
+                                    onClick={this.togglePlay}
                                     style={{ lineHeight: "60px", zIndex:"101" }}
                                 >
                                     <div

@@ -41,7 +41,13 @@ export const getCurrentUser = state => {
 }
 
 export const getCurrentTrack = state => {
+    if (!state.entities.currentTrack) return {};
     return Object.assign({}, Object.values(state.entities.currentTrack)[0]);
+}
+
+export const getCurrentTrackId = state => {
+    if (!state.entities.currentTrack) return null;
+    return Object.assign({}, Object.values(state.entities.currentTrack)[0]).id;
 }
 
 

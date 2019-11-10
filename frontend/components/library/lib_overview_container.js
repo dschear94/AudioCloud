@@ -13,7 +13,9 @@ import {
 import { 
     selectTracksByArtist,
     selectTracksByLikes,
-    getCurrentUser
+    getCurrentUser,
+    getCurrentTrack,
+    getCurrentTrackId
 } from '../../reducers/selectors'
 
 
@@ -25,6 +27,7 @@ const msp = (state, ownProps) => {
         state.entities.artists.username : "";
     
     let currentUser = getCurrentUser(state);
+    let currentTrackId = getCurrentTrackId(state);
 
     return {
         artistName: artist || "",
@@ -32,6 +35,7 @@ const msp = (state, ownProps) => {
         artist: state.entities.artists[artist] || {},
         // tracks: selectTracksByArtist(state, artist),
         likedTracks: selectTracksByLikes(state, currentUser),
+        currentTrackId: currentTrackId,
     }
 
 };

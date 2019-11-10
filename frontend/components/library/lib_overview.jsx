@@ -32,7 +32,8 @@ class LibraryOverview extends React.Component {
         // )
 
         const likesBadgeItems = likedTracks.map(track => 
-            <TrackBadgeItem 
+            <TrackBadgeItem
+                currentTrackId={this.props.currentTrackId}
                 track={track} 
                 key={track.id} 
                 track={track} 

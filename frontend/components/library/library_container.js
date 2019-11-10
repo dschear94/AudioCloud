@@ -8,7 +8,10 @@ import {
 import { updateTrackPlays } from '../../actions/current_track_actions';
 import {
     fetchArtist
-} from '../../actions/artist_actions'
+} from '../../actions/artist_actions';
+import {
+    getCurrentTrackId
+} from '../../reducers/selectors';
 
 
 const msp = (state, ownProps) => {
@@ -17,10 +20,13 @@ const msp = (state, ownProps) => {
         state.entities.artists ?
             state.entities.artists.username : "";
 
+    let currentTrackId = getCurrentTrackId(state);
+
     return {
         artistName: artist || "",
         currentUser: Object.values(state.entities.users)[0] || {},
         artist: state.entities.artists[artist] || {},
+        currentTrackId: currentTrackId,
     }
 
 };
