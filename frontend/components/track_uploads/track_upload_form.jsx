@@ -77,7 +77,7 @@ class TrackUploadForm extends React.Component {
         return (
             this.props.uploadTrack(trackFormData)
             .then(() => this.props.fetchTracks())
-            .then((() => this.props.history.push("/discover")))
+            .then(() => this.props.history.push("/discover"))
         );
     }
 

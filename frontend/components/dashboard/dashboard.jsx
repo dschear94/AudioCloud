@@ -260,7 +260,7 @@ class Dashboard extends React.Component {
                                         All
                                     </NavLink>
                                 </li>
-                                <li className="UIBTLI">
+                                {/* <li className="UIBTLI">
                                     <NavLink
                                         exact to={`/${artist.username}/toptracks`}
                                         activeClassName="UIBTLI-active"
@@ -299,7 +299,7 @@ class Dashboard extends React.Component {
                                     >
                                         Reposts
                                     </NavLink>
-                                </li>
+                                </li> */}
                             </ul>
                         </div>
                         <div className="userInfoBarBtns">

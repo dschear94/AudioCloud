@@ -29,17 +29,6 @@ class Navbar extends React.Component {
 
     render() {
     let { currentUser, logout, openModal } = this.props;
-    const sessionLinks = () => (
-            <div className="nav-right-main-session">
-                <div className="profile-nav-login" onClick={() => openModal('entry')}>Sign in</div>
-                <div className="profile-nav-signup" onClick={() => openModal('entry')}>Create account</div>
-            </div>
-    );
-    const personalGreeting = () => (
-        <div className="nav-right-main-session">
-                <div className="profile-nav-login" onClick={logout}>Log Out</div>
-            </div>
-    );
     const dropdown = () => (
         <div className="nav-dropdown-container">
             <ul className="nav-dd-list">
