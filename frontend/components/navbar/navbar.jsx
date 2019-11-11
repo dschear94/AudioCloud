@@ -1,14 +1,34 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { 
+    Link,
+    NavLink
+ } from 'react-router-dom';
 import { withRouter } from 'react-router-dom';
-import { faUser, faHeart, faChild, faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
+import { faUser, faHeart, faChild, faSignOutAlt, faAngleDown } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 
 
+class Navbar extends React.Component { 
+    constructor(props) {
+        super(props);
+        this.state = {
+            dropdown: false
+        }
 
-const Navbar = (props) => {
-    let { currentUser, logout, openModal } = props;
+        this.handleDD = this.handleDD.bind(this);
+    }
+
+    handleDD() {
+        if (this.state.dropdown) {
+            this.setState({dropdown: false})
+        } else {
+            this.setState({ dropdown: true })
+        }
+    }
+
+    render() {
+    let { currentUser, logout, openModal } = this.props;
     const sessionLinks = () => (
             <div className="nav-right-main-session">
                 <div className="profile-nav-login" onClick={() => openModal('entry')}>Sign in</div>
@@ -81,7 +101,7 @@ const Navbar = (props) => {
         </div>
     )
 
-        if (props.match.path === "/" && props.match.isExact && !currentUser) {
+        if (this.props.match.path === "/" && this.props.match.isExact && !currentUser) {
             return null;
         } else {
             return (
@@ -96,16 +116,16 @@ const Navbar = (props) => {
                             <div className="nav-left-container">
                                 <ul className="nav-left-main-ul">
                                     <li className="nav-left-main-li">
-                                        <Link className="navLink" to="/discover">Home</Link>
+                                        <NavLink className="navLink" activeStyle={{color: "#fff", backgroundColor: "#111", outline: "0"}} to="/discover">Home</NavLink>
                                     </li>
                                     <li className="nav-left-main-li">
                                         {currentUser ?
-                                            <Link className="navLink" to="/stream">Stream</Link>
+                                            <NavLink className="navLink" activeStyle={{color: "#fff", backgroundColor: "#111", outline: "0"}} to="/stream">Stream</NavLink>
                                             : <div className="navLink" onClick={() => openModal('entry')}>Stream</div>}
                                     </li>
                                     <li className="nav-left-main-li">
                                         {currentUser ?
-                                            <Link className="navLink" to="/you/library">Library</Link>
+                                            <NavLink className="navLink" activeStyle={{color: "#fff", backgroundColor: "#111", outline: "0"}} to="/you/library">Library</NavLink>
                                             : <div className="navLink" onClick={() => openModal('entry')}>Library</div>}
                                     </li>
                                 </ul>
@@ -123,18 +143,23 @@ const Navbar = (props) => {
                         <div className="nav-right-main">
                             <div className="nav-right-main-upload">
                                 {currentUser ?
-                                    <Link className="navLinkupload" to="/upload">Upload</Link>
+                                    <NavLink className="navLinkupload" activeStyle={{color: "#fff", backgroundColor: "#111", outline: "0"}} to="/upload">Upload</NavLink>
                                     : <div className="navLinkupload" onClick={() => openModal('entry')}>Upload</div>}
                             </div>
                             <div className="nav-usernav">
-                                <div className="nav-userbtn">
+                                <div 
+                                    onClick={this.handleDD}
+                                    className="nav-userbtn"
+                                    >
                                     <div className="nav-avatar">
                                         <div className="artistAvImage" style={{ backgroundImage: currentUser ? "url(" + currentUser.avatar + ")" : null}}></div>
                                     </div>
                                     <div className="nav-username">
                                         <div className="nav-username-content">
-                                            {currentUser ? currentUser.username : null}                                        </div>
+                                            {currentUser ? currentUser.username : null} 
+                                        </div>
                                     </div>
+                                    <FontAwesomeIcon icon={faAngleDown} />
                                 </div>
                             </div>
                             <ul className="nav-right-main-dropdown">
@@ -144,11 +169,12 @@ const Navbar = (props) => {
                             </ul>
                         </div>
                     </div>
-                    {currentUser ? dropdown() : null}
+                    {this.state.dropdown ? dropdown() : null}
                 </div>
             )
         }
 };
+}
 
 
 export default withRouter(Navbar);

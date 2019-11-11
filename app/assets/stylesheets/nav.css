@@ -153,6 +153,12 @@
 .navLink:hover {
     color: white;
 }
+/* 
+.navLink:active {
+    color: #fff!important;
+    background-color: #111;
+    outline: 0;
+} */
 
 .nav-center-searchbar-container {
     display: block;
