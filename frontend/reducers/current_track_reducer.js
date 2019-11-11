@@ -1,22 +1,37 @@
 import {
     RECEIVE_CURRENT_TRACK,
     RECEIVE_CURRENT_TRACK_AND_USER,
-    PAUSE_TRACK,
+    // PAUSE_TRACK,
 } from '../actions/current_track_actions';
+import { 
+    createCurrentTrackPlaying,
+    createCurrentTrackPause
+} from './selectors';
 
 const currentTrackReducer = (state = null, action) => {
     Object.freeze(state);
     switch (action.type) {
         case RECEIVE_CURRENT_TRACK:
-            return action.track;
+            return createCurrentTrackPlaying(action.track);
         case RECEIVE_CURRENT_TRACK_AND_USER:
             if (action.trackAndUser.currentUser) {
-                return action.trackAndUser.track;
+                if (!state){
+                    return createCurrentTrackPlaying(action.trackAndUser.track);
+                } else if (state.data.id === Object.values(action.trackAndUser.track)[0].id) {
+                    return state.playing ? createCurrentTrackPause(action.trackAndUser.track) 
+                    : createCurrentTrackPlaying(action.trackAndUser.track);
+                } else {
+                    return createCurrentTrackPlaying(action.trackAndUser.track)
+                }
             } else {
-                return action.trackAndUser;
+                if (state.data.id === Object.values(action.trackAndUser.track)[0].id) {
+                    return createCurrentTrackPlaying(action.trackAndUser);
+                } else {
+                    return createCurrentTrackPause(action.trackAndUser);
+                }
             }
-        case PAUSE_TRACK:
-            return "pause";
+        // case PAUSE_TRACK:
+        //     return "pause";
         default:
             return state;
     }

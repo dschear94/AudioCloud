@@ -7,13 +7,16 @@ import { withRouter } from 'react-router-dom';
 import { getCurrentTrack } from '../../reducers/selectors'
 
 const msp = state => {
-    let currentTrack = getCurrentTrack(state);
+    let currentTrackData = state.entities.currentTrack.data;
+    let currentTrackStatus = state.entities.currentTrack.playing;
+
+    console.log(currentTrackData)
 
     return state.entities.currentTrack ? 
         {
-            track: currentTrack,
+            track: currentTrackData,
+            trackStatus: currentTrackStatus,
             duration: "0:00",
-            playing: false,
             currentTime: "0:00",
             drag: false 
         } :  {}
@@ -74,18 +77,35 @@ class ContinuousPlayBar extends React.Component {
         //     console.log(2)
         // }
 
+        // debugger
+
 
         if (this.props.track.id !== prevProps.track.id) {
-            document.getElementById("currentTrack").play();
-            const newState = Object.assign({}, this.state, { playing: true });
-            this.setState(newState); 
+            // document.getElementById("currentTrack").play();
+            const newState = Object.assign({}, this.state, { 
+                playing: true,
+            });
+            this.setState(newState, () => {
+                document.getElementById("currentTrack").play();
+            }); 
+
         } else {
-            // if (document.getElementById("currentTrack").currentTime !== 0) {
-            //     debugger
-            //     document.getElementById("currentTrack").pause();
-            //     const newState = Object.assign({}, this.state, { playing: false });
-            //     this.setState(newState);
-            // }
+            if (this.props.trackStatus) {
+                const newState = Object.assign({}, this.state, {
+                    playing: false,
+                });
+                this.setState(newState, () => {
+                    document.getElementById("currentTrack").pause();
+                }); 
+            } else {
+
+                const newState = Object.assign({}, this.state, {
+                    playing: true,
+                });
+                this.setState(newState, () => {
+                    document.getElementById("currentTrack").play();
+                }); 
+            }
         }
 
 
@@ -119,7 +139,7 @@ class ContinuousPlayBar extends React.Component {
             Math.floor(time % 60) < 10 ?
                 ("0" + Math.floor(time % 60)) : Math.floor(time % 60)
         );
-        const currentTimeObj = `${currentTimeMin + ":" + currentTimeSec}`;
+        const currentTimeObj = isNaN(currentTimeMin) ? "0:00" : `${currentTimeMin + ":" + currentTimeSec}`;
 
         handle.style.left = amount;
         filler.style.width = amount;
@@ -271,16 +291,18 @@ class ContinuousPlayBar extends React.Component {
         
     trackPlay(e) {
         e.preventDefault();
-        document.getElementById("currentTrack").play();
         const newState = Object.assign({}, this.state, { playing: true });
-        this.setState(newState);   
+        this.setState(newState, () => {
+            document.getElementById("currentTrack").play();
+        }); 
     }
 
     trackPause(e) {
         e.preventDefault();
-        document.getElementById("currentTrack").pause();
         const newState = Object.assign({}, this.state, { playing: false });
-        this.setState(newState);   
+        this.setState(newState, () => {
+            document.getElementById("currentTrack").pause();
+        }); 
     }
 
     trackSkipfwd(e) {
@@ -292,10 +314,11 @@ class ContinuousPlayBar extends React.Component {
     }
 
     componentDidMount() {
+        setInterval(this.handleCurrentTime, 100);
+        // const newState = Object.assign({}, this.state, { playing: true });
+        // this.setState(newState, () => {
         document.getElementById("currentTrack").play();
-        setInterval(this.handleCurrentTime, 500);
-        const newState = Object.assign({}, this.state, { playing: true });
-        this.setState(newState);        
+        // }); 
     }
 
     render() {

@@ -36,7 +36,8 @@ class GalleryStyleItem extends React.Component {
 
     togglePlay() {
         if (this.props.currentTrackId === this.props.track.id) {
-            return this.props.pauseTrack();
+            return this.props.updateTrackPlays(this.props.track);
+            // return this.props.pauseTrack();
         } else {
             return this.props.updateTrackPlays(this.props.track);
         }

@@ -53,10 +53,11 @@ export const getCurrentUser = state => {
     return Object.assign({}, Object.values(state.entities.users)[0]);
 }
 
-export const getCurrentTrack = state => {
-    if (!state.entities.currentTrack) return {};
-    return Object.assign({}, Object.values(state.entities.currentTrack)[0]);
-}
+// export const getCurrentTrack = state => {
+//     if (!state.entities.currentTrack) return {};
+//     debugger
+//     return Object.assign({}, Object.values(state.entities.currentTrack.data));
+// }
 
 export const getCurrentTrackId = state => {
     if (!state.entities.currentTrack) return null;
@@ -76,4 +77,22 @@ export const getTrackByPath = (state, artistName, trackTitle) => {
 
 
     return track;
+}
+
+
+
+
+export const createCurrentTrackPlaying = track => {
+    let currentTrack = {};
+    currentTrack["data"] = Object.assign({}, Object.values(track)[0]);
+    currentTrack["playing"] = true;
+    return currentTrack;
+}
+
+
+export const createCurrentTrackPause = track => {
+    let currentTrack = {};
+    currentTrack["data"] = Object.assign({}, Object.values(track)[0]);
+    currentTrack["playing"] = false;
+    return currentTrack;
 }
