@@ -4,6 +4,7 @@ import { faPlay, faHeart } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { relativeTime } from '../../util/time_util';
 import TrackCommentIndexContainer from '../track_comments/track_comment_container';
+import WaveForm from '../waveform/waveform';
 
 import ColorThief from 'colorthief';
 import * as Vibrant from 'node-vibrant';
@@ -80,11 +81,15 @@ class TrackShow extends React.Component {
         }
     }
 
-    handleArt() {
+    handleArt(photo) {
         // const colorThief = new ColorThief();
         // const img = document.querySelector('img');
 
+
+        // debugger
         // colorThief.getColor(photo);
+        // debugger
+
         // debugger
         // let v = new Vibrant(this.props.currentUser.avatar);
 
@@ -146,7 +151,7 @@ class TrackShow extends React.Component {
             let photo = new Image();
             photo.src = track.photoUrl;
             photo.onload = () => {
-                this.handleArt();
+                this.handleArt(photo);
             }
         }
 
@@ -221,7 +226,7 @@ class TrackShow extends React.Component {
                             </div>
                         </div>
                         <div className="s-h-player">
-
+                            <WaveForm track={track}/>
                         </div>
                     </div>
                 </div>

@@ -1,5 +1,4 @@
 json.set! track.id do
-debugger
         json.extract! track, :title, :id, :play_count
         json.artist track.artist.username
         if track.artist.avatar.attached?
