@@ -390,4 +390,39 @@
     top: 46px;
     left: 1100px;
     z-index: 1100;
+    color: #999;
+}
+/* 
+.nav-dd-list:not(:last-child) {
+    border-bottom: 1px solid #333;
+} */
+
+.nav-dd-list {
+    border-bottom: 1px solid #333;
+    background-color: #111;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-dd-listitem {
+    display: inline-block;
+    cursor: pointer;
+    /* text-indent: 10px; */
+        
+    /* position: relative; */
+}
+
+.nav-dd-listitem:hover {
+    color: #fff; 
+}
+
+.nav-dd-listitem-link {
+    padding: 8px 10px 8px 12px;
+    display: block;
+}
+
+.nav-dd-text {
+    text-indent: 10px;
+    display: inline-block;
 }

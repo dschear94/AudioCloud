@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { withRouter } from 'react-router-dom';
+import { faUser, faHeart, faChild, faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 
 
@@ -18,6 +20,66 @@ const Navbar = (props) => {
                 <div className="profile-nav-login" onClick={logout}>Log Out</div>
             </div>
     );
+    const dropdown = () => (
+        <div className="nav-dropdown-container">
+            <ul className="nav-dd-list">
+                <li className="nav-dd-listitem">
+                    <Link
+                        className="nav-dd-listitem-link"
+                        to={{
+                            pathname: `/${currentUser.username}`,
+                        }}>
+                        <FontAwesomeIcon
+                            icon={faUser}
+                        />
+                        <div className="nav-dd-text">
+                            Profile
+                                    </div>
+                    </Link>
+                </li>
+                <li className="nav-dd-listitem">
+                    <Link
+                        className="nav-dd-listitem-link"
+                        to={{
+                            pathname: `/you/likes`,
+                        }}>
+                        <FontAwesomeIcon
+                            icon={faHeart}
+                        />
+                        <div className="nav-dd-text">
+                            Likes
+                                    </div>
+                    </Link>
+                </li>
+                <li className="nav-dd-listitem">
+                    <Link
+                        className="nav-dd-listitem-link"
+                        to={{
+                            pathname: `/you/following`,
+                        }}>
+                        <FontAwesomeIcon
+                            icon={faChild}
+                        />
+                        <div className="nav-dd-text">
+                            Following
+                                    </div>
+                    </Link>
+                </li>
+                <li className="nav-dd-listitem">
+                    <div
+                        className="nav-dd-listitem-link"
+                        onClick={logout}>
+                        <FontAwesomeIcon
+                            icon={faSignOutAlt}
+                        />
+                        <div className="nav-dd-text">
+                            Logout
+                                    </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    )
 
         if (props.match.path === "/" && props.match.isExact && !currentUser) {
             return null;
@@ -67,7 +129,7 @@ const Navbar = (props) => {
                             <div className="nav-usernav">
                                 <div className="nav-userbtn">
                                     <div className="nav-avatar">
-                                        <div className="artistAvImage" style={{backgroundImage: currentUser.avatar}}></div>
+                                        <div className="artistAvImage" style={{backgroundImage: currentUser ? currentUser.avatar : null}}></div>
                                     </div>
                                     <div className="nav-username">
                                         <div className="nav-username-content">
@@ -82,9 +144,7 @@ const Navbar = (props) => {
                             </ul>
                         </div>
                     </div>
-                    <div className="nav-dropdown-container">
-
-                    </div>
+                    {currentUser ? dropdown() : null}
                 </div>
             )
         }

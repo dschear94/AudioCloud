@@ -157,7 +157,8 @@ class SessionForm extends React.Component {
                         id="login-input2"
                         className="username-field-login"
                         >
-                        <FontAwesomeIcon icon={faBackspace} />
+                        <FontAwesomeIcon 
+                        icon={faBackspace} />
                         <div className="username-field-text">
                             {this.state.user.entryField}
                         </div>

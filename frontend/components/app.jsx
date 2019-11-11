@@ -35,7 +35,7 @@ const App = () => (
                 <div className="main-content">
                     <div className="main-content2">
                     <Switch>
-                        <Route exact path='/discover' component={DiscoverContainer} />
+                        <ProtectedRoute exact path='/discover' component={DiscoverContainer} />
                         <ProtectedRoute exact path='/stream' component={StreamContainer} />
                         <ProtectedRoute exact path="/upload" component={TrackUploadContainer} />
                         <ProtectedRoute exact path='/you/library' component={LibraryContainer}/>
