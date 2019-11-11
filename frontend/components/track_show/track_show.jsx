@@ -75,6 +75,7 @@ class TrackShow extends React.Component {
     }
 
     componentDidMount() {
+        document.body.scrollTop = document.documentElement.scrollTop = 0;
         if ((this.props.match.params.artist !== this.props.track.artist) 
         && (this.props.match.params.track !== this.props.track.track)) {
             this.props.fetchTracksByArtist(this.props.match.params.artist)
@@ -226,12 +227,14 @@ class TrackShow extends React.Component {
                             </div>
                         </div>
                         <div className="s-h-player">
-                                <div
-                                    id="waveform-container"
-                                    className="waveform-container"
-                                    style={{ width: "100%", height: "100%"}}
-                                >
-                                    <WaveForm track={track}/>
+                            <div className="s-h-player-waveform">
+                                    <div
+                                        id="waveform-container"
+                                        className="waveform-container"
+                                        style={{ width: "100%", height: "100%" }}
+                                    >
+                                        <WaveForm track={track} />
+                                    </div>
                             </div>
                         </div>
                     </div>

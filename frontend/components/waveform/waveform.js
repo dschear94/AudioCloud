@@ -88,12 +88,16 @@ class WaveForm extends React.Component {
         if (Object.keys(this.props.track).length !== 0) {
             if (this.props.track.id !== prevProps.track.id) {
                 const wave = this.waveRef.current;
+                let height = document.getElementById("waveform-container").offsetHeight;
+                let width = document.getElementById("waveform-container").offsetWidth;
+                this.setState({ width: width });
                 this.waveSurfer = waveSurfer.create({
                     container: wave,
                     waveColor: '#F2F2F2',
                     progressColor: '#F65502',
                     barWidth: 2,
-                    height: 300,
+                    barHeight: 2,
+                    height: height,
                     fillParent: true,
                     cursorWidth: 0,
                     interact: true,
