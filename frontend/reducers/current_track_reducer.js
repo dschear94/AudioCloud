@@ -10,7 +10,11 @@ const currentTrackReducer = (state = null, action) => {
         case RECEIVE_CURRENT_TRACK:
             return action.track;
         case RECEIVE_CURRENT_TRACK_AND_USER:
-            return action.trackAndUser.track;
+            if (action.trackAndUser.currentUser) {
+                return action.trackAndUser.track;
+            } else {
+                return action.trackAndUser;
+            }
         case PAUSE_TRACK:
             return "pause";
         default:

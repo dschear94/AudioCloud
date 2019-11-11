@@ -1,6 +1,8 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 import { closeModal } from '../../actions/modal_actions';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBackspace } from '@fortawesome/free-solid-svg-icons';
 
 
 class SessionForm extends React.Component {
@@ -93,6 +95,19 @@ class SessionForm extends React.Component {
     }
 
     renderErrors() {
+        if (this.state.errors.length !== 0) {
+            if (this.state.formType === "entry") {
+                document.getElementById("login-input").style.borderColor = "#f50";
+            } else if (this.state.formType === "login") {
+                document.getElementById("login-input-pw").style.borderColor = "#f50";
+            } else if (this.state.formType === "signup") {
+                document.getElementById("login-input-pw").style.borderColor = "#f50";
+            } else if (this.state.formType === "signup2") {
+                null;
+            } else if (this.state.formType === "signup3") {
+                document.getElementById("login-input-choose-username").style.borderColor = "#f50";
+            }
+        }
         return (
             <ul>
                 {this.state.errors.map((error, i) => (
@@ -121,6 +136,7 @@ class SessionForm extends React.Component {
                         <input type="text"
                             value={this.state.user.entryField}
                             onChange={this.update('entryField')}
+                            id="login-input"
                             className="login-input"
                             placeholder="Your email address or profile URL *"
                         />
@@ -134,35 +150,36 @@ class SessionForm extends React.Component {
                 </form>
             </div>
             ) 
-            const loginStep = (
-                <div className="session-submit">
-                    < form onSubmit = { this.handleSubmit } className = "login-form-box" >
-                        <div className="login-form">
-                            <input type="text"
-                                value={this.state.user.entryField}
-                                onClick={this.goBack}
-                                className="login-input2"
-                                // placeholder="Your email address or profile URL *"
-                                readOnly
-                            />
-                            <br />
-                            <br />
-                            <input type="password"
-                                value={this.state.user.password}
-                                onChange={this.update('password')}
-                                className="login-input"
-                                placeholder="Your password *"
-                            />
-                            <br />
-                            <div className="errors">
-                                {this.renderErrors()}
-                            </div>
-                            <br />
-                            <input className="session-submit-button" type="submit" value="Sign in" />
+            const loginStep = ( 
+            <div className="session-submit">
+                    <div 
+                        onClick={this.goBack}
+                        id="login-input2"
+                        className="username-field-login"
+                        >
+                        <FontAwesomeIcon icon={faBackspace} />
+                        <div className="username-field-text">
+                            {this.state.user.entryField}
                         </div>
-                    </form >
+                    </div>
+                    <input type="password"
+                        value={this.state.user.password}
+                        onChange={this.update('password')}
+                        id="login-input-pw"
+                        className="login-input"
+                        placeholder="Your password *"
+                    />
+                    <div className="errors">
+                        {this.renderErrors()}
+                    </div>
+                    <input 
+                    className="session-submit-button" 
+                    type="submit" 
+                    value="Sign in"
+                    onClick={this.handleSubmit} />
+                
                 </div>
-            )
+            );
 
 
         const signupStep = (
@@ -189,6 +206,7 @@ class SessionForm extends React.Component {
                                 value={this.state.user.password}
                                 onChange={this.update('password')}
                                 className="login-input"
+                                id="login-input-pw"
                                 placeholder=""
                             />
                         <br />
@@ -225,12 +243,12 @@ class SessionForm extends React.Component {
                         <br />
                         <br />
                         <span className="input-span">Gender</span>
-                            <select name="gender" onChange={this.update('gender')} className="login-input">
+                            <select name="gender" onChange={this.update('gender')} className="login-input-gender">
                                 <option value>Indicate your gender</option>
                                 <option value={this.state.user.gender} onChange={this.update('gender')}>Female</option>
                                 <option value={this.state.user.gender} onChange={this.update('gender')}>Male</option>
                                 <option value={this.state.user.gender} onChange={this.update('gender')}>Prefer not to say</option>
-                                <option value={this.state.user.gender} onChange={this.update('gender')}>Custom</option>
+                                <option value={this.state.user.gender} onChange={this.update('gender')}>Other</option>
                             </select>
                         <br />
                         <div className="errors">
@@ -257,6 +275,7 @@ class SessionForm extends React.Component {
                             <input type="text"
                                 value={this.state.user.username}
                                 onChange={this.update('username')}
+                                id="login-input-choose-username"
                                 className="login-input"
                                 placeholder=" "
                             />

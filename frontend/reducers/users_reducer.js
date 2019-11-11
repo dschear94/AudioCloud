@@ -28,7 +28,11 @@ const usersReducer = (state = {}, action) => {
         case RECEIVE_UNFOLLOW:
             return Object.assign({}, state, { [action.currentUser.id]: action.currentUser });
         case RECEIVE_CURRENT_TRACK_AND_USER:
-            return Object.assign({}, state, { [action.trackAndUser.currentUser.id]: action.trackAndUser.currentUser });
+            if (action.trackAndUser.currentUser) {
+                return Object.assign({}, state, { [action.trackAndUser.currentUser.id]: action.trackAndUser.currentUser });
+            } else {
+                return state;
+            }
         default:
             return state;
     }

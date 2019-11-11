@@ -45,12 +45,12 @@ const App = () => (
                         <ProtectedRoute exact path='/you/stations' component={LibraryContainer}/>
                         <ProtectedRoute exact path='/you/following' component={LibraryContainer}/>
                         <ProtectedRoute exact path='/you/history' component={LibraryContainer}/>
-                        <Route exact path='/:artist' component={DashboardContainer} />
-                        <Route exact path='/:artist/toptracks' component={DashboardContainer} />
-                        <Route exact path='/:artist/tracks' component={DashboardContainer} />
-                        <Route exact path='/:artist/albums' component={DashboardContainer} />
-                        <Route exact path='/:artist/sets' component={DashboardContainer} />
-                        <Route exact path='/:artist/reposts' component={DashboardContainer} />
+                        <ProtectedRoute exact path='/:artist' component={DashboardContainer} />
+                        <ProtectedRoute exact path='/:artist/toptracks' component={DashboardContainer} />
+                        <ProtectedRoute exact path='/:artist/tracks' component={DashboardContainer} />
+                        <ProtectedRoute exact path='/:artist/albums' component={DashboardContainer} />
+                        <ProtectedRoute exact path='/:artist/sets' component={DashboardContainer} />
+                        <ProtectedRoute exact path='/:artist/reposts' component={DashboardContainer} />
                         <ProtectedRoute exact path='/:artist/:track' component={TrackShowContainer} />
                         <SplashyRoute exact path="/" component={SplashContainer}/>
                     </Switch>
