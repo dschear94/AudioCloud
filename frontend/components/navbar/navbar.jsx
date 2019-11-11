@@ -74,7 +74,7 @@ const Navbar = (props) => {
                         />
                         <div className="nav-dd-text">
                             Logout
-                                    </div>
+                        </div>
                     </div>
                 </li>
             </ul>
@@ -129,7 +129,7 @@ const Navbar = (props) => {
                             <div className="nav-usernav">
                                 <div className="nav-userbtn">
                                     <div className="nav-avatar">
-                                        <div className="artistAvImage" style={{backgroundImage: currentUser ? currentUser.avatar : null}}></div>
+                                        <div className="artistAvImage" style={{ backgroundImage: currentUser ? "url(" + currentUser.avatar + ")" : null}}></div>
                                     </div>
                                     <div className="nav-username">
                                         <div className="nav-username-content">
