@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlay } from '@fortawesome/free-solid-svg-icons';
 import { relativeTime } from '../../util/time_util';
-// import WaveFormContainer from '../waveform/waveform';
+import WaveForm from '../waveform/waveform';
 
 // const TrackItem = ({ track, updateTrackPlays }) => (
 class TrackItem extends React.Component {
@@ -80,8 +80,11 @@ class TrackItem extends React.Component {
                             </div>
                         </div>
                     </div>
-                    <div className="waveform-container">
-                        {/* <WaveFormContainer trackUrl={track.trackUrl}/> */}
+                    <div 
+                    id="waveform-container"
+                    className="waveform-container"
+                    >
+                            <WaveForm track={track} />
                     </div>
                 </div>
                 <div className="act-body-comment">

@@ -11,6 +11,11 @@ import React from 'react';
 import { connect } from 'react-redux';
 import waveSurfer from 'wavesurfer.js';
 // import { receiveNextTrack, setWaveTime } from '../../actions/current_track_actions';
+// import { connect } from 'react-redux';
+// import TrackShow from './track_show';
+import { updateTrackPlays } from '../../actions/current_track_actions';
+import { fetchArtist } from '../../actions/artist_actions';
+
 
 class WaveForm extends React.Component {
     constructor(props) {
@@ -18,46 +23,53 @@ class WaveForm extends React.Component {
         this.waveRef = React.createRef();
         this.handleChange = this.handleChange.bind(this);
         this.handleClick = this.handleClick.bind(this);
+
         this.state = {
             loading: true,
-            width: 800,
+            width: null,
             loaderPosition: 0,
             loadingDirection: -1,
         };
+
     }
 
     componentDidMount() {
-        const wave = this.waveRef.current;
-        this.waveSurfer = waveSurfer.create({
-            container: wave,
-            waveColor: '#F2F2F2',
-            progressColor: '#F65502',
-            barWidth: 2,
-            height: 300,
-            fillParent: true,
-            cursorWidth: 0,
-            interact: true,
-            autoCenter: true,
-            closeAudioContext: true,
-            hideScrollbar: true,
-            partialRender: true,
-            removeMediaElementOnDestroy: true,
-        });
-        debugger
-        this.waveSurfer.load(this.props.track.mp3);
+        if (Object.keys(this.props.track).length !== 0) {
+            let height = document.getElementById("waveform-container").offsetHeight;
+            let width = document.getElementById("waveform-container").offsetWidth;
+            this.setState({width: width});
+            const wave = this.waveRef.current;
+            this.waveSurfer = waveSurfer.create({
+                container: wave,
+                waveColor: '#8C8C8C',
+                progressColor: '#F65502',
+                barWidth: 2,
+                barHeight: 2,
+                height: height,
+                fillParent: true,
+                cursorWidth: 0,
+                interact: true,
+                autoCenter: true,
+                closeAudioContext: true,
+                hideScrollbar: true,
+                partialRender: true,
+                removeMediaElementOnDestroy: true,
+            });
+            this.waveSurfer.load(this.props.track.trackUrl);
 
-        this.interval = setInterval(() => {
-            if (this.state.loaderPosition <= 0 || this.state.loaderPosition >= 500) {
-                this.setState({ loadingDirection: this.state.loadingDirection * -1 });
-            }
-            const loaderPosition = (this.state.loaderPosition + 5 * (this.state.loadingDirection));
-            this.setState({ loaderPosition });
-        }, 10);
+            this.interval = setInterval(() => {
+                if (this.state.loaderPosition <= 0 || this.state.loaderPosition >= 500) {
+                    this.setState({ loadingDirection: this.state.loadingDirection * -1 });
+                }
+                const loaderPosition = (this.state.loaderPosition + 5 * (this.state.loadingDirection));
+                this.setState({ loaderPosition });
+            }, 10);
 
-        this.waveSurfer.on('ready', () => {
-            this.setState({ loading: false });
-            clearInterval(this.interval);
-        });
+            this.waveSurfer.on('ready', () => {
+                this.setState({ loading: false });
+                clearInterval(this.interval);
+            });
+        }
     }
 
     componentWillUnmount() {
@@ -66,26 +78,60 @@ class WaveForm extends React.Component {
     }
 
     componentDidUpdate(prevProps) {
-        if (this.props.currentTrack && this.props.track.id === this.props.currentTrack.id) {
-            if (prevProps.time !== this.props.time) {
-                this.waveSurfer.seekTo(this.props.time / this.props.length);
+        // if (this.props.currentTrack && this.props.track.id === this.props.currentTrack.id) {
+        //     if (prevProps.time !== this.props.time) {
+        //         this.waveSurfer.seekTo(this.props.time / this.props.length);
+        //     }
+        // }
+        // else this.waveSurfer.seekTo(0);
+
+        if (Object.keys(this.props.track).length !== 0) {
+            if (this.props.track.id !== prevProps.track.id) {
+                const wave = this.waveRef.current;
+                this.waveSurfer = waveSurfer.create({
+                    container: wave,
+                    waveColor: '#F2F2F2',
+                    progressColor: '#F65502',
+                    barWidth: 2,
+                    height: 300,
+                    fillParent: true,
+                    cursorWidth: 0,
+                    interact: true,
+                    autoCenter: true,
+                    closeAudioContext: true,
+                    hideScrollbar: true,
+                    partialRender: true,
+                    removeMediaElementOnDestroy: true,
+                });
+                this.waveSurfer.load(this.props.track.trackUrl);
+
+                this.interval = setInterval(() => {
+                    if (this.state.loaderPosition <= 0 || this.state.loaderPosition >= 500) {
+                        this.setState({ loadingDirection: this.state.loadingDirection * -1 });
+                    }
+                    const loaderPosition = (this.state.loaderPosition + 5 * (this.state.loadingDirection));
+                    this.setState({ loaderPosition });
+                }, 10);
+
+                this.waveSurfer.on('ready', () => {
+                    this.setState({ loading: false });
+                    clearInterval(this.interval);
+                });
             }
         }
-        else this.waveSurfer.seekTo(0);
     }
 
     handleClick(e) {
-        this.waveSurfer.on('seek', this.handleChange);
+        // this.waveSurfer.on('seek', this.handleChange);
     }
 
     handleChange(e) {
-        if (this.props.currentTrack.id !== this.props.track.id) {
-            this.props.receiveNextTrack(this.props.track);
-        }
-        this.props.setWaveTime(this.waveSurfer.getCurrentTime());
-        this.waveSurfer.un('seek', this.handleChange);
+        // if (this.props.currentTrack.id !== this.props.track.id) {
+        //     this.props.receiveNextTrack(this.props.track);
+        // }
+        // this.props.setWaveTime(this.waveSurfer.getCurrentTime());
+        // this.waveSurfer.un('seek', this.handleChange);
     }
-
 
     render() {
         const width = {
@@ -101,6 +147,7 @@ class WaveForm extends React.Component {
         ) : (
                 null);
 
+
         return (
             <div onClick={this.handleClick} style={width} ref={this.waveRef} id="waveform" className="waveform">
                 {loading}
@@ -110,22 +157,17 @@ class WaveForm extends React.Component {
 }
 
 const msp = (state) => {
-    const currentTrack = state.ui.audio.currentTrack;
-    let length;
-    if (currentTrack) length = currentTrack.length;
-    return {
-        currentTrack,
-        isPlaying: state.ui.audio.isPlaying,
-        time: state.ui.audio.time,
-        length,
-    }
+    let currentTrack;
+
+    currentTrack = state.entities.currentTrack ? 
+    state.entities.currentTrack : {};
+
+    return { currentTrack }
+    
 }
 
-const mdp = (dispatch) => {
-    return {
-        receiveNextTrack: (track) => dispatch(receiveNextTrack(track)),
-        setWaveTime: (time) => dispatch(setWaveTime(time)),
-    }
-}
+const mdp = (dispatch) => ({
+    updateTrackPlays: track => dispatch(updateTrackPlays(track)),
+})
 
 export default connect(msp, mdp)(WaveForm)

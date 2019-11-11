@@ -162,6 +162,11 @@
     display: block;
 }
 
+.waveform-container:hover {
+    cursor: pointer;
+    color: #333;
+}
+
 .act-body-comment {
     position: relative;
     z-index: 3;

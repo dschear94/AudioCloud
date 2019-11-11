@@ -226,7 +226,13 @@ class TrackShow extends React.Component {
                             </div>
                         </div>
                         <div className="s-h-player">
-                            <WaveForm track={track}/>
+                                <div
+                                    id="waveform-container"
+                                    className="waveform-container"
+                                    style={{ width: "100%", height: "100%"}}
+                                >
+                                    <WaveForm track={track}/>
+                            </div>
                         </div>
                     </div>
                 </div>
