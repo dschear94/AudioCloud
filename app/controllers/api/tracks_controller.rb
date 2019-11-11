@@ -47,16 +47,18 @@ class Api::TracksController < ApplicationController
             .includes(:artist, :comments, :likes)
             .find(params[:id])
 
-        @track.update_attributes(play_count: @track.play_count += 1)
+        
         
         if current_user
             @recent_play = RecentPlay.find_by(user_id: current_user.id, track_id: @track.id)
             if @recent_play
                 @recent_play.destroy
-                RecentPlay.create(user_id: current_user.id, track_id: @track.id)
+                @new_play = RecentPlay.create(user_id: current_user.id, track_id: @track.id)
+                @track.update_attributes(play_count: @track.play_count += 1) if @new_play.created_at - @recent_play.created_at > 300
                 render "api/tracks/addplay"
             else
-                RecentPlay.create(user_id: current_user.id, track_id: @track.id)
+                @new_play = RecentPlay.create(user_id: current_user.id, track_id: @track.id)
+                @track.update_attributes(play_count: @track.play_count += 1)
                 render "api/tracks/addplay"
             end
         else

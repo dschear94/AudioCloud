@@ -131,6 +131,10 @@ class Dashboard extends React.Component {
         // );
     }
 
+    componentDidMount() {
+        document.body.scrollTop = document.documentElement.scrollTop = 0;
+    }
+
     render() {
 
         const { artist, currentUser, artistName } = this.props;

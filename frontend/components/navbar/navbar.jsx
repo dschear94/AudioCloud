@@ -64,13 +64,26 @@ const Navbar = (props) => {
                                     <Link className="navLinkupload" to="/upload">Upload</Link>
                                     : <div className="navLinkupload" onClick={() => openModal('entry')}>Upload</div>}
                             </div>
-                            {currentUser ? personalGreeting() : sessionLinks()}
+                            <div className="nav-usernav">
+                                <div className="nav-userbtn">
+                                    <div className="nav-avatar">
+                                        <div className="artistAvImage" style={{backgroundImage: currentUser.avatar}}></div>
+                                    </div>
+                                    <div className="nav-username">
+                                        <div className="nav-username-content">
+                                            {currentUser ? currentUser.username : null}                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                             <ul className="nav-right-main-dropdown">
                                 <li className="nav-right-main-dropdown-dots">
                                     <a className="nav-right-main-dropdown-dots-actual"></a>
                                 </li>
                             </ul>
                         </div>
+                    </div>
+                    <div className="nav-dropdown-container">
+
                     </div>
                 </div>
             )

@@ -280,6 +280,10 @@
     cursor: pointer;
 }
 
+.navLinkupload:hover {
+    color: #fff;
+}
+
 .profile-nav-signup {
     margin-left: 8px;
     background-color: #f50;
@@ -331,4 +335,59 @@
     vertical-align: baseline;
     box-sizing: border-box;
     visibility: visible;
+}
+
+
+.nav-usernav {
+    float: left;
+    padding: 0;
+    cursor: pointer;
+}
+
+.nav-userbtn {
+    outline: 0;
+    color: #ccc;
+    float: left;
+    padding: 12px 28px 12px 10px;
+    box-sizing: border-box;
+    position: relative;
+    height: 46px;
+}
+
+.nav-userbtn:hover {
+    color: #fff;
+}
+
+.nav-avatar {
+    height: 26px;
+    width: 26px;
+    background: none;
+    border-radius: 50%;
+    text-align: center;
+    position: relative;
+    margin-top: -2px;
+    margin-right: 10px;
+    float: left;
+}
+
+.nav-username {
+    float: left;
+}
+
+.nav-username-content {
+        max-width: 149px;
+        overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    word-break: normal;
+}
+
+.nav-dropdown-container {
+    outline: none;
+    width: 135px;
+    min-height: auto;
+    position: fixed;
+    top: 46px;
+    left: 1100px;
+    z-index: 1100;
 }
