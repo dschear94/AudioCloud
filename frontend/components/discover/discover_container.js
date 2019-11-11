@@ -10,9 +10,14 @@ import { getCurrentTrackId } from '../../reducers/selectors';
 
 const msp = (state, ownProps) => {
     const currentTrackId = getCurrentTrackId(state);
+    const trackStatus = state.entities.currentTrack ? 
+        state.entities.currentTrack.playing
+        : false;
+
     return { 
         tracks: Object.values(state.entities.tracks) || [],
-        currentTrackId: currentTrackId
+        currentTrackId: currentTrackId,
+        trackStatus: trackStatus,
     }
 };
 

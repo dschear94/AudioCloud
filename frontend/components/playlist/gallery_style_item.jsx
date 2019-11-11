@@ -53,7 +53,7 @@ class GalleryStyleItem extends React.Component {
         }
 
         const { track } = this.props;
-        const playPause = this.props.currentTrackId === this.props.track.id ? 
+        const playPause = (this.props.currentTrackId === this.props.track.id && this.props.trackStatus )? 
             <FontAwesomeIcon icon={faPause} /> : <FontAwesomeIcon icon={faPlay} />; 
 
             return (

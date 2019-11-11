@@ -23,7 +23,7 @@ class Discover extends React.Component {
         ) : (
                 <div>
                     <ListStyle uni={1} tracks={this.props.tracks} fetchTracks={this.props.fetchTracks} updateTrackPlays={this.props.updateTrackPlays} />
-                    <GalleryStyle uni={2} tracks={this.props.tracks} fetchTracks={this.props.fetchTracks} updateTrackPlays={this.props.updateTrackPlays} pauseTrack={this.props.pauseTrack} currentTrackId={this.props.currentTrackId} />
+                    <GalleryStyle uni={2} tracks={this.props.tracks} fetchTracks={this.props.fetchTracks} updateTrackPlays={this.props.updateTrackPlays} trackStatus={this.props.trackStatus} currentTrackId={this.props.currentTrackId} />
                     <ListStyle uni={3} tracks={this.props.tracks} fetchTracks={this.props.fetchTracks} updateTrackPlays={this.props.updateTrackPlays} />
                     <GalleryStyle uni={4} tracks={this.props.tracks} fetchTracks={this.props.fetchTracks} updateTrackPlays={this.props.updateTrackPlays} />
                     <ListStyle uni={5} tracks={this.props.tracks} fetchTracks={this.props.fetchTracks} updateTrackPlays={this.props.updateTrackPlays} />
