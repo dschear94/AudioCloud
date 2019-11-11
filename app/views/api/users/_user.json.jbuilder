@@ -1,11 +1,11 @@
 json.extract! user, :id, :username, :email
 if user.avatar.attached?
-        json.avatar url_for(user.avatar)
+        json.avatar user.avatar.service_url
 else
         json.avatar url_for("/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBNUT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--c685d92a1369dca31347b864eab8548e3d341c47/IMG_5373.jpg")
 end
 if user.header_image.attached?
-        json.header_image url_for(user.header_image)
+        json.header_image user.header_image.service_url
 else
         json.header_image url_for("/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBNUT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--c685d92a1369dca31347b864eab8548e3d341c47/IMG_5373.jpg")
 end
