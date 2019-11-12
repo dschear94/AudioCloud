@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import TrackShow from './track_show';
 import { updateTrackPlays } from '../../actions/current_track_actions';
+import { playTrack, pauseTrack } from '../../actions/play_status_actions'
 import { fetchArtist } from '../../actions/artist_actions';
 
 import {
@@ -23,7 +24,8 @@ import {
  import { 
     selectLikesByTrackId,
     getCurrentUser,
-    getTrackByPath
+    getTrackByPath,
+    getCurrentTrackId,
 } from '../../reducers/selectors';
 
 
@@ -35,10 +37,14 @@ const msp = (state, ownProps) => {
     const showTrack = trackFromOwnProps || trackFromPath || {};
 
     const currentUser = getCurrentUser(state);
+    let currentTrackId = getCurrentTrackId(state);
+    const trackStatus = state.ui.playStatus;
 
     return { 
         track: showTrack,
         currentUser: currentUser,
+        currentTrackId: currentTrackId,
+        trackStatus: trackStatus,
     }
 
 };
@@ -46,6 +52,8 @@ const msp = (state, ownProps) => {
 
 const mdp = dispatch => ({
     updateTrackPlays: track => dispatch(updateTrackPlays(track)),
+    pauseTrack: () => dispatch(pauseTrack()),
+    playTrack: () => dispatch(playTrack()),
     fetchArtist: artist => dispatch(fetchArtist(artist)),
 
     fetchTracksByArtist: artistId => dispatch(fetchTracksByArtist(artistId)),

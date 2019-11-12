@@ -218,6 +218,10 @@
     cursor: pointer;
 }
 
+.track-discover-main-modular-module-content-tracklist-item-a:hover {
+    background-color: gray;
+}
+
 .track-discover-main-modular-module-content-tracklist-item-a1 {
     flex: 1;
     font-weight: 100;
@@ -263,12 +267,12 @@
 .track-discover-main-modular-module-content-tracklist-item-a2-content {
     color: #fff;
     font-size: 11px;
-    line-height: 12px;
+    /* line-height: 0px; */
     display: inline-block;
     font-family: "InterstateSound Tnum","Interstate","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;
     font-weight: 100;
 }
-
+/* 
 .track-discover-main-modular-module-content-tracklist-item-a2-content:before {
     background-size: 16px 16px;
     width: 16px;
@@ -277,7 +281,7 @@
     background-repeat: no-repeat;
     background-position: center center;
     /* background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9I…AxM1YzbDkgNS05IDV6IiBmaWxsPSIjRkZGIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiLz48L3N2Zz4=); */
-}
+} */
 
 .track-discover-main-modular-module-context {
     height: 40px;

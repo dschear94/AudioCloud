@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { faPlay, faHeart } from '@fortawesome/free-solid-svg-icons';
+import { faPlay, faHeart, faPause } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { relativeTime } from '../../util/time_util';
 import TrackCommentIndexContainer from '../track_comments/track_comment_container';
@@ -20,6 +20,7 @@ class TrackShow extends React.Component {
         }
 
         // this.handleArt = this.handleArt.bind(this);
+        this.togglePlay = this.togglePlay.bind(this);
         this.handleCommentChange = this.handleCommentChange.bind(this);
         this.handleCommentSubmit = this.handleCommentSubmit.bind(this);
         this.handleLike = this.handleLike.bind(this);
@@ -27,6 +28,22 @@ class TrackShow extends React.Component {
 
     handleCommentChange(e) {
         this.setState({ comment: e.target.value });
+    }
+
+    togglePlay() {
+        debugger
+        if (this.props.currentTrackId === this.props.track.id) {
+            if (this.props.trackStatus === "playing") {
+
+                return this.props.pauseTrack();
+            } else {
+                return this.props.playTrack();
+            }
+        } else {
+            debugger
+
+            this.props.updateTrackPlays(this.props.track).then(() => this.props.playTrack())
+        }
     }
 
     handleLike(e) {
@@ -107,8 +124,7 @@ class TrackShow extends React.Component {
     // }
 
     render() {
-        const {track, updateTrackPlays, comments, fetchTrackComments, currentUser } = this.props;
-        debugger
+        const {track, trackStatus, updateTrackPlays, comments, fetchTrackComments, currentUser, currentTrackId } = this.props;
         const likeButton = this.props.currentUser.likedTracks ? 
        ( this.props.track.id in this.props.currentUser.likedTracks ?
            (<button
@@ -164,6 +180,8 @@ class TrackShow extends React.Component {
         //         this.handleAvatar();
         //     }
         // }
+        const playPause = (currentTrackId === track.id && trackStatus === "playing") ?
+            <FontAwesomeIcon icon={faPause} /> : <FontAwesomeIcon icon={faPlay} />; 
 
 
         return (
@@ -194,14 +212,14 @@ class TrackShow extends React.Component {
                                     >
                                         <div
                                             className="playbtn"
-                                            onClick={() => updateTrackPlays(track)}
+                                            onClick={this.togglePlay}
                                             style={{ lineHeight: "60px" }}
                                             >
                                             <div 
                                             className="playbtn-arw"
                                             style={{ fontSize: "20px" }}
                                             >
-                                                <FontAwesomeIcon icon={faPlay} />
+                                                {playPause}
                                             </div>
                                         </div>
                                     </div>
