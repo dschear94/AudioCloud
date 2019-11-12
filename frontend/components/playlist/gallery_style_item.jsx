@@ -36,25 +36,30 @@ class GalleryStyleItem extends React.Component {
 
     togglePlay() {
         if (this.props.currentTrackId === this.props.track.id) {
-            return this.props.updateTrackPlays(this.props.track);
-            // return this.props.pauseTrack();
+            if (this.props.trackStatus === "playing") {
+
+                return this.props.pauseTrack();
+            } else {
+                return this.props.playTrack();
+            }
         } else {
-            return this.props.updateTrackPlays(this.props.track);
+            this.props.updateTrackPlays(this.props.track).then(() => this.props.playTrack())
         }
     }
 
 
     render() {
+
+
+        const { uni, track, currentTrackId, trackStatus } = this.props;
+        const playPause = (currentTrackId === track.id && trackStatus === "playing") ?
+            <FontAwesomeIcon icon={faPause} /> : <FontAwesomeIcon icon={faPlay} />; 
+
         let photo = new Image();
-        photo.src = this.props.track.photoUrl;
+        photo.src = track.photoUrl;
         photo.onload = () => {
             this.handleArt();
-            // this.setState({ loading: false });
         }
-
-        const { track } = this.props;
-        const playPause = (this.props.currentTrackId === this.props.track.id && this.props.trackStatus )? 
-            <FontAwesomeIcon icon={faPause} /> : <FontAwesomeIcon icon={faPlay} />; 
 
             return (
 
@@ -71,14 +76,14 @@ class GalleryStyleItem extends React.Component {
                             <div className="splash-main-content1-trendingtracks-tile-artwork-image">
                                 <div className="image-placeholder">
                                     <span
-                                        id={`artwork-image-official${this.props.uni}`}
+                                        id={`artwork-image-official${uni}`}
                                         className="artwork-image-official"
                                         >
                                         </span>
                                 </div>
                             </div>
                             <div
-                                id={`splash-main-content1-trendingtracks-tile-playbtn-container${this.props.track.id}`}
+                                id={`splash-main-content1-trendingtracks-tile-playbtn-container${track.id}`}
                                 className="splash-main-content1-trendingtracks-tile-playbtn-container">
                                 <button
                                     className="shtitle-play"

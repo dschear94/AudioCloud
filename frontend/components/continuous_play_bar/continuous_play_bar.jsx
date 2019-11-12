@@ -129,12 +129,14 @@ class ContinuousPlayBar extends React.Component {
         //     }); 
         // }
 
-        if (this.props.track.id !== prevProps.track.id) {
-            // console.log("not equal")
-            // console.log(this.props.playStatus)
-        } else {
-            // console.log("equal")
-            // console.log(this.props.playStatus)
+        if (this.props.playStatus === "playing") {
+            document.getElementById("currentTrack").paused ?
+            document.getElementById("currentTrack").play() : null;
+        } else if (this.props.playStatus === "paused") {
+            document.getElementById("currentTrack").paused ? 
+            null : document.getElementById("currentTrack").pause();
+        } else if (this.props.playStatus === "playing" && this.props.track.id !== prevProps.track.id) {
+            document.getElementById("currentTrack").play()
         }
 
     }
@@ -235,7 +237,7 @@ class ContinuousPlayBar extends React.Component {
             amount = (((e.clientX - progress.left) / progress.width) * 100) + "%";
         }
 
-            currentTrack.currentTime = (parseFloat(amount) * currentTrack.duration) / 100;
+        currentTrack.currentTime = (parseFloat(amount) * currentTrack.duration) / 100;
 
             handle.style.left = amount;
             filler.style.width = amount;
@@ -365,7 +367,7 @@ class ContinuousPlayBar extends React.Component {
         ></audio>
         );
 
-        const playPause = !this.state.playing ? (
+        const playPause = this.props.playStatus !== "playing" ? (
             <button
                 className="cpb-play"
                 onClick={this.trackPlay}>

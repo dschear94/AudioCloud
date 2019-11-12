@@ -54,6 +54,7 @@ class WaveForm extends React.Component {
                 hideScrollbar: true,
                 partialRender: true,
                 removeMediaElementOnDestroy: true,
+                pixelRatio: 1,
             });
             this.waveSurfer.load(this.props.track.trackUrl);
 
@@ -72,10 +73,10 @@ class WaveForm extends React.Component {
         }
     }
 
-    componentWillUnmount() {
-        this.waveSurfer.un('ready');
-        this.waveSurfer.destroy();
-    }
+    // componentWillUnmount() {
+    //     // this.waveSurfer.un('ready');
+    //     this.waveSurfer.destroy();
+    // }
 
     componentDidUpdate(prevProps) {
         // if (this.props.currentTrack && this.props.track.id === this.props.currentTrack.id) {

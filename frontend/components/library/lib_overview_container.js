@@ -17,6 +17,7 @@ import {
     getCurrentTrack,
     getCurrentTrackId
 } from '../../reducers/selectors'
+import { playTrack, pauseTrack } from '../../actions/play_status_actions'
 
 
 const msp = (state, ownProps) => {
@@ -29,6 +30,7 @@ const msp = (state, ownProps) => {
     let currentUser = getCurrentUser(state);
     let currentTrackId = getCurrentTrackId(state);
     let likedTracks = selectTracksByLikes(state, currentUser);
+    const trackStatus = state.ui.playStatus;
 
     return {
         artistName: artist || "",
@@ -37,6 +39,7 @@ const msp = (state, ownProps) => {
         // tracks: selectTracksByArtist(state, artist),
         likedTracks: likedTracks,
         currentTrackId: currentTrackId,
+        trackStatus: trackStatus,
     }
 
 };
@@ -48,6 +51,8 @@ const mdp = dispatch => ({
     fetchTracksByLikes: artistId => dispatch(fetchTracksByLikes(artistId)),
 
     updateTrackPlays: track => dispatch(updateTrackPlays(track)),
+    pauseTrack: () => dispatch(pauseTrack()),
+    playTrack: () => dispatch(playTrack()),
 });
 
 export default withRouter(connect(msp, mdp)(LibOverview));

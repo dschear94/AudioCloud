@@ -30,8 +30,6 @@ const currentTrackReducer = (state = null, action) => {
                     return createCurrentTrackPause(action.trackAndUser);
                 }
             }
-        // case PAUSE_TRACK:
-        //     return "pause";
         default:
             return state;
     }

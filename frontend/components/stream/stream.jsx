@@ -16,7 +16,7 @@ class Stream extends Component {
     }
 
     render() {
-        const { tracks, updateTrackPlays} = this.props;
+        const { tracks, updateTrackPlays, trackStatus, currentTrackId, pauseTrack, playTrack } = this.props;
         
         const loader = this.state.loading ? (
      <div className="loading-spinner-background"><div className="loading-spinner"><div></div><div></div><div></div><div></div></div></div>
@@ -28,7 +28,15 @@ class Stream extends Component {
                     </h1>
                     </div>
                     <ul className="stream-list">
-                        {tracks.sort().reverse().map(track => <TrackStreamItem key={track.id} track={track} updateTrackPlays={updateTrackPlays} />)}
+                        {tracks.sort().reverse().map(track => <TrackStreamItem
+                            key={track.id}
+                            track={track}
+                            currentTrackId={currentTrackId}
+                            updateTrackPlays={updateTrackPlays}
+                            pauseTrack={pauseTrack}
+                            playTrack={playTrack}
+                            trackStatus={trackStatus}
+                        />)}
                     </ul>
                 </div>
         )

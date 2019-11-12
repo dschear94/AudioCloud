@@ -30,6 +30,10 @@ class Navbar extends React.Component {
     render() {
     let { currentUser, logout, openModal } = this.props;
     const dropdown = () => (
+        <div 
+        className="nav-dd-bg"
+        onClick={this.handleDD}
+        >
         <div className="nav-dropdown-container">
             <ul className="nav-dd-list">
                 <li className="nav-dd-listitem">
@@ -88,6 +92,7 @@ class Navbar extends React.Component {
                 </li>
             </ul>
         </div>
+    </div>
     )
 
         if (this.props.match.path === "/" && this.props.match.isExact && !currentUser) {

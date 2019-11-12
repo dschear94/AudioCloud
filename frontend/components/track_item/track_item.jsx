@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPlay } from '@fortawesome/free-solid-svg-icons';
+import { faPlay, faPause } from '@fortawesome/free-solid-svg-icons';
 import { relativeTime } from '../../util/time_util';
 import WaveForm from '../waveform/waveform';
 
@@ -15,14 +15,29 @@ class TrackItem extends React.Component {
         }
 
         this.handleArt = this.handleArt.bind(this);
+        this.togglePlay = this.togglePlay.bind(this);
 
-        let photo = new Image();
-        photo.src = this.props.track.photoUrl;
-        photo.onload = () => {
-            this.handleArt();
-            this.setState({ loading: false });
-        }
+        // let photo = new Image();
+        // photo.src = this.props.track.photoUrl;
+        // photo.onload = () => {
+        //     this.handleArt();
+        //     this.setState({ loading: false });
+        // }
         
+    }
+
+    togglePlay() {
+        if (this.props.currentTrackId === this.props.track.id) {
+            if (this.props.trackStatus === "playing") {
+
+                return this.props.pauseTrack();
+            } else {
+                return this.props.playTrack();
+            }
+        } else {
+
+            this.props.updateTrackPlays(this.props.track).then(() => this.props.playTrack())
+        }
     }
 
 
@@ -31,7 +46,9 @@ class TrackItem extends React.Component {
     }
 
     render() {
-        const { track, updateTrackPlays } = this.props;
+        const { track, currentTrackId, trackStatus } = this.props;
+        const playPause = (currentTrackId === track.id && trackStatus === "playing") ?
+            <FontAwesomeIcon icon={faPause} /> : <FontAwesomeIcon icon={faPlay} />; 
 
         return (
             <div className="activity-body">
@@ -39,9 +56,9 @@ class TrackItem extends React.Component {
                     <div className="act-artwork-container">
                         <div className="image-placeholder">
                             <span
-                                id={`artwork-image-official${this.props.track.id}`}
+                                id={`artwork-image-official${track.id}`}
                                 className="artwork-image-official"
-                                // style={{ backgroundImage: "url(" + track.photoUrl + ")" }}
+                                style={{ backgroundImage: "url(" + track.photoUrl + ")" }}
                                 ></span>
                         </div>
                     </div>
@@ -54,9 +71,10 @@ class TrackItem extends React.Component {
                                     <div className="act-playbtn-ctnr">
                                         <div
                                             className="playbtn"
-                                            onClick={() => updateTrackPlays(track)}>
+                                            onClick={this.togglePlay}
+                                            >
                                             <div className="playbtn-arw">
-                                                <FontAwesomeIcon icon={faPlay} />
+                                                {playPause}
                                             </div>
                                         </div>
                                     </div>

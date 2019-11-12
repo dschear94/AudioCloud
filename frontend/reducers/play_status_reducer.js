@@ -10,6 +10,8 @@ const playStatusReducer = (state = "paused", action) => {
             return "playing";
         case PAUSE:
             return "paused";
+        // case TIME_UPDATE:
+
         default:
             return state;
     }
