@@ -28,17 +28,17 @@ class TrackBadgeItem extends React.Component {
 
 
     handleArt() {
-        document.getElementById(`artwork-image-official${this.props.track.id}`).style.backgroundImage = ("url(" + this.props.track.photoUrl + ")");
+        document.getElementById(`artwork-image${this.props.track.id}`).style.backgroundImage = ("url(" + this.props.track.photoUrl + ")");
     }
 
     showControls() {
-        document.getElementById(`splash-main-content1-trendingtracks-tile-playbtn-container${this.props.track.id}`).style.opacity = "1"
-        document.getElementById(`splash-main-content1-trendingtracks-tile-playbtn-container${this.props.track.id}`).style.visibility = "visible"
+        document.getElementById(`tile-playbtn-container${this.props.track.id}`).style.opacity = "1"
+        document.getElementById(`tile-playbtn-container${this.props.track.id}`).style.visibility = "visible"
     }
 
     hideControls() {
-        document.getElementById(`splash-main-content1-trendingtracks-tile-playbtn-container${this.props.track.id}`).style.opacity = "0"
-        document.getElementById(`splash-main-content1-trendingtracks-tile-playbtn-container${this.props.track.id}`).style.visibility = "hidden"
+        document.getElementById(`tile-playbtn-container${this.props.track.id}`).style.opacity = "0"
+        document.getElementById(`tile-playbtn-container${this.props.track.id}`).style.visibility = "hidden"
     }
 
     togglePlay() {
@@ -72,16 +72,16 @@ class TrackBadgeItem extends React.Component {
                         <div className="splash-main-content1-trendingtracks-tile-artwork-image">
                             <div className="image-placeholder">
                                 <span
-                                    id={`artwork-image-official${track.id}`}
-                                    className="artwork-image-official"
+                                    id={`artwork-image${track.id}`}
+                                    className="artwork-image"
                                 >
                                 </span>
                             </div>
                         </div>
                             
                         <div 
-                                id={`splash-main-content1-trendingtracks-tile-playbtn-container${track.id}`}
-                            className="splash-main-content1-trendingtracks-tile-playbtn-container">
+                                id={`tile-playbtn-container${track.id}`}
+                            className="tile-playbtn-container">
                             <button
                                 className="shtitle-play"
                                 // style={{ opacity: "0", visibility: "hidden" }}

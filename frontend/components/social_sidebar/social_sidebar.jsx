@@ -18,14 +18,13 @@ class SocialSidebar extends React.Component {
     }
 
     render() {
-        const { likedTracks } = this.props
-        console.log(likedTracks)
+        const { likedTracks, currentTrackId, trackStatus, updateTrackPlays, pauseTrack, playTrack } = this.props;
 
         const loader = this.state.loading ? (
             <div className="loading-spinner-background"><div className="loading-spinner"><div></div><div></div><div></div><div></div></div></div>
         ) : (
                 <div>
-                   <SocialSidebarModule module={"likes"} tracks={likedTracks}/>
+                    <SocialSidebarModule moduleType={"likes"} tracks={likedTracks} updateTrackPlays={updateTrackPlays} pauseTrack={pauseTrack} playTrack={playTrack} currentTrackId={currentTrackId} trackStatus={trackStatus}/>
                    {/* <SocialSidebarModule module={"recentPlays"} /> */}
                 </div>
             );

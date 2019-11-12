@@ -98,7 +98,7 @@ class TrackShow extends React.Component {
 
         // Vibrant.from(this.props.currentUser.avatar).getPalette((err, palette) => console.log(palette))
 
-        document.getElementById("artwork-image-official").style.backgroundImage = "url(" + this.props.track.photoUrl + ")"
+        document.getElementById("artwork-image").style.backgroundImage = "url(" + this.props.track.photoUrl + ")"
     }
     
     handleAvatar() {
@@ -178,8 +178,8 @@ class TrackShow extends React.Component {
                         <div className="s-h-artwork">
                             <div className="image-placeholder">
                                 <span
-                                    id="artwork-image-official"
-                                    className="artwork-image-official"
+                                    id="artwork-image"
+                                    className="artwork-image"
                                     ></span>
                             </div>
                         </div>

@@ -42,7 +42,7 @@ class TrackItem extends React.Component {
 
 
     handleArt() {
-        document.getElementById(`artwork-image-official${this.props.track.id}`).style.backgroundImage = ("url(" + this.props.track.photoUrl + ")");
+        document.getElementById(`artwork-image${this.props.track.id}`).style.backgroundImage = ("url(" + this.props.track.photoUrl + ")");
     }
 
     render() {
@@ -56,8 +56,8 @@ class TrackItem extends React.Component {
                     <div className="act-artwork-container">
                         <div className="image-placeholder">
                             <span
-                                id={`artwork-image-official${track.id}`}
-                                className="artwork-image-official"
+                                id={`artwork-image${track.id}`}
+                                className="artwork-image"
                                 style={{ backgroundImage: "url(" + track.photoUrl + ")" }}
                                 ></span>
                         </div>

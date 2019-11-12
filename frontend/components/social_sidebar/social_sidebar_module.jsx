@@ -11,10 +11,10 @@ class SocialSidebarModule extends React.Component {
 
     render() {
         
-        const {tracks} = this.props;
+        const { tracks, currentTrackId, trackStatus, moduleType, updateTrackPlays, pauseTrack, playTrack } = this.props;
 
         const moduleItems = tracks.slice(0, 3).map(track => {
-            return <SocialSidebarModuleItem key={track.id} track={track} />
+            return <SocialSidebarModuleItem key={track.id} track={track} updateTrackPlays={updateTrackPlays} pauseTrack={pauseTrack} playTrack={playTrack} moduleType={moduleType} currentTrackId={currentTrackId} trackStatus={trackStatus}/>
         });
 
         return (

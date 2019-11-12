@@ -19,19 +19,19 @@ class GalleryStyleItem extends React.Component {
     }
 
     handleArt() {
-        if (document.getElementById(`artwork-image-official${this.props.uni}`)) {
-            document.getElementById(`artwork-image-official${this.props.uni}`).style.backgroundImage = ("url(" + this.props.track.photoUrl + ")");
+        if (document.getElementById(`artwork-image${this.props.uni}`)) {
+            document.getElementById(`artwork-image${this.props.uni}`).style.backgroundImage = ("url(" + this.props.track.photoUrl + ")");
         }
     }
 
     showControls() {
-        document.getElementById(`splash-main-content1-trendingtracks-tile-playbtn-container${this.props.track.id}`).style.opacity = "1"
-        document.getElementById(`splash-main-content1-trendingtracks-tile-playbtn-container${this.props.track.id}`).style.visibility = "visible"
+        document.getElementById(`tile-playbtn-container${this.props.track.id}`).style.opacity = "1"
+        document.getElementById(`tile-playbtn-container${this.props.track.id}`).style.visibility = "visible"
     }
 
     hideControls() {
-        document.getElementById(`splash-main-content1-trendingtracks-tile-playbtn-container${this.props.track.id}`).style.opacity = "0"
-        document.getElementById(`splash-main-content1-trendingtracks-tile-playbtn-container${this.props.track.id}`).style.visibility = "hidden"
+        document.getElementById(`tile-playbtn-container${this.props.track.id}`).style.opacity = "0"
+        document.getElementById(`tile-playbtn-container${this.props.track.id}`).style.visibility = "hidden"
     }
 
     togglePlay() {
@@ -72,19 +72,20 @@ class GalleryStyleItem extends React.Component {
                         <div 
                             className="splash-main-content1-trendingtracks-tile-artwork"
                             onMouseEnter={this.showControls}
-                            onMouseLeave={this.hideControls}>
+                            onMouseLeave={this.hideControls}
+                            >
                             <div className="splash-main-content1-trendingtracks-tile-artwork-image">
                                 <div className="image-placeholder">
                                     <span
-                                        id={`artwork-image-official${uni}`}
-                                        className="artwork-image-official"
+                                        id={`artwork-image${uni}`}
+                                        className="artwork-image"
                                         >
                                         </span>
                                 </div>
                             </div>
                             <div
-                                id={`splash-main-content1-trendingtracks-tile-playbtn-container${track.id}`}
-                                className="splash-main-content1-trendingtracks-tile-playbtn-container">
+                                id={`tile-playbtn-container${track.id}`}
+                                className="tile-playbtn-container">
                                 <button
                                     className="shtitle-play"
                                 // style={{ opacity: "0", visibility: "hidden" }}

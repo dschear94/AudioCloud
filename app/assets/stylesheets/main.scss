@@ -412,7 +412,7 @@
     cursor: pointer;
 }
 
-.artwork-image-official {
+.artwork-image {
     width: 100%;
     height: 100%;
     opacity: 1;
@@ -431,7 +431,7 @@
 //     visibility: visible;
 // }
 
-.splash-main-content1-trendingtracks-tile-playbtn-container {
+.tile-playbtn-container {
     opacity: 0;
     visibility: hidden;
     transition: opacity .1s,visibility .1s;

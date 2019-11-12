@@ -5,7 +5,8 @@ import {
  } from 'react-router-dom';
 import { withRouter } from 'react-router-dom';
 import { faUser, faHeart, faChild, faSignOutAlt, faAngleDown } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import Avatar from '../artwork/avatar'
 
 
 
@@ -146,7 +147,8 @@ class Navbar extends React.Component {
                                     className="nav-userbtn"
                                     >
                                     <div className="nav-avatar">
-                                        <div className="artistAvImage" style={{ backgroundImage: currentUser ? "url(" + currentUser.avatar + ")" : null}}></div>
+                                        {/* <div className="artwork-image" style={{ backgroundImage: currentUser ? "url(" + currentUser.avatar + ")" : null}}></div> */}
+                                        <Avatar currentUser={currentUser} />
                                     </div>
                                     <div className="nav-username">
                                         <div className="nav-username-content">

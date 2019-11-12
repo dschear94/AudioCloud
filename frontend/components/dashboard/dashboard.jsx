@@ -109,7 +109,7 @@ class Dashboard extends React.Component {
     }
 
     handleArt() {
-        document.getElementById("artistAvImage").style.backgroundImage = "url(" + this.props.artist.avatar + ")"
+        document.getElementById("artwork-image").style.backgroundImage = "url(" + this.props.artist.avatar + ")"
     }
 
     handleSubmit(e) {
@@ -231,8 +231,8 @@ class Dashboard extends React.Component {
                                     {/* image goes here inside span*/}
                                     <div 
                                     // style={{ backgroundImage: "url(" + this.props.artist.avatar + ")" }}
-                                    id="artistAvImage"
-                                    className="artistAvImage"
+                                    id="artwork-image"
+                                    className="artwork-image"
                                     ></div>
                                     {avatarEdit}
                                 </div>
