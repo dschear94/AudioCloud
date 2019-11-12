@@ -33,13 +33,13 @@ class TrackBadgeItem extends React.Component {
     // }
 
     showControls() {
-        document.getElementById(`tile-playbtn-container${this.props.track.id}`).style.opacity = "1"
-        document.getElementById(`tile-playbtn-container${this.props.track.id}`).style.visibility = "visible"
+        document.getElementById(`${this.props.moduleType}tile-playbtn-container${this.props.track.id}`).style.opacity = "1"
+        document.getElementById(`${this.props.moduleType}tile-playbtn-container${this.props.track.id}`).style.visibility = "visible"
     }
 
     hideControls() {
-        document.getElementById(`tile-playbtn-container${this.props.track.id}`).style.opacity = "0"
-        document.getElementById(`tile-playbtn-container${this.props.track.id}`).style.visibility = "hidden"
+        document.getElementById(`${this.props.moduleType}tile-playbtn-container${this.props.track.id}`).style.opacity = "0"
+        document.getElementById(`${this.props.moduleType}tile-playbtn-container${this.props.track.id}`).style.visibility = "hidden"
     }
 
     togglePlay() {
@@ -57,7 +57,7 @@ class TrackBadgeItem extends React.Component {
     }
 
     render() {
-        const { track, currentTrackId, trackStatus } = this.props;
+        const { track, currentTrackId, trackStatus, moduleType } = this.props;
         const playPause = (currentTrackId === track.id && trackStatus === "playing") ?
             <FontAwesomeIcon icon={faPause} /> : <FontAwesomeIcon icon={faPlay} />; 
         return (
@@ -77,7 +77,7 @@ class TrackBadgeItem extends React.Component {
                         </div>
                             
                         <div 
-                                id={`tile-playbtn-container${track.id}`}
+                            id={`${moduleType}tile-playbtn-container${track.id}`}
                             className="tile-playbtn-container">
                             <button
                                 className="shtitle-play"

@@ -16,16 +16,26 @@ class LibraryOverview extends React.Component {
     }
 
     componentDidMount() {
+        document.body.scrollTop = document.documentElement.scrollTop = 0;
         this.props.fetchTracksByLikes(this.props.currentUser.id);
         this.props.fetchTracksByRecentPlays(this.props.currentUser.id);
     }
 
+    // shouldComponentUpdate(prevProps, prevState) {
+    //     debugger
+    //     if (this.props.likedTracks.length === prevProps.likedTracks.length) {
+    //         return false;
+    //     } else {
+    //         return true;
+    //     }
+    // }
+
     render() {
         const { likedTracks, recentPlays, updateTrackPlays, pauseTrack, playTrack, currentTrackId, trackStatus} = this.props;
 
-        const historyBadgeItems = recentPlays.map(track => 
+        const historyBadgeItems = recentPlays.reverse().slice(0, 6).map(track => 
             <TrackBadgeItem
-                module={"recentPlays"}
+                moduleType={"recentPlays"}
                 currentTrackId={currentTrackId}
                 key={track.id}
                 track={track}
@@ -36,9 +46,9 @@ class LibraryOverview extends React.Component {
         />
         )
 
-        const likesBadgeItems = likedTracks.map(track => 
+        const likesBadgeItems = likedTracks.slice(0, 6).map(track => 
             <TrackBadgeItem
-                module={"likedTracks"}
+                moduleType={"likedTracks"}
                 currentTrackId={currentTrackId}
                 key={track.id} 
                 track={track} 
