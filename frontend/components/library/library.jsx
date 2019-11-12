@@ -16,6 +16,7 @@ import LibAlbumsContainer from './lib_albums_container';
 import LibStationsContainer from './lib_stations_container';
 import LibFollowingContainer from './lib_following_container';
 import LibHistoryContainer from './lib_history_container';
+// import LibHistory from './lib_history';
 
 class Library extends React.Component {
     constructor(props) {
