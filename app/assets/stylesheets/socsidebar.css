@@ -1,0 +1,140 @@
+.content-right-container {
+    position: absolute;
+    top: 30px;
+    bottom: 0;
+    right: 0;
+    width: 300px;
+}
+
+.content-right-module {
+    margin-bottom: 20px;
+    transition: all .2s linear;
+} 
+
+.cr-module-header {
+        color: #999;
+        height: 30px;
+        justify-content: space-between;
+        display: flex;
+        flex-direction: row;
+            align-items: center;
+            border-bottom: 1px solid #f2f2f2;
+}
+
+.cr-module-content {
+    min-height: 210px;
+    padding-top: 5px;
+}
+
+.cr-mod-head-text {
+    margin-top: 0;
+    line-height: 24px;
+    font-weight: 100;
+    color: #999;
+    font-size: 14px;
+}
+
+.module-content-list {
+    list-style: none;
+    margin: 0;
+}
+
+.module-content-list:before {
+    content: "";
+    display: table;
+}
+
+.module-content-list:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.mcli {
+    padding: 5px 0;
+}
+
+.soundbadge-small {
+        padding: 0;
+    left: -6px;
+    margin-right: -6px;
+    position: relative;
+    min-height: 60px;
+        border-radius: 4px;
+            overflow: hidden;
+}
+
+.sb-art {
+        display: inline-block;
+    background: transparent 50%/contain no-repeat;
+    margin-right: 4px;
+    padding: 5px 6px;
+    width: 50px;
+    height: 50px;
+    position: relative;
+    float: left;
+}
+
+.sb-content {
+        margin-top: 4px;
+            overflow: hidden;
+}
+
+.sb-content-info {
+    margin-top: 0;
+    font-size: 14px;
+}
+.sb-content-info:before {
+        content: "";
+    display: table;
+}
+.sb-content-info:after {
+        content: "";
+    display: table;
+    clear: both;
+}
+
+.sb-content-title-ctnr {
+    display: flex;
+        align-items: flex-start;
+        word-break: break-word;
+}
+
+.sbc-title-artist {
+    font-weight: 100;
+    color: #999;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    word-break: normal;
+}
+
+.sbc-title-title {
+    height: 1.3em;
+    float: left;
+        color: #333;
+            max-width: 100%;
+    font-weight: 100;
+    box-sizing: border-box;
+}
+
+.sb-content-stats {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    list-style: none;
+    margin: 0;
+        padding: 0;
+}
+
+.sb-stat {
+    margin-right: 9px;
+        margin-top: 5px;
+    margin-bottom: 5px;
+        color: #999;
+    font-size: 11px;
+    line-height: 12px;
+    display: inline-block;
+    font-family: InterstateSound Tnum,Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;
+    font-weight: 100;
+}

@@ -1,7 +1,8 @@
 import React from 'react';
 import { withRouter, Link } from 'react-router-dom';
-import ListStyle from '../playlist/list_style'
-import GalleryStyle from '../playlist/gallery_style'
+import ListStyle from '../playlist/list_style';
+import GalleryStyle from '../playlist/gallery_style';
+import SocialSidebarContainer from '../social_sidebar/social_sidebar_container'
 
 class Discover extends React.Component {
     constructor(props) {

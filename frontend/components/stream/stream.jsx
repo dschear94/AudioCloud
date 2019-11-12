@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import TrackStreamItem from './track_stream_item';
+import SocialSidebarContainer from '../social_sidebar/social_sidebar_container'
 
 class Stream extends Component {
     constructor(props) {
@@ -42,9 +43,9 @@ class Stream extends Component {
         )
 
         return (
-            <div className="content-left-container">
-                {loader}
-            </div>
+                <div className="content-left-container">
+                    {loader}
+                </div>
         );
     }
 }

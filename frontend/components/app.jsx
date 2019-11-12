@@ -20,6 +20,7 @@ import StreamContainer from './stream/stream_container';
 import ContinuousPlayBar from './continuous_play_bar/continuous_play_bar';
 import TrackShowContainer from './track_show/track_show_container';
 import LibraryContainer from './library/library_container';
+import SocialSideBarContainer from './social_sidebar/social_sidebar_container'
 
 import { SplashyRoute , ProtectedRoute, CPBRoute } from '../util/route_util';
 import { openModal } from '../actions/modal_actions';
@@ -54,6 +55,7 @@ const App = () => (
                         <ProtectedRoute exact path='/:artist/:track' component={TrackShowContainer} />
                         <SplashyRoute exact path="/" component={SplashContainer}/>
                     </Switch>
+                    <ProtectedRoute exact path={['/discover', '/stream']} component={SocialSideBarContainer} />
                     </div>
                 </div>
             </div>
