@@ -17,20 +17,19 @@ class LibraryOverview extends React.Component {
 
     componentDidMount() {
         this.props.fetchTracksByLikes(this.props.currentUser.id);
-        this.props.fetchTracksByRecentPlays(this.props.currentUser.id);
+        // this.props.fetchTracksByRecentPlays(this.props.currentUser.id);
     }
 
     render() {
         const { likedTracks, recentPlays } = this.props;
 
-        const historyBadgeItems = recentPlays.map(track => 
+        const historyBadgeItems = recentPlays.length !== 0 ? recentPlays.map(track => 
             <TrackBadgeItem 
                 track={track} 
                 key={track.id} 
                 track={track} 
                 updateTrackPlays={this.props.updateTrackPlays}
-            />
-        )
+        />) : null;
 
         const likesBadgeItems = likedTracks.map(track => 
             <TrackBadgeItem

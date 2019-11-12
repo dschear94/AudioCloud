@@ -37,7 +37,6 @@ class Api::TracksController < ApplicationController
                 artist: User.find(params[:artist_id])
                 .recent_plays
             )
-debugger
         render :index
     end
 

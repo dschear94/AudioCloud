@@ -40,10 +40,14 @@ export const selectTracksByRecentPlays = (state, artistObj) => {
     let recentlyPlayedTracks = [];
 
     artistObj.recent_plays ? 
-        Object.values(state.entities.tracks).map(track => 
-            track.artist in artistObj.recent_plays ? 
-                recentlyPlayedTracks.push(track) : null
+        artistObj.recent_plays.map(recent_play => 
+            Object.values(state.entities.tracks).forEach(track => {
+                if (recent_play.track_id === track.id) {
+                    recentlyPlayedTracks.push(track);
+                }
+            })
         ) : null;
+        // console.log(recentlyPlayedTracks)
 
     return recentlyPlayedTracks;
 }
