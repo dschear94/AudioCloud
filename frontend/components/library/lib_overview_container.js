@@ -23,24 +23,14 @@ import { playTrack, pauseTrack } from '../../actions/play_status_actions'
 
 const msp = (state, ownProps) => {
 
-    let artist = ownProps.match.params.artist ?
-        ownProps.match.params.artist :
-        state.entities.artists ?
-        state.entities.artists.username : "";
-    
     let currentUser = getCurrentUser(state);
     let currentTrackId = getCurrentTrackId(state);
     let likedTracks = selectTracksByLikes(state, currentUser);
     const trackStatus = state.ui.playStatus;
     const recentPlays = selectTracksByRecentPlays(state, currentUser);
 
-    console.log(recentPlays)
-
     return {
-        artistName: artist || "",
         currentUser: currentUser,
-        artist: state.entities.artists[artist] || {},
-        // tracks: selectTracksByArtist(state, artist),
         likedTracks: likedTracks,
         currentTrackId: currentTrackId,
         trackStatus: trackStatus,

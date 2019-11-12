@@ -24,7 +24,8 @@ class LibraryOverview extends React.Component {
         const { likedTracks, recentPlays, updateTrackPlays, pauseTrack, playTrack, currentTrackId, trackStatus} = this.props;
 
         const historyBadgeItems = recentPlays.map(track => 
-            <TrackBadgeItem 
+            <TrackBadgeItem
+                module={"recentPlays"}
                 currentTrackId={currentTrackId}
                 key={track.id}
                 track={track}
@@ -37,6 +38,7 @@ class LibraryOverview extends React.Component {
 
         const likesBadgeItems = likedTracks.map(track => 
             <TrackBadgeItem
+                module={"likedTracks"}
                 currentTrackId={currentTrackId}
                 key={track.id} 
                 track={track} 

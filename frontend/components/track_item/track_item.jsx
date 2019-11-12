@@ -15,7 +15,7 @@ class TrackItem extends React.Component {
             loading: true
         }
 
-        this.handleArt = this.handleArt.bind(this);
+        // this.handleArt = this.handleArt.bind(this);
         this.togglePlay = this.togglePlay.bind(this);
 
         // let photo = new Image();
@@ -42,9 +42,9 @@ class TrackItem extends React.Component {
     }
 
 
-    handleArt() {
-        document.getElementById(`artwork-image${this.props.track.id}`).style.backgroundImage = ("url(" + this.props.track.photoUrl + ")");
-    }
+    // handleArt() {
+    //     document.getElementById(`artwork-image${this.props.track.id}`).style.backgroundImage = ("url(" + this.props.track.photoUrl + ")");
+    // }
 
     render() {
         const { track, currentTrackId, trackStatus } = this.props;

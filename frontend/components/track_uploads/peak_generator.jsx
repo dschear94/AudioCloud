@@ -113,7 +113,6 @@ class TrackUploadForm extends React.Component {
     }
 
     render() {
-        debugger
         const uploadStep1 = (
             <div
                 className="track-upload-content">

@@ -8,6 +8,8 @@ import WaveForm from '../waveform/waveform';
 
 import ColorThief from 'colorthief';
 import * as Vibrant from 'node-vibrant';
+import Artwork from '../artwork/artwork';
+import Avatar from '../artwork/avatar';
 
 class TrackShow extends React.Component {
     constructor(props) {
@@ -17,7 +19,7 @@ class TrackShow extends React.Component {
             comment: ""
         }
 
-        this.handleArt = this.handleArt.bind(this);
+        // this.handleArt = this.handleArt.bind(this);
         this.handleCommentChange = this.handleCommentChange.bind(this);
         this.handleCommentSubmit = this.handleCommentSubmit.bind(this);
         this.handleLike = this.handleLike.bind(this);
@@ -82,32 +84,31 @@ class TrackShow extends React.Component {
         }
     }
 
-    handleArt(photo) {
-        // const colorThief = new ColorThief();
-        // const img = document.querySelector('img');
-    debugger
+    // handleArt(photo) {
+    //     // const colorThief = new ColorThief();
+    //     // const img = document.querySelector('img');
 
-        // debugger
-        // colorThief.getColor(photo);
-        // debugger
+    //     // debugger
+    //     // colorThief.getColor(photo);
+    //     // debugger
 
-        // debugger
-        // let v = new Vibrant(this.props.currentUser.avatar);
+    //     // debugger
+    //     // let v = new Vibrant(this.props.currentUser.avatar);
 
-        // v.getPalette(palette => console.log(palette));
+    //     // v.getPalette(palette => console.log(palette));
 
-        // Vibrant.from(this.props.currentUser.avatar).getPalette((err, palette) => console.log(palette))
+    //     // Vibrant.from(this.props.currentUser.avatar).getPalette((err, palette) => console.log(palette))
 
-        document.getElementById("artwork-image").style.backgroundImage = "url(" + this.props.track.photoUrl + ")"
-    }
+    //     document.getElementById("artwork-image").style.backgroundImage = "url(" + this.props.track.photoUrl + ")"
+    // }
     
-    handleAvatar() {
-        document.getElementById("av-image").style.backgroundImage = "url(" + this.props.currentUser.avatar + ")"
-    }
+    // handleAvatar() {
+    //     document.getElementById("av-image").style.backgroundImage = "url(" + this.props.currentUser.avatar + ")"
+    // }
 
     render() {
         const {track, updateTrackPlays, comments, fetchTrackComments, currentUser } = this.props;
-
+        debugger
         const likeButton = this.props.currentUser.likedTracks ? 
        ( this.props.track.id in this.props.currentUser.likedTracks ?
            (<button
@@ -148,21 +149,21 @@ class TrackShow extends React.Component {
                 </button>
                 );
 
-        if (track.photoUrl) {
-            let photo = new Image();
-            photo.src = track.photoUrl;
-            photo.onload = () => {
-                this.handleArt(photo);
-            }
-        }
+        // if (track.photoUrl) {
+        //     let photo = new Image();
+        //     photo.src = track.photoUrl;
+        //     photo.onload = () => {
+        //         this.handleArt(photo);
+        //     }
+        // }
 
-        if (currentUser.avatar) {
-            let photo = new Image();
-            photo.src = currentUser.avatar;
-            photo.onload = () => {
-                this.handleAvatar();
-            }
-        }
+        // if (currentUser.avatar) {
+        //     let photo = new Image();
+        //     photo.src = currentUser.avatar;
+        //     photo.onload = () => {
+        //         this.handleAvatar();
+        //     }
+        // }
 
 
         return (
@@ -177,10 +178,11 @@ class TrackShow extends React.Component {
                     <div className="show-h-fg">
                         <div className="s-h-artwork">
                             <div className="image-placeholder">
-                                <span
+                                {/* <span
                                     id="artwork-image"
                                     className="artwork-image"
-                                    ></span>
+                                    ></span> */}
+                                    <Artwork track={track} />
                             </div>
                         </div>
                         <div className="s-h-title">
@@ -250,13 +252,14 @@ class TrackShow extends React.Component {
                                         <div className="le-cc1">
                                             <div className="le-cc2">
                                                 <div className="cf-av">
-                                                    <div 
+                                                    {/* <div 
                                                     id="av-image"
                                                     className="av-image"
                                                     style={{ borderRadius: "0" }}
                                                     >
 
-                                                    </div>
+                                                    </div> */}
+                                                    <Avatar currentUser={currentUser} />
                                                 </div>
                                                 <div className="cf-input-wrapper">
                                                         <input 

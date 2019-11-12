@@ -13,7 +13,6 @@ class Stream extends Component {
     }
 
     componentDidMount() {
-        debugger
         this.props.fetchTracksByFollows(this.props.currentUser.id).then(() => this.setState({loading: false}));
     }
 

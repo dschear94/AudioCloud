@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlay, faPause } from '@fortawesome/free-solid-svg-icons';
 import { relativeTime } from '../../util/time_util';
+import Artwork from '../artwork/artwork';
 
 class TrackBadgeItem extends React.Component {
     constructor(props) {
@@ -12,24 +13,24 @@ class TrackBadgeItem extends React.Component {
             loading: true
         }
 
-        this.handleArt = this.handleArt.bind(this);
+        // this.handleArt = this.handleArt.bind(this);
         this.togglePlay = this.togglePlay.bind(this);
         this.showControls = this.showControls.bind(this);
         this.hideControls = this.hideControls.bind(this);
 
-        let photo = new Image();
-        photo.src = this.props.track.photoUrl;
-        photo.onload = () => {
-            this.handleArt();
-            this.setState({ loading: false });
-        }
+        // let photo = new Image();
+        // photo.src = this.props.track.photoUrl;
+        // photo.onload = () => {
+        //     this.handleArt();
+        //     this.setState({ loading: false });
+        // }
 
     }
 
 
-    handleArt() {
-        document.getElementById(`artwork-image${this.props.track.id}`).style.backgroundImage = ("url(" + this.props.track.photoUrl + ")");
-    }
+    // handleArt() {
+    //     document.getElementById(`artwork-image${this.props.track.id}`).style.backgroundImage = ("url(" + this.props.track.photoUrl + ")");
+    // }
 
     showControls() {
         document.getElementById(`tile-playbtn-container${this.props.track.id}`).style.opacity = "1"
@@ -71,11 +72,7 @@ class TrackBadgeItem extends React.Component {
                     >
                         <div className="splash-main-content1-trendingtracks-tile-artwork-image">
                             <div className="image-placeholder">
-                                <span
-                                    id={`artwork-image${track.id}`}
-                                    className="artwork-image"
-                                >
-                                </span>
+                                <Artwork track={track} />
                             </div>
                         </div>
                             
