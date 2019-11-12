@@ -233,7 +233,7 @@ class TrackShow extends React.Component {
                                         className="waveform-container"
                                         style={{ width: "100%", height: "100%" }}
                                     >
-                                        <WaveForm track={track} />
+                                        {/* <WaveForm track={track} /> */}
                                     </div>
                             </div>
                         </div>

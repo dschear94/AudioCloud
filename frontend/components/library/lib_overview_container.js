@@ -2,9 +2,9 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import LibOverview from './lib_overview';
 import {
-    fetchTracks,
     fetchTracksByArtist,
-    fetchTracksByLikes
+    fetchTracksByLikes,
+    fetchTracksByRecentPlays
 } from '../../actions/track_actions';
 import { updateTrackPlays } from '../../actions/current_track_actions';
 import {
@@ -15,7 +15,8 @@ import {
     selectTracksByLikes,
     getCurrentUser,
     getCurrentTrack,
-    getCurrentTrackId
+    getCurrentTrackId,
+    selectTracksByRecentPlays
 } from '../../reducers/selectors'
 import { playTrack, pauseTrack } from '../../actions/play_status_actions'
 
@@ -31,6 +32,7 @@ const msp = (state, ownProps) => {
     let currentTrackId = getCurrentTrackId(state);
     let likedTracks = selectTracksByLikes(state, currentUser);
     const trackStatus = state.ui.playStatus;
+    const recentPlays = selectTracksByRecentPlays(state, currentUser);
 
     return {
         artistName: artist || "",
@@ -40,6 +42,7 @@ const msp = (state, ownProps) => {
         likedTracks: likedTracks,
         currentTrackId: currentTrackId,
         trackStatus: trackStatus,
+        recentPlays: recentPlays
     }
 
 };
@@ -49,6 +52,7 @@ const mdp = dispatch => ({
     fetchArtist: artist => dispatch(fetchArtist(artist)),
     fetchTracksByArtist: artistId => dispatch(fetchTracksByArtist(artistId)),
     fetchTracksByLikes: artistId => dispatch(fetchTracksByLikes(artistId)),
+    fetchTracksByRecentPlays: artistId => dispatch(fetchTracksByRecentPlays(artistId)),
 
     updateTrackPlays: track => dispatch(updateTrackPlays(track)),
     pauseTrack: () => dispatch(pauseTrack()),

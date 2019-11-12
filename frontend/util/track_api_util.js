@@ -25,6 +25,13 @@ export const fetchTracksByArtist = artistId => {
         url: `/api/tracks/by_artist/${artistId}`,
     });
 }
+
+export const fetchTracksByRecentPlays = artistId => {
+    return $.ajax({
+        method: 'GET',
+        url: `/api/tracks/by_recent_plays/${artistId}`,
+    });
+}
 // export const fetchTrack = () => {
 //     return $.ajax({
 //         method: 'GET',

@@ -36,6 +36,18 @@ export const selectTracksByFollows = (state, artistObj) => {
     return followedArtistTracks;
 }
 
+export const selectTracksByRecentPlays = (state, artistObj) => {
+    let recentlyPlayedTracks = [];
+
+    artistObj.recent_plays ? 
+        Object.values(state.entities.tracks).map(track => 
+            track.artist in artistObj.recent_plays ? 
+                recentlyPlayedTracks.push(track) : null
+        ) : null;
+
+    return recentlyPlayedTracks;
+}
+
 export const selectLikesByTrackId = (state, trackId) => {
 
     let trackLikes = {};

@@ -21,6 +21,12 @@ export const receiveTrack = track => {
     }
 };
 
+export const fetchTracksByRecentPlays = userId => dispatch => {
+    return APIUtil.fetchTracksByRecentPlays(userId).then(tracks => (
+        dispatch(receiveTracks(tracks))
+    ));
+}
+
 export const fetchTracksByFollows = userId => dispatch => {
     return APIUtil.fetchTracksByFollows(userId).then(tracks => (
         dispatch(receiveTracks(tracks))

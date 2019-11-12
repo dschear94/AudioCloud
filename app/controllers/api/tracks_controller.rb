@@ -28,6 +28,19 @@ class Api::TracksController < ApplicationController
         render :index
     end
 
+    def by_recent_plays
+        @tracks = Track.with_attached_audio_file
+            .with_attached_image_file
+            .joins(:artist)
+            .includes(:artist, :comments, :likes)
+            .where(
+                artist: User.find(params[:artist_id])
+                .recent_plays
+            )
+debugger
+        render :index
+    end
+
     def by_likes
         @tracks = User.find(params[:artist_id])
         .liked_tracks

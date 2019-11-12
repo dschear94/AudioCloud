@@ -102,7 +102,7 @@ class TrackItem extends React.Component {
                     id="waveform-container"
                     className="waveform-container"
                     >
-                            <WaveForm track={track} />
+                            {/* <WaveForm track={track} /> */}
                     </div>
                 </div>
                 <div className="act-body-comment">
