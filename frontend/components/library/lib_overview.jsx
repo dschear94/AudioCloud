@@ -17,31 +17,34 @@ class LibraryOverview extends React.Component {
 
     componentDidMount() {
         this.props.fetchTracksByLikes(this.props.currentUser.id);
-        // this.props.fetchTracksByRecentPlays(this.props.currentUser.id);
+        this.props.fetchTracksByRecentPlays(this.props.currentUser.id);
     }
 
     render() {
-        const { likedTracks, recentPlays } = this.props;
+        const { likedTracks, recentPlays, updateTrackPlays, pauseTrack, playTrack, currentTrackId, trackStatus} = this.props;
 
-        const historyBadgeItems = recentPlays.length !== 0 ? recentPlays.map(track => 
+        const historyBadgeItems = recentPlays.map(track => 
             <TrackBadgeItem 
-                track={track} 
-                key={track.id} 
-                track={track} 
-                updateTrackPlays={this.props.updateTrackPlays}
-        />) : null;
+                currentTrackId={currentTrackId}
+                key={track.id}
+                track={track}
+                updateTrackPlays={updateTrackPlays}
+                pauseTrack={pauseTrack}
+                playTrack={playTrack}
+                trackStatus={trackStatus}
+        />
+        )
 
         const likesBadgeItems = likedTracks.map(track => 
             <TrackBadgeItem
-                currentTrackId={this.props.currentTrackId}
-                track={track} 
+                currentTrackId={currentTrackId}
                 key={track.id} 
                 track={track} 
-                updateTrackPlays={this.props.updateTrackPlays}
-                pauseTrack={this.props.pauseTrack}
-                playTrack={this.props.playTrack}
-                currentTrackId={this.props.currentTrackId}
-                trackStatus={this.props.trackStatus}
+                updateTrackPlays={updateTrackPlays}
+                pauseTrack={pauseTrack}
+                playTrack={playTrack}
+                currentTrackId={currentTrackId}
+                trackStatus={trackStatus}
             />
         )
 

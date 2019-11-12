@@ -34,10 +34,13 @@ class Api::TracksController < ApplicationController
             .joins(:artist)
             .includes(:artist, :comments, :likes)
             .where(
-                artist: User.find(params[:artist_id])
-                .recent_plays
+                id: User.find(params[:artist_id]).recent_plays
             )
+
+        # @tracks = Track.where()
+
         render :index
+        debugger
     end
 
     def by_likes

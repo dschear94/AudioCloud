@@ -34,6 +34,8 @@ const msp = (state, ownProps) => {
     const trackStatus = state.ui.playStatus;
     const recentPlays = selectTracksByRecentPlays(state, currentUser);
 
+    console.log(recentPlays)
+
     return {
         artistName: artist || "",
         currentUser: currentUser,

@@ -17,7 +17,6 @@ class Artwork extends React.Component {
 
     render() {
         const { track } = this.props;
-         debugger
         return (
             <span
                 id={`artwork-image${track.id}`}

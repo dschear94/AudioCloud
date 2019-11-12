@@ -148,7 +148,7 @@ class Navbar extends React.Component {
                                     >
                                     <div className="nav-avatar">
                                         {/* <div className="artwork-image" style={{ backgroundImage: currentUser ? "url(" + currentUser.avatar + ")" : null}}></div> */}
-                                        <Avatar currentUser={currentUser} />
+                                        <Avatar currentUser={currentUser ? currentUser : null} />
                                     </div>
                                     <div className="nav-username">
                                         <div className="nav-username-content">

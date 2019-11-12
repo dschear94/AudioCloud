@@ -6,10 +6,12 @@ class Avatar extends React.Component {
     }
 
     shouldComponentUpdate(prevProps, prevState) {
-        if (this.props.currentUser.id === prevProps.currentUser.id) {
-            return false;
-        } else {
-            return true;
+        if (this.props.currentUser) {
+            if (this.props.currentUser.id === prevProps.currentUser.id) {
+                return false;
+            } else {
+                return true;
+            }
         }
     }
 
@@ -18,11 +20,13 @@ class Avatar extends React.Component {
     render() {
         const { currentUser } = this.props;
 
+        const avatar = currentUser ? (<span
+            className="artwork-image"
+            style={{ backgroundImage: "url(" + currentUser.avatar + ")" }}
+        ></span>) : (<div></div>);
+
         return (
-            <span
-                className="artwork-image"
-                style={{ backgroundImage: "url(" + currentUser.avatar + ")"}}
-            ></span>
+            avatar
         )
     }
 };
