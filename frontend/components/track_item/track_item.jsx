@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlay, faPause } from '@fortawesome/free-solid-svg-icons';
 import { relativeTime } from '../../util/time_util';
 import WaveForm from '../waveform/waveform';
+import Artwork from '../artwork/artwork';
 
 // const TrackItem = ({ track, updateTrackPlays }) => (
 class TrackItem extends React.Component {
@@ -55,11 +56,7 @@ class TrackItem extends React.Component {
                 <div className="activity-artwork">
                     <div className="act-artwork-container">
                         <div className="image-placeholder">
-                            <span
-                                id={`artwork-image${track.id}`}
-                                className="artwork-image"
-                                style={{ backgroundImage: "url(" + track.photoUrl + ")" }}
-                                ></span>
+                            <Artwork track={track}/>
                         </div>
                     </div>
                 </div>

@@ -2,6 +2,7 @@ import React from 'react';
 import { withRouter, Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlay, faPause } from '@fortawesome/free-solid-svg-icons';
+import Artwork from '../artwork/artwork';
 
 class GalleryStyleItem extends React.Component {
     constructor(props) {
@@ -11,18 +12,18 @@ class GalleryStyleItem extends React.Component {
             loading: true
         }
         
-        this.handleArt = this.handleArt.bind(this);
+        // this.handleArt = this.handleArt.bind(this);
         this.togglePlay = this.togglePlay.bind(this);
         this.showControls = this.showControls.bind(this);
         this.hideControls = this.hideControls.bind(this);
 
     }
 
-    handleArt() {
-        if (document.getElementById(`artwork-image${this.props.uni}`)) {
-            document.getElementById(`artwork-image${this.props.uni}`).style.backgroundImage = ("url(" + this.props.track.photoUrl + ")");
-        }
-    }
+    // handleArt() {
+    //     if (document.getElementById(`artwork-image${this.props.uni}`)) {
+    //         document.getElementById(`artwork-image${this.props.uni}`).style.backgroundImage = ("url(" + this.props.track.photoUrl + ")");
+    //     }
+    // }
 
     showControls() {
         document.getElementById(`tile-playbtn-container${this.props.track.id}`).style.opacity = "1"
@@ -55,11 +56,11 @@ class GalleryStyleItem extends React.Component {
         const playPause = (currentTrackId === track.id && trackStatus === "playing") ?
             <FontAwesomeIcon icon={faPause} /> : <FontAwesomeIcon icon={faPlay} />; 
 
-        let photo = new Image();
-        photo.src = track.photoUrl;
-        photo.onload = () => {
-            this.handleArt();
-        }
+        // let photo = new Image();
+        // photo.src = track.photoUrl;
+        // photo.onload = () => {
+        //     this.handleArt();
+        // }
 
             return (
 
@@ -76,11 +77,12 @@ class GalleryStyleItem extends React.Component {
                             >
                             <div className="splash-main-content1-trendingtracks-tile-artwork-image">
                                 <div className="image-placeholder">
-                                    <span
+                                    {/* <span
                                         id={`artwork-image${uni}`}
                                         className="artwork-image"
                                         >
-                                        </span>
+                                        </span> */}
+                                        <Artwork track={track}/>
                                 </div>
                             </div>
                             <div

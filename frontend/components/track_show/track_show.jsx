@@ -85,7 +85,7 @@ class TrackShow extends React.Component {
     handleArt(photo) {
         // const colorThief = new ColorThief();
         // const img = document.querySelector('img');
-
+    debugger
 
         // debugger
         // colorThief.getColor(photo);

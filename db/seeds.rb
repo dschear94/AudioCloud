@@ -22,7 +22,6 @@ alex = User.create({username: "alex", password:"123456", email:"12315237@aol.com
 nick = User.create({username: "nick", password:"123456", email:"123234237@aol.com", gender:"male", age: 8});
 sam = User.create({username: "sam", password:"123456", email:"123117@aol.com", gender:"male", age: 8});
 ryan = User.create({username: "ryan", password:"123456", email:"1222237@aol.com", gender:"male", age: 8});
-dean = User.create({username: "dean", password:"123456", email:"12333337@aol.com", gender:"male", age: 8});
 
 imagefile1 = open('https://audiocloud-ds-seeds.s3.amazonaws.com/IMG_4381.jpg')
 imagefile2 = open('https://audiocloud-ds-seeds.s3.amazonaws.com/IMG_4416.jpg')

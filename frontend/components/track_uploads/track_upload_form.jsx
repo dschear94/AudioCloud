@@ -38,15 +38,57 @@ class TrackUploadForm extends React.Component {
         document.getElementById('uploadhidden2').click();
     }
 
+    // handleTrackFile(e) {
+    //     e.preventDefault();
+    //     const file = e.currentTarget.files[0];
+    //     const fileReader = new FileReader();
+    //     fileReader.onloadend = () => {
+    //         this.setState({ trackFile: file, trackUrl: fileReader.result });
+    //     };
+    //     if (file) {
+    //         fileReader.readAsDataURL(file);
+    //     }
+    // }
+
     handleTrackFile(e) {
         e.preventDefault();
         const file = e.currentTarget.files[0];
         const fileReader = new FileReader();
         fileReader.onloadend = () => {
             this.setState({ trackFile: file, trackUrl: fileReader.result });
+            // let audioData = fileReader.result;
+            // var audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+            // let source;
+            // function getData() {
+            //     source = audioCtx.createBufferSource();
+            //     console.log(audioData)
+            //     const data = new Uint16Array(audioData);
+            //     console.log(data);
+            //     audioCtx.decodeAudioData(audioData).then(decodedData => console.log(decodedData))
+            // }
+
+            // getData();
         };
         if (file) {
             fileReader.readAsDataURL(file);
+            // fileReader.readAsArrayBuffer(file)
+            // .then(audioData => {
+            //     var audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+            //     let source;
+
+            //     function getData() {
+            //         source = audioCtx.createBufferSource();
+            //         audioCtx.decodeAudioData(audioData).then(decodedData => console.log(decodedData))
+            //     }
+    
+            //     getData();
+            // })
+
+
+
+
+
+            // debugger
         }
     }
 
@@ -54,11 +96,13 @@ class TrackUploadForm extends React.Component {
         e.preventDefault();
         const file = e.currentTarget.files[0];
         const fileReader = new FileReader();
+        
         fileReader.onloadend = () => {
             this.setState({ photoFile: file, photoUrl: fileReader.result });
         };
         if (file) {
             fileReader.readAsDataURL(file);
+            
         }
     }
 

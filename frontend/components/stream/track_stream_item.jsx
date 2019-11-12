@@ -4,6 +4,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlay } from '@fortawesome/free-solid-svg-icons';
 import {relativeTime} from '../../util/time_util';
 import TrackItem from '../track_item/track_item'
+import Artwork from '../artwork/artwork';
+import Avatar2 from '../artwork/avatar2'
 // import WaveFormContainer from '../waveform/waveform';
 
 const TrackStreamItem = ({ track, updateTrackPlays, trackStatus, currentTrackId, pauseTrack, playTrack }) => (
@@ -17,7 +19,8 @@ const TrackStreamItem = ({ track, updateTrackPlays, trackStatus, currentTrackId,
                         >
                             <div
                                 className="av-image"
-                                style={{ backgroundImage: "url(" + track.artistAvatar + ")" }}>
+                                >
+                                    <Avatar2 track={track}/>
                             </div>
                         </div>
                     </div>
