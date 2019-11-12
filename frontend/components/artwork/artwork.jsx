@@ -17,12 +17,23 @@ class Artwork extends React.Component {
 
     render() {
         const { track } = this.props;
-        return (
+        const artwork = track.photoUrl ? (
             <span
                 id={`artwork-image${track.id}`}
                 className="artwork-image"
                 style={{ backgroundImage: "url(" + track.photoUrl + ")", cursor: "auto" }}
             ></span>
+        ) : (<div></div>)
+        return (
+            // <span
+            //     id={`artwork-image${track.id}`}
+            //     className="artwork-image"
+            //     style={{ backgroundImage: "url(" + track.photoUrl + ")", cursor: "auto" }}
+            // ></span>
+            <div
+                style={{ height: "100%", width: "100%"}}>
+                    {artwork}
+            </div>
         )
     }
 };

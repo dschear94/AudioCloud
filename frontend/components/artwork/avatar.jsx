@@ -20,13 +20,16 @@ class Avatar extends React.Component {
     render() {
         const { currentUser } = this.props;
 
-        const avatar = currentUser ? (<span
+        const avatar = currentUser.avatar ? (<span
             className="artwork-image"
             style={{ backgroundImage: "url(" + currentUser.avatar + ")" }}
         ></span>) : (<div></div>);
 
         return (
-            avatar
+            < div
+                style = {{ height: "100%", width: "100%" }}>
+                { avatar }
+            </div >
         )
     }
 };

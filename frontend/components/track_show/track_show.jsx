@@ -31,7 +31,6 @@ class TrackShow extends React.Component {
     }
 
     togglePlay() {
-        debugger
         if (this.props.currentTrackId === this.props.track.id) {
             if (this.props.trackStatus === "playing") {
 
@@ -40,7 +39,6 @@ class TrackShow extends React.Component {
                 return this.props.playTrack();
             }
         } else {
-            debugger
 
             this.props.updateTrackPlays(this.props.track).then(() => this.props.playTrack())
         }
@@ -196,10 +194,6 @@ class TrackShow extends React.Component {
                     <div className="show-h-fg">
                         <div className="s-h-artwork">
                             <div className="image-placeholder">
-                                {/* <span
-                                    id="artwork-image"
-                                    className="artwork-image"
-                                    ></span> */}
                                     <Artwork track={track} />
                             </div>
                         </div>
@@ -331,11 +325,11 @@ class TrackShow extends React.Component {
                             </div>
                         </div>
                         <div className="show-main-container">
-                            <TrackCommentIndexContainer 
+                            {/* <TrackCommentIndexContainer 
                                 comments={comments} 
                                 track={track} 
                                 fetchTrackComments={fetchTrackComments} 
-                            />
+                            /> */}
                         </div>
                     </div>
                 </div>

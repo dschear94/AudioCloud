@@ -48,7 +48,7 @@ class SessionForm extends React.Component {
             user: this.state.user
         })
         if (this.state.user.password.length < 6 ) {
-            // this.state.errors.push('Password must be 6 characters or more');
+            // this.state.errors.('Password must be 6 characters or more');
             this.setState({
                 formType: 'signup',
                 user: this.state.user,
