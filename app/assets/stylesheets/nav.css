@@ -394,7 +394,7 @@
     min-height: auto;
     position: fixed;
     top: 46px;
-    left: 1100px;
+    /* left: 1100px; */
     z-index: 1100;
     color: #999;
 }

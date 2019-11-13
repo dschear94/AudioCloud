@@ -40,7 +40,9 @@ class Navbar extends React.Component {
         className="nav-dd-bg"
         onClick={this.handleDD}
         >
-        <div className="nav-dropdown-container">
+        <div 
+                style={{ left: document.getElementById("nav-userbtn").getBoundingClientRect().left}}
+        className="nav-dropdown-container">
             <ul className="nav-dd-list">
                 <li className="nav-dd-listitem">
                     <Link
@@ -151,6 +153,7 @@ class Navbar extends React.Component {
                             <div className="nav-usernav">
                                 <div 
                                     onClick={this.handleDD}
+                                    id="nav-userbtn"
                                     className="nav-userbtn"
                                     >
                                     <div className="nav-avatar">
