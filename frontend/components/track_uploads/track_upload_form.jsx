@@ -11,6 +11,7 @@ class TrackUploadForm extends React.Component {
             trackUrl: null,
             photoFile: null,
             photoUrl: null,
+            loading: false
         };
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleTrackFile = this.handleTrackFile.bind(this);

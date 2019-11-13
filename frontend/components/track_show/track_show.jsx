@@ -325,11 +325,11 @@ class TrackShow extends React.Component {
                             </div>
                         </div>
                         <div className="show-main-container">
-                            {/* <TrackCommentIndexContainer 
+                            <TrackCommentIndexContainer 
                                 comments={comments} 
                                 track={track} 
                                 fetchTrackComments={fetchTrackComments} 
-                            /> */}
+                            />
                         </div>
                     </div>
                 </div>

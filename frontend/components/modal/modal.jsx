@@ -5,6 +5,7 @@ import EntryFormContainer from '../session_form/entry_form_container';
 import LoginFormContainer from '../session_form/login_form_container';
 import SignupFormContainer from '../session_form/signup_form_container';
 import AvatarUpload from '../avatar_upload/avatar_upload';
+import HeaderImageUpload from '../avatar_upload/header_image_upload'
 
 function Modal(state) {
     let { modal, closeModal } = state;
@@ -30,6 +31,9 @@ function Modal(state) {
             break;
         case 'avatar':
             component = <AvatarUpload/>;
+            break;
+        case 'headerImage':
+            component = <HeaderImageUpload/>;
             break;
         default:
             return null;

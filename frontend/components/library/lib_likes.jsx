@@ -40,7 +40,7 @@ class LibLikes extends React.Component {
                 <div className="historyCollection">
                     <div className="playHistory">
                         <div className="playHistoryHeader">
-                            <h2 className="phHeaderText">Recently played</h2>
+                            <h2 className="phHeaderText">Liked tracks</h2>
                         </div>
                         <div className="playHistoryContent">
                             <div className="phBadges">

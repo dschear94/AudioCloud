@@ -14,7 +14,8 @@ class Discover extends React.Component {
     }
 
     componentDidMount() {
-        this.props.fetchTracks().then(() => this.setState({loading: false}));
+        this.props.fetchTracks().then(() => this.setState({ loading: false }))
+        // window.onload = () => this.setState({ loading: false })
     }
 
     render() {

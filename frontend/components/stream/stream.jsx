@@ -13,7 +13,8 @@ class Stream extends Component {
     }
 
     componentDidMount() {
-        this.props.fetchTracksByFollows(this.props.currentUser.id).then(() => this.setState({loading: false}));
+        this.props.fetchTracksByFollows(this.props.currentUser.id).then(() => this.setState({ loading: false }))
+        // window.onload = () => this.setState({ loading: false })
     }
 
     render() {

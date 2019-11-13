@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPlay, faPause, faForward, faBackward, faRandom, faVolumeUp } from '@fortawesome/free-solid-svg-icons';
+import { faPlay, faPause, faForward, faBackward, faRandom, faVolumeUp, faVolumeOff } from '@fortawesome/free-solid-svg-icons';
 import { fetchTracks } from '../../actions/track_actions';
 import { withRouter } from 'react-router-dom';
 import { playTrack, pauseTrack } from '../../actions/play_status_actions'
@@ -34,11 +34,14 @@ class ContinuousPlayBar extends React.Component {
             duration: "0:00",
             currentTime: "0:00",
             drag: false,
-            playing: false
+            playing: false,
+            volumeOn: true,
         }
 
         this.trackPause = this.trackPause.bind(this);
         this.trackPlay = this.trackPlay.bind(this);
+        this.handleVolume = this.handleVolume.bind(this);
+        this.showVolume = this.showVolume.bind(this);
         this.handleMetaData = this.handleMetaData.bind(this);
         this.handleCurrentTime = this.handleCurrentTime.bind(this);
         this.handleProgressMouseDown = this.handleProgressMouseDown.bind(this);
@@ -46,6 +49,20 @@ class ContinuousPlayBar extends React.Component {
         this.handleProgressDrag = this.handleProgressDrag.bind(this);
         this.handleProgressDragStart = this.handleProgressDragStart.bind(this);
         this.handleProgressDragEnd = this.handleProgressDragEnd.bind(this);
+    }
+
+    handleVolume() {
+        if (document.getElementById("currentTrack").volume === 0) {
+            document.getElementById("currentTrack").volume = 1;
+            this.setState({volumeOn: true})
+        } else {
+            document.getElementById("currentTrack").volume = 0;
+            this.setState({ volumeOn: false })
+        }
+    }
+
+    showVolume() {
+
     }
 
     componentDidUpdate(prevProps, prevState) {
@@ -381,6 +398,12 @@ class ContinuousPlayBar extends React.Component {
                 </button>
         );
 
+        const volume = this.state.volumeOn ? (
+            <FontAwesomeIcon icon={faVolumeUp} />
+        ) : (
+            <FontAwesomeIcon icon={faVolumeOff} />
+        );
+
         return (
             <div className="cpb">
                 {audio}
@@ -468,11 +491,15 @@ class ContinuousPlayBar extends React.Component {
                             </div>
                             <div className="cpb-volume">
                                 <div className="cpb-volume-wrapper">
-                                    <button 
+                                    <button
+                                        id="cpb-volume-btn"
                                     className="cpb-volume-btn"
-                                    type="button">
+                                    type="button"
+                                    onClick={this.handleVolume}
+                                    onMouseOver={this.showVolume}
+                                    >
 
-                                        <FontAwesomeIcon icon={faVolumeUp} />
+                                        {volume}
                                     </button>
                                 </div>
                             </div>

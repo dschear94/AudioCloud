@@ -3,19 +3,19 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { closeModal } from '../../actions/modal_actions';
 import {
-    sendAvatar,
-    clearAvatar,
+    sendHeaderImage,
+    clearHeaderImage,
 } from '../../actions/dashboardImageUpload_actions';
 import {
     updateUser
 } from '../../actions/session_actions'
 
-class AvatarUpload extends React.Component {
+class HeaderImageUpload extends React.Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            avatarUrl: null
+            headerImage: null
         }
 
         this.handleSave = this.handleSave.bind(this);
@@ -24,49 +24,54 @@ class AvatarUpload extends React.Component {
     componentDidMount() {
         const fileReader = new FileReader();
         fileReader.onloadend = () => {
-            this.setState({ avatarUrl: fileReader.result });
+            this.setState({ headerImageUrl: fileReader.result });
         };
-        fileReader.readAsDataURL(this.props.avatar);
+        fileReader.readAsDataURL(this.props.headerImage);
     }
 
     componentWillUnmount() {
-        this.props.clearAvatar()
+        this.props.clearHeaderImage()
     }
 
     handleSave(e) {
         e.preventDefault();
         const trackFormData = new FormData();
-        trackFormData.append('user[avatar]', this.props.avatar);
+        trackFormData.append('user[headerImage]', this.props.headerImage);
         trackFormData.append('user[username]', this.props.user.username);
-        this.props.updateUser(trackFormData).then(() => this.props.history.replace(`/${this.props.user.username}`))
-            // .then((() => this.props.history.push("/discover")))
+        return this.props.updateUser(trackFormData).then(() => this.props.history.push(this.props.currentUser.username))
+        // .then((() => this.props.history.push("/discover")))
     }
 
     render() {
-        const avatarImage = this.state.avatarUrl ? <img src={this.state.avatarUrl}/> : null;
+        const headerImage = this.state.headerImageUrl ? 
+        <img 
+        style={{height:"100%"}}
+        src={this.state.headerImageUrl} /> : null;
         return (
             <div>
-                <h2 className="avatarUploadUsername">
+                <h2 className="headerImageUploadUsername">
                     {/* currentuser goes here */}
                 </h2>
-                <div className="avatarImageContainer">
-                    {avatarImage}
+                <div 
+                style={{height: "300px"}}
+                className="headerImageImageContainer">
+                    {headerImage}
                 </div>
-                <div className="avatarFooterContainer">
-                    <div className="avatarFooterErrors">
+                <div className="headerImageFooterContainer">
+                    <div className="headerImageFooterErrors">
                         {/* display errors here */}
                     </div>
                     <div className="afBtns">
-                        <button 
+                        <button
                             className="afCancel"
                             onClick={this.props.closeModal}
-                            >
+                        >
                             Cancel
                         </button>
-                        <button 
+                        <button
                             className="afSave"
                             onClick={this.handleSave}
-                            >
+                        >
                             Save
                         </button>
 
@@ -79,10 +84,10 @@ class AvatarUpload extends React.Component {
 
 const mapStateToProps = (state, ownProps) => {
     // let avatar = state.ui.dashboardImageUpload
-    let avatar = state.ui.dashboardImageUpload.avatar;
+    let headerImage = state.ui.dashboardImageUpload.headerImage;
     let user = Object.values(state.entities.users)[0];
     return {
-        avatar: avatar,
+        headerImage: headerImage,
         user: user
     };
 };
@@ -90,12 +95,12 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = dispatch => {
     return {
         closeModal: () => dispatch(closeModal()),
-            
-        sendAvatar: avatar => dispatch(sendAvatar(avatar)),
-        clearAvatar: () => dispatch(clearAvatar()),
+
+        sendHeaderImage: headerImage => dispatch(sendHeaderImage(headerImage)),
+        clearHeaderImage: () => dispatch(clearHeaderImage()),
 
         updateUser: updatedUser => dispatch(updateUser(updatedUser))
     };
 };
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(AvatarUpload));
+export default connect(mapStateToProps, mapDispatchToProps)(HeaderImageUpload);

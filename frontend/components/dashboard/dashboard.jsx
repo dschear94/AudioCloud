@@ -12,6 +12,7 @@ import ArtistTracksContainer from './artist_tracks_container';
 import ArtistAllContainer from './artist_all_container';
 import { faUserPlus, faChild } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import Avatar from '../artwork/avatar'
 
 class Dashboard extends React.Component {
     constructor(props) {
@@ -25,9 +26,9 @@ class Dashboard extends React.Component {
         };
 
         this.handleAvatarFile = this.handleAvatarFile.bind(this);
-        // this.handleHeaderImageFile = this.handleHeaderImageFile.bind(this);
+        this.handleHeaderImageFile = this.handleHeaderImageFile.bind(this);
         this.triggerAvatarInput = this.triggerAvatarInput.bind(this);
-        // this.triggerHeaderImageInput = this.triggerHeaderImageInput.bind(this);
+        this.triggerHeaderImageInput = this.triggerHeaderImageInput.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleInput = this.handleInput.bind(this);
 
@@ -108,9 +109,28 @@ class Dashboard extends React.Component {
         }
     }
 
-    handleArt() {
-        document.getElementById("artwork-image").style.backgroundImage = "url(" + this.props.artist.avatar + ")"
+    triggerHeaderImageInput(e) {
+        e.preventDefault();
+        document.getElementById('userHeaderImageInput').click();
     }
+
+    handleHeaderImageFile(e) {
+        e.preventDefault();
+        const file = e.currentTarget.files[0];
+        const fileReader = new FileReader();
+        fileReader.onloadend = () => {
+            this.setState({ headerImageFile: file, headerImageUrl: fileReader.result });
+        };
+        if (file) {
+            fileReader.readAsDataURL(file);
+            this.props.sendHeaderImage(file);
+            this.props.openModal('headerImage');
+        }
+    }
+
+    // handleArt() {
+    //     document.getElementById("artwork-image").style.backgroundImage = "url(" + this.props.artist.avatar + ")"
+    // }
 
     handleSubmit(e) {
         e.preventDefault();
@@ -143,10 +163,20 @@ class Dashboard extends React.Component {
 
         const headerImageEdit = 
         this.props.artistName === this.props.currentUser.username ?
-                (<button className="headerImageEditBtn">
-                    {/* update for current/noncurrent user */}
+                (<div><button 
+                className="headerImageEditBtn"
+                onClick={this.triggerHeaderImageInput} 
+                >
+
                     Update Image
-                </button>) : null;
+                </button>
+                    <input
+                        id="userHeaderImageInput"
+                        className="hiddeninput"
+                        type="file"
+                        style={{ opacity: "0" }}
+                        onChange={this.handleHeaderImageFile}
+                    /></div>) : null;
 
         const avatarEdit = 
         this.props.artistName === this.props.currentUser.username ?
@@ -166,13 +196,13 @@ class Dashboard extends React.Component {
                 </div>) : null;
 
 
-        if (artist.avatar) {
-            let photo = new Image();
-            photo.src = artist.avatar;
-            photo.onload = () => {
-                this.handleArt();
-            }
-        }
+        // if (artist.avatar) {
+        //     let photo = new Image();
+        //     photo.src = artist.avatar;
+        //     photo.onload = () => {
+        //         this.handleArt();
+        //     }
+        // }
 
         const followBtn = currentUser.following ? 
         (artistName in currentUser.following ? (
@@ -229,11 +259,12 @@ class Dashboard extends React.Component {
                             <div className="phInfoAvatarContainer">
                                 <div className="phAvatarImage">
                                     {/* image goes here inside span*/}
-                                    <div 
+                                    {/* <div 
                                     // style={{ backgroundImage: "url(" + this.props.artist.avatar + ")" }}
                                     id="artwork-image"
                                     className="artwork-image"
-                                    ></div>
+                                    ></div> */}
+                                    <Avatar currentUser={currentUser} />
                                     {avatarEdit}
                                 </div>
                             </div>
