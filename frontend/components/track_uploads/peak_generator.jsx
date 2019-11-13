@@ -50,7 +50,6 @@ class TrackUploadForm extends React.Component {
     //     }
     // }
     handleTrackFile(e) {
-        console.log("called!")
         e.preventDefault();
         const file = e.currentTarget.files[0];
         const fileReader = new FileReader();

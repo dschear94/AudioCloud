@@ -10,7 +10,6 @@ import {
 
 const currentTrackReducer = (state = null, action) => {
     Object.freeze(state);
-    console.log(state)
     switch (action.type) {
         case RECEIVE_CURRENT_TRACK:
             return createCurrentTrackPlaying(action.track);
