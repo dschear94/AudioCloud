@@ -9,14 +9,17 @@ class TrackCommentIndex extends React.Component {
 
     componentDidMount() {
         if (this.props.track.id) {
+            // this.props.fetchArtistsByTrackComments(this.props.track.id)
             this.props.fetchTrackComments(this.props.track.id)
         }
     }
 
     componentDidUpdate(prevProps) {
         if (this.props.track.id !== prevProps.track.id) {
+            // this.props.fetchArtistsByTrackComments(this.props.track.id)
             this.props.fetchTrackComments(this.props.track.id)
         }
+        // this.props.fetchArtistsByTrackComments(this.props.track.id)
     }
 
     componentWillUnmount() {
@@ -24,10 +27,12 @@ class TrackCommentIndex extends React.Component {
     }
 
     render() {
-        const trackItems = this.props.comments.reverse().map(comment =>
+        const { comments, artists } = this.props;
+        const trackItems = comments.reverse().map(comment =>
                 <TrackCommentItem 
                     key={comment.id} 
-                    comment={comment} 
+                    comment={comment}
+                    artists={artists}
                 />
         );
         return (

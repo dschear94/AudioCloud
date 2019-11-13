@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import TrackShow from './track_show';
 import { updateTrackPlays } from '../../actions/current_track_actions';
 import { playTrack, pauseTrack } from '../../actions/play_status_actions'
-import { fetchArtist } from '../../actions/artist_actions';
+import { fetchArtist, fetchArtistsByTrackComments } from '../../actions/artist_actions';
 
 import {
     fetchTracks,
@@ -45,6 +45,7 @@ const msp = (state, ownProps) => {
         currentUser: currentUser,
         currentTrackId: currentTrackId,
         trackStatus: trackStatus,
+        artists: state.entities.artists
     }
 
 };
@@ -55,6 +56,7 @@ const mdp = dispatch => ({
     pauseTrack: () => dispatch(pauseTrack()),
     playTrack: () => dispatch(playTrack()),
     fetchArtist: artist => dispatch(fetchArtist(artist)),
+    fetchArtistsByTrackComments: trackId => dispatch(fetchArtistsByTrackComments(trackId)),
 
     fetchTracksByArtist: artistId => dispatch(fetchTracksByArtist(artistId)),
 

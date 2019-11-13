@@ -7,6 +7,10 @@ class Track < ApplicationRecord
     class_name: "User"
 
     has_many :comments
+    has_many :commenters,
+    through: :comments,
+    source: :author
+
     has_many :likes
     has_many :recent_plays
     

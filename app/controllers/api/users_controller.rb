@@ -22,6 +22,19 @@ class Api::UsersController < ApplicationController
         end
     end
 
+    def by_track_comments
+        @artists = Track.find(params[:track_id]).commenters
+        # if @artists
+        #     if @artists.length > 1 
+        #         render "api/users/index"
+        #     else
+        #         render "api/users/show"
+        #     end
+        # end
+        # render "api/users/show"
+        render :index
+    end
+
     def create
         @user = User.new(user_params)
 

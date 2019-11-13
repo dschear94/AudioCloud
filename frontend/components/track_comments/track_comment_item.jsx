@@ -3,16 +3,17 @@ import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlay } from '@fortawesome/free-solid-svg-icons';
 import { relativeTime } from '../../util/time_util';
+import Avatar3 from '../artwork/avatar3';
 
 
-const TrackCommentItem = ({ comment }) => {
+const TrackCommentItem = ({ comment, artists }) => {
     return (
     <li className="commentItemLi">
         <div className="commentItem">
             <div className="commentItem_read">
                 <div className="commentItem_avatar">
                     <div className="ci_av_image">
-                        {/* <span>image here</span> */}
+                        <Avatar3 comment={comment}/>
                     </div>
                 </div>
                 <div className="commentItem_content">

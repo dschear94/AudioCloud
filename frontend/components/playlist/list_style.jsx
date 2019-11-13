@@ -1,16 +1,12 @@
 import React from 'react';
 import { withRouter, Link } from 'react-router-dom';
 import ListStyleItem from './list_style_item';
+import Artwork from '../artwork/artwork'
 
 class ListStyle extends React.Component {
     constructor(props) {
         super(props);
 
-        this.handleArt = this.handleArt.bind(this);
-    }
-
-    handleArt() {
-        document.getElementById(`track-discover-main-modular-module-content-artwork-image-main${this.props.uni}`).style.backgroundImage = "url(" + this.props.tracks[0].photoUrl + ")"
     }
 
     render() {
@@ -22,13 +18,9 @@ class ListStyle extends React.Component {
                 updateTrackPlays={this.props.updateTrackPlays}
             />)
 
-        if (this.props.tracks[0]) {
-            let photo = new Image();
-            photo.src = this.props.tracks[0].photoUrl;
-            photo.onload = () => {
-                this.handleArt();
-            }
-        }
+        const cover = this.props.tracks[0] ? (
+            <Artwork track={this.props.tracks[0]} />
+        ) : (null);
 
         return (
                 <ul className="track-discover-main-modular-list">
@@ -49,9 +41,10 @@ class ListStyle extends React.Component {
                                 <div className="track-discover-main-modular-module-content-artwork">
                                     <div className="track-discover-main-modular-module-content-artwork-image">
                                         <div className="track-discover-main-modular-module-content-artwork-image-ph">
-                                            <div
+                                            {/* <div
                                                 id={`track-discover-main-modular-module-content-artwork-image-main${this.props.uni}`}
-                                                className="track-discover-main-modular-module-content-artwork-image-main"></div>
+                                                className="track-discover-main-modular-module-content-artwork-image-main"></div> */}
+                                                {cover}
                                         </div>
                                     </div>
                                 </div>

@@ -15,7 +15,8 @@ class HeaderImageUpload extends React.Component {
         super(props);
 
         this.state = {
-            headerImage: null
+            headerImage: null,
+            loading: false
         }
 
         this.handleSave = this.handleSave.bind(this);
@@ -36,29 +37,33 @@ class HeaderImageUpload extends React.Component {
     handleSave(e) {
         e.preventDefault();
         const trackFormData = new FormData();
-        trackFormData.append('user[headerImage]', this.props.headerImage);
+        trackFormData.append('user[header_image]', this.props.headerImage);
         trackFormData.append('user[username]', this.props.user.username);
-        return this.props.updateUser(trackFormData).then(() => this.props.history.push(this.props.currentUser.username))
-        // .then((() => this.props.history.push("/discover")))
+        this.setState({ loading: true });
+        document.body.scrollTop = document.documentElement.scrollTop = 0;
+        return (
+            this.props.updateUser(trackFormData)
+        );
     }
 
     render() {
         const headerImage = this.state.headerImageUrl ? 
-        <img 
-        style={{height:"100%"}}
-        src={this.state.headerImageUrl} /> : null;
-        return (
+            <span
+                className="artwork-image"
+                style={{ backgroundImage: "url(" + this.state.headerImageUrl + ")" }}
+            ></span>: null;
+        const loader = (<div className="loading-spinner-background"><div className="loading-spinner"><div></div><div></div><div></div><div></div></div></div>);
+        return this.state.loading ? loader : (
             <div>
-                <h2 className="headerImageUploadUsername">
-                    {/* currentuser goes here */}
+                <h2 className="avatarUploadUsername">
+                    {this.props.user.username}
                 </h2>
                 <div 
-                style={{height: "300px"}}
-                className="headerImageImageContainer">
+                    className="headerImageImageContainer">
                     {headerImage}
                 </div>
-                <div className="headerImageFooterContainer">
-                    <div className="headerImageFooterErrors">
+                <div className="avatarFooterContainer">
+                    <div className="avatarFooterErrors">
                         {/* display errors here */}
                     </div>
                     <div className="afBtns">

@@ -1,6 +1,6 @@
 import React from 'react';
 
-class Avatar extends React.Component {
+class Avatar3 extends React.Component {
     constructor(props) {
         super(props);
     }
@@ -20,20 +20,21 @@ class Avatar extends React.Component {
 
 
     render() {
-        const { currentUser } = this.props;
+        const { comment } = this.props;
+        debugger
 
-        const avatar = currentUser.avatar ? (<span
+        const avatar = comment.artistAvatar ? (<span
             className="artwork-image"
-            style={{ backgroundImage: "url(" + currentUser.avatar + ")" }}
+            style={{ backgroundImage: "url(" + comment.artistAvatar + ")" }}
         ></span>) : (<div></div>);
 
         return (
             < div
-                style = {{ height: "100%", width: "100%" }}>
-                { avatar }
+                style={{ height: "100%", width: "100%" }}>
+                {avatar}
             </div >
         )
     }
 };
 
-export default Avatar;
+export default Avatar3;

@@ -13,6 +13,7 @@ import ArtistAllContainer from './artist_all_container';
 import { faUserPlus, faChild } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Avatar from '../artwork/avatar'
+import HeaderImage from '../artwork/header_image'
 
 class Dashboard extends React.Component {
     constructor(props) {
@@ -153,6 +154,9 @@ class Dashboard extends React.Component {
 
     componentDidMount() {
         document.body.scrollTop = document.documentElement.scrollTop = 0;
+        if (!this.props.artist.username) {
+            this.props.fetchArtist(this.props.artistName)
+        }
     }
 
     render() {
@@ -160,7 +164,7 @@ class Dashboard extends React.Component {
         const { artist, currentUser, artistName } = this.props;
 
 
-
+        const headerImage = artist.username ? (<HeaderImage artist={artist} />) : (null);
         const headerImageEdit = 
         this.props.artistName === this.props.currentUser.username ?
                 (<div><button 
@@ -275,7 +279,7 @@ class Dashboard extends React.Component {
                             </div>
                         </div>
                         <div className="phBG">
-                            {/* BG goes here in div */}
+                            {headerImage}
                         </div>
                     </div>
                 </div>

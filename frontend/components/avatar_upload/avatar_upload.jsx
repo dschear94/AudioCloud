@@ -15,7 +15,8 @@ class AvatarUpload extends React.Component {
         super(props);
 
         this.state = {
-            avatarUrl: null
+            avatarUrl: null,
+            loading: false
         }
 
         this.handleSave = this.handleSave.bind(this);
@@ -38,16 +39,24 @@ class AvatarUpload extends React.Component {
         const trackFormData = new FormData();
         trackFormData.append('user[avatar]', this.props.avatar);
         trackFormData.append('user[username]', this.props.user.username);
-        this.props.updateUser(trackFormData).then(() => this.props.history.replace(`/${this.props.user.username}`))
+        this.setState({ loading: true });
+        document.body.scrollTop = document.documentElement.scrollTop = 0;
+        return (
+            this.props.updateUser(trackFormData)
+        );
             // .then((() => this.props.history.push("/discover")))
     }
 
     render() {
-        const avatarImage = this.state.avatarUrl ? <img src={this.state.avatarUrl}/> : null;
-        return (
+        const avatarImage = this.state.avatarUrl ? <span
+            className="artwork-image"
+            style={{ backgroundImage: "url(" + this.state.avatarUrl + ")" }}
+        ></span> : null;
+        const loader = (<div className="loading-spinner-background"><div className="loading-spinner"><div></div><div></div><div></div><div></div></div></div>);
+        return this.state.loading ? loader : (
             <div>
                 <h2 className="avatarUploadUsername">
-                    {/* currentuser goes here */}
+                    {this.props.user.username}
                 </h2>
                 <div className="avatarImageContainer">
                     {avatarImage}

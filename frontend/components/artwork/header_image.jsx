@@ -1,6 +1,6 @@
 import React from 'react';
 
-class Avatar extends React.Component {
+class HeaderImage extends React.Component {
     constructor(props) {
         super(props);
     }
@@ -13,27 +13,27 @@ class Avatar extends React.Component {
                 return true;
             }
         } else {
-            return true;
+            return true
         }
     }
 
 
 
     render() {
-        const { currentUser } = this.props;
+        const { artist } = this.props;
 
-        const avatar = currentUser.avatar ? (<span
+        const headerImage = artist.headerImage ? (<span
             className="artwork-image"
-            style={{ backgroundImage: "url(" + currentUser.avatar + ")" }}
+            style={{ backgroundImage: "url(" + artist.headerImage + ")" }}
         ></span>) : (<div></div>);
 
         return (
             < div
-                style = {{ height: "100%", width: "100%" }}>
-                { avatar }
+                style={{ height: "100%", width: "100%" }}>
+                {headerImage}
             </div >
         )
     }
 };
 
-export default Avatar;
+export default HeaderImage;

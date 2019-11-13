@@ -10,6 +10,7 @@ import ColorThief from 'colorthief';
 import * as Vibrant from 'node-vibrant';
 import Artwork from '../artwork/artwork';
 import Avatar from '../artwork/avatar';
+import Avatar3 from '../artwork/avatar3';
 
 class TrackShow extends React.Component {
     constructor(props) {
@@ -122,7 +123,7 @@ class TrackShow extends React.Component {
     // }
 
     render() {
-        const {track, trackStatus, updateTrackPlays, comments, fetchTrackComments, currentUser, currentTrackId } = this.props;
+        const { track, artists, trackStatus, fetchArtistsByTrackComments, updateTrackPlays, comments, fetchTrackComments, currentUser, currentTrackId } = this.props;
         const likeButton = this.props.currentUser.likedTracks ? 
        ( this.props.track.id in this.props.currentUser.likedTracks ?
            (<button
@@ -190,6 +191,7 @@ class TrackShow extends React.Component {
                     id="background-gradient"
                     style={{height: "100%"}}>
 
+                        <Avatar3 comment={track} />
                     </div>
                     <div className="show-h-fg">
                         <div className="s-h-artwork">
@@ -326,9 +328,11 @@ class TrackShow extends React.Component {
                         </div>
                         <div className="show-main-container">
                             <TrackCommentIndexContainer 
-                                comments={comments} 
+                                comments={comments}
+                                artists={artists}
                                 track={track} 
-                                fetchTrackComments={fetchTrackComments} 
+                                fetchTrackComments={fetchTrackComments}
+                                fetchArtistsByTrackComments={fetchArtistsByTrackComments}
                             />
                         </div>
                     </div>
