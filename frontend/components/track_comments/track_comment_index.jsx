@@ -27,12 +27,14 @@ class TrackCommentIndex extends React.Component {
     }
 
     render() {
-        const { comments, artists } = this.props;
+        const { comments, currentUser, artists, deleteComment } = this.props;
         const trackItems = comments.reverse().map(comment =>
                 <TrackCommentItem 
                     key={comment.id} 
                     comment={comment}
                     artists={artists}
+                    currentUser={currentUser}
+                    deleteComment={deleteComment}
                 />
         );
         return (

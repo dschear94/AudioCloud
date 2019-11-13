@@ -16,6 +16,13 @@ class Api::CommentsController < ApplicationController
         @comments = Comment.includes(:track, :author).where(track_id: params[:comment][:track_id])
     end
 
+    def destroy
+        @comment = Comment.find(params[:id])
+        @comment.destroy
+        @comments = Comment.where(track_id: @comment.track_id)
+        render :index
+    end
+
     
     private
 

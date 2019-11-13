@@ -21,8 +21,7 @@ class Avatar3 extends React.Component {
 
     render() {
         const { comment } = this.props;
-        debugger
-
+        
         const avatar = comment.artistAvatar ? (<span
             className="artwork-image"
             style={{ backgroundImage: "url(" + comment.artistAvatar + ")" }}

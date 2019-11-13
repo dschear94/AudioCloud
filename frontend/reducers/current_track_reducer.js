@@ -10,6 +10,7 @@ import {
 
 const currentTrackReducer = (state = null, action) => {
     Object.freeze(state);
+    console.log(state)
     switch (action.type) {
         case RECEIVE_CURRENT_TRACK:
             return createCurrentTrackPlaying(action.track);
@@ -24,11 +25,16 @@ const currentTrackReducer = (state = null, action) => {
                     return createCurrentTrackPlaying(action.trackAndUser.track)
                 }
             } else {
-                if (state.data.id === Object.values(action.trackAndUser.track)[0].id) {
-                    return createCurrentTrackPlaying(action.trackAndUser);
+                if (state) {
+                    if (state.data.id === Object.values(action.trackAndUser)[0].id) {
+                        return createCurrentTrackPlaying(action.trackAndUser);
+                    } else {
+                        return createCurrentTrackPause(action.trackAndUser);
+                    }
                 } else {
-                    return createCurrentTrackPause(action.trackAndUser);
+                    return createCurrentTrackPlaying(action.trackAndUser);
                 }
+
             }
         default:
             return state;

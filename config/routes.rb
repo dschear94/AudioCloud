@@ -8,7 +8,7 @@ Rails.application.routes.draw do
       resource :entry, only: [:show], controller: :entry
       resources :photos, only: [:create, :index]
       resources :tracks, only: [:create, :index, :show]
-      resources :comments, only: [:create, :index, :show]
+      resources :comments, only: [:create, :index, :show, :destroy]
       resources :artists, only: [:show], controller: :users
       resources :likes, only: [:create, :destroy, :index, :show]
       resources :follows, only: [:create, :destroy, :index, :show]

@@ -68,14 +68,14 @@ class Library extends React.Component {
                                 Stations
                             </NavLink>
                         </li> */}
-                        <li className="lnitem">
+                        {/* <li className="lnitem">
                             <NavLink
                                 exact to={`/you/following`}
                                 activeClassName="lnitem-active"
                             >
                                 Following
                             </NavLink>
-                        </li>
+                        </li> */}
                         <li className="lnitem">
                             <NavLink
                                 exact to={`/you/history`}

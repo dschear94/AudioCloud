@@ -329,3 +329,10 @@
     position: relative;
     background-color: rgba(0,0,0,.8);
 }
+
+
+.trash-button:hover {
+    cursor: pointer;
+    color: #111;
+    font-size: larger;
+}

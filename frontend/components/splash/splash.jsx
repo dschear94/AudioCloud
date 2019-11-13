@@ -15,8 +15,9 @@ class Splash extends React.Component {
     }
 
     render() {
-        const trackitems = this.props.tracks.slice(0, 12).map(track =>
-            <TrackBadgeItem key={track.id} track={track} updateTrackPlays={this.props.updateTrackPlays}/>
+        const { pauseTrack, playTrack, tracks, updateTrackPlays, currentTrackId, trackStatus } = this.props;
+        const trackitems = tracks.slice(0, 12).map(track =>
+            <TrackBadgeItem key={track.id} track={track} playTrack={playTrack} trackStatus={trackStatus} currentTrackId={currentTrackId} pauseTrack={pauseTrack} updateTrackPlays={updateTrackPlays}/>
         );
         return (
             <div className="splash-main">
@@ -83,11 +84,11 @@ class Splash extends React.Component {
                             </ul>
                         </div>
                         <div className="splash-main-content1-trendingtracks-btncontainer">
-                            <Link 
+                            <div 
                                 className="splash-main-content1-trendingtracks-btn"
-                                to="/discover">
+                                onClick={() => this.props.openModal('entry')}>
                                 Explore trending playlists
-                            </Link>
+                            </div>
                         </div>
                     </div>
                 </div>

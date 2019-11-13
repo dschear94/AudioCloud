@@ -12,7 +12,8 @@ import {
 import { 
     createComment,
     fetchTrackComments,
-    clearComments
+    clearComments,
+    deleteComment
  } from '../../actions/comment_actions';
 
  import {
@@ -63,6 +64,8 @@ const mdp = dispatch => ({
     createComment: comment => dispatch(createComment(comment)),
     fetchTrackComments: (trackId) => dispatch(fetchTrackComments(trackId)),
     clearComments: () => dispatch(clearComments()),
+    deleteComment: commentId => dispatch(deleteComment(commentId)),
+    
 
     // clearLikes: () => dispatch(clearLikes()),
     createLike: like => dispatch(createLike(like)),

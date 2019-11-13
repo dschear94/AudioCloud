@@ -123,7 +123,7 @@ class TrackShow extends React.Component {
     // }
 
     render() {
-        const { track, artists, trackStatus, fetchArtistsByTrackComments, updateTrackPlays, comments, fetchTrackComments, currentUser, currentTrackId } = this.props;
+        const { track, artists, deleteComment, trackStatus, fetchArtistsByTrackComments, updateTrackPlays, comments, fetchTrackComments, currentUser, currentTrackId } = this.props;
         const likeButton = this.props.currentUser.likedTracks ? 
        ( this.props.track.id in this.props.currentUser.likedTracks ?
            (<button
@@ -330,8 +330,10 @@ class TrackShow extends React.Component {
                             <TrackCommentIndexContainer 
                                 comments={comments}
                                 artists={artists}
-                                track={track} 
+                                track={track}
+                                currentUser={currentUser}
                                 fetchTrackComments={fetchTrackComments}
+                                deleteComment={deleteComment}
                                 fetchArtistsByTrackComments={fetchArtistsByTrackComments}
                             />
                         </div>
