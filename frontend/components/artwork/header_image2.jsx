@@ -6,8 +6,8 @@ class HeaderImage2 extends React.Component {
     }
 
     shouldComponentUpdate(prevProps, prevState) {
-        if (this.props.currentUser) {
-            if (this.props.currentUser.id === prevProps.currentUser.id) {
+        if (this.props.track) {
+            if (this.props.track.id === prevProps.track.id) {
                 return false;
             } else {
                 return true;

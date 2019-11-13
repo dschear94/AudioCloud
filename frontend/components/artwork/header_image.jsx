@@ -6,6 +6,7 @@ class HeaderImage extends React.Component {
     }
 
     shouldComponentUpdate(prevProps, prevState) {
+        
         if (this.props.currentUser) {
             if (this.props.currentUser.id === prevProps.currentUser.id) {
                 return false;

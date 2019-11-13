@@ -48,11 +48,11 @@ class TrackItem extends React.Component {
     // }
 
     render() {
-        const { track, currentTrackId, trackStatus } = this.props;
+        const { track, currentTrackId, trackStatus, currentUser } = this.props;
         const playPause = (currentTrackId === track.id && trackStatus === "playing") ?
             <FontAwesomeIcon icon={faPause} /> : <FontAwesomeIcon icon={faPlay} />; 
 
-            debugger
+            
         return (
             <div className="activity-body">
                 <div className="activity-artwork">
@@ -102,7 +102,7 @@ class TrackItem extends React.Component {
                     className="waveform-container"
                     >
                             {/* <WaveForm track={track} /> */}
-                            <HeaderImage2 track={track}/>
+                            <HeaderImage2 track={track} currentUser={currentUser}/>
                     </div>
                 </div>
                 <div className="act-body-comment">
