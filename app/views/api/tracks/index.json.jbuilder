@@ -5,7 +5,7 @@
                 if track.artist.avatar.attached?
                         json.artistAvatar track.artist.avatar.service_url
                 else
-                        json.avatar url_for("/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBNUT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--c685d92a1369dca31347b864eab8548e3d341c47/IMG_5373.jpg".service_url)
+                        json.avatar url_for("/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBNUT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--c685d92a1369dca31347b864eab8548e3d341c47/IMG_5373.jpg")
                 end
                 json.trackUrl track.audio_file.service_url
                 if track.image_file.attached?
