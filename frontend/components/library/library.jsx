@@ -90,10 +90,10 @@ class Library extends React.Component {
                     <Switch>
                         <ProtectedRoute exact path='/you/library' component={LibOverviewContainer} />
                         <ProtectedRoute exact path='/you/likes' component={LibLikesContainer} />
-                        <ProtectedRoute exact path='/you/sets' component={LibSetsContainer} />
+                        {/* <ProtectedRoute exact path='/you/sets' component={LibSetsContainer} />
                         <ProtectedRoute exact path='/you/albums' component={LibAlbumsContainer} />
                         <ProtectedRoute exact path='/you/stations' component={LibStationsContainer} />
-                        <ProtectedRoute exact path='/you/following' component={LibFollowingContainer} />
+                        <ProtectedRoute exact path='/you/following' component={LibFollowingContainer} /> */}
                         <ProtectedRoute exact path='/you/history' component={LibHistoryContainer} />
                     </Switch>
                 </div>

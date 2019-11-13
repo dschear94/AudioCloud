@@ -3,4 +3,9 @@ class RecentPlay < ApplicationRecord
     
     belongs_to :track
     belongs_to :user
+
+    def convert_time
+        self.created_at.to_f
+    end
+    
 end

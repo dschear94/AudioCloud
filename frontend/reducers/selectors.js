@@ -39,14 +39,17 @@ export const selectTracksByFollows = (state, artistObj) => {
 export const selectTracksByRecentPlays = (state, artistObj) => {
     let recentlyPlayedTracks = [];
 
-    artistObj.recent_plays ? 
-        artistObj.recent_plays.forEach(recent_play => 
+    if (artistObj.recent_plays) {
+        let sorted = Object.values(artistObj.recent_plays).sort((a, b) => (a.time > b.time) ? 1 : -1);
+        sorted.forEach(recent_play =>
             Object.values(state.entities.tracks).forEach(track => {
-                if (recent_play.track_id === track.id) {
+                if (recent_play.data.track_id === track.id) {
                     recentlyPlayedTracks.push(track);
                 }
             })
-        ) : null;
+        )
+    }
+
     return recentlyPlayedTracks;
 }
 

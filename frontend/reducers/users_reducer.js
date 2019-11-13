@@ -18,18 +18,18 @@ const usersReducer = (state = {}, action) => {
     Object.freeze(state);
     switch (action.type) {
         case RECEIVE_CURRENT_USER:
-            return Object.assign({}, state, { [action.currentUser.id]: action.currentUser });
+            return { [action.currentUser.id]: action.currentUser };
         case RECEIVE_LIKE:
             // return Object.assign({}, state, { [action.currentUser.id]: action.currentUser });
         case RECEIVE_FOLLOW:
             // return Object.assign({}, state, { [action.currentUser.id]: action.currentUser });
         case RECEIVE_UNLIKE:
-            return Object.assign({}, state, { [action.currentUser.id]: action.currentUser });
+            return { [action.currentUser.id]: action.currentUser };
         case RECEIVE_UNFOLLOW:
-            return Object.assign({}, state, { [action.currentUser.id]: action.currentUser });
+            return { [action.currentUser.id]: action.currentUser };
         case RECEIVE_CURRENT_TRACK_AND_USER:
             if (action.trackAndUser.currentUser) {
-                return Object.assign({}, state, { [action.trackAndUser.currentUser.id]: action.trackAndUser.currentUser });
+                return { [action.trackAndUser.currentUser.id]: action.trackAndUser.currentUser };
             } else {
                 return state;
             }
