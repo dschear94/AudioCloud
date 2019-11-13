@@ -5,6 +5,7 @@ import { faPlay, faPause } from '@fortawesome/free-solid-svg-icons';
 import { relativeTime } from '../../util/time_util';
 import WaveForm from '../waveform/waveform';
 import Artwork from '../artwork/artwork';
+import HeaderImage2 from '../artwork/header_image2';
 
 // const TrackItem = ({ track, updateTrackPlays }) => (
 class TrackItem extends React.Component {
@@ -51,6 +52,7 @@ class TrackItem extends React.Component {
         const playPause = (currentTrackId === track.id && trackStatus === "playing") ?
             <FontAwesomeIcon icon={faPause} /> : <FontAwesomeIcon icon={faPlay} />; 
 
+            debugger
         return (
             <div className="activity-body">
                 <div className="activity-artwork">
@@ -100,6 +102,7 @@ class TrackItem extends React.Component {
                     className="waveform-container"
                     >
                             {/* <WaveForm track={track} /> */}
+                            <HeaderImage2 track={track}/>
                     </div>
                 </div>
                 <div className="act-body-comment">

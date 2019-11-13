@@ -6,6 +6,11 @@ json.set! track.id do
         else
                 json.artistAvatar url_for("/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBNUT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--c685d92a1369dca31347b864eab8548e3d341c47/IMG_5373.jpg")
         end
+        if track.artist.header_image.attached?
+                json.artistHeaderImage track.artist.header_image.service_url
+        else
+                json.artistHeaderImage url_for("/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBNUT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--c685d92a1369dca31347b864eab8548e3d341c47/IMG_5373.jpg")
+        end
         json.trackUrl track.audio_file.service_url
         
         if track.image_file.attached?

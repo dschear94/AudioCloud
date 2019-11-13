@@ -56,6 +56,17 @@ imagefile29 = open('https://audiocloud-ds-seeds.s3.amazonaws.com/IMG_4142.jpg')
 imagefile30 = open('https://audiocloud-ds-seeds.s3.amazonaws.com/IMG_2506.jpg')
 imagefile31 = open('https://audiocloud-ds-seeds.s3.amazonaws.com/IMG_4142.jpg')
 
+imagefile71 = open('https://audiocloud-ds-seeds.s3.amazonaws.com/IMG_4381.jpg')
+imagefile72 = open('https://audiocloud-ds-seeds.s3.amazonaws.com/IMG_4416.jpg')
+imagefile73 = open('https://audiocloud-ds-seeds.s3.amazonaws.com/IMG_4437.jpg')
+imagefile74 = open('https://audiocloud-ds-seeds.s3.amazonaws.com/IMG_5159.jpg')
+imagefile75 = open('https://audiocloud-ds-seeds.s3.amazonaws.com/IMG_4546.jpg')
+imagefile76 = open('https://audiocloud-ds-seeds.s3.amazonaws.com/IMG_4625.jpg')
+imagefile77 = open('https://audiocloud-ds-seeds.s3.amazonaws.com/IMG_4635.jpg')
+imagefile78 = open('https://audiocloud-ds-seeds.s3.amazonaws.com/IMG_4691.jpg')
+imagefile79 = open('https://audiocloud-ds-seeds.s3.amazonaws.com/IMG_4737.jpg')
+imagefile710 = open('https://audiocloud-ds-seeds.s3.amazonaws.com/IMG_4742.jpg')
+
 derek.avatar.attach({io: imagefile20, filename: "propic1", content_type: "image/jpeg"})
 dani.avatar.attach({io: imagefile21, filename: "propic2", content_type: "image/jpeg"})
 ali.avatar.attach({io: imagefile22, filename: "propic3", content_type: "image/jpeg"})
@@ -67,6 +78,17 @@ alex.avatar.attach({io: imagefile27, filename: "propic7", content_type: "image/j
 nick.avatar.attach({io: imagefile28, filename: "propi8", content_type: "image/jpeg"})
 sam.avatar.attach({io: imagefile29, filename: "propi9", content_type: "image/jpeg"})
 ryan.avatar.attach({io: imagefile30, filename: "prop123ic", content_type: "image/jpeg"})
+
+derek.header_image.attach({io: imagefile71, filename: "header1", content_type: "image/jpeg"})
+dani.header_image.attach({io: imagefile72, filename: "header2", content_type: "image/jpeg"})
+ali.header_image.attach({io: imagefile73, filename: "header3", content_type: "image/jpeg"})
+larry.header_image.attach({io: imagefile74, filename: "header4", content_type: "image/jpeg"})
+elda.header_image.attach({io: imagefile75, filename: "header5", content_type: "image/jpeg"})
+isaac.header_image.attach({io: imagefile76, filename: "headerpi61c", content_type: "image/jpeg"})
+giselle.header_image.attach({io: imagefile77, filename: "header6pic", content_type: "image/jpeg"})
+alex.header_image.attach({io: imagefile78, filename: "header7", content_type: "image/jpeg"})
+nick.header_image.attach({io: imagefile79, filename: "headerpi8", content_type: "image/jpeg"})
+sam.header_image.attach({io: imagefile710, filename: "headerpi9", content_type: "image/jpeg"})
 
 
 
