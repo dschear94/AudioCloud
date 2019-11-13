@@ -21,6 +21,10 @@ class TrackUploadForm extends React.Component {
         this.triggerHiddenInput2 = this.triggerHiddenInput2.bind(this);
     }
 
+    componentDidMount() {
+        document.body.scrollTop = document.documentElement.scrollTop = 0;
+    }
+
     handleInput(field) {
         return e => {
             return this.setState({ 
@@ -119,15 +123,16 @@ class TrackUploadForm extends React.Component {
         if (this.state.photoFile) {
             trackFormData.append('track[image_file]', this.state.photoFile);
         };
+        this.setState({ loading: true });
+        document.body.scrollTop = document.documentElement.scrollTop = 0;
         return (
-            this.props.uploadTrack(trackFormData)
-            .then(() => this.props.fetchTracks())
-            .then(() => this.props.history.push("/discover"))
+            this.props.uploadTrack(trackFormData).then(() => this.props.fetchTracks()).then(() => this.props.history.push("/discover"))
         );
     }
 
     render() {
-    const uploadStep1 = (
+        const loader = (<div className="loading-spinner-background"><div className="loading-spinner"><div></div><div></div><div></div><div></div></div></div>);
+        const uploadStep1 = (
                 <div 
                 className="track-upload-content">
                 <div className="uploadBG"></div>
@@ -238,7 +243,7 @@ class TrackUploadForm extends React.Component {
         );
         return (
         <div className="track-upload-container">
-                {this.state.trackFile ? uploadStep2 : uploadStep1}
+                {!this.state.trackFile ? uploadStep1 : this.state.loading ? loader : uploadStep2}
         </div>
         );
     }

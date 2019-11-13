@@ -18,6 +18,7 @@ class Navbar extends React.Component {
         }
 
         this.handleDD = this.handleDD.bind(this);
+        this.handleLogout = this.handleLogout.bind(this);
     }
 
     handleDD() {
@@ -28,8 +29,12 @@ class Navbar extends React.Component {
         }
     }
 
+    handleLogout() {
+        this.props.logout();
+    }
+
     render() {
-    let { currentUser, logout, openModal } = this.props;
+    let { currentUser, openModal } = this.props;
     const dropdown = () => (
         <div 
         className="nav-dd-bg"
@@ -82,7 +87,7 @@ class Navbar extends React.Component {
                 <li className="nav-dd-listitem">
                     <div
                         className="nav-dd-listitem-link"
-                        onClick={logout}>
+                        onClick={this.handleLogout}>
                         <FontAwesomeIcon
                             icon={faSignOutAlt}
                         />
@@ -97,6 +102,8 @@ class Navbar extends React.Component {
     )
 
         if (this.props.match.path === "/" && this.props.match.isExact && !currentUser) {
+            return null;
+        } else if (!currentUser) {
             return null;
         } else {
             return (
