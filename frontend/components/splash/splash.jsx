@@ -82,9 +82,7 @@ class Splash extends React.Component {
                             </form>
                         </div>
                          or 
-                        {this.props.currentUser ?
-                            <Link className="splash-main-content1-uploadbtn" to="/upload">Upload your own</Link>
-                            : <div className="splash-main-content1-uploadbtn" onClick={() => this.props.openModal('entry')}>Upload your own</div>}
+                        <div className="splash-main-content1-uploadbtn" onClick={() => this.props.openModal('entry')}>Upload your own</div>
                     </div>
                     <div className="splash-main-content1-trendingtracks">
                         <div className="splash-main-content1-trendingtracks-title">
