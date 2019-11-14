@@ -38,3 +38,9 @@ export const fetchArtistsByTrackComments = trackId => dispatch => {
         dispatch(receiveArtists(artists))
     ));
 }
+
+export const fetchArtistsByFollows = userId => dispatch => {
+    return APIUtil.fetchArtistsByFollows(userId).then(artists => (
+        dispatch(receiveArtists(artists))
+    ));
+}

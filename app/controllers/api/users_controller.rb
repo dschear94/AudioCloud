@@ -35,6 +35,11 @@ class Api::UsersController < ApplicationController
         render :index
     end
 
+    def by_follows
+        @artists = User.find(params[:user_id]).followings
+        render :index
+    end
+
     def create
         @user = User.new(user_params)
 

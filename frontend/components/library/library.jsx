@@ -68,14 +68,14 @@ class Library extends React.Component {
                                 Stations
                             </NavLink>
                         </li> */}
-                        {/* <li className="lnitem">
+                        <li className="lnitem">
                             <NavLink
                                 exact to={`/you/following`}
                                 activeClassName="lnitem-active"
                             >
                                 Following
                             </NavLink>
-                        </li> */}
+                        </li>
                         <li className="lnitem">
                             <NavLink
                                 exact to={`/you/history`}
@@ -92,8 +92,8 @@ class Library extends React.Component {
                         <ProtectedRoute exact path='/you/likes' component={LibLikesContainer} />
                         {/* <ProtectedRoute exact path='/you/sets' component={LibSetsContainer} />
                         <ProtectedRoute exact path='/you/albums' component={LibAlbumsContainer} />
-                        <ProtectedRoute exact path='/you/stations' component={LibStationsContainer} />
-                        <ProtectedRoute exact path='/you/following' component={LibFollowingContainer} /> */}
+                        <ProtectedRoute exact path='/you/stations' component={LibStationsContainer} /> */}
+                        <ProtectedRoute exact path='/you/following' component={LibFollowingContainer} />
                         <ProtectedRoute exact path='/you/history' component={LibHistoryContainer} />
                     </Switch>
                 </div>

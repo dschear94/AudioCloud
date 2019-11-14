@@ -7,7 +7,6 @@ import WaveForm from '../waveform/waveform';
 import Artwork from '../artwork/artwork';
 import HeaderImage2 from '../artwork/header_image2';
 
-// const TrackItem = ({ track, updateTrackPlays }) => (
 class TrackItem extends React.Component {
     constructor(props) {
         super(props);
@@ -79,7 +78,6 @@ class TrackItem extends React.Component {
     // }
 
     render() {
-        debugger
         const { track, updateTrackPlays, trackStatus, currentUser, currentTrackId, pauseTrack, playTrack, createLike, deleteLike } = this.props;
         const playPause = (currentTrackId === track.id && trackStatus === "playing") ?
             <FontAwesomeIcon icon={faPause} /> : <FontAwesomeIcon icon={faPlay} />; 

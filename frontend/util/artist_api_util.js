@@ -18,3 +18,10 @@ export const fetchArtistsByTrackComments = (trackId) => {
         url: `/api/artists/by_track_comments/${trackId}`
     });
 }
+
+export const fetchArtistsByFollows = (userId) => {
+    return $.ajax({
+        method: 'GET',
+        url: `/api/artists/by_follows/${userId}`
+    });
+}

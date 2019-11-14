@@ -14,10 +14,19 @@ class LibFollowing extends React.Component {
         super(props);
     }
 
+    componentDidMount() {
+        document.body.scrollTop = document.documentElement.scrollTop = 0;
+        this.props.fetchArtistsByFollows(this.props.currentUser.id)
+    }
+
     render() {
+        // debugger
         return (
             <div>
                 Library Following
+                <ul className="artistBadgeList">
+
+                </ul>
             </div>
         )
     }

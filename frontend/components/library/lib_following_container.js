@@ -7,8 +7,15 @@ import {
 } from '../../actions/track_actions';
 import { updateTrackPlays } from '../../actions/current_track_actions';
 import {
-    fetchArtist
+    fetchArtist,
+    fetchArtistsByFollows,
 } from '../../actions/artist_actions'
+import {
+    getCurrentUser,
+    selectTracksByFollows,
+    getCurrentTrackId,
+    getArtistsByFollows
+} from '../../reducers/selectors';
 
 
 const msp = (state, ownProps) => {
@@ -17,10 +24,13 @@ const msp = (state, ownProps) => {
         state.entities.artists ?
             state.entities.artists.username : "";
 
+    let currentUser = getCurrentUser(state);
+    let artists = getArtistsByFollows(state, currentUser)
+
     return {
         artistName: artist || "",
-        currentUser: Object.values(state.entities.users)[0] || {},
-        artist: state.entities.artists[artist] || {},
+        currentUser: currentUser,
+        artists: artists,
     }
 
 };
@@ -29,6 +39,7 @@ const msp = (state, ownProps) => {
 const mdp = dispatch => ({
     fetchArtist: artist => dispatch(fetchArtist(artist)),
     fetchTracksByArtist: artistId => dispatch(fetchTracksByArtist(artistId)),
+    fetchArtistsByFollows: userId => dispatch(fetchArtistsByFollows(userId)),
 });
 
 export default withRouter(connect(msp, mdp)(LibFollowing));

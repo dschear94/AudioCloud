@@ -21,6 +21,7 @@ Rails.application.routes.draw do
       patch 'follows/pseudo_destroy', :to => 'follows#pseudo_destroy'
       patch 'tracks/update_plays/:id', :to => 'tracks#update_plays'
       get 'artists/by_track_comments/:track_id', :to => 'users#by_track_comments'
+      get 'artists/by_follows/:user_id', :to => 'users#by_follows'
     end
 
   root "static_pages#root"
