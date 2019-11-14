@@ -1,4 +1,4 @@
-import { RECEIVE_CURRENT_USER } from '../actions/session_actions';
+import { RECEIVE_CURRENT_USER, LOGOUT_CURRENT_USER } from '../actions/session_actions';
 import {
     RECEIVE_LIKES,
     RECEIVE_LIKE,
@@ -33,6 +33,8 @@ const usersReducer = (state = {}, action) => {
             } else {
                 return state;
             }
+        case LOGOUT_CURRENT_USER:
+            return {};
         default:
             return state;
     }

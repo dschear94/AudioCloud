@@ -21,7 +21,7 @@ class LibHistory extends React.Component {
     }
 
     render() {
-        const { likedTracks, recentPlays, updateTrackPlays, pauseTrack, playTrack, currentTrackId, trackStatus } = this.props;
+        const { likedTracks, recentPlays, updateTrackPlays, pauseTrack, playTrack, currentTrackId, trackStatus, createLike, deleteLike, fetchTrack, currentUser } = this.props;
 
         const historyBadgeItems = recentPlays.reverse().map(track =>
             <TrackBadgeItem
@@ -33,6 +33,10 @@ class LibHistory extends React.Component {
                 pauseTrack={pauseTrack}
                 playTrack={playTrack}
                 trackStatus={trackStatus}
+                currentUser={currentUser}
+                createLike={createLike}
+                deleteLike={deleteLike}
+                fetchTrack={fetchTrack}
             />
         )
         return (

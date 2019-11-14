@@ -4,7 +4,8 @@ import LibOverview from './lib_overview';
 import {
     fetchTracksByArtist,
     fetchTracksByLikes,
-    fetchTracksByRecentPlays
+    fetchTracksByRecentPlays,
+    fetchTrack
 } from '../../actions/track_actions';
 import { updateTrackPlays } from '../../actions/current_track_actions';
 import {
@@ -19,6 +20,11 @@ import {
     selectTracksByRecentPlays
 } from '../../reducers/selectors'
 import { playTrack, pauseTrack } from '../../actions/play_status_actions'
+import {
+    createLike,
+    fetchLikes,
+    deleteLike,
+} from '../../actions/likes_actions'
 
 
 const msp = (state, ownProps) => {
@@ -42,6 +48,7 @@ const msp = (state, ownProps) => {
 
 const mdp = dispatch => ({
     fetchArtist: artist => dispatch(fetchArtist(artist)),
+    fetchTrack: trackId => dispatch(fetchTrack(trackId)),
     fetchTracksByArtist: artistId => dispatch(fetchTracksByArtist(artistId)),
     fetchTracksByLikes: artistId => dispatch(fetchTracksByLikes(artistId)),
     fetchTracksByRecentPlays: artistId => dispatch(fetchTracksByRecentPlays(artistId)),
@@ -49,6 +56,9 @@ const mdp = dispatch => ({
     updateTrackPlays: track => dispatch(updateTrackPlays(track)),
     pauseTrack: () => dispatch(pauseTrack()),
     playTrack: () => dispatch(playTrack()),
+    createLike: like => dispatch(createLike(like)),
+    deleteLike: like => dispatch(deleteLike(like)),
+    fetchLikes: userId => dispatch(fetchLikes(userId))
 });
 
 export default withRouter(connect(msp, mdp)(LibOverview));

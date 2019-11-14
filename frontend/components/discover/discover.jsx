@@ -20,21 +20,28 @@ class Discover extends React.Component {
 
     render() {
 
+        const { tracks, currentTrackId, fetchTracks, trackStatus, moduleType, createLike, deleteLike, fetchTrack, currentUser, updateTrackPlays, pauseTrack, playTrack } = this.props;
+
         const loader = this.state.loading ? (
             <div className="loading-spinner-background"><div className="loading-spinner"><div></div><div></div><div></div><div></div></div></div>
         ) : (
                 <div>
-                    <ListStyle uni={1} tracks={this.props.tracks} fetchTracks={this.props.fetchTracks} updateTrackPlays={this.props.updateTrackPlays} />
+                    <ListStyle uni={1} tracks={tracks} fetchTracks={fetchTracks} updateTrackPlays={updateTrackPlays} />
                     <GalleryStyle uni={2} 
-                        tracks={this.props.tracks} 
-                        fetchTracks={this.props.fetchTracks} 
-                        updateTrackPlays={this.props.updateTrackPlays} 
-                        trackStatus={this.props.trackStatus} 
-                        currentTrackId={this.props.currentTrackId}
-                        playTrack={this.props.playTrack}
-                        pauseTrack={this.props.pauseTrack}
+                        tracks={tracks} 
+                        fetchTracks={fetchTracks} 
+                        updateTrackPlays={updateTrackPlays} 
+                        trackStatus={trackStatus} 
+                        currentTrackId={currentTrackId}
+                        playTrack={playTrack}
+                        pauseTrack={pauseTrack}
+                        currentUser={currentUser}
+                        createLike={createLike}
+                        currentUser={currentUser}
+                        deleteLike={deleteLike}
+                        fetchTrack={fetchTrack}
                     />
-                    {/* <ListStyle uni={3} tracks={this.props.tracks} fetchTracks={this.props.fetchTracks} updateTrackPlays={this.props.updateTrackPlays} />
+                    {/* <ListStyle uni={3} tracks={tracks} fetchTracks={fetchTracks} updateTrackPlays={this.props.updateTrackPlays} />
                     <GalleryStyle uni={4} tracks={this.props.tracks} fetchTracks={this.props.fetchTracks} updateTrackPlays={this.props.updateTrackPlays} />
                     <ListStyle uni={5} tracks={this.props.tracks} fetchTracks={this.props.fetchTracks} updateTrackPlays={this.props.updateTrackPlays} />
                     <GalleryStyle uni={6} tracks={this.props.tracks} fetchTracks={this.props.fetchTracks} updateTrackPlays={this.props.updateTrackPlays} />

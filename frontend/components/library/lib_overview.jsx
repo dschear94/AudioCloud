@@ -31,7 +31,7 @@ class LibraryOverview extends React.Component {
     // }
 
     render() {
-        const { likedTracks, recentPlays, updateTrackPlays, pauseTrack, playTrack, currentTrackId, trackStatus} = this.props;
+        const { likedTracks, recentPlays, updateTrackPlays, pauseTrack, playTrack, currentTrackId, trackStatus, createLike, deleteLike, fetchTrack, currentUser} = this.props;
 
         const historyBadgeItems = recentPlays.reverse().slice(0, 6).map(track => 
             <TrackBadgeItem
@@ -43,10 +43,14 @@ class LibraryOverview extends React.Component {
                 pauseTrack={pauseTrack}
                 playTrack={playTrack}
                 trackStatus={trackStatus}
+                currentUser={currentUser}
+                createLike={createLike}
+                deleteLike={deleteLike}
+                fetchTrack={fetchTrack}
         />
         )
 
-        const likesBadgeItems = likedTracks.slice(0, 6).map(track => 
+        const likesBadgeItems = likedTracks.reverse().slice(0, 6).map(track => 
             <TrackBadgeItem
                 moduleType={"likedTracks"}
                 currentTrackId={currentTrackId}
@@ -57,6 +61,10 @@ class LibraryOverview extends React.Component {
                 playTrack={playTrack}
                 currentTrackId={currentTrackId}
                 trackStatus={trackStatus}
+                currentUser={currentUser}
+                createLike={createLike}
+                deleteLike={deleteLike}
+                fetchTrack={fetchTrack}
             />
         )
 

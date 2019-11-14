@@ -16,7 +16,7 @@ class Api::LikesController < ApplicationController
 
         else
 
-            render ["like did not persist"]
+            render json: ["like did not persist"], status: 404
 
         end
         

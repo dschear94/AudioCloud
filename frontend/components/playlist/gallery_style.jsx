@@ -9,17 +9,25 @@ class GalleryStyle extends React.Component {
 
 
     render() {
+
+        // debugger
+
+        const { uni, tracks, currentTrackId, trackStatus, moduleType, createLike, deleteLike, fetchTrack, currentUser, updateTrackPlays, pauseTrack, playTrack } = this.props;
         
-        const trackitemgal = (this.props.tracks.slice(0, 8).map(track => 
+        const trackitemgal = (tracks.slice(0, 8).map(track => 
             <GalleryStyleItem
-                key={`${track.id} + " " + ${this.props.uni}`} 
-                uni={`${track.id} + " " + ${this.props.uni}`} 
+                key={`${track.id} + " " + ${uni}`} 
+                uni={`${track.id} + " " + ${uni}`} 
                 track={track}
-                updateTrackPlays={this.props.updateTrackPlays}
-                pauseTrack={this.props.pauseTrack}
-                playTrack={this.props.playTrack}
-                currentTrackId={this.props.currentTrackId}
-                trackStatus={this.props.trackStatus}
+                updateTrackPlays={updateTrackPlays}
+                pauseTrack={pauseTrack}
+                playTrack={playTrack}
+                currentTrackId={currentTrackId}
+                trackStatus={trackStatus}
+                createLike={createLike}
+                currentUser={currentUser}
+                deleteLike={deleteLike}
+                fetchTrack={fetchTrack}
             />));
 
         return (

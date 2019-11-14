@@ -6,8 +6,8 @@ class Avatar4 extends React.Component {
     }
 
     shouldComponentUpdate(prevProps, prevState) {
-        if (this.props.currentUser) {
-            if (this.props.currentUser.id === prevProps.currentUser.id) {
+        if (this.props.artist) {
+            if (this.props.artist.id === prevProps.artist.id) {
                 return false;
             } else {
                 return true;

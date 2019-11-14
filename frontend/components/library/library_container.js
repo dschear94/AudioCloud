@@ -10,9 +10,15 @@ import {
     fetchArtist
 } from '../../actions/artist_actions';
 import {
-    getCurrentTrackId
+    getCurrentTrackId,
+    getCurrentUser,
 } from '../../reducers/selectors';
 import { playTrack, pauseTrack } from '../../actions/play_status_actions'
+import {
+    createLike,
+    fetchLikes,
+    deleteLike,
+} from '../../actions/likes_actions'
 
 
 const msp = (state, ownProps) => {
@@ -23,10 +29,11 @@ const msp = (state, ownProps) => {
 
     const currentTrackId = getCurrentTrackId(state);
     const trackStatus = state.ui.playStatus;
+    let currentUser = getCurrentUser(state);
 
     return {
         artistName: artist || "",
-        currentUser: Object.values(state.entities.users)[0] || {},
+        currentUser: currentUser,
         artist: state.entities.artists[artist] || {},
         currentTrackId: currentTrackId,
         trackStatus: trackStatus,
@@ -42,6 +49,9 @@ const mdp = dispatch => ({
     updateTrackPlays: track => dispatch(updateTrackPlays(track)),
     pauseTrack: () => dispatch(pauseTrack()),
     playTrack: () => dispatch(playTrack()),
+    createLike: like => dispatch(createLike(like)),
+    deleteLike: like => dispatch(deleteLike(like)),
+    fetchLikes: userId => dispatch(fetchLikes(userId))
 });
 
 export default withRouter(connect(msp, mdp)(Library));

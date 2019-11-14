@@ -15,9 +15,21 @@ class Splash extends React.Component {
     }
 
     render() {
-        const { pauseTrack, playTrack, tracks, updateTrackPlays, currentTrackId, trackStatus } = this.props;
+        const { pauseTrack, playTrack, tracks, updateTrackPlays, currentTrackId, trackStatus, createLike, deleteLike, fetchTrack, currentUser } = this.props;
         const trackitems = tracks.slice(0, 12).map(track =>
-            <TrackBadgeItem key={track.id} track={track} playTrack={playTrack} trackStatus={trackStatus} currentTrackId={currentTrackId} pauseTrack={pauseTrack} updateTrackPlays={updateTrackPlays}/>
+            <TrackBadgeItem 
+            key={track.id} 
+            track={track} 
+            playTrack={playTrack} 
+            trackStatus={trackStatus} 
+            currentTrackId={currentTrackId} 
+            pauseTrack={pauseTrack} 
+            updateTrackPlays={updateTrackPlays}
+            currentUser={currentUser}
+            createLike={createLike}
+            deleteLike={deleteLike}
+            fetchTrack={fetchTrack}
+            />
         );
         return (
             <div className="splash-main">
