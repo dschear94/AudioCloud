@@ -26,10 +26,10 @@ class GalleryStyle extends React.Component {
             <div className="track-discover-main-modular-module">
                 <div className="track-discover-main-modular-module-title">
                     <h2 className="track-discover-main-modular-module-title-header">
-                        AudioCloud Weekly
+                        AudioCloud Selects
                     </h2>
                     <p className="track-discover-main-modular-module-title-body">
-                        All of AudioCloud. Just for you.
+                        Selected tracks curated just for you.
                     </p>
                 </div>
                 <div className="track-discover-main-modular-module-content2">

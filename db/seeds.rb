@@ -12,16 +12,16 @@ require 'open-uri'
 # s3 = Aws::S3::Resource.new(region: 'us-east-1')
 
 derek = User.create({username: "derek", password:"123456", email:"123@aol.com", gender:"male", age: 8});
-dani = User.create({username: "dani", password:"123456", email:"1234@aol.com", gender:"male", age: 8});
-ali = User.create({username: "ali", password:"123456", email:"1235@aol.com", gender:"male", age: 8});
-larry = User.create({username: "larry", password:"123456", email:"1236@aol.com", gender:"male", age: 8});
-elda = User.create({username: "elda", password:"123456", email:"1237@aol.com", gender:"male", age: 8});
-isaac = User.create({username: "isaac", password:"123456", email:"1238@aol.com", gender:"male", age: 8});
-giselle = User.create({username: "giselle", password:"123456", email:"12324237@aol.com", gender:"male", age: 8});
-alex = User.create({username: "alex", password:"123456", email:"12315237@aol.com", gender:"male", age: 8});
-nick = User.create({username: "nick", password:"123456", email:"123234237@aol.com", gender:"male", age: 8});
-sam = User.create({username: "sam", password:"123456", email:"123117@aol.com", gender:"male", age: 8});
-ryan = User.create({username: "ryan", password:"123456", email:"1222237@aol.com", gender:"male", age: 8});
+dani = User.create({username: "Yoyaku", password:"123456", email:"1234@aol.com", gender:"male", age: 8});
+ali = User.create({username: "Pink Floyd is Life", password:"123456", email:"1235@aol.com", gender:"male", age: 8});
+larry = User.create({username: "I<3ClassicRock", password:"123456", email:"1236@aol.com", gender:"male", age: 8});
+elda = User.create({username: "technobombs999", password:"123456", email:"1237@aol.com", gender:"male", age: 8});
+isaac = User.create({username: "808beats", password:"123456", email:"1238@aol.com", gender:"male", age: 8});
+giselle = User.create({username: "909islife", password:"123456", email:"12324237@aol.com", gender:"male", age: 8});
+alex = User.create({username: "acidLvr303", password:"123456", email:"12315237@aol.com", gender:"male", age: 8});
+nick = User.create({username: "newschool55", password:"123456", email:"123234237@aol.com", gender:"male", age: 8});
+sam = User.create({username: "gimmedaloot", password:"123456", email:"123117@aol.com", gender:"male", age: 8});
+ryan = User.create({username: "yesman45", password:"123456", email:"1222237@aol.com", gender:"male", age: 8});
 
 imagefile1 = open('https://audiocloud-ds-seeds.s3.amazonaws.com/IMG_4381.jpg')
 imagefile2 = open('https://audiocloud-ds-seeds.s3.amazonaws.com/IMG_4416.jpg')
@@ -93,26 +93,26 @@ sam.header_image.attach({io: imagefile710, filename: "headerpi9", content_type: 
 
 
 
-track1 = Track.create({title: "01 Flume.mp3", album: "none", artist_id: 1, play_count: 0 })
-track2 = Track.create({title: "01 Give Life Back To Music.mp3" , album: "none", artist_id: 2, play_count: 0 })
-track3 = Track.create({title: "01 In the Air Tonight.mp3" , album: "none", artist_id: 3, play_count: 0 })
-track4 = Track.create({title: "01 Shine on You Crazy Diamond, Pts. 1-5.mp3" , album: "none", artist_id: 4, play_count: 0 })
-track5 = Track.create({title: "02 Lump Sum.mp3" , album: "none", artist_id: 5, play_count: 0 })
-track6 = Track.create({title: "02 Welcome to the Machine.mp3" , album: "none", artist_id: 1, play_count: 0 })
-track7 = Track.create({title: "2-06 Dazed And Confused.mp3" , album: "none", artist_id: 2, play_count: 0 })
-track8 = Track.create({title: "03 Have a Cigar.mp3" , album: "none", artist_id: 3, play_count: 0 })
-track9 = Track.create({title: "03 Holocene.mp3" , album: "none", artist_id: 4, play_count: 0 })
-track10 = Track.create({title: "03 Skinny Love.mp3" , album: "none", artist_id: 5, play_count: 0 })
-track11 = Track.create({title: "04 Gravity.mp3" , album: "none", artist_id: 1, play_count: 0 })
-track12 = Track.create({title: "04 Nikes On My Feet.mp3" , album: "none", artist_id: 2, play_count: 0 })
-track13 = Track.create({title: "04 Towers.mp3" , album: "none", artist_id: 3, play_count: 0 })
-track14 = Track.create({title: "04 Wish You Were Here.mp3" , album: "none", artist_id: 4, play_count: 0 })
-track15 = Track.create({title: "05 Michicant.mp3" , album: "none", artist_id: 5, play_count: 0 })
-track16 = Track.create({title: "05 Senior Skip Day.mp3" , album: "none", artist_id: 1, play_count: 0 })
-track17 = Track.create({title: "12 Jammin'.mp3" , album: "none", artist_id: 2, play_count: 0 })
-track18 = Track.create({title: "13 Could You Be Loved.mp3" , album: "none", artist_id: 3, play_count: 0 })
-track19 = Track.create({title: "07 The Chain.mp3" , album: "none", artist_id: 4, play_count: 0 })
-track20 = Track.create({title: "09 Re_ Stacks.mp3" , album: "none", artist_id: 5, play_count: 0 })
+track1 = Track.create({title: "Flume", album: "none", artist_id: 1, play_count: 0 })
+track2 = Track.create({title: "Give Life Back To Music" , album: "none", artist_id: 2, play_count: 0 })
+track3 = Track.create({title: "In the Air Tonight" , album: "none", artist_id: 3, play_count: 0 })
+track4 = Track.create({title: "Shine on You Crazy Diamond, Pts. 1-5" , album: "none", artist_id: 4, play_count: 0 })
+track5 = Track.create({title: "Lump Sum" , album: "none", artist_id: 5, play_count: 0 })
+track6 = Track.create({title: "Welcome to the Machine" , album: "none", artist_id: 1, play_count: 0 })
+track7 = Track.create({title: "Dazed And Confused" , album: "none", artist_id: 2, play_count: 0 })
+track8 = Track.create({title: "Have a Cigar" , album: "none", artist_id: 3, play_count: 0 })
+track9 = Track.create({title: "Holocene" , album: "none", artist_id: 4, play_count: 0 })
+track10 = Track.create({title: "Skinny Love" , album: "none", artist_id: 5, play_count: 0 })
+track11 = Track.create({title: "Gravity" , album: "none", artist_id: 1, play_count: 0 })
+track12 = Track.create({title: "Nikes On My Feet" , album: "none", artist_id: 2, play_count: 0 })
+track13 = Track.create({title: "Towers" , album: "none", artist_id: 3, play_count: 0 })
+track14 = Track.create({title: "Wish You Were Here" , album: "none", artist_id: 4, play_count: 0 })
+track15 = Track.create({title: "Michicant" , album: "none", artist_id: 5, play_count: 0 })
+track16 = Track.create({title: "Senior Skip Day" , album: "none", artist_id: 1, play_count: 0 })
+track17 = Track.create({title: "Jammin'" , album: "none", artist_id: 2, play_count: 0 })
+track18 = Track.create({title: "Could You Be Loved" , album: "none", artist_id: 3, play_count: 0 })
+track19 = Track.create({title: "The Chain" , album: "none", artist_id: 4, play_count: 0 })
+track20 = Track.create({title: "Re_ Stacks" , album: "none", artist_id: 5, play_count: 0 })
 
 
 audio_file1 = open("https://audiocloud-ds-seeds.s3.amazonaws.com/01+Flume.mp3")
