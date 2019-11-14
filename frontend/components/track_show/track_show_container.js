@@ -40,7 +40,7 @@ const msp = (state, ownProps) => {
 
     const currentUser = getCurrentUser(state);
     let currentTrackId = getCurrentTrackId(state);
-    let artist = getTrackShowArtist(state, showTrack.id);
+    // let artist = getTrackShowArtist(state, showTrack.id);
     const trackStatus = state.ui.playStatus;
 
     return { 
@@ -49,7 +49,7 @@ const msp = (state, ownProps) => {
         currentTrackId: currentTrackId,
         trackStatus: trackStatus,
         artists: state.entities.artists,
-        artist: artist
+        // artist: artist
     }
 
 };
