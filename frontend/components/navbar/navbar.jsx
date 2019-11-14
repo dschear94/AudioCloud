@@ -72,7 +72,7 @@ class Navbar extends React.Component {
                                     </div>
                     </Link>
                 </li>
-                {/* <li className="nav-dd-listitem">
+                <li className="nav-dd-listitem">
                     <Link
                         className="nav-dd-listitem-link"
                         to={{
@@ -83,9 +83,9 @@ class Navbar extends React.Component {
                         />
                         <div className="nav-dd-text">
                             Following
-                                    </div>
+                        </div>
                     </Link>
-                </li> */}
+                </li>
                 <li className="nav-dd-listitem">
                     <div
                         className="nav-dd-listitem-link"

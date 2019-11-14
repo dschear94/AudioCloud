@@ -11,6 +11,8 @@ import * as Vibrant from 'node-vibrant';
 import Artwork from '../artwork/artwork';
 import Avatar from '../artwork/avatar';
 import Avatar3 from '../artwork/avatar3';
+import HeaderImage2 from '../artwork/header_image2';
+import ShowSidebarContainer from '../social_sidebar/show_sidebar_container'
 
 class TrackShow extends React.Component {
     constructor(props) {
@@ -97,6 +99,7 @@ class TrackShow extends React.Component {
         if ((this.props.match.params.artist !== this.props.track.artist) 
         && (this.props.match.params.track !== this.props.track.track)) {
             this.props.fetchTracksByArtist(this.props.match.params.artist)
+            this.props.fetchArtist(this.props.match.params.artist)
         }
     }
 
@@ -123,7 +126,8 @@ class TrackShow extends React.Component {
     // }
 
     render() {
-        const { track, artists, deleteComment, trackStatus, fetchArtistsByTrackComments, updateTrackPlays, comments, fetchTrackComments, currentUser, currentTrackId } = this.props;
+        const { track, artists, artist, deleteComment, trackStatus, fetchArtistsByTrackComments, updateTrackPlays, comments, fetchTrackComments, currentUser, currentTrackId } = this.props;
+        console.log(artist)
         const likeButton = this.props.currentUser.likedTracks ? 
        ( this.props.track.id in this.props.currentUser.likedTracks ?
            (<button
@@ -191,7 +195,7 @@ class TrackShow extends React.Component {
                     id="background-gradient"
                     style={{height: "100%"}}>
 
-                        <Avatar3 comment={track} />
+                            <HeaderImage2 track={track} currentUser={currentUser} />
                     </div>
                     <div className="show-h-fg">
                         <div className="s-h-artwork">
@@ -339,6 +343,8 @@ class TrackShow extends React.Component {
                         </div>
                     </div>
                 </div>
+                {/* sidebar here */}
+                    {/* <ShowSidebarContainer track={track} /> */}
             </div>
         </div>
         )

@@ -78,9 +78,15 @@ class TrackItem extends React.Component {
     // }
 
     render() {
-        const { track, updateTrackPlays, trackStatus, currentUser, currentTrackId, pauseTrack, playTrack, createLike, deleteLike } = this.props;
+        const { track, moduleType, updateTrackPlays, trackStatus, currentUser, currentTrackId, pauseTrack, playTrack, createLike, deleteLike } = this.props;
+
         const playPause = (currentTrackId === track.id && trackStatus === "playing") ?
             <FontAwesomeIcon icon={faPause} /> : <FontAwesomeIcon icon={faPlay} />; 
+
+        const timeShow = moduleType !== "stream" ? (<div className="act-username-name" style={{ float: "right", paddingTop: "7px" }}>
+            {relativeTime(track.created_at)}
+        </div>) : null;
+
         const likeButton = this.props.currentUser.likedTracks ?
             (this.props.track.id in this.props.currentUser.likedTracks ?
                 (<button
@@ -129,6 +135,8 @@ class TrackItem extends React.Component {
                 </div>
             </button>
             );
+
+            
             
         return (
             <div className="activity-body">
@@ -169,8 +177,8 @@ class TrackItem extends React.Component {
                                     </div>
                                 </div>
                                 <div className="act-tags">
-
                                 </div>
+                                    {timeShow}
                             </div>
                         </div>
                     </div>

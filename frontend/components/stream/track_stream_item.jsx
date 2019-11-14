@@ -50,6 +50,7 @@ class TrackStreamItem extends React.Component {
                     createLike={createLike}
                     deleteLike={deleteLike}
                     fetchTrack={fetchTrack}
+                    moduleType={"stream"}
                     />
                     <div className="act-body-comment">
 

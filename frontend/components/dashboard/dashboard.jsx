@@ -155,7 +155,8 @@ class Dashboard extends React.Component {
     componentDidMount() {
         document.body.scrollTop = document.documentElement.scrollTop = 0;
         if (!this.props.artist.username) {
-            this.props.fetchArtist(this.props.artistName)
+            this.props.fetchArtist(this.props.artistName);
+            this.props.fetchTracksByArtist(this.props.artistName)
         }
     }
 
@@ -268,7 +269,7 @@ class Dashboard extends React.Component {
                                     id="artwork-image"
                                     className="artwork-image"
                                     ></div> */}
-                                    <Avatar currentUser={currentUser} />
+                                    <Avatar currentUser={artist} />
                                     {avatarEdit}
                                 </div>
                             </div>
@@ -352,11 +353,11 @@ class Dashboard extends React.Component {
                     <div className="content-left-container">
                         <Switch>
                             <Route exact path={`/:artist`} component={ArtistAllContainer} />
-                            <Route exact path={`/:artist/toptracks`}></Route>
+                            {/* <Route exact path={`/:artist/toptracks`}></Route>
                             <Route exact path={`/:artist/tracks`} component={ArtistTracksContainer} />
                             <Route exact path={`/:artist/albums`}></Route>
                             <Route exact path={`/:artist/sets`}></Route>
-                            <Route exact path={`/:artist/reposts`}></Route>
+                            <Route exact path={`/:artist/reposts`}></Route> */}
                         </Switch>
                     </div>
                 </div>

@@ -8,6 +8,7 @@ import {
     Link,
     HashRouter
 } from 'react-router-dom';
+import ArtistBadgeItem from '../artist_badge/artist_badge_item'
 
 class LibFollowing extends React.Component {
     constructor(props) {
@@ -20,12 +21,22 @@ class LibFollowing extends React.Component {
     }
 
     render() {
-        // debugger
+        const { artists, currentUser } = this.props;
+        const artistBadges = artists.map(artist => <ArtistBadgeItem
+                key={artist.id}
+                artist={artist}
+                currentUser={currentUser}
+            />)
+
         return (
             <div>
-                Library Following
+                <div className="lib-following-header">
+                    <div className="lfheader-text">
+                        Hear what the people you follow have posted:
+                    </div>
+                </div>
                 <ul className="artistBadgeList">
-
+                    {artistBadges}
                 </ul>
             </div>
         )

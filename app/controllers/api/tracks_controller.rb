@@ -3,13 +3,21 @@ class Api::TracksController < ApplicationController
         @tracks = Track.with_attached_audio_file
             .with_attached_image_file
             .includes(:artist, :comments, :likes).all
-        render :index
+            if @tracks
+                render :index
+            else
+                render json: ["no tracks found"], status: 404
+            end
     end
 
     def show
         @track = Track.with_attached_audio_file
             .with_attached_image_file.includes(:artist, :comments, :likes).find(params[:id])
-        render :show
+        if @track 
+            render :show
+        else
+            render json: ["no track found"], status: 404
+        end
     end
 
     def by_artist
@@ -18,7 +26,11 @@ class Api::TracksController < ApplicationController
             .with_attached_image_file
             .where(artist_id: @artist.id)
             .includes(:artist, :comments, :likes).all
+        if @tracks
             render :index
+        else
+            render json: ["no tracks found"], status: 404
+        end
     end
 
     def by_follows
@@ -31,12 +43,20 @@ class Api::TracksController < ApplicationController
                 .followings
             )
 
-        render :index
+        if @tracks
+            render :index
+        else
+            render json: ["no tracks found"], status: 404
+        end
     end
 
     def by_recent_plays
         @tracks = User.find(params[:artist_id]).recently_played_tracks.with_attached_audio_file.with_attached_image_file.includes(:artist, :comments, :likes)
-        render :index
+        if @tracks
+            render :index
+        else
+            render json: ["no tracks found"], status: 404
+        end
     end
 
     def by_likes
@@ -47,7 +67,11 @@ class Api::TracksController < ApplicationController
         .with_attached_image_file
 
         
-        render :index
+        if @tracks
+            render :index
+        else
+            render json: ["no tracks found"], status: 404
+        end
     end
 
     def update_plays

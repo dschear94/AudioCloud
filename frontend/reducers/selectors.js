@@ -26,14 +26,27 @@ export const selectTracksByLikes = (state, artistObj) => {
 
 export const getArtistsByFollows = (state, artistObj) => {
     let followings = [];
-
-    artistObj.followings ? 
+    artistObj.following ? 
         Object.values(state.entities.artists).map(artist => 
-            artist.username in artistObj.followings ? 
+            artist.username in artistObj.following ? 
             followings.push(artist) : null
         ) : null;
 
     return followings
+}
+
+export const getTrackShowArtist = (state, trackId) => {
+    let artistObj = {};
+
+    if (trackId) {
+
+        Object.values(state.entities.artists).forEach(artist => {
+            if (trackId in artist.tracks) {
+                return artistObj = artist;
+            }
+        });
+    }
+    return artistObj
 }
 
 export const selectTracksByFollows = (state, artistObj) => {

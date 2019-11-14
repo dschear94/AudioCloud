@@ -39,6 +39,10 @@
     color: #999;
 }
 
+.commentItem_username:hover {
+    color: #111
+}
+
 .commentItem_body {
     word-break: break-word;
     overflow-wrap: break-word;

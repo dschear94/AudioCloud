@@ -14,8 +14,16 @@ class SocialSidebar extends React.Component {
     }
 
     componentDidMount() {
-        this.props.fetchTracksByLikes(this.props.currentUser.id).then(() => this.setState({ loading: false }));
+        // if (Object.keys(this.props.currentUser).length !== 0) {
+            this.props.fetchTracksByLikes(this.props.currentUser.id).then(() => this.setState({ loading: false }));
+        // }
     }
+
+    // componentDidUpdate(prevProps) {
+    //     if (this.props.currentUser.id !== prevProps.currentUser.id) {
+    //         this.props.fetchTracksByLikes(this.props.currentUser.id).then(() => this.setState({ loading: false }));
+    //     }
+    // }
 
     render() {
         const { likedTracks, recentPlays, currentTrackId, trackStatus, updateTrackPlays, pauseTrack, playTrack } = this.props;

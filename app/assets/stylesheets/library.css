@@ -162,3 +162,22 @@
     display: table;
     clear: both;
 }
+
+.lib-following-header {
+    margin-bottom: 20px;
+    min-height: 32px;
+    justify-content: space-between;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.lfheader-text {
+    margin-top: 0;
+    margin-right: 10px;
+    font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;
+    font-size: 18px;
+    font-weight: 100;
+    color: #999;
+    line-height: 1.3;
+}

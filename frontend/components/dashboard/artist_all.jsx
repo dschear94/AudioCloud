@@ -9,6 +9,7 @@ import {
     HashRouter
 } from 'react-router-dom';
 import TrackItem from '../track_item/track_item'
+import { relativeTime } from '../../util/time_util';
 
 class ArtistAll extends React.Component {
     constructor(props) {
@@ -17,11 +18,8 @@ class ArtistAll extends React.Component {
 
     componentDidMount() {
         document.body.scrollTop = document.documentElement.scrollTop = 0;
-        if (this.props.artistName !== this.props.artist.username) {
             this.props.fetchArtist(this.props.artistName)
             this.props.fetchTracksByArtist(this.props.artistName)
-            // this.props.fetchTracksByLikes(this.props.artist.id)
-        }
     }
 
     componentDidUpdate(prevProps) {
@@ -39,7 +37,8 @@ class ArtistAll extends React.Component {
             <li
                 key={track.id}
                 className="track-stream-item">
-                <TrackItem track={track} createLike={createLike} deleteLike={deleteLike} fetchTrack={fetchTrack} currentUser={currentUser} currentTrackId={currentTrackId} trackStatus={trackStatus} playTrack={playTrack} pauseTrack={pauseTrack} updateTrackPlays={updateTrackPlays}/>
+
+                <TrackItem track={track} moduleType={"artistAll"} createLike={createLike} deleteLike={deleteLike} fetchTrack={fetchTrack} currentUser={currentUser} currentTrackId={currentTrackId} trackStatus={trackStatus} playTrack={playTrack} pauseTrack={pauseTrack} updateTrackPlays={updateTrackPlays}/>
             </li>
         )
 

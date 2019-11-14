@@ -1,4 +1,4 @@
-import Avatar from "../artwork/avatar";
+import Avatar4 from "../artwork/avatar4";
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -14,18 +14,20 @@ class ArtistBadgeItem extends React.Component {
     }
 
     render () {
-
+        const { artist } = this.props;
 
         return (
             <li className="splash-main-content1-trendingtracks-content-item">
                 <div className="userBLI">
                     <div className="userBLI-art">
-                        <Link classname="userBLI-link">
-                            <Avatar />
+                        <Link to={`/${artist.username}`} className="userBLI-link">
+                            <Avatar4 artist={artist}/>
                         </Link>
                     </div>
                     <div className="userBLI-title">
-                        <Link className="userBLI-title-link" />
+                        <Link to={`/${artist.username}`} className="userBLI-title-link" >
+                            {artist.username}
+                        </Link>
                     </div>
                     <div className="userBLI-action">
                         <button className="userBLI-action-btn">

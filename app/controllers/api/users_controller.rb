@@ -18,12 +18,12 @@ class Api::UsersController < ApplicationController
         if @user
             render "api/users/show"
         else
-            render ["no artist found"]
+            render json: ["no artist found"], status: 404
         end
     end
 
     def by_track_comments
-        @artists = Track.find(params[:track_id]).commenters
+        @artists = Track.find(params[:track_id]).commenters.includes(:tracks)
         # if @artists
         #     if @artists.length > 1 
         #         render "api/users/index"
@@ -36,7 +36,7 @@ class Api::UsersController < ApplicationController
     end
 
     def by_follows
-        @artists = User.find(params[:user_id]).followings
+        @artists = User.includes(:tracks).find(params[:user_id]).followings
         render :index
     end
 
