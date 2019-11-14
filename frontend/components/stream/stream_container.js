@@ -2,7 +2,8 @@ import { connect } from 'react-redux';
 import Stream from './stream';
 import { 
     fetchTracksByFollows, 
-    fetchTracks 
+    fetchTracks,
+    fetchTrack
 } from '../../actions/track_actions';
 import { 
     updateTrackPlays,
@@ -12,19 +13,24 @@ import {
     selectTracksByFollows,
     getCurrentTrackId
  } from '../../reducers/selectors';
-import { playTrack, pauseTrack } from '../../actions/play_status_actions'
+import { playTrack, pauseTrack } from '../../actions/play_status_actions';
+import {
+    createLike,
+    fetchLikes,
+    deleteLike,
+} from '../../actions/likes_actions'
 
 
 const msp = (state, ownProps) => {
 
-    let artist = getCurrentUser(state);
-    let followedArtistTracks = selectTracksByFollows(state, artist);
+    let currentUser = getCurrentUser(state);
+    let followedArtistTracks = selectTracksByFollows(state, currentUser);
     const currentTrackId = getCurrentTrackId(state);
     const trackStatus = state.ui.playStatus;
 
     return { 
         tracks: followedArtistTracks,
-        currentUser: artist,
+        currentUser: currentUser,
         currentTrackId: currentTrackId,
         trackStatus: trackStatus,
     }
@@ -33,10 +39,15 @@ const msp = (state, ownProps) => {
 
 const mdp = dispatch => ({
     fetchTracks: () => dispatch(fetchTracks()),
+    fetchTrack: (trackId) => dispatch(fetchTrack(trackId)),
     fetchTracksByFollows: artistId => dispatch(fetchTracksByFollows(artistId)),
     updateTrackPlays: track => dispatch(updateTrackPlays(track)),
     pauseTrack: () => dispatch(pauseTrack()),
     playTrack: () => dispatch(playTrack()),
+    createLike: like => dispatch(createLike(like)),
+    deleteLike: like => dispatch(deleteLike(like)),
+    fetchLikes: userId => dispatch(fetchLikes(userId))
+
 });
 
 export default connect(msp, mdp)(Stream);

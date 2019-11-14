@@ -32,12 +32,12 @@ export const fetchTracksByRecentPlays = artistId => {
         url: `/api/tracks/by_recent_plays/${artistId}`,
     });
 }
-// export const fetchTrack = () => {
-//     return $.ajax({
-//         method: 'GET',
-//         url: '/api/tracks'
-//     });
-// }
+export const fetchTrack = (trackId) => {
+    return $.ajax({
+        method: 'GET',
+        url: `/api/tracks/${trackId}`
+    });
+}
 
 export const uploadTrack = track => {
     return $.ajax({

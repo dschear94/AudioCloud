@@ -45,6 +45,12 @@ export const fetchTracks = () => dispatch => {
     ));
 };
 
+export const fetchTrack = (trackId) => dispatch => {
+    return APIUtil.fetchTrack(trackId).then(track => (
+        dispatch(receiveTrack(track))
+    ));
+};
+
 export const fetchTracksByArtist = artistId => dispatch => {
     return APIUtil.fetchTracksByArtist(artistId).then(tracks => (
         dispatch(receiveTracks(tracks))

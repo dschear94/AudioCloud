@@ -18,7 +18,7 @@ class Stream extends Component {
     }
 
     render() {
-        const { tracks, updateTrackPlays, trackStatus, currentTrackId, pauseTrack, playTrack } = this.props;
+        const { tracks, createLike, deleteLike, fetchTrack, currentUser, updateTrackPlays, trackStatus, currentTrackId, pauseTrack, playTrack } = this.props;
         
         const loader = this.state.loading ? (
      <div className="loading-spinner-background"><div className="loading-spinner"><div></div><div></div><div></div><div></div></div></div>
@@ -38,6 +38,10 @@ class Stream extends Component {
                             pauseTrack={pauseTrack}
                             playTrack={playTrack}
                             trackStatus={trackStatus}
+                            currentUser={currentUser}
+                            createLike={createLike}
+                            deleteLike={deleteLike}
+                            fetchTrack={fetchTrack}
                         />)}
                     </ul>
                 </div>

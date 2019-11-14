@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPlay, faPause } from '@fortawesome/free-solid-svg-icons';
+import { faPlay, faPause, faHeart, faComment } from '@fortawesome/free-solid-svg-icons';
 import { relativeTime } from '../../util/time_util';
 import WaveForm from '../waveform/waveform';
 import Artwork from '../artwork/artwork';
@@ -18,6 +18,7 @@ class TrackItem extends React.Component {
 
         // this.handleArt = this.handleArt.bind(this);
         this.togglePlay = this.togglePlay.bind(this);
+        this.handleLike = this.handleLike.bind(this);
 
         // let photo = new Image();
         // photo.src = this.props.track.photoUrl;
@@ -42,16 +43,94 @@ class TrackItem extends React.Component {
         }
     }
 
+    handleLike(e) {
+        e.preventDefault();
+
+        if (this.props.currentUser.likedTracks) {
+            if (this.props.track.id in this.props.currentUser.likedTracks) {
+                let like = {};
+                like.track_id = this.props.track.id;
+                like.user_id = this.props.currentUser.id;
+                this.props.deleteLike(like).then(()=> this.props.fetchTrack(this.props.track.id))
+            } else {
+                const like = Object.assign({
+                    user_id: this.props.currentUser.id,
+                    track_id: this.props.track.id
+                })
+
+                this.props.createLike(like).then(() => this.props.fetchTrack(this.props.track.id));
+            }
+        } else {
+            const like = Object.assign({
+                user_id: this.props.currentUser.id,
+                track_id: this.props.track.id
+            })
+
+            this.props.createLike(like).then(() => this.props.fetchTrack(this.props.track.id));
+        }
+
+
+
+    }
+
 
     // handleArt() {
     //     document.getElementById(`artwork-image${this.props.track.id}`).style.backgroundImage = ("url(" + this.props.track.photoUrl + ")");
     // }
 
     render() {
-        const { track, currentTrackId, trackStatus, currentUser } = this.props;
+        debugger
+        const { track, updateTrackPlays, trackStatus, currentUser, currentTrackId, pauseTrack, playTrack, createLike, deleteLike } = this.props;
         const playPause = (currentTrackId === track.id && trackStatus === "playing") ?
             <FontAwesomeIcon icon={faPause} /> : <FontAwesomeIcon icon={faPlay} />; 
-
+        const likeButton = this.props.currentUser.likedTracks ?
+            (this.props.track.id in this.props.currentUser.likedTracks ?
+                (<button
+                    id="trackshowunlike"
+                    style={{ height: "20px", lineHeight: "16px", fontSize: "11px" }}
+                    className="trackshowunlike"
+                    onClick={this.handleLike}
+                >
+                    <div className="trackshowlikeicon">
+                        <FontAwesomeIcon icon={faHeart} />
+                    </div>
+                    <span 
+                    id="trackshowlike-text"
+                    className="trackshowlike-text">
+                        {track.numLikes}
+                </span>
+                </button>) :
+                (<button
+                    id="trackshowlike"
+                    style={{ height: "20px", lineHeight: "16px", fontSize: "11px" }}
+                    className="trackshowlike"
+                    onClick={this.handleLike}
+                >
+                    <div className="trackshowlikeicon">
+                        <FontAwesomeIcon icon={faHeart} />
+                    </div>
+                    <div 
+                    id="trackshowlike-text"
+                    className="trackshowlike-text">
+                        {track.numLikes}
+                </div>
+                </button>)
+            ) : (<button
+                id="trackshowlike"
+                style={{ height: "20px", lineHeight: "16px", fontSize: "11px" }}
+                className="trackshowlike"
+                onClick={this.handleLike}
+            >
+                <div className="trackshowlikeicon">
+                    <FontAwesomeIcon icon={faHeart} />
+                </div>
+                <div 
+                id="trackshowlike-text"
+                className="trackshowlike-text">
+                    {track.numLikes}
+                </div>
+            </button>
+            );
             
         return (
             <div className="activity-body">
@@ -104,13 +183,48 @@ class TrackItem extends React.Component {
                             {/* <WaveForm track={track} /> */}
                             <HeaderImage2 track={track} currentUser={currentUser}/>
                     </div>
-                </div>
-                <div className="act-body-comment">
+                    <div className="act-body-comment">
 
+                    </div>
+                    <div className="act-body-footer">
+                        <div className="act-bf-actions">
+                            <div className="act-bf-actions-ctnr">
+                                {likeButton}
+                            </div>
+                        </div>
+                        <div className="act-bf-right">
+                            <ul className="sb-content-stats">
+                                <li
+                                    className="sb-stat-item">
+                                    <FontAwesomeIcon icon={faPlay} />
+                                    <div
+                                        style={{ textIndent: "5px" }}
+                                        className="sb-stat"
+                                    >
+                                        {track.play_count}
+                                    </div>
+                                </li>
+                                <li className="sb-stat-item">
+                                    <Link to={{
+                                        pathname: `/${track.artist}/${track.title}`,
+                                        state: {
+                                            track
+                                        }
+                                    }}>
+                                        <FontAwesomeIcon icon={faComment} />
+                                        <div
+                                            style={{ textIndent: "5px" }}
+                                            className="sb-stat-link"
+                                        >
+                                            {track.numComments}
+                                        </div>
+                                    </Link>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
-                <div className="act-body-footer">
-
-                </div>
+                
 
             </div>
         )

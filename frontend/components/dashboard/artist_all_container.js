@@ -2,6 +2,7 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import Dashboard from './dashboard';
 import {
+    fetchTrack,
     fetchTracks,
     fetchTracksByArtist,
     fetchTracksByLikes
@@ -18,6 +19,11 @@ import {
 } from '../../reducers/selectors';
 import { selectTracksByArtist } from '../../reducers/selectors';
 import { playTrack, pauseTrack } from '../../actions/play_status_actions';
+import {
+    createLike,
+    fetchLikes,
+    deleteLike,
+} from '../../actions/likes_actions'
 
 
 const msp = (state, ownProps) => {
@@ -48,6 +54,15 @@ const mdp = dispatch => ({
     updateTrackPlays: track => dispatch(updateTrackPlays(track)),
     pauseTrack: () => dispatch(pauseTrack()),
     playTrack: () => dispatch(playTrack()),
+    fetchTracks: () => dispatch(fetchTracks()),
+    fetchTrack: (trackId) => dispatch(fetchTrack(trackId)),
+    fetchTracksByFollows: artistId => dispatch(fetchTracksByFollows(artistId)),
+    updateTrackPlays: track => dispatch(updateTrackPlays(track)),
+    pauseTrack: () => dispatch(pauseTrack()),
+    playTrack: () => dispatch(playTrack()),
+    createLike: like => dispatch(createLike(like)),
+    deleteLike: like => dispatch(deleteLike(like)),
+    fetchLikes: userId => dispatch(fetchLikes(userId))
 });
 
 export default withRouter(connect(msp, mdp)(ArtistAll));

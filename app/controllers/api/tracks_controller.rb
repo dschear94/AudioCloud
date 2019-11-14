@@ -6,6 +6,12 @@ class Api::TracksController < ApplicationController
         render :index
     end
 
+    def show
+        @track = Track.with_attached_audio_file
+            .with_attached_image_file.includes(:artist, :comments, :likes).find(params[:id])
+        render :show
+    end
+
     def by_artist
         @artist = User.find_by(username: params[:artist_id])
         @tracks = Track.with_attached_audio_file
