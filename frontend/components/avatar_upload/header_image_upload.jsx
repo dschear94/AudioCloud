@@ -42,7 +42,9 @@ class HeaderImageUpload extends React.Component {
         this.setState({ loading: true });
         document.body.scrollTop = document.documentElement.scrollTop = 0;
         return (
-            this.props.updateUser(trackFormData)
+            this.props.updateUser(trackFormData).then(() => {
+                window.location.reload();
+            })
         );
     }
 

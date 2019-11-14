@@ -33,7 +33,7 @@ class ArtistAll extends React.Component {
 
         const { tracks, createLike, deleteLike, fetchTrack, currentUser, updateTrackPlays, trackStatus, currentTrackId, pauseTrack, playTrack } = this.props;
 
-        const trackItems = tracks.map(track =>
+        const trackItems = tracks.reverse().map(track =>
             <li
                 key={track.id}
                 className="track-stream-item">
