@@ -25,8 +25,6 @@ import SocialSideBarContainer from './social_sidebar/social_sidebar_container'
 import { SplashyRoute , ProtectedRoute, CPBRoute } from '../util/route_util';
 import { openModal } from '../actions/modal_actions';
 
-
-
 const App = () => (
     <div >
             <Modal />
@@ -60,6 +58,26 @@ const App = () => (
                 </div>
             </div>
             {/* <UploadModal /> */}
+            {/* <div class="personal-links" id="personal-links">
+
+                <div id="personal-links-container">
+                    <a href="https://github.com/dschear94" target="_blank" data="Derek Schear's github">
+                        <i class="fab fa-github" id="github-link"></i>
+                    </a>
+
+                    <a href="https://linkedin.com/in/derek-schear-b3070590" target="_blank" data="Derek Schear's LinkedIn profile">
+                        <i class="fab fa-linkedin-in" id="linkedin-link"></i>
+                    </a>
+
+                    <a href="https://angel.co/derek-schear" target="_blank" data="Derek Schear's AngelList profile">
+                        <i class="fab fa-angellist" id="angellist-link"></i>
+                    </a>
+
+                    <a href="https://dschear94.github.io/" target="_blank" data="Derek Schear's profolio website">
+                        <i class="fas fa-external-link-alt" id="portfolio-link"></i>
+                    </a>
+                </div>
+            </div> */}
                     
         </div>
         <CPBRoute path="/" component={ContinuousPlayBar} />

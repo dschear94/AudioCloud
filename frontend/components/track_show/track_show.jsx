@@ -127,7 +127,6 @@ class TrackShow extends React.Component {
 
     render() {
         const { track, artists, artist, deleteComment, trackStatus, fetchArtistsByTrackComments, updateTrackPlays, comments, fetchTrackComments, currentUser, currentTrackId } = this.props;
-        console.log(artist)
         const likeButton = this.props.currentUser.likedTracks ? 
        ( this.props.track.id in this.props.currentUser.likedTracks ?
            (<button

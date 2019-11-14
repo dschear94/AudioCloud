@@ -67,7 +67,7 @@
     height: 200px;
     width: 200px;
     background: none;
-    cursor: pointer;
+    /* cursor: pointer; */
     border-radius: 50%;
     text-align: center;
     position: relative;

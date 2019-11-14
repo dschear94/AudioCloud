@@ -104,7 +104,7 @@ class Splash extends React.Component {
                                 Never stop listening
                             </div>
                             <p className="splash-main-content2-mobile-info-text">
-                                AudioCloud is available on Web, iOS, Android, Sonos, Chromecast, and Xbox One.
+                                AudioCloud is available on Web and coming to iOS, Android, Sonos, Chromecast, and Xbox One.
                             </p>
                         </div>
                     </div>
@@ -127,7 +127,7 @@ class Splash extends React.Component {
                             Thanks for listening. Now join in.
                         </div>
                         <p className="splash-main-content4-module-p">
-                            Save tracks, follow artists and build playlists. All for free.
+                            Save tracks, follow artists grow your fanbase. All for free.
                         </p>
                         <div className="splash-main-content4-signup">
                             <button 
@@ -145,7 +145,7 @@ class Splash extends React.Component {
                 </div>
                 <div className="splash-main-footer">
                     <div className="splash-main-footer-content">
-                        A bunch of legal links
+                        Thanks for coming.
                     </div>
                 </div>
             </div>
