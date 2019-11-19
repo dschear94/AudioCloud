@@ -18,7 +18,7 @@ import {
 } from '../../actions/likes_actions'
 
 
-const msp = (state, ownProps) => {
+const msp = (state) => {
     const currentTrackId = getCurrentTrackId(state);
     const trackStatus = state.ui.playStatus;
     let currentUser = getCurrentUser(state);
