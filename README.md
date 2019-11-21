@@ -45,3 +45,20 @@ in order to maintain continuous music playback, the HTMLAudioElement was used. o
 my solution was to take advantage of React's Lifecycle methods: shouldComponentUpdate and componentDidUpdate. in the former, we ensure current state - an HTMLAudioElement - is paused; then, in the latter, a new HTMLAudioelement is constructed, set to state, and playback begins. 
 
 single source of truth.
+
+
+
+![splash](app/assets/gifs/fs_splash.gif)
+![login_1](app/assets/gifs/fs_login_1.gif)
+![login_2](app/assets/gifs/fs_login_2.gif)
+![recent_plays](app/assets/gifs/fs_recent_plays.gif)
+![recent_plays_2](app/assets/gifs/fs_recent_plays_2.gif)
+![dashboard](app/assets/gifs/fs_dashboard.gif)
+![dashboard_avatar](app/assets/gifs/fs_dashboard_avatar.gif)
+![dashboard_header](app/assets/gifs/fs_dashboard_header.gif)
+![follows](app/assets/gifs/fs_follows.gif)
+![likes](app/assets/gifs/fs_likes.gif)
+![stream](app/assets/gifs/fs_stream.gif)
+![uploads](app/assets/gifs/fs_uploads.gif)
+![cpb](app/assets/gifs/fs_cpb.gif)
+![comments](app/assets/gifs/fs_comments.gif)
