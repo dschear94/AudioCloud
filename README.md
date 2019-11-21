@@ -28,7 +28,7 @@ Users are greeted with an eye-catching landing page.
 
 ***
 ### User Authentication
-Implemented a multi-step login / signup process.
+Implemented a multi-step login / signup process, complete with error rendering.
 
 ![login_1](app/assets/gifs/fs_login_1.gif)
 
@@ -40,7 +40,7 @@ Implemented a multi-step login / signup process.
 Built from scratch, using HTML and CSS.
 ![cpb](app/assets/gifs/fs_cpb.gif)
 
-Allows users to enjoy an uninterrupted listening experience throughout the application. Achieved using a modular React component, maintaining it's own mutable state, in combination with a selective Redux store, ensuring singular audio playback*:
+Allows users to enjoy an uninterrupted listening experience throughout the application. Achieved using a modular React component, maintaining it's own mutable state, in combination with a selective Redux store, ensuring singular audio playback*. The progress bar allows the user to seek specific points in the track without the need to hear audio skip around. Here's a peak into how I did it:
 
 ```javascript
    handleProgressDrag(e) {
@@ -203,5 +203,8 @@ Users can comment on tracks, read other artists' comments, and delete only their
 - In order to maintain continuous music playback, the HTMLAudioElement was used. One quirk that arose during development was the ability for multiple HTMLAudioElements to playback music at the same time, despite only one HTMLAudioElement living in the component's (and by extension, the entire application's) state. 
 
 - My solution was to take advantage of React's Lifecycle methods: shouldComponentUpdate and componentDidUpdate. In the former, we ensure current state - an HTMLAudioElement - is paused; then, in the latter, a new HTMLAudioelement is constructed, set to state, and playback begins. 
+
+
+Thanks so much for your interest. I'd love to hear from you. dschear94@gmail.com
 
 Single Source of Truth.
