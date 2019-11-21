@@ -47,18 +47,27 @@ my solution was to take advantage of React's Lifecycle methods: shouldComponentU
 single source of truth.
 
 
-
+### Splash Page
 ![splash](app/assets/gifs/fs_splash.gif)
+### User Authentication
 ![login_1](app/assets/gifs/fs_login_1.gif)
 ![login_2](app/assets/gifs/fs_login_2.gif)
+### Continuous Play Music Bar
+![cpb](app/assets/gifs/fs_cpb.gif)
+### Recent Plays Feature
 ![recent_plays](app/assets/gifs/fs_recent_plays.gif)
 ![recent_plays_2](app/assets/gifs/fs_recent_plays_2.gif)
+### User Dashboard
 ![dashboard](app/assets/gifs/fs_dashboard.gif)
 ![dashboard_avatar](app/assets/gifs/fs_dashboard_avatar.gif)
 ![dashboard_header](app/assets/gifs/fs_dashboard_header.gif)
-![follows](app/assets/gifs/fs_follows.gif)
+### Likes Feature
 ![likes](app/assets/gifs/fs_likes.gif)
-![stream](app/assets/gifs/fs_stream.gif)
-![uploads](app/assets/gifs/fs_uploads.gif)
-![cpb](app/assets/gifs/fs_cpb.gif)
+### Follows Feature
+![follows](app/assets/gifs/fs_follows.gif)
+### Comments Feature
 ![comments](app/assets/gifs/fs_comments.gif)
+### Uploads
+![uploads](app/assets/gifs/fs_uploads.gif)
+### Stream
+![stream](app/assets/gifs/fs_stream.gif)
