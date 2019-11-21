@@ -49,46 +49,59 @@ single source of truth.
 
 ### Splash Page
 Users are greeted with an eye-catching landing page. 
+
 ![splash](app/assets/gifs/fs_splash.gif)
 
 ### User Authentication
 Implemented a multi-step login / signup process.
+
 ![login_1](app/assets/gifs/fs_login_1.gif)
+
 ![login_2](app/assets/gifs/fs_login_2.gif)
 
 ### Continuous Play Music Bar
 Built from scratch, using HTML and CSS.
+
 ![cpb](app/assets/gifs/fs_cpb.gif)
 
 ### Recent Plays Feature
 Upon playing a track, will immediately display in History. Build using a Recent Play association in the Rails backend, indexed on user_id and track_id. If association already exists, 1: destroy; 2: create new; 3: send new record to frontend with new timestamp.
+
 ![recent_plays_2](app/assets/gifs/fs_recent_plays_2.gif)
 
 ### User Dashboard
 Artists have a public profile where users can find their uploaded tracks. 
+
 ![dashboard](app/assets/gifs/fs_dashboard.gif)
 Users can customize their avatar,
+
 ![dashboard_avatar](app/assets/gifs/fs_dashboard_avatar.gif)
 and their header image.
+
 ![dashboard_header](app/assets/gifs/fs_dashboard_header.gif)
 
 ### Likes Feature
 Users can like songs from anywhere throughout the app. Will immediately appear in Likes section of Library.
+
 ![likes](app/assets/gifs/fs_likes.gif)
 
 ### Uploads
 Built using AWS, users can upload tracks for immediate playback.
+
 ![uploads](app/assets/gifs/fs_uploads.gif)
 
 ### Follows Feature
 Users can follow artists. Artists' tracks will immediately appear in Stream.
+
 ![follows](app/assets/gifs/fs_follows.gif)
 
 ### Stream
+
 ![stream](app/assets/gifs/fs_stream.gif)
 
 ### Comments CRUD Feature
 Users can comment on tracks, read other artists' comments, and delete only their own.
+
 ![comments](app/assets/gifs/fs_comments.gif)
 
 
