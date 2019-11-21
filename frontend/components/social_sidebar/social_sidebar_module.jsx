@@ -27,7 +27,7 @@ class SocialSidebarModule extends React.Component {
                 <div
                     style={{textIndent: "7px"}}
                     >
-                    likes
+                    Likes
                 </div>
             </Link>
         ) : (
@@ -38,7 +38,7 @@ class SocialSidebarModule extends React.Component {
                     <FontAwesomeIcon icon={faHistory} />
                 <div
                     style={{ textIndent: "7px" }}>
-                        history
+                        History
                 </div>
                 </Link>
         );
