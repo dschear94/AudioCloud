@@ -22,7 +22,7 @@ class TrackShow extends React.Component {
             comment: ""
         }
 
-        this.handleArt = this.handleArt.bind(this);
+        // this.handleArt = this.handleArt.bind(this);
         this.togglePlay = this.togglePlay.bind(this);
         this.handleCommentChange = this.handleCommentChange.bind(this);
         this.handleCommentSubmit = this.handleCommentSubmit.bind(this);
@@ -103,28 +103,34 @@ class TrackShow extends React.Component {
         }
     }
 
-    handleArt(photo) {
-        const colorThief = new ColorThief();
+    // handleArt() {
+    //     const container = document.getElementById('background-gradient');
+    //     const image = document.getElementById(`artwork-image${this.props.track.id}`);
+    //     // if (image.style.backgroundImage === "" ) return null;
+    //     // debugger
+    //         const colorThief = new ColorThief();
+    //         const photo = new Image();
 
-        // debugger
-        // colorThief.getColor(photo);
-        // debugger
-        // debugger
-        var paletteArray = colorThief.getPalette(photo, 2); //Returns an array with 3 colors in rgb format
+    //         photo.src = this.props.track.photoUrl;
+    //         photo.crossOrigin = "Anonymous";
 
-        var container = document.getElementById('background-gradient');
+    //         // photo.onload = () => {
+    //         //     const paletteArray = colorThief.getPalette(photo, 2); //Returns an array with 3 colors in rgb format
+    //         //     container.style.backgroundImage = '-webkit-linear-gradient( top left, rgb(' + paletteArray[0].join(',') + '), rgb(' + paletteArray[1].join(',') + '), rgb(' + paletteArray[2].join(',') + ') )';
+    //         // }
 
-        container.style.backgroundImage = '-webkit-linear-gradient( top left, rgb(' + paletteArray[0].join(',') + '), rgb(' + paletteArray[1].join(',') + '), rgb(' + paletteArray[2].join(',') + ') )';
+    //     Vibrant.from(this.props.track.photoUrl).getPalette((err, palette) => console.log(palette))
+    //     // // Promise
+    //     // Vibrant.from(this.props.track.photoUrl).getPalette()
+    //     //     .then((palette) => console.log(palette))
 
-        // debugger
-        // let v = new Vibrant(this.props.currentUser.avatar);
+    //     // // Using constructor
+    //     // let v = new Vibrant(this.props.track.photoUrl, opts)
+    //     // v.getPalette((err, palette) => console.log(palette))
+    //     // // Promise
+    //     // v.getPalette().then((palette) => console.log(palette))
 
-        // v.getPalette(palette => console.log(palette));
-
-        // Vibrant.from(this.props.currentUser.avatar).getPalette((err, palette) => console.log(palette))
-
-        // document.getElementById("background-gradient").style.backgroundColor
-    }
+    // }
     
     // handleAvatar() {
     //     document.getElementById("av-image").style.backgroundImage = "url(" + this.props.currentUser.avatar + ")"
@@ -172,22 +178,18 @@ class TrackShow extends React.Component {
                 </button>
                 );
 
-        if (track.photoUrl) {
-            let photo = new Image();
-            photo.crossOrigin = 'Anonymous';
-            photo.src = track.photoUrl;
-            photo.onload = () => {
-                this.handleArt(photo);
-            }
-        }
-
-        // if (currentUser.avatar) {
-        //     let photo = new Image();
-        //     photo.src = currentUser.avatar;
-        //     photo.onload = () => {
-        //         this.handleAvatar();
-        //     }
+        // if (track.photoUrl) {
+        //     this.handleArt();
         // }
+
+
+        // if (document.getElementById(`artwork-image${this.props.track.id}`)) {
+        //     // const image = document.getElementById(`artwork-image${this.props.track.id}`);
+        //     // debugger
+        //     this.handleArt();
+        // }
+
+        
         const playPause = (currentTrackId === track.id && trackStatus === "playing") ?
             <FontAwesomeIcon icon={faPause} /> : <FontAwesomeIcon icon={faPlay} />; 
 
@@ -200,7 +202,7 @@ class TrackShow extends React.Component {
                     id="background-gradient"
                     style={{height: "100%"}}>
 
-                            {/* <HeaderImage2 track={track} currentUser={currentUser} /> */}
+                            <HeaderImage2 track={track} currentUser={currentUser} />
                     </div>
                     <div className="show-h-fg">
                         <div className="s-h-artwork">
